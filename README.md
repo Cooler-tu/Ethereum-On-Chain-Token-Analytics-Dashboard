@@ -38,6 +38,7 @@ End-to-end **Ethereum mainnet** tool for token liquidity / crash analysis: disco
 - Across measured LP events, 212 additions supplied 1,864.46M TURBO and 214 removals withdrew 1,865.73M TURBO, for a net LP flow of only `-1.2675M TURBO`. Gross removals therefore overstate permanent exit because capital can be removed and re-added.
 - Dashboard presentation now labels the price series as WETH per TURBO, identifies historical RPC `balanceOf` rows as target-token reserve snapshots rather than full USD TVL, and charts gross added, gross removed, and net LP flow separately. The `0.2593 LOW` risk score remains provisional because LP identity was skipped and same-pool position recreation can be misclassified as risk-reducing migration.
 - The matched main-pool 31-day correlation pilot treats reserve-change versus net LP flow (~0.965) as a mechanical consistency check. The exploratory candidates are volume turnover leading price return by 2 days (Pearson 0.4157 / Spearman 0.4702) and leading gross-withdrawal activity by 3 days (0.4094 / 0.3471). These are not causal findings; limitations and the next transaction-evidence window are documented in `research-notes/turbo-correlation-pilot.md`.
+- The August 5–9 transaction bundle reconciles actual pool Transfers to historical balance change exactly. Of 404.354M TURBO gross removals, 288.656M (71.4%) is covered by strict short-gap same-tick remove→mint candidates. August 8 alone had 141.621M gross removals but +10.492M net LP flow into the pool, disproving a direct “gross withdrawal = permanent exit” reading. The matches are pool-position-key evidence, not beneficial-owner identity; see `research-notes/turbo-anomaly-evidence.md`.
 
 ```bash
 python3 -m src.cli analyze 0xA35923162C49cF95e6BF26623385eb431ad920D3 \
@@ -291,6 +292,7 @@ See `SUPPORTED_PROTOCOLS.md` for contract addresses and notes.
 - 已量化 LP 事件中，212 次添加共加入 1,864.46M TURBO，214 次移除共撤出 1,865.73M TURBO，但净 LP 流量只有 `-1.2675M TURBO`。资金可以撤出后重新加入，因此累计移除明显高估永久退出规模。
 - 看板现在将价格明确标为 WETH/TURBO，将历史 RPC `balanceOf` 数据标为目标代币储备快照而非完整 USD TVL，并分别画出累计添加、累计移除和净 LP 流量。`0.2593 LOW` 风险分数仍是暂定值，因为缺少 LP 身份，且同池重新建仓可能被误识别成降低风险的“迁移”。
 - 主池 31 日桶相关性试验将“储备变化 vs 净 LP 流量”（约 0.965）视为机械性的自洽检查。探索性候选为：成交量周转率领先 2 天的价格收益（Pearson 0.4157 / Spearman 0.4702），以及领先 3 天的累计撤资活动（0.4094 / 0.3471）。这些不是因果结论；限制和下一步交易证据窗口记录在 `research-notes/turbo-correlation-pilot.md`。
+- 8 月 5–9 日交易证据包实现了池地址 Transfer 与历史余额变化的精确对账。累计撤出 404.354M TURBO 中，288.656M（71.4%）被严格的短间隔、同 tick 撤出→重建候选覆盖。仅 8 月 8 日就有 141.621M 累计撤出，但 LP 净流反而为 +10.492M 进入池，直接否定“累计撤资＝永久退出”的解释。匹配只能证明池级 position key 重用，不能证明受益所有人相同；详见 `research-notes/turbo-anomaly-evidence.md`。
 
 ```bash
 python3 -m src.cli analyze 0xA35923162C49cF95e6BF26623385eb431ad920D3 \

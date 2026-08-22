@@ -2,12 +2,16 @@
 from __future__ import annotations
 
 import unittest
+import json
+import tempfile
+from pathlib import Path
 
 from scripts.directional_swap_flow import (
     build_address_rows,
     build_signed_swap_rows,
     build_transaction_rows,
     build_transfer_rows,
+    _load_indexed_timestamps,
     summarize,
 )
 from src.models import VerifiedPool
@@ -66,6 +70,21 @@ def _transfer(tx: str, log_index: int, sender: str, recipient: str, value: int):
 
 
 class DirectionalSwapFlowTest(unittest.TestCase):
+    def test_reuses_indexed_block_timestamps(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            source = Path(tmp)
+            (source / "swaps.json").write_text(json.dumps([
+                {"block_number": 10, "block_timestamp": 1_700_000_000},
+                {"block_number": 99, "block_timestamp": 1},
+            ]))
+            (source / "transfers.json").write_text(json.dumps([
+                {"block_number": 11, "block_timestamp": 1_700_000_012},
+            ]))
+            self.assertEqual(
+                _load_indexed_timestamps(source, {10, 11, 12}),
+                {10: 1_700_000_000, 11: 1_700_000_012},
+            )
+
     def test_signed_direction_and_price(self):
         rows = build_signed_swap_rows(
             [_swap("0x01", 1, 5_000_000, -10_000_000)],

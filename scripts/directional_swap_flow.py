@@ -41,6 +41,24 @@ def _load_json(path: Path) -> Any:
         return json.load(handle)
 
 
+def _load_indexed_timestamps(
+    source: Path, block_numbers: Iterable[int]
+) -> dict[int, int]:
+    """Reuse canonical artifact timestamps before making historical RPC calls."""
+    wanted = {int(value) for value in block_numbers}
+    result: dict[int, int] = {}
+    for name in ("swaps.json", "transfers.json", "liquidity_events.json"):
+        path = source / name
+        if not path.exists() or wanted.issubset(result):
+            continue
+        for row in _load_json(path) or []:
+            block = int(row.get("block_number") or 0)
+            timestamp = int(row.get("block_timestamp") or 0)
+            if block in wanted and timestamp:
+                result[block] = timestamp
+    return result
+
+
 def _tx_hash(value: Any) -> str:
     if hasattr(value, "hex"):
         text = str(value.hex()).lower()
@@ -353,10 +371,17 @@ def summarize(
         for row in transfer_rows if row["related_to_swap_tx"]
     )
     non_swap_transfer_raw = net_transfer_raw - swap_tx_transfer_raw
+    known_address_rows = [
+        row for row in address_rows
+        if row.get("tx_from") and row.get("tx_from") != "unknown"
+    ]
     top_five_sell = sum(
-        Decimal(row["sell_volume"]) for row in address_rows[:5]
+        Decimal(row["sell_volume"]) for row in known_address_rows[:5]
     )
     sell = Decimal(sell_raw) / (Decimal(10) ** token_decimals)
+    known_sender_swap_events = sum(
+        int(row.get("swap_event_count") or 0) for row in known_address_rows
+    )
     return {
         "token_symbol": token_symbol,
         "start_balance_block": start_balance_block,
@@ -364,6 +389,9 @@ def summarize(
         "swap_event_count": len(swap_rows),
         "swap_transaction_count": len({row["transaction_hash"] for row in swap_rows}),
         "transaction_sender_count": len({row["tx_from"] for row in swap_rows if row["tx_from"]}),
+        "tx_sender_metadata_coverage": (
+            known_sender_swap_events / len(swap_rows) if swap_rows else None
+        ),
         "sell_event_count": sum(value > 0 for value in swap_raw),
         "buy_event_count": sum(value < 0 for value in swap_raw),
         "sell_volume": _decimal_string(sell_raw, token_decimals),
@@ -397,7 +425,8 @@ def summarize(
             "exact" if balance_delta_raw == net_transfer_raw else "mismatch"
         ),
         "top_5_sender_sell_share": (
-            format(top_five_sell / sell, ".10f") if sell else None
+            format(top_five_sell / sell, ".10f")
+            if sell and known_address_rows else None
         ),
         "interpretation": (
             "Positive signed target flow enters the pool (sell target); negative "
@@ -516,6 +545,14 @@ def main() -> None:
     parser.add_argument("--start-balance-block", type=int, default=0)
     parser.add_argument("--out-dir", default="")
     parser.add_argument("--rpc-url", default="")
+    parser.add_argument(
+        "--skip-tx-from",
+        action="store_true",
+        help=(
+            "Skip transaction-sender RPC lookups. Signed Swap and Transfer/balance "
+            "reconciliation remain complete, but sender concentration is unavailable."
+        ),
+    )
     args = parser.parse_args()
     if args.from_block <= 0 or args.to_block < args.from_block:
         parser.error("invalid block window")
@@ -564,9 +601,12 @@ def main() -> None:
     )
     all_events = list(swap_logs) + list(inbound) + list(outbound)
     block_numbers = {int(event["blockNumber"]) for event in all_events}
-    timestamps = _fetch_block_timestamps(w3, block_numbers)
+    timestamps = _load_indexed_timestamps(source, block_numbers)
+    missing_timestamp_blocks = block_numbers.difference(timestamps)
+    if missing_timestamp_blocks:
+        timestamps.update(_fetch_block_timestamps(w3, missing_timestamp_blocks))
     hashes = {_tx_hash(event["transactionHash"]) for event in all_events}
-    tx_from = _fetch_tx_from(w3, hashes)
+    tx_from = {} if args.skip_tx_from else _fetch_tx_from(w3, hashes)
 
     swap_rows = build_signed_swap_rows(
         swap_logs,

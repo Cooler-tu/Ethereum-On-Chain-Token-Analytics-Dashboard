@@ -1,0 +1,15 @@
+{
+  "window_start": "2026-08-05",
+  "window_end": "2026-08-09",
+  "daily_observations": 5,
+  "swap_event_count": 192,
+  "actual_transfer_net_to_pool": "-4515015.383441964848424198",
+  "pool_balance_delta": "-4515015.383441964848424198",
+  "transfer_balance_reconciliation": "exact",
+  "gross_lp_remove_target": "404354000.887235093186733405",
+  "matched_remove_mint_cycle_count": 29,
+  "matched_pool_position_key_count": 5,
+  "matched_removed_target": "288655836.378544412848999806",
+  "matched_remove_share": 0.7138691239487545,
+  "identity_guardrail": "Matches prove reuse of a raw V3 pool position key (owner + ticks), not common beneficial ownership; Position Manager NFT identity was not scanned."
+}

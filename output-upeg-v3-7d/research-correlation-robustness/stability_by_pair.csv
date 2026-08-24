@@ -1,0 +1,7 @@
+bucket_variants,ci_excludes_zero_variants,correlation_max,correlation_min,fdr_significant_family_variants,fdr_significant_global_variants,lags_seconds,method,negative_lag_variants,positive_lag_variants,same_correlation_sign_all_buckets,x,y,zero_lag_variants
+6,6,-0.6790550346247084,-0.8462493391192064,5,0,0;0;0;0;0;0,pearson,0,0,True,price_return,tvl_change,6
+6,6,-0.6648351648351648,-0.9428571428571428,4,0,0;0;0;0;0;0,spearman,0,0,True,price_return,tvl_change,6
+6,5,0.5401581560880395,-0.4249757111282205,0,0,43200;36000;28800;43200;43200;0,pearson,0,5,False,price_return,volume_turnover,1
+6,3,0.6223776223776224,0.08571428571428572,0,0,43200;36000;-43200;43200;43200;0,spearman,1,4,True,price_return,volume_turnover,1
+6,0,0.5535204631145525,-0.4104891911242501,0,0,0;-43200;-43200;-64800;0;0,pearson,3,0,False,tvl_change,volume_turnover,3
+6,4,-0.2394186674321175,-0.5524475524475524,0,0,-57600;36000;-43200;43200;43200;0,spearman,2,3,True,tvl_change,volume_turnover,1

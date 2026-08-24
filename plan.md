@@ -48,12 +48,13 @@
 - **TURBO 30-day pool panel + research-ready dashboard semantics** (2026-08-21) — `output-turbo-30d-25580851/` covers blocks 25580851–25796850 with 5 verified pools, 1,040 swaps, 640 pool-level liquidity events, and 10,395 transfers while intentionally skipping Position Manager identity. Dashboard now charts WETH/TURBO price, labels RPC target-balance history as token-reserve snapshots rather than USD TVL, and separates 1,864.46M gross LP adds / 1,865.73M gross removals from the much smaller -1.2675M net LP flow.
 - **TURBO matched-pool correlation pilot** (2026-08-21) — built 124-row `analysis_series.parquet` with 31 daily token-total buckets and a 31-bucket main-pool panel. Reserve change versus net LP flow (~0.965) is classified as a mechanical consistency check; exploratory candidates are volume turnover leading price return by 2 days (0.4157 Pearson / 0.4702 Spearman) and gross-withdrawal activity by 3 days (0.4094 / 0.3471). Guardrails and commands: `research-notes/turbo-correlation-pilot.md`.
 - **TURBO anomaly evidence bundle** (2026-08-22) — audited the main-pool 2026-08-05→08-09 window across signed Swaps, actual target-token Transfers, raw V3 Mint/Burn position keys, and +1/+2/+3-day returns. Pool Transfers reconcile historical balance change exactly; 29 strict remove→mint candidates cover 288.656M / 404.354M (71.4%) of gross removals. August 8 had 141.621M gross removals but +10.492M net LP inflow, so gross withdrawal is activity rather than permanent exit. Evidence: `research-notes/turbo-anomaly-evidence.md`.
+- **Correlation & lead-lag Phase 2 robustness** (2026-08-24) — added moving-block bootstrap CIs, block-permutation p-values, BH-FDR families, and multi-bucket sensitivity in `scripts/correlation_robustness.py`. uPEG's contemporaneous price/reserve inverse relation survives the pre-specified zero-lag family across useful intraday buckets; no uPEG or TURBO predictive non-zero lag survives correction. TURBO's only pass is the expected mechanical reserve-change/net-LP-flow relation. Evidence: `research-notes/correlation-robustness-audit.md`.
 
 ---
 
 ## 🎯 Current
 
-- **Correlation & lead-lag Phase 2 robustness** — add bootstrap confidence intervals, multiple-testing control, and hourly/daily/multi-day bucket sensitivity for the uPEG and TURBO pilots before adding more token cases.
+- **Pre-registered independent crash/control validation** — choose one incident token and one normal matched window, fix the metrics (`price_return`, actual Transfer net, net LP flow, cycling activity) and lag horizons before collecting results, then test out of sample.
 
 ---
 

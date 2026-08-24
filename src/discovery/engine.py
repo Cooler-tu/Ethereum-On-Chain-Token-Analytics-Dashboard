@@ -67,6 +67,7 @@ def _normalize_dune_row(row: dict) -> dict:
         "version": (row.get("version") or "").lower(),
         "pool_name": row.get("pool_name") or "",
         "token_hints": clean_hints,
+        "fee": row.get("fee"),
     }
 
 
@@ -162,6 +163,11 @@ def _dune_rows_to_pools(
                 if cand.lower() != t0.lower():
                     t1 = cand
                     break
+        raw_fee = norm.get("fee")
+        try:
+            fee = int(raw_fee) if raw_fee not in (None, "") else None
+        except (TypeError, ValueError):
+            fee = None
         all_pools.append(VerifiedPool(
             chain_id=chain_id,
             protocol=dep.protocol,
@@ -173,6 +179,7 @@ def _dune_rows_to_pools(
             custody_address=pool_addr,
             token0=t0,
             token1=t1,
+            fee=fee,
             verified=False,
             verification_confidence=0.0,
         ))

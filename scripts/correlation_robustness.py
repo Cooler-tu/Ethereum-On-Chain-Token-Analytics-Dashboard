@@ -47,12 +47,17 @@ FLOW_FIELDS = (
     "liquidity_added_token",
     "liquidity_removed_token",
     "net_lp_flow_token",
+    "gross_lp_activity_token",
+    "actual_transfer_in_token",
+    "actual_transfer_out_token",
+    "actual_transfer_net_token",
 )
 COUNT_FIELDS = (
     "swap_count",
     "price_trade_count",
     "lp_add_event_count",
     "lp_remove_event_count",
+    "pool_transfer_event_count",
 )
 
 
@@ -156,10 +161,27 @@ def aggregate_rows(
             if previous_tvl not in (None, 0) else None
         )
         net_lp = _number(row.get("net_lp_flow_token"))
+        gross_lp = _number(row.get("gross_lp_activity_token"))
+        transfer_net = _number(row.get("actual_transfer_net_token"))
         removed = _number(row.get("liquidity_removed_token"))
         row["net_lp_flow_ratio"] = (
             net_lp / previous_tvl
             if net_lp is not None and previous_tvl not in (None, 0) else None
+        )
+        row["gross_lp_activity_ratio"] = (
+            gross_lp / previous_tvl
+            if gross_lp is not None and previous_tvl not in (None, 0) else None
+        )
+        row["actual_transfer_net_ratio"] = (
+            transfer_net / previous_tvl
+            if transfer_net is not None and previous_tvl not in (None, 0) else None
+        )
+        added = _number(row.get("liquidity_added_token"))
+        removed = _number(row.get("liquidity_removed_token"))
+        row["recycling_share"] = (
+            2 * min(added, removed) / (added + removed)
+            if added is not None and removed is not None and added + removed > 0
+            else None
         )
         row["withdrawal_ratio"] = (
             removed / previous_tvl

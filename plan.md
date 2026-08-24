@@ -49,27 +49,30 @@
 - **TURBO matched-pool correlation pilot** (2026-08-21) — built 124-row `analysis_series.parquet` with 31 daily token-total buckets and a 31-bucket main-pool panel. Reserve change versus net LP flow (~0.965) is classified as a mechanical consistency check; exploratory candidates are volume turnover leading price return by 2 days (0.4157 Pearson / 0.4702 Spearman) and gross-withdrawal activity by 3 days (0.4094 / 0.3471). Guardrails and commands: `research-notes/turbo-correlation-pilot.md`.
 - **TURBO anomaly evidence bundle** (2026-08-22) — audited the main-pool 2026-08-05→08-09 window across signed Swaps, actual target-token Transfers, raw V3 Mint/Burn position keys, and +1/+2/+3-day returns. Pool Transfers reconcile historical balance change exactly; 29 strict remove→mint candidates cover 288.656M / 404.354M (71.4%) of gross removals. August 8 had 141.621M gross removals but +10.492M net LP inflow, so gross withdrawal is activity rather than permanent exit. Evidence: `research-notes/turbo-anomaly-evidence.md`.
 - **Correlation & lead-lag Phase 2 robustness** (2026-08-24) — added moving-block bootstrap CIs, block-permutation p-values, BH-FDR families, and multi-bucket sensitivity in `scripts/correlation_robustness.py`. uPEG's contemporaneous price/reserve inverse relation survives the pre-specified zero-lag family across useful intraday buckets; no uPEG or TURBO predictive non-zero lag survives correction. TURBO's only pass is the expected mechanical reserve-change/net-LP-flow relation. Evidence: `research-notes/correlation-robustness-audit.md`.
+- **Crash/control case screening + pre-registration** (2026-08-24) — screened OM, FTT, CEL, and CREDI with light RPC pool discovery, historical reserve checks, and fixed 10,000-block Swap samples; selected FTT as the first independent crash case and CEL as the second replication. Frozen exact 30-day UTC crash/control windows, three FTT/WETH pools, metrics, lag families, and stop rules before full indexing. Evidence: `research-notes/ftt-crash-control-preregistration.md`.
+- **FTT independent crash/control validation** (2026-08-24) — indexed two frozen 30-day windows across three FTT/WETH pools, reconciled every pool's Transfer net flow to historical balance change exactly, and passed 100% reserve/LP-amount coverage gates. None of three primary 24-hour hypotheses was confirmed. Net LP flow showed a significant but opposite-direction crash association (`ρ=-0.2979`, BH `q=0.0078`), while the crash-minus-control CI crossed zero; it remains an anomaly, not a warning signal. Evidence: `research-notes/ftt-crash-control-results.md`.
 
 ---
 
 ## 🎯 Current
 
-- **Pre-registered independent crash/control validation** — choose one incident token and one normal matched window, fix the metrics (`price_return`, actual Transfer net, net LP flow, cycling activity) and lag horizons before collecting results, then test out of sample.
+- **Choose the next validation step** — either trace the opposite-direction FTT net-LP-flow anomaly at transaction level, or preserve independence and run the already-reserved CEL crash/control replication before interpreting FTT behavior.
 
 ---
 
 ## 📋 Backlog (ordered by priority)
 
-1. **Directional flow full-window expansion** — cache block/transaction metadata, then extend signed Swap, actual Transfer residual, sender concentration, and price-impact features across the 169-bucket uPEG V3 panel.
-2. **Anomaly transaction forensics Phase 3** — detect counterintuitive divergences, then trace swaps, liquidity events, pools, LPs, and wallets into evidence bundles.
-3. **Crash pre-30d queue / matched controls** — OM (2025-04-13), FTT (2022-11-08), CEL (2022-06-13), CREDI (2025-08-08 ATH); cases in `research-notes/crash-pre30d-cases.md`.
-4. **Real token crash + matched-control research Phase 4** — known drain/rug windows with `--incident-block`; test which LP-withdrawal and market-structure patterns repeat outside a single token.
-5. **Dune data-path completion for research** — retain parallel discovery/indexing; finish reliable `pool_balance_timeline` × local price snapshot TVL and clearly separate it from event-reconstructed proxy data.
-6. **Mass-scan utility** — batch tokens → comparison table and cross-case feature panel.
-7. **Dashboard pool identity / custody cleanup** — rename `Pool Address` to `Pool Identifier`, expose `Contract Address` vs `V4 Pool ID`, and explain the many-to-one V4 Pool ID → shared PoolManager mapping; defer further UI work unless required by research evidence.
-8. **Deep holder unwrap** — routers / aggregators / beneficial owners beyond surface EOA label.
-9. **Multi-chain / real-time monitoring** — add more chains only after research evidence is stable, then alert on sudden liquidity changes.
-10. **High-coverage holder/TVL mode (deferred)** — expand historical balance coverage and key-block TVL snapshots only when a real crash case requires it; keep optional because of Dune/RPC cost and quota risk.
+1. **FTT opposite-direction LP-flow forensics** — inspect the high-net-inflow hours behind the negative 24-hour association; separate V2/V3, Mint/Burn versus actual Transfer, asymmetric inventory, price impact, and short-gap repositioning without changing the primary result.
+2. **CEL second crash/control replication** — reuse the now-frozen FTT design before inspecting CEL outcomes; OM remains a bridge/mirror sensitivity case and CREDI remains blocked on a defensible incident boundary.
+3. **Directional flow full-window expansion** — cache block/transaction metadata, then extend signed Swap, actual Transfer residual, sender concentration, and price-impact features across the 169-bucket uPEG V3 panel.
+4. **Anomaly transaction forensics Phase 3** — detect counterintuitive divergences, then trace swaps, liquidity events, pools, LPs, and wallets into evidence bundles.
+5. **Real token crash + matched-control research Phase 4** — known drain/rug windows with `--incident-block`; test which LP-withdrawal and market-structure patterns repeat outside a single token.
+6. **Dune data-path completion for research** — retain parallel discovery/indexing; finish reliable `pool_balance_timeline` × local price snapshot TVL and clearly separate it from event-reconstructed proxy data.
+7. **Mass-scan utility** — batch tokens → comparison table and cross-case feature panel.
+8. **Dashboard pool identity / custody cleanup** — rename `Pool Address` to `Pool Identifier`, expose `Contract Address` vs `V4 Pool ID`, and explain the many-to-one V4 Pool ID → shared PoolManager mapping; defer further UI work unless required by research evidence.
+9. **Deep holder unwrap** — routers / aggregators / beneficial owners beyond surface EOA label.
+10. **Multi-chain / real-time monitoring** — add more chains only after research evidence is stable, then alert on sudden liquidity changes.
+11. **High-coverage holder/TVL mode (deferred)** — expand historical balance coverage and key-block TVL snapshots only when a real crash case requires it; keep optional because of Dune/RPC cost and quota risk.
 
 ---
 

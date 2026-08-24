@@ -83,6 +83,7 @@ def _rows(**kwargs):
         token_symbol="TEST",
         bucket_seconds=3_600,
         tvl_source="snapshot_test",
+        transfers=kwargs.get("transfers", []),
     )
 
 
@@ -283,6 +284,45 @@ class AnalysisSeriesTest(unittest.TestCase):
         self.assertAlmostEqual(second["price_return"], math.log(3 / 2))
         self.assertAlmostEqual(second["tvl_change"], math.log(110 / 100))
         self.assertAlmostEqual(second["volume_turnover"], 0.2)
+
+    def test_pool_transfers_build_actual_net_flow_and_ratio(self):
+        transfers = [
+            {
+                "event_type": "TOKEN_TRANSFER",
+                "block_timestamp": BASE + 10,
+                "block_number": 1,
+                "log_index": 1,
+                "actor": "0x0000000000000000000000000000000000000abc",
+                "recipient": POOL_A,
+                "token0_amount": "10",
+            },
+            {
+                "event_type": "TOKEN_TRANSFER",
+                "block_timestamp": BASE + 3_610,
+                "block_number": 2,
+                "log_index": 2,
+                "actor": POOL_A,
+                "recipient": "0x0000000000000000000000000000000000000def",
+                "token0_amount": "20",
+            },
+        ]
+        tvl = [
+            _tvl(POOL_A, timestamp=BASE + 5, block=1, amount=100),
+            _tvl(POOL_A, timestamp=BASE + 3_605, block=2, amount=80),
+        ]
+
+        rows = _rows(transfers=transfers, tvl=tvl)
+        first = _one(rows, scope="pool", bucket=BASE, pool=POOL_A)
+        second = _one(rows, scope="pool", bucket=BASE + 3_600, pool=POOL_A)
+        total = _one(rows, scope="token_total", bucket=BASE + 3_600)
+
+        self.assertEqual(first["actual_transfer_net_token"], 10.0)
+        self.assertEqual(second["actual_transfer_in_token"], 0.0)
+        self.assertEqual(second["actual_transfer_out_token"], 20.0)
+        self.assertEqual(second["actual_transfer_net_token"], -20.0)
+        self.assertEqual(second["pool_transfer_event_count"], 1)
+        self.assertAlmostEqual(second["actual_transfer_net_ratio"], -0.2)
+        self.assertEqual(total["actual_transfer_net_token"], -20.0)
 
     def test_human_outputs_preview_token_total_and_warn_on_proxy_tvl(self):
         rows = _rows(

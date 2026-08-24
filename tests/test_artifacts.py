@@ -353,6 +353,26 @@ class ArtifactFormatTest(unittest.TestCase):
             self.assertEqual(outputs[0]["symbol"], "TST")
             self.assertEqual(outputs[0]["holdings_count"], 1)
 
+    def test_publish_explicit_dirs_and_prefers_complete_incident_run(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            screen = root / "output-screen"
+            crash = root / "output-crash"
+            other = root / "output-other"
+            for out, symbol in ((screen, "SAME"), (crash, "SAME"), (other, "OTHER")):
+                out.mkdir()
+                (out / "token_profile.json").write_text(json.dumps({
+                    "symbol": symbol, "name": symbol, "address": TARGET,
+                }))
+                (out / "verified_pools.json").write_text("[]")
+            (crash / "metrics.json").write_text("{}")
+            (crash / "risk_assessment.json").write_text("{}")
+            (crash / "incident_timeline.json").write_text(json.dumps({"incident_block": 9}))
+            with patch.object(publish_site, "PROJECT_ROOT", root):
+                outputs = publish_site.discover_outputs([screen, crash])
+            self.assertEqual(len(outputs), 1)
+            self.assertEqual(outputs[0]["dir"], crash)
+
     @unittest.skipIf(HAS_PYARROW, "only verifies the dependency error without PyArrow")
     def test_requested_parquet_has_clear_dependency_error(self):
         with tempfile.TemporaryDirectory() as tmp:

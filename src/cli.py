@@ -138,6 +138,14 @@ def analyze(
             "position-event history are marked unavailable."
         ),
     ),
+    pool_transfers_only: bool = typer.Option(
+        False,
+        help=(
+            "Index target-token Transfers only when a selected pool/custody "
+            "address is sender or recipient. Preserves pool-flow evidence but "
+            "omits unrelated wallet Transfers. RPC indexing only."
+        ),
+    ),
     pick: int = typer.Option(0, help="When name matches multiple tokens, pick candidate index"),
     holdings_source: str = typer.Option(
         "auto",
@@ -354,6 +362,15 @@ def analyze(
         index_position_manager=not skip_position_manager,
         source=index_source,
         artifact_format=artifact_mode,
+        token_transfer_addresses=(
+            sorted({
+                str(p.custody_address or p.pool_address)
+                for p in verified_pools
+                if p.verified and (p.custody_address or p.pool_address)
+            })
+            if pool_transfers_only
+            else None
+        ),
     )
     swaps = indexed["swaps"]
     liquidity_events = indexed["liquidity_events"]
@@ -473,7 +490,7 @@ def analyze(
 
     # Holdings already computed in step 4 (leaderboard-before-LP).
     # Optionally refresh with indexed transfers for DEX tags / activity.
-    if transfers and not fast_mode:
+    if transfers and not fast_mode and not pool_transfers_only:
         typer.echo("  Refreshing holdings with indexed transfers ...")
         holdings_result = analyze_holdings(
             w3, target_token, token_decimals, transfers,
@@ -481,6 +498,11 @@ def analyze(
             output_dir=output_dir,
             source=holdings_source,
             artifact_format=artifact_mode,
+        )
+    elif pool_transfers_only:
+        typer.echo(
+            "  Holder refresh skipped: pool-scoped Transfers are complete for "
+            "reserve flow but not a holder-universe sample."
         )
     eoa = holdings_result.get("real_holder_count", 0)
     typer.echo(
@@ -811,6 +833,12 @@ def research_series(
         )
     except FileNotFoundError:
         liquidity = []
+    try:
+        transfers = read_table(
+            "transfers", out, prefer="parquet", legacy_rows=True
+        )
+    except FileNotFoundError:
+        transfers = []
 
     seconds = int(
         bucket_seconds
@@ -829,7 +857,10 @@ def research_series(
             calculate_price_timeline_from_swaps,
         )
 
-        event_rows = list(swaps) + list(liquidity)
+        # Pool-scoped Transfers can change the historical reserve even when no
+        # Swap/Mint/Burn occurs in that hour, so they must also define snapshot
+        # buckets for transfer-flow research.
+        event_rows = list(swaps) + list(liquidity) + list(transfers)
         event_blocks = sorted({
             int(row.get("block_number") or 0)
             for row in event_rows
@@ -902,6 +933,7 @@ def research_series(
         bucket_seconds=seconds,
         tvl_source=str(metrics.get("tvl_timeline_source") or ""),
         lp_identity_available=lp_identity_available,
+        transfers=transfers,
     )
     artifact = write_table(
         "analysis_series", rows, out, artifact_format="parquet"

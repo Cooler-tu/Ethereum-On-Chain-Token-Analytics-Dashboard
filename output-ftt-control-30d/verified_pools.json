@@ -1,0 +1,63 @@
+[
+  {
+    "chain_id": 1,
+    "protocol": "uniswap",
+    "version": "v2",
+    "architecture": "direct_pair",
+    "factory_address": "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f",
+    "router_addresses": [
+      "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D"
+    ],
+    "pool_address": "0xF04543fBF20DAEE9B0357db966428EF2A4Ae0F5A",
+    "custody_address": "0xF04543fBF20DAEE9B0357db966428EF2A4Ae0F5A",
+    "gauge_addresses": [],
+    "token0": "0x50D1c9771902476076eCFc8B2A83Ad6b9355a4c9",
+    "token1": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    "creation_block": 0,
+    "creation_transaction": "",
+    "verified": true,
+    "verification_confidence": 1.0
+  },
+  {
+    "chain_id": 1,
+    "protocol": "uniswap",
+    "version": "v3",
+    "architecture": "concentrated_pool",
+    "factory_address": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+    "router_addresses": [
+      "0xE592427A0AEce92De3Edee1F18E0157C05861564"
+    ],
+    "pool_address": "0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b",
+    "custody_address": "0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b",
+    "position_manager_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+    "gauge_addresses": [],
+    "token0": "0x50D1c9771902476076eCFc8B2A83Ad6b9355a4c9",
+    "token1": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    "fee": 3000,
+    "creation_block": 0,
+    "creation_transaction": "",
+    "verified": true,
+    "verification_confidence": 1.0
+  },
+  {
+    "chain_id": 1,
+    "protocol": "uniswap",
+    "version": "v3",
+    "architecture": "concentrated_pool",
+    "factory_address": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+    "router_addresses": [
+      "0xE592427A0AEce92De3Edee1F18E0157C05861564"
+    ],
+    "pool_address": "0x9D2713fa2f387eD1284a4176E7841253B4Da2A71",
+    "custody_address": "0x9D2713fa2f387eD1284a4176E7841253B4Da2A71",
+    "position_manager_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+    "gauge_addresses": [],
+    "token0": "0x50D1c9771902476076eCFc8B2A83Ad6b9355a4c9",
+    "token1": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    "fee": 10000,
+    "creation_block": 0,
+    "creation_transaction": "",
+    "verified": true,
+    "verification_confidence": 1.0
+  }
+]

@@ -1,0 +1,48 @@
+{
+  "final_score": 0.2758,
+  "risk_level": "LOW",
+  "raw_score": 0.6031,
+  "evidence_confidence": 0.91,
+  "migration_adjusted": true,
+  "migration_note": "Liquidity migration detected \u2014 reducing risk by 0.30.",
+  "features": {
+    "pool_concentration": {
+      "value": 0.6028,
+      "weight": 0.15,
+      "description": "Main pool holds 60.28% of total DEX liquidity.",
+      "raw_data": 0.602754
+    },
+    "lp_concentration": {
+      "value": 0.0,
+      "weight": 0.15,
+      "description": "Largest LP holds 0.00% of pool shares.",
+      "raw_data": 0.0
+    },
+    "withdrawal_severity": {
+      "value": 0.9632,
+      "weight": 0.2,
+      "description": "Liquidity removed is 96.32% of reference TVL.",
+      "raw_data": 0.9632
+    },
+    "temporal_proximity": {
+      "value": 1.0,
+      "weight": 0.15,
+      "description": "Withdrawal within 1 hour of crash"
+    },
+    "role_sensitivity": {
+      "value": 0.8,
+      "weight": 0.15,
+      "description": "Deployer is directly involved in pool(s)."
+    },
+    "market_impact": {
+      "value": 0.0,
+      "weight": 0.15,
+      "description": "No significant price change detected."
+    },
+    "combined_activity": {
+      "value": 1.0,
+      "weight": 0.05,
+      "description": "Suspicious activity: 68 withdrawals and large sells detected."
+    }
+  }
+}

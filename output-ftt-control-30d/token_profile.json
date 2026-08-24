@@ -1,0 +1,13 @@
+{
+  "chain_id": 1,
+  "address": "0x50D1c9771902476076eCFc8B2A83Ad6b9355a4c9",
+  "symbol": "FTX Token",
+  "name": "FTT",
+  "decimals": 18,
+  "decimals_source": "onchain",
+  "is_contract": true,
+  "proxy_address": null,
+  "implementation_address": null,
+  "behavior_flags": [],
+  "total_supply": 328895103813206992145187628
+}

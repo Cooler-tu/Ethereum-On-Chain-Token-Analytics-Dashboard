@@ -7,7 +7,16 @@ from typing import Any, Optional
 import requests as _requests
 from web3 import Web3
 
-DEFAULT_CHUNK_SIZE = 2_000
+def _configured_chunk_size() -> int:
+    """Return the optional provider-specific log range, with a safe default."""
+    raw = os.environ.get("ETH_LOG_CHUNK_SIZE", "2000")
+    try:
+        return max(1, int(raw))
+    except (TypeError, ValueError):
+        return 2_000
+
+
+DEFAULT_CHUNK_SIZE = _configured_chunk_size()
 TOPIC_CHUNK_SIZE = 10  # Alchemy Free / tight eth_getLogs limits
 
 PAIR_CREATED_TOPIC = "0x0d3648bd0f6ba80134a33ba9275ac585d9d315f0ad8355cddefde31afa28d0e9"

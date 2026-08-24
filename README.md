@@ -25,11 +25,18 @@ End-to-end **Ethereum mainnet** tool for token liquidity / crash analysis: disco
 
 | Token | Window | Pools | Holders | Risk | Date | Dir |
 |-------|--------|-------|---------|------|------|-----|
+| FTT crash/control | 15503619–15926371 (two frozen 30d windows) | 3 FTT/WETH (V2/V3) | Pool-scoped Transfers; holder ranking skipped | Research: 0/3 primary hypotheses confirmed | 2026-08-24 | `output-ftt-control-30d/` + `output-ftt-crash-30d/` |
 | TURBO | 25580851–25796850 | 5 (V2/V3) | 45 positive in 3% balance coverage | 0.2593 LOW (provisional) | 2026-08-21 | `output-turbo-30d-25580851/` |
 | uPEG directional audit | 25043020–25043311 | 1 V3 | 99 tx senders | Research | 2026-08-18 | `output-upeg-v3-7d/research-directional-flow/2026-05-07T12/` |
 | uPEG | 25003546–25004000 | 10 (V2/V3/V4) | ~231 EOA | 0.4364 MEDIUM | 2026-07-28 | `output/` |
 | SPX | 19000022–19000022 | 8 (V2+V3) | 3 | 0.1944 LOW | 2026-07-18 | `output/` (superseded) / `output-spx-demo/` |
 | USDC | 19000000–19000050 | — | — | 0.0000 LOW | — | `output-test/` |
+
+### Recent Findings (FTT crash/control)
+
+- The first pre-registered same-token crash/control validation passed its data-quality gates: 100% hourly target-reserve coverage, 181/181 quantified Mint/Burn rows, exact Transfer-to-balance reconciliation for all three pools in both windows, and 142 control / 171 crash observed-price endpoint pairs.
+- None of the three primary 24-hour hypotheses met all confirmation rules. Pool Transfer net flow was weak (`ρ=-0.1279`, BH `q=0.1618`), and gross LP activity did not reliably precede larger absolute returns (`ρ=0.1564`, `q=0.1618`).
+- The counterintuitive candidate is net LP flow: its crash-window association with future 24-hour return was negative (`ρ=-0.2979`, block-permutation `p=0.0026`, BH `q=0.0078`) instead of the frozen positive direction. Its crash-minus-control 95% interval `[-0.5090, 0.0863]` crosses zero, so this is an anomaly for transaction-level follow-up, not a confirmed warning signal. Full interpretation: `research-notes/ftt-crash-control-results.md`.
 
 ### Recent Findings (TURBO)
 
@@ -52,6 +59,7 @@ python3 -m src.cli dashboard --output-dir output-turbo-30d-25580851
 
 - Directional audit of the verified `2026-05-07 12:00 UTC` V3 bucket found 48 sell-side and 71 buy-side Swap events: 39.5356 uPEG gross sells, 30.2685 gross buys, and 9.2671 net signed Swap flow into the pool. Actual uPEG Transfer net flow and the historical balance delta both equal 10.106754360913178103 uPEG exactly; the 0.83964 Transfer-minus-Swap residual proves that Swap amounts alone are not a complete cash-flow ledger for this token/window. Evidence and guardrails are in `research-notes/upeg-directional-flow-audit.md`.
 - Across 1/2/4/6-hour buckets, uPEG price return versus target-reserve change remains negative and passes the pre-specified zero-lag BH-FDR family (one-hour Pearson -0.6791, Spearman -0.7757; q=0.0045). No non-zero lag survives the 576-test exploratory family, so this remains a within-pool AMM inventory relationship rather than a predictive signal.
+- Independent crash/control validation is now pre-registered on FTT before full indexing. A light RPC screen found 2,104 Swaps across three fixed FTT/WETH pools in the last 10,000 blocks before the frozen 2022-11-08 cutoff, versus 7 in the last 10,000 blocks of the preceding control window. Exact UTC windows, primary metrics, 24-hour horizon, FDR family, and data-quality stop rules are frozen in `research-notes/ftt-crash-control-preregistration.md`; the count contrast is a feasibility result, not yet a predictive finding.
 - Window `25003546–25004000`: **10** verified Uniswap pools (1 V2 / 3 V3 / 6 V4). Curve/Balancer enabled in config; this token’s liquidity in-window was Uniswap-only.
 - **36** LP positions reconstructed (V3/V4 tick math; V4 share = in-range `L / StateView.getLiquidity`).
 - Holdings via Dune address discovery + RPC `balanceOf`; dashboard tags **EOA / contract / pool**.
@@ -281,11 +289,18 @@ See `SUPPORTED_PROTOCOLS.md` for contract addresses and notes.
 
 | Token | 窗口 | 池子 | 持有者 | 风险 | 日期 | 目录 |
 |-------|------|------|--------|------|------|------|
+| FTT 崩盘/对照 | 15503619–15926371（两个冻结的 30 天窗口） | 3 个 FTT/WETH（V2/V3） | 仅池级 Transfer；跳过 holder 排名 | 研究：0/3 主要假设确认 | 2026-08-24 | `output-ftt-control-30d/` + `output-ftt-crash-30d/` |
 | TURBO | 25580851–25796850 | 5 (V2/V3) | 余额覆盖 3% 中 45 个正余额地址 | 0.2593 低（暂定） | 2026-08-21 | `output-turbo-30d-25580851/` |
 | uPEG 方向审计 | 25043020–25043311 | 1 V3 | 99 个交易发起地址 | 研究 | 2026-08-18 | `output-upeg-v3-7d/research-directional-flow/2026-05-07T12/` |
 | uPEG | 25003546–25004000 | 10 (V2/V3/V4) | ~231 EOA | 0.4364 中 | 2026-07-28 | `output/` |
 | SPX | 19000022–19000022 | 8 (V2+V3) | 3 | 0.1944 低 | 2026-07-18 | `output-spx-demo/` 等 |
 | USDC | 19000000–19000050 | — | — | 0.0000 低 | — | `output-test/` |
+
+### 近期发现（FTT 崩盘/对照）
+
+- 首次预注册的同代币崩盘/对照验证通过数据质量门槛：小时级目标代币储备覆盖 100%，181/181 条 Mint/Burn 均有可量化金额，两个窗口中三个池的 Transfer 净额均与历史余额变化精确对账，并保留 142 个对照期与 171 个崩盘期真实成交端点配对。
+- 三项 24 小时主要假设均未满足全部确认条件。池 Transfer 净流的关系较弱（`ρ=-0.1279`，BH `q=0.1618`），累计 LP 活动也未能稳定领先更大的绝对收益（`ρ=0.1564`，`q=0.1618`）。
+- 反常候选来自净 LP 流：崩盘期它与未来 24 小时收益呈负相关（`ρ=-0.2979`，区块置换 `p=0.0026`，BH `q=0.0078`），与预注册的正方向相反；崩盘减对照的 95% 区间 `[-0.5090, 0.0863]` 仍跨过 0。因此它只是值得做交易级追踪的异常线索，不是已确认预警信号。完整解释见 `research-notes/ftt-crash-control-results.md`。
 
 ### 近期发现（TURBO）
 
@@ -308,6 +323,7 @@ python3 -m src.cli dashboard --output-dir output-turbo-30d-25580851
 
 - 对已人工核验的 `2026-05-07 12:00 UTC` V3 小时桶做方向审计：48 个卖出侧、71 个买入侧 Swap，卖出总量 39.5356 uPEG、买入总量 30.2685 uPEG，带符号 Swap 净流入池 9.2671 uPEG。实际 uPEG Transfer 净流入与历史池余额增加都精确等于 10.106754360913178103 uPEG；0.83964 uPEG 的“Transfer 减 Swap”残差证明该代币/窗口不能只用 Swap 数量作为完整资金流账本。证据与解释边界见 `research-notes/upeg-directional-flow-audit.md`。
 - uPEG 的价格收益与目标代币储备变化在 1/2/4/6 小时桶中持续负相关，并通过预先定义的同期 BH-FDR 家族（1 小时 Pearson -0.6791、Spearman -0.7757，q=0.0045）。576 个探索性非零 lag 没有一个通过校正，因此该结果只解释为 AMM 池内库存关系，不解释为预测信号。
+- 独立崩盘/对照验证已经在全量索引前预注册为 FTT。轻量 RPC 筛选显示，三个固定 FTT/WETH 池在 2022-11-08 冻结截止点前最后 10,000 个区块共有 2,104 笔 Swap，而前置对照窗最后 10,000 个区块只有 7 笔。精确 UTC 窗口、主要指标、24 小时预测期、FDR 检验家族和数据质量停止规则已冻结在 `research-notes/ftt-crash-control-preregistration.md`；该数量差异目前只是可行性证据，不是预测结论。
 - 窗口内验证 **10** 个 Uniswap 池（1 V2 / 3 V3 / 6 V4）。配置已开 Curve/Balancer，但该代币本窗口流动性主要在 Uniswap。
 - 重建 **36** 个 LP 仓位（V3/V4 tick；V4 份额 = 区间内 `L / StateView.getLiquidity`）。
 - 持仓：Dune 发现地址 + RPC `balanceOf`；看板区分 **EOA / 合约 / 池账户**。

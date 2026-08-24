@@ -1,0 +1,59 @@
+{
+  "source": "rpc",
+  "from_block": 15711590,
+  "to_block": 15926371,
+  "token": "0x50D1c9771902476076eCFc8B2A83Ad6b9355a4c9",
+  "artifact_format": "both",
+  "position_manager_indexing": "skipped",
+  "position_identity_coverage": "unavailable",
+  "token_transfer_scope": "selected_pool_endpoints",
+  "artifacts": {
+    "swaps": {
+      "name": "swaps",
+      "format": "both",
+      "rows": 3694,
+      "paths": {
+        "json": "output-ftt-crash-30d/swaps.json",
+        "parquet": "output-ftt-crash-30d/tables/swaps.parquet"
+      }
+    },
+    "liquidity_events": {
+      "name": "liquidity_events",
+      "format": "both",
+      "rows": 223,
+      "paths": {
+        "json": "output-ftt-crash-30d/liquidity_events.json",
+        "parquet": "output-ftt-crash-30d/tables/liquidity_events.parquet"
+      }
+    },
+    "transfers": {
+      "name": "transfers",
+      "format": "both",
+      "rows": 3791,
+      "paths": {
+        "json": "output-ftt-crash-30d/transfers.json",
+        "parquet": "output-ftt-crash-30d/tables/transfers.parquet"
+      }
+    },
+    "position_events": {
+      "name": "position_events",
+      "format": "both",
+      "rows": 0,
+      "paths": {
+        "json": "output-ftt-crash-30d/position_events.json",
+        "parquet": "output-ftt-crash-30d/tables/position_events.parquet"
+      }
+    }
+  },
+  "counts": {
+    "swaps": 3694,
+    "liquidity_events": 223,
+    "transfers": 3791,
+    "position_events": 0
+  },
+  "notes": [
+    "V3/V4 Position Manager event history was intentionally skipped.",
+    "Pool-level Swap/Mint/Burn/Collect coverage is retained; an empty position-event table does not mean zero LP activity.",
+    "Target-token Transfer indexing was limited to selected pool/custody endpoints; unrelated wallet-to-wallet Transfers are not included."
+  ]
+}

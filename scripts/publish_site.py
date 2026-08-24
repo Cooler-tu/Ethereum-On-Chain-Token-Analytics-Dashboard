@@ -4,6 +4,7 @@ Publish site generator — scans all analysis outputs and builds a public-facing
 
 Usage:
     python3 scripts/publish_site.py                  # builds site/ from all output dirs
+    python3 scripts/publish_site.py --output-dir output --output-dir output-token
     python3 scripts/publish_site.py --serve          # builds site/ and starts a dev server
 
 Output:
@@ -40,13 +41,15 @@ SITE_DIR = PROJECT_ROOT / "site"
 ASSETS_DIR = SITE_DIR / "assets"
 
 
-def discover_outputs() -> list[dict[str, Any]]:
+def discover_outputs(output_dirs: list[Path] | None = None) -> list[dict[str, Any]]:
     """Scan project for output directories containing analysis data."""
-    outputs = []
-    seen_tokens = set()
+    outputs_by_token: dict[str, dict[str, Any]] = {}
 
     # Look for output/ and output-*/
-    candidates = sorted(PROJECT_ROOT.glob("output*"))
+    candidates = (
+        [path if path.is_absolute() else PROJECT_ROOT / path for path in output_dirs]
+        if output_dirs else sorted(PROJECT_ROOT.glob("output*"))
+    )
     for out_dir in candidates:
         if not out_dir.is_dir():
             continue
@@ -72,16 +75,11 @@ def discover_outputs() -> list[dict[str, Any]]:
         incident = _load_json(out_dir / "incident_timeline.json", {}) or {}
         verified_pools = _load_json(out_dir / "verified_pools.json", []) or []
 
-        # Deduplicate (keep first occurrence)
         key = symbol.lower()
-        if key in seen_tokens:
-            continue
-        seen_tokens.add(key)
-
         risk_score = risk.get("final_score", 0)
         risk_level = risk.get("risk_level", "N/A")
 
-        outputs.append({
+        candidate = {
             "dir": out_dir,
             "symbol": symbol,
             "name": token_profile.get("name", symbol),
@@ -97,9 +95,25 @@ def discover_outputs() -> list[dict[str, Any]]:
             "pool_concentration": metrics.get("pool_concentration", {}).get("main_pool_share", 0) * 100,
             "incident_block": incident.get("incident_block", 0),
             "query_time": holdings.get("query_time_human", ""),
-        })
+            "_has_metrics": (out_dir / "metrics.json").exists(),
+            "_has_risk": (out_dir / "risk_assessment.json").exists(),
+            "_has_dashboard": (out_dir / "dashboard.html").exists(),
+        }
+        existing = outputs_by_token.get(key)
+        if existing is None or _publication_score(candidate) > _publication_score(existing):
+            outputs_by_token[key] = candidate
 
-    return outputs
+    return list(outputs_by_token.values())
+
+
+def _publication_score(output: dict[str, Any]) -> tuple[int, int, int, int]:
+    """Prefer complete incident runs when several local dirs share a token."""
+    return (
+        int(bool(output.get("_has_metrics") and output.get("_has_risk"))),
+        int(bool(output.get("incident_block"))),
+        int(bool(output.get("_has_dashboard"))),
+        int(output.get("num_pools") or 0),
+    )
 
 
 def generate_dashboard_for(output: dict[str, Any]) -> str:
@@ -377,9 +391,13 @@ def main():
     parser = argparse.ArgumentParser(description="Build and publish the token analysis site")
     parser.add_argument("--serve", action="store_true", help="Start a dev server after building")
     parser.add_argument("--port", type=int, default=8080, help="Dev server port (default: 8080)")
+    parser.add_argument(
+        "--output-dir", action="append", default=[],
+        help="Publish only this output directory; repeat for multiple analyses",
+    )
     args = parser.parse_args()
 
-    outputs = discover_outputs()
+    outputs = discover_outputs([Path(value) for value in args.output_dir] or None)
     if not outputs:
         print("⚠️  No token analysis outputs found.")
         print("   Run the analysis pipeline first:")

@@ -1,0 +1,7647 @@
+{
+  "0xa4fd3d2c1b482099cd747efdc50906b29d0066f8": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xd377cffcc52c16bf6e9840e77f78f42ddb946568": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf46828aec8e052b9ef4656dbae495048e2f9ad96": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x874376be8231dad99aabf9ef0767b3cc054c60ee": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x528f3e771a5d15ca265db606e29989da008ce6c3": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xd9b70bcf2c783265951fa6f9b996c77ff7d29eab": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb4cee9222bf5e54eb86b89b0d54e2f9ae3f0a115": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x74f53ed1175715d126c0c95d3b1b20f67c8a1273": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x40cd64cf6f2ed6e86790fc39edc3a91b91cb6d12": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x1309afba3746d758ced66981ce7bd49ca2472a11": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x7ad783e52e54542f0911dc905e82f306aae555d9": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x38f96e865906af471e6a5a38ee2ad432a52118fe": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x7a250d5630b4cf539739df2c5dacb4c659f2488d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": true,
+        "swap": true
+      }
+    }
+  },
+  "0x9008d19f58aabd9ed0d60971565aa8510560ab41": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x2b91ea7b82c3a49694cc6ad92bf819e2ea0e7941": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xd01982a12e3fbee8f17f671a4e7c2d702940e697": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xed7211b9eba22d039b0b8ff967e4503e555dfcf5": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x3b3ae790df4f312e745d270119c6052904fb6790": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x60a531d4055fb1a8ed226d311275704da9596cab": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x16b549c74dfb98c928ac447b7687239aef58ad74": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x463b2e89729a8798413fb3573b31764f2af68c33": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x50894322b5f4970a6706d8fe10018800fa614206": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xac3ec79c4c26c90311d93c2d5ecbfe86f5424af3": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x028c6820becec4c29f4dcf1278bcafb1425db4f3": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf7d436ee449cd4226b1ca52c1fdda3f7337498b4": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xdc01ca5172bcb629234c192c38f38ca7156a81b2": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x400cbcf4b2a30aac711fc5a882fcaf485cce6f04": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xee5a4791440a322b6222ef043384359fafb6e89f": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x1e82e222564293e3507c2966b27f587ee2570671": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x412fc89b04e621b08f7d1fe203d8743714254d7b": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb9aa14b6774dbc9f84b15e7ff659c0dba0d9ddf5": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xbb2b8038a1640196fbe3e38816f3e67cba72d940": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xa1006d0051a35b0000f961a8000000009ea8d2db": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x03f911aedc25c770e701b8f563e8102cfacd62c0": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x5eae1ad9b2ab0ac6d0725cdfa41816093a56717e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x053ab16a247321e312f3a8a2a0a8abda48707241": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x14b576e443b8da0df294f4f0ddd70818fae66827": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x72279e2284db05be687c60e4b644a25bbee88063": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x6226f0a6450e4a5f87fe149be137f0d4f40a43cd": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x8a602b0f2378d235e758f89af49bd551e940a455": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x4a0bfb698ca382524cf5f4f2bca3103ce85daa79": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x2003cf7f2fe0f469ba50d647209195af69d153b6": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x489dee5055c36fa804ab75d9b28e39bf2a76b793": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x49292ce7d2342f043fe3cbd99bb9b92fa7048a6f": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xe5c5227d8105d8d5f26ff3634eb52e2d7cc15b50": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x36d417723df0acbde5c423647065c6bb530abb31": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x9789029a63fb6e8fba5fbdc40794b16d25dcc760": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xdf86b1dfad02a2e9eb7b2d130a4ef8776c52e403": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x772a8b70b0f56b9dd2f4c34d09941f9b22b78287": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x1b72d900ee50ca200097003100001f30ae00495b": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x6dd91bdab368282dc4ea4f4befc831b78a7c38c0": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb79fae61602be93f39b9cb841c0329ee173f5e54": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x2b3d7463db65682473cfe884d4c6ba3787fa7678": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x00000000009726632680fb29d3f7a9734e3010e2": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xfd0000000100069ad1670066004306009b487ad7": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x688d6406408aeea0a500bc3d76837cdf2549a1c0": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xe8c060f8052e07423f71d445277c61ac5138a2e5": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x4affea61a4de02dcb4d5c5b0f363922428e0048f": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xce53a0bda1979b451df4b85954d8762cbc881bd8": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xa6e615df1824cc71eb7ae5a823c5808ea2b196fc": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x6ee05dbfca41199e65a368f50bec23bf4f124e41": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xd2bc3f00f8b5dd1159708ada58b42a2b3adb1eea": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb0bababe78a9be0810fadf99dd2ed31ed12568be": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x687140a471650131df3018b60d7a39c6015dc730": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x425c003ee236f402ea423c874d158cddcc041fb6": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x000000000dfde7deaf24138722987c9a6991e2d4": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xa1252c149fe7a3ce2a85ec3777b825d1f163b9ce": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x906244f8c11d25fa77b0b35fc075372298ae7c0a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x4c071c6fc361202fe907efd91d35429ab6fae661": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xc50d1ee622b224db29c7075b1a4325e5b1c8ff93": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x495d307bd81844519d41ddc0426b00b8ce32bd07": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x367a262224238583d856aca18d9591ed9504367a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf4e030452b589ea280e5c037f42eb8171d789e7d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xdef171fe48cf0115b1d80b88dc8eab59176fee57": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xfb810e12c827e842af6019d5308949314395076f": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x61a76d14884d9f1dd72af43f0f2908c89ee604a5": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x98409d8ca9629fbe01ab1b914ebf304175e384c8": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x9695c9ce6421d0c3e2af3e944f7ed957653085f9": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x48bcb88ce0dec3c6e0fe5089aab05b9783847647": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xdc5a4d67c702cd09b9b7076e2943b50e030c6a21": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x7116dbea0e368e352b760759ddd5b027c9c8ec4e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xa05527778c5d874ff4926af98d162e3fbf4d96db": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xe5f5ab194a83c694964ae4814565d15e49ca0c8b": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x4c54fcdda454fffa03fd4b9943251a4c2863a212": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x34038d187c140e75dd7a99df275a46f78afe471d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x000000000035b5e5ad9019092c665357240f594e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x6cf866561819c84ddfd788b9930335b1111da3e4": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x143deece80999ac41371b49dea0b7fef92394574": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x87d9da48db6e1f925cb67d3b7d2a292846c24cf7": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf71109225ddf9f1e98af54c1cd454c77bcfe86e9": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xbe24def39282eaeabf41042e1f69fbe9bc1af1ee": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x39159c61d549742589e807adf2ff2c4ca8391093": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x80d0d54050c15971b21e877d95441800f5aa9ee8": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x02009370ff755704e9acbd96042c1ab832d6067e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xbe60ff8ca9d81e3a7edaea2bf48f619069990447": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x8096da6ced12b75684054ef16e1bf7e376353c29": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xa5fa09c780beefa663c8745450c659c63df568d2": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x343a1221b4949e90f53f6838a4b4be9cea744c7a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x9aada11754c134c97c5ef7b902f7472344f80883": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xed77777586d73c58eb4d6bebdf9c85c2d5f56c2d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x9d2713fa2f387ed1284a4176e7841253b4da2a71": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xd1f0148a01bf8ad720fbad96884015a4fde98c27": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x38a868000000a600a300867c596d400d79970500": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xfc857def9cdb3936cf1a6fd99f1cdf47356b6e29": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb85af10d15725f222bdac68117d2ecd4da86ffcb": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xfa598d3ada5ebc9839afb6fbd1531d02699c645a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb6a140565771e9a045fa3a15efefd222139ac1b0": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xd249942f6d417cbfdcb792b1229353b66c790726": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x701a30102b57a08933b03b842cf638e63b8d7ec6": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xc80d59b584ec03d6e4dd7d4c6cfa8f9ff97bbe65": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x0ef3f1874c99ba15a4420d66d4e6ec80bd2e9168": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x658c4dc01df722819a6959acde4137bc85fa500e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb78cf752402b273ac1ae93002935e6df578c9922": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xce1792d9e7c81a4bdf471b26f1e21f5056a1dfed": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x5ad943a67a4f2881c40072449f111eb6cc069558": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x90b8c9d44576410725d3e7c892efc54d22334ec9": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xfb5cd1938e1beb294d60a41ad94d662dbe6a8335": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x019d253f251a8818c6cb990e37e4fc988ae7ce9d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xfa275145b2ec77ef76bc20fe4eb7037633763883": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x27182842e098f60e3d576794a5bffb0777e025d3": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xc36442b4a4522e871399cd717abdd847ab11fe88": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": true,
+        "swap": true
+      }
+    }
+  },
+  "0x1aa30f57e98bc406f603415902c7def7a78dd0c0": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x6e6d5398170e37b005e84a82430d606f7a9ef2ee": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xa2c3f3c2c63859769993e9e4a49845f334e9690f": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x2a84dacf22ccb7f3ae99334110af1bad3d35a884": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xeb8cd475f18c796d9b2ccb810235b42b0685804f": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf29155745c8ee222d4f7d6a2a7a50c1901f27de2": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x811beed0119b4afce20d2583eb608c6f7af1954f": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x8c05da9e6d11adaa047f7b022a438c248a615a6d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x81e867b99facee771e7e46577bb110204270767a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x6900e9d4c8bfc5b841fcc7cc7b85067a704f350a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xda2330f0d5804c4e2b6d84105a78494c2b5602e7": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x540d1b0ffc1077dab0c6041b07e547835b788dab": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xc049999bc96a3283779025b3ae1260180190b955": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xd8c07491caa1edf960db3ceff387426d53942ea0": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x0c53e6da2e24b7c970339b73b579c8426dafece0": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x5090e0c0b89b63cd1479594cfa3d05485b085478": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x88a4d9a29548c1431d7a2e068f8cd6a76e2f469b": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xbd6a2bfccfc6a4f7ece6c005d50d01428fb9c086": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x352dcbc88307d68cf9af2bdaf92bdbb27c80c70b": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xe7d10d31406c472e75b8e8e8c7d89582de759190": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xe4344b1ce3d141f113d7f04e8df4f2946dfce4af": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x4aa5cb08e3ec561c6a1aab4e2ab8a12eaf96c279": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x5d8199a6b3398904319cf4f222fb1ccc713fbe4f": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x97071d3b6f8ccbb6e69de434bd719d8929d55f96": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x007933790a4f00000099e9001629d9fe7775b800": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf6465aa892574e159dd1b4ab92ce12a3dbe47774": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x701e0745006fa4ab003697493944662a0000c750": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x290a6a7460b308ee3f19023d2d00de604bcf5b42": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x74ff02eb86f47d6d0f874a2e0f09e1dc09de54d1": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xc730ef0f4973da9cc0ab8ab291890d3e77f58f79": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf9234cb08edb93c0d4a4d4c70cc3ffd070e78e07": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x6a8e251ae9ca7412ab4aef3789b0912ad8027b8f": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x92182bbe0ab6fa7d4fc275dd451f3a5721d7c0d2": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x0000000000007f150bd6f54c40a34d7c3d5e9f56": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x63f0b63dcd8d198f899c88856a081b98228bfc40": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xbe04bfd01ad0c51669bdb7c3aef5a2d4ec942b57": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x86fdf2211d8964eeb90cfd1cdd5dd4c4d7ae5c00": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x226626577eabe13626aade5d77559abf05f86672": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xc851ed6f7b9e0b0bc20998c9fd6a133fe978ac1b": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x927a0ae350c5d73b297ac52565548f57587eb530": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb9860c3219413ef145ee5476dc27c4bbacc525f1": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xd9d07a15db07916343822db9c4cacfa5af7d7eea": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf1fa3b44c153f7988ff5de730b138eec476a7533": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x3386144f8b701268fc0c1fa7580c58f618b60979": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x6fc3bfbc7471d5d975760f6e5b91009630897f51": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x463d580514dbaf7be03a934050ba1af023298108": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf685f1924814cb219630df837f635210c26497b0": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x8674ac92ba3b1a20e1c5333bb08dc0d7045978c4": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xc5edcfb179a14b809775d1632286f4dfa6c05022": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xe69e05ecb8e97a3fc202e312a12a741dd0a46834": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xd3d2e2692501a5c9ca623199d38826e513033a17": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xed00704de91f4b6b13d1196c84c60d547c23fd1b": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x71adaef778d16e9145e61c8fe497831e535da07c": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x9607bacac1426e31b025ff2600cf21a8375328e5": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x316647831c4620a5f1946178ac1ae95c9f22c8ce": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xc9f4648f245ab00d5ba63ff8928ae91d425929ab": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x2206445d241ccb7dae93b2d2acfc67f75b90fd76": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x2721ee4d44f2aeeeee8c94130c458276b8268565": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x169440789a318235bdf3548234bf7cfbda2dfba3": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x6584014ce768519b9537221959e367232c435e98": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x6ad40ad5eefbda06c38a333a8cd05f5a90d7bf7a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf164fc0ec4e93095b804a4795bbe1e041497b92a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xd055c059babaff9049430fb932cab68871f6b5a3": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x2a29a2fd3c5997b054139d705f44bc7e60265e0a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x919cf9ecb75ab662a0734fda2e53e3a558e33247": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x0f27b2b6aea39d9b87c5250d1f1292409bfa2fbb": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xe545f1385740278e54052a53a93c198b05f6f687": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xdef1c0ded9bec7f1a1670819833240f027b25eff": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x38eff10c5a68e7eba6a2143332e02a42e5e420da": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x859965b7da2b26f007c2d4ddbfdf1f8f430b88cb": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x28dbb1a5d6c69fca7f507fcf555d1189519b50e7": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x13d5ccc4ac5c63756ec6fa8d83cec10a38c598b1": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xccbe0315a4b5bc5706ff3a14b0d6db118597678e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xcd3c0682d1b814b9e898b759fcdc4df09011c86a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xed5635ed3a31f70cbee73a08ae55927327a30271": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xd31f7e39afecec4855fecc51b693f9a0cec49fd2": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x6ecd26a73cefb7571046d3804b815b56a1c57da6": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x80b37b41f71b6f7250e93ba13db19235f5d00b5f": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x2e09edae705f9cec7f65064b5da75d1a9fc2c5ac": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xbbdc55d210a0c8bedfcb3563122063b1fbf7543d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xfc027782f4195fb3c0affaf7850cc9bc440db4a0": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xafcfb1c2b5938437046027caf38f0a84ff620ccb": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x39e1579f6cd1eb7ffdea8f629b27c91e0d0ec77d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xebe1ac69c6aefcb1ef9af848f4511b6c5b822bab": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x0000000000208d4805eb97db796e74b48547445d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x98c3d3183c4b8a650614ad179a1a98be0a8d6b8e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x28e6aad8fe8a99deb68b78fa400136bb378c952d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x44c39447f0efd7e47052faa77513524939ae15ba": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x199c9a04082390dea0ee3c0a9713bf299e315e8b": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xc954f024208206d919a77f52878a942e18780998": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x22f9dcf4647084d6c31b2765f6910cd85c178c18": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xc985f0041b6edb62c066c639fc375098244a4ab2": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x761d80987a36fc271875ea4de17539e8c82ae51d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x294148b78f017a40dcafc33afff5d4cb7bc2074c": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x7c3b3a1e1d5b8a35064688d7c36e5561bbfc6780": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xd7a8b074a31ca25d9e0c18ae0036c43c96afbaf1": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x354ddedf22ee52762e6f67bc3584d9a3a9f56b43": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x0c4a68cf6857cc76fe946d04fe85fac5fae9625e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x55d5c232d921b9eaa6b37b5845e439acd04b4dba": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x07bae765074790b76c791834ab873be27493c163": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xa675d0d6eb15409a5e4101f18d796c6dd161c747": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x1bf825a9f00d7dff18b6ceede55c532ad06628d4": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb8452370507965180c053b578403ba1347ded1ad": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xdb7a53e6ae058e1dcf4502341e2adfa522e2b29f": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xa5fee41a08dc6c0e7bab1790e4decf2c222ce134": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb9f3b6d5629825e9e23cc1a6fa01674463994ba7": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x40d743accd0d96f4642c82a9a5ebaeee00b28b41": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x10db37f4d9b3bc32ae8303b46e6166f7e9652d28": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xdf69293a496844e252619f8878f2dfaaff9871c5": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xc8108e114eafb8ac993ea25ce758a1f872fa760e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xcb172e104665a2db79a0847ba021c83521b992db": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x364e94a1bf09fc6498e979e7715bb13fa6e9f807": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x78d7bad7c0b7a51627cf4040f957cc2abe772d24": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x7a3165ac0e080561035ec965da9ed9e026c62f85": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x7931dbffd3d50ab099c38405de468e7de3ef16cb": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x08864888a6d30410b7a8d15feb463320e7024fee": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x62d63efdfdc7804666725f4cc8cb45c1a41a0809": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x65811eb7b45eeae0c159a8b6ed5ea079dc0d1866": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x57db5d6aa783cf29af41330569d24957140fd3eb": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x8e32017436f58f3b8839c432f5740230d2ff8482": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x55c44b2827d73ba7edaff4fe21f7e12f57e4115b": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x447143db7f29ac423c59c853f0b292278c24b15a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x1f86c111ac489e74efa454b0245fc3331c416ee9": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x5ce87d185c7ea4e7e88eb505adcbe3d5afa61457": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xc56eeecf51ff5509d50ef91e79177c54d11cfb57": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x74de5d4fcbf63e00296fd95d33236b9794016631": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xeec4013a607d720989db8f464361cdcf2cb7a7bd": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x9c73ce13c51259c72752978827c18073a1d69cc6": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x0f15ee721708bb827cd74ce0e5e110cf4b981aea": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x8eab1448f99e102067b8d370b7f413d0f14e4b7d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xe5919152a8880ba3f39a1b8787b82261bbde4471": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x5c626874dae9fd0c156d0dbe14cf03b34fa7b3ce": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x01ff6318440f7d5553a82294d78262d5f5084eff": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x624372c0618cba8eea907ba17046cb6160dcf8bf": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x6a6ce3ea3a32cb1aee170d3a866073209889b3c4": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xbf57235195d141d68ac298a1d07fb5103fbb5d6c": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x9930eda98d5b95d3b3a48c3032460375a5a7b506": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xaef2ffb4eaa8467db610a72be7527c7bc0114000": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xc2bfc5ef157c9ed6b94f73c89ad6b3e5cee5cbad": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x46c4128981525aa446e02ffb2ff762f1d6a49170": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xe33f582d9bd5050f89ccc96b128ee3dd996c10da": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x091e2b070163ada85e340a91acc4da7ff57d78e1": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xe56c60b5f9f7b5fc70de0eb79c6ee7d00efa2625": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xcaeed597d26c7d2c399b69955e14cc66bdf32da7": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb9306bdbed43e60ed873bcd9e58c7670fae01513": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x11b815efb8f581194ae79006d24e0d814b7697f6": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x38f9307839a8e82b071ea6fcbef029814ed88fcb": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x361e4e991ea68c89bd3c3ecfeb4ac7253b258336": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xfa2ca04af976843014571f2e411f7b04b591cb24": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x60668f0d539a32d5b87287e9b15f9b4deb86fd1b": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x744ce174630f8a63c0ac161e222e44954bb9ce52": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x2337ae3cf37d0dfd6f23b9577156a169a90e0fac": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb21f51dc9f3067574946d1a530447d9037675cbc": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x8e18de0cd0ec16ba6bdaf079aed825edcc295dd7": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x8d9f3032b13a9d08787b229c782fb4af3cacf1b6": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xd20fdbb3c8f365e8e5a5ef8bea64abc3ceff943b": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x02c4776ba6b68bb3d3b21b40c0d6be55f5ed2390": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x483082e15218830453d50caf0853452080cb0951": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xa773f71d78db8edb69d3d7682c7c4b35860bfcc4": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x9324c9d9932c24a3fa340515e3d8238c0fe66e88": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x8c2b704a2b004287e561ecc1d4ee2f21d4b5c22e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x188408ef0c26225705f6cdea6148f3f8ed802348": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x6ff4db161af0cf999dab2968c9a2aea7be5a80eb": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x699a8b3cd08703359d78961db51cabd872344073": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xd361c20f575cd4372d6e5ce11c7e0eb118e80b0f": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x60031819a16266d896268cfea5d5be0b6c2b5d75": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x854373387e41371ac6e307a1f29603c6fa10d872": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x093e4aaeb8d3ce21b7b45595ec484bacb771a8b3": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x349a01774f22f51ffd46270b48f1fdc85ac9131f": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x877f9bfe1693cf4d417e0eb43157ad65c38c3e1e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x4be9ef80175ee6bdd1e2b4ed9746595e2e83cb07": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xa9719c3d3df92eb21fc1fdeb0b37c15c5dac47a5": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x8ac2a334c392eb849fd52e04962e3e75fac8441e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x8667e30ac4b14e26cda33145e23f9fc1bbefdcea": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x0957d693e31ddbdca77caee38936859c7e358f35": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x16701552e6a60f58f54b5647be33da8250b86ba9": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x8b528cfc827678ae1af8bd724f24a8da2b91c0a3": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x4e94cfb0b7c51311c8815b568df71ea2abff3aab": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x4661474f55074e9f20cd77829e7be3066ff61776": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xe2e54270813c5c44a6f97d123120952a12b00000": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x36eee596096a7d5fbaa1ea9369e3799c550bf273": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xe8983d710315322cdf001c9c510da2e5676f2a2e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x18cd890f4e23422dc4aa8c2d6e0bd3f3bd8873d8": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xd973c01f1b78983201ed3c325f07c860cca23a8a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xd5172f39a97592edfe2ab8e20d6a3a77b655f25a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x006fb04b52876f3d413e4bd102e36b14b6c864bd": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x1c0f042ae8dffbac8113e3036d770339ab491a85": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x8835cf99d3390b291dcb257cd6f0da39a72d11b4": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x6ebc29a4fd592a0113b8a43d1254efaa1a42776e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x383394ad3a2a2b5b7ce217cf363151019d4d0b60": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x1d65de9114d95fc7d1b77376542f1ecc243b0bf1": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x40c527f88279128f41de7b180a44421e614047ac": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x00000000003b3cc22af3ae1eac0440bcee416b40": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf9a901fe3569a91ed17bff3e26731da30f2eac68": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x21d1a3455f6620c4588554025370cccb9d24f68c": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf6198c5ca060a2c28ec16d7462049f56c0955670": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xd14fb5a1c0a96e3a46518cf3b3f62a58e7cce2cb": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xdb8e65af007ff6f2ec1dfe86d60e34e9c1adb416": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xab5da400822b14a66a1ea5caeb7089829aef9cae": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x21b88f23953792e2290e080434ddae4c9b6c35fb": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x25d8cb0fc6ca133599ffec6c481337712fba5122": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x2775e3d7c831b1bb21d84e5c53f5462e8c1e5f9b": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xc563c201fd129d0851ad03759f260c210c02780b": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x0b8ee8e3124bfff1f073ee2d96469424cf1bc372": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xddfe7c74777848e86d55575cd40cdada596e866d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x1bf531eb5a835a05d1a60405159219230a0b4491": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x3648f1bbcb8f227510a1b84b867307918a257c5e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x4ab2e1463d7e005a4f422a8a8e3f6620035c8ce6": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x7de837caff6a19898e507f644939939cb9341209": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x9dec7f9b35705aaad0970a07260a767c3deaf206": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x7efd91c8ca31e7452c5c4de00a8ca1c18910a35f": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xafe2fa1289c49b2b0964ea7574e3fa40546e3883": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x62c9457ca4496eb0bae25dfcde1ed7e87f70388b": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x330dad06ec5a570bd745e165103dd80660c4c4fe": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xcefa575d0b36a929beecaffd99c412ee9c512b77": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x1bc6955e458927b30eeeb6dace42887798e69b3b": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x63a10f0d5e70caed66d0be3d7991318b76bd1e44": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x1f63f8df8de9d1a2ccdf26122705a26fc2e0d16d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x856bceb4e46c813f12d8a4326ee2e9b7f31b062a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x40d122e0f8600d5cd4f2916edf78b9baa523e8e9": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xcb70dacaec877a9fedc6db6dd2408009d1c7aa08": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x056bbb9da4525346e82a32084fad059a57f4e987": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xd60b7748d26d7d826d22e7cd32eae7b2ab681360": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xa12db9f88f096f527fbe87a752c6ec16d501a25f": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb007ca4df4e0edd782f02d099f42c6540be337da": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x0000000000304a767881fdccb30fceb51f6221e2": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xa42d0b6b87c98d93983b45681fc5781cac600efd": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x5732dc51668fb7fc89feafc0e93adc0324aa623d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb0cea00ed7b2953f58b5edc41c0490054e7414ed": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xc03f9b6d14d68e5a93eecdd0cc8c143b6f95f2b6": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb39bae8bc7003bf25b81a03d00006f70b900007c": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x1d283807630ffb876a5d78b8e0788e491449f241": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x6834e652aff4f89531a1eda70ddde5b4947b99c9": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x7ce154259859a69be1e690ef95f1ea0d682672cd": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x4ff592da4b485d001f0a24d42bae88f0185b84cf": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x0f9a34a848e00cc3ba1cf4b2933982451107c574": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xc9fe4bfbc7f39b5353c13620f84bdd3a10359504": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x512a1eb13c391c07489766757fb52517e971b19b": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x1ed471691ce34fea59db241b2443d634b9927b8b": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x8e9c0ea7e72531ba2f7014f3b39783ac4a26e34a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xcc907531db31dac206b5faac12702641225c7ae5": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xfd68082c61f208183cf55b309de214206b8f0082": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xba7c71fd628af842d2da8a3698daf48f9dcb854d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x54e349abb411ace43acfc81e3f102df4314875c1": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x096e26fba965b68741419ae998a264b444078518": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x8a039340b3caa9249ed5201c197a0c4c4c4efd25": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x04f6fc7edff972b6372e5cd64d76da0263360c9c": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xdca8347950f947875d575d71b8b037ac856e2550": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xe592427a0aece92de3edee1f18e0157c05861564": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x8a40f6ec31e4fb3e65ea5ba2cb1dded9c8f192bb": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xe4000004000bd8006e00720000d27d1fa000d43e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x8c77466881fce81229bdee4993e71781531604d2": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x6264b7f05facadaf24b71a96e1df3f46a654b799": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x2d1430552a2f3955169e0a922ba97877d9ebd223": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x03ef568d780cecf9c0e43fc357d5a45c63dac3b0": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xabd69d0fac4b0851dafe100979df808eb7fb81a9": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x0d4a11d5eeaac28ec3f61d100daf4d40471f1852": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xcebafd79053e65e54df6b55c8ec236c718ea4469": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x4a452c478a98adb57e27561f0352d7d3575a7e1a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x24902aa0cf0000a08c0ea0b003b0c0bf600000e0": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x80d4230c0a68fc59cb264329d3a717fcaa472a13": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb3a794009126c0ffe18c600c94309375f9ee3505": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xaa8dda3f7bd78bcc9621fb9b3bf609ef38687239": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x34e614870b63ba1689e362fda112c9bb3f925d7a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x3dd49f67e9d5bc4c5e6634b3f70bfd9dc1b6bd74": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xad5b1a6abc1c9598c044cea295488433a3499efc": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x3f0b17562048fab9f7ef183142e436c017e208d8": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xc4dfbc631244a10d7c97edf18f2628ed9c4a75a4": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xd7ab3172e7d2db194879de52371bc8d0f2a8d9d5": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x7aaca67edac7169540881d93840642d1b4c4e9e8": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x7f44f5040a913411c47b1ec208d4913a30aeff9d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xc2a54f74ebbbba5ed92d6a0b5dcb0b0ffb96f36e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x38dc0a2c5e69098c8304491fc8a2928ad44a3f11": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xd65fe9db69044f97609aff0810f9c86652db6452": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x23c8030cb6e7e9f190f79591a39cc928c55d650f": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb0a6c11abd1c355ad0f9710bb7e23559107ee1a9": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf583ba1ed19ddf878f2c9526090b3715a17e86a0": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x072269977fa04b79096b56cc552bfd5923c579a9": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb4f9e177de5c647a3c8d6c1586834ae581dda2da": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x4a14347083b80e5216ca31350a2d21702ac3650d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x00000000000747d525e898424e8774f7eb317d00": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x996d9bc98d5e2660bee907662c7564d22d18c1a8": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x1022005925fb3a92ab97d9c3e78a9816b33b128f": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x8a160cac2f51f0365f92114837ee1cc8c5f9acb7": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x00000000c2cf7648c169b25ef1c217864bfa38cc": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x394381d6b2d0b6da54feec8c1bfc95cbe79f7a24": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf41ad9d1acb4b291af3e5f5bd4acc6f8e31e8053": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x3763966a9776c5479929caed359b54c314206e36": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x025e8e1fb1e95941749f18d648c4ed478867090f": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb293becbdc79054290dc5d5b00c2b2ef92099c2a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x78d715f02a19333aa26768e3527a5b1757f755ac": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x67edf2d8e0ab54e27f18131b8e3cfafc4e053925": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x74c99f3f5331676f6aec2756e1f39b4fc029a83e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xc51b9db7118c7a60036830fbcf97ad26eb6d3db8": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x39fa1d822671ef01a7c11134ad9bee9a000ae542": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x734714de44f32c2caca66f25dde82c8ab146872f": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x96c4a81b513b8e73dbc1c485804a39ae57bb0576": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xefbb5669c2ef2fa36245bc815442719957113ada": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf04be29c78c3d29f267ed763d5b11b11b3faa1a7": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x3ea90aae175d49041a19e328b7ad80c37b1c1918": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x359bf277c752cb246a3060e034b695395b11a476": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb811ba1eb75bdcf425e7d9c4571878a52288b245": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x01f0831120ab81f91109e099afb551a091c4c05a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x7d0e096c7cc8294c6ff344313565d1363f58b136": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xcb90edcba22c96ec7c93785fa956065977168359": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf2ffc465545f2e973c47cd298faf871f5d4b82e9": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x192c0d10f0caa6eb15f81eff8fa0032294327709": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xc929cf365610832734d31c37be083968ead0ae1c": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xe3bca03b772ddbe7fc806da5df6345c59961bfc9": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x75ab498536b0324b374feb02b21a4c7f2e4d59e8": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x9287ad53963a6a004ed46ddc2ba3d99c99b9fda1": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x334301f0974e53ef0fe23fb727d0cf8dd613fa09": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x90c584012d8aa87656aed1cf653311258418df69": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xbaf00be47a00e9ec07000052ed5aeb00bc0084d4": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x1a2cf345e8ce56947e4efe6b3da1170bdced8063": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb7883d7d82ec17b0291dcf8dd792b1897abdde7c": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf907898034956e0eded086e4ed72fc7d818f2699": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x15702d070bbe45cb9aa0b9864754d7f67e50ccee": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x8fb20c72139b2a971ab814503d61111349f8cc78": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf6f6d531ed0f7fa18cae2c73b21aa853c765c4d8": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xa94f7c6aabc0000d261aec00001f37c626a20000": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x0db502833e2fb37cef59e615c3db2d702435e29f": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x5c0dfecbdb8abfeb739a41d14844942019cb10b7": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x6270d239ac3dd7ba9192367e50780031c82c6be1": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x69b543897c13e71ad7c987795306fafa40969d93": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x85324969168b8ad872f4047943b2d94e5a22f686": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x9d59b8a2bbb4bd61a3b44f786ca627ed75f099cc": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xe3fc951776e7e607521ce0dcf46fb13fc8ecf582": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x8620b577d443827ef039cba06173b5b574866283": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xec33f6bff72f7328f7532d5b70f76047ea3fdaba": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf021f084477242fe6835c67234b4345de4db19e1": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x65122dc3f5ab8eb0b861360cc4af9d8fd02ba911": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x0739451df30622e482ced29fc915ecefe2b967fe": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x017b55d706458773a2cde810de6646d6da6afedc": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x0cb910c0f9696400b5f44edda5299c81917a23e4": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xba198d1b81055449f31dead0fb50ee8ecb2b27a8": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x8a20bd5c9f19462a27fd7f20eedad52b8bce4740": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xe4727db0d9ef3ca11b9d177c2e92f63b512993a5": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x1f369c8807fc6bddc55781f8c48708cfb2256a21": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x597bb8b012bd0ab03b9683edabc90cba1c850bd6": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x6d84148ade2c742fa06069313c1f3e6e037f0680": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x28d8c3f9a65267475a273b861d475a42a8c3f8c3": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x88469ce5039678485131a83fe03eb6af65ef2051": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xd4f47f0f4e3d6abbf683cd406a444120a06f729a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x75163357604763235ae760d2f57e7ae0278a559d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x1d86d866a08f2f1460dee88cf3026a7407c46815": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x27fca6e85b42ac9e01b3d4b381cd0ae6b9121f66": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x245beec77d822561648a0137ae785db808af8d42": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x45295cd4c503df0033f1a01be0d48a5045d70f89": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x82cbad9844b54060fa599afd319094e28baf71e4": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x0bc8d12449a90e6fb45c368278213123d88e91e8": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x952c6ed9fb062d8d9fa84549ca513ab215323736": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xa018fdf427f70a054b7e8628e8695fd38cb1ce06": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xec3bfd9ad03ec4ba7915c8b32e33e425d8f3a23b": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xa69babef1ca67a37ffaf7a485dfff3382056e78c": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xe559f28c86650002b7ce5c3baac729ae14165f2d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xe5dca3e2ec99cf868cc0d8d5db1ebd441c926b9c": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x1156fe70a0e4790ec591ddcda0150f3a66a984e7": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xa9d9ef46cfa3bc8c8494cb633c0dfc149a625449": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x3c60ace3b624aad3b1370269ea364f1c63d943d8": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xfc36ecaebfc07b838f3a249f851f4157ec788ebc": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x31142c014644c0e6d30724a1caa576deb700b345": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xc950342e2c7486358c5ab5ce183f9a19e59c6c1c": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x7f3d0facfd5f36fe4eb2b0b63211f10b0ee08035": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xde715346e9ffef952d3e73d51f77828eef242e5a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xd7c09e006a2891880331b0f6224071c1e890a98a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x2da78044ad14963a11f5f8c564fb9863db0c8571": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x155017465c589c3e1c0e9ade355f25730f4bb1c0": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x88f1a802dab034d61545251b71f6e4b9edbd6c15": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x7825de5586e4d2fd04459091bbe783fa243e1bf3": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x1a6716e70b491ac9587d388411ab0d0683d3705b": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x378773b8c6b4155482cfd7ea46b3429e0753b88a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xeac9eca0644e684c53d44403f08485274bc158e7": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x398561d0ad6f572df95bb222552068da299f4b3e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xe9511884f3cf270f30af9f1ff5d0720b1e769ee3": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x8d655b1af80200a6b81e11482fdea66328b16e05": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb7c6dfc6dc13a9c1b4345782af5f4074d213aeec": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xdc61803dbd0cce5dc54646c5d7155cb8c3e59473": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x512e07a093aaa20ba288392eadf03838c7a4e522": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xc6202741906341ac490e15d84b875a5229628aea": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xc74d172f2944c7842355db518dd8e336596e40de": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x9311d58f190d7190e7bc02927e81943c79d31e04": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xfcdc25ba0d9d9c16a40506802a50c6c0870d5bc6": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x47e5389227d4f730d1009d053f042fe0dee79dcc": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xece67cfe0f4f2790eb56b7aa7ab6ef0eae7bfb95": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xa3f30b024f7553a79b4413588d06ecf676c8e85e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf2f400c138f9fb900576263af0bc7fcde2b1b8a8": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xfb50ac7ba76a8298d8c785d14c240d058c31b1df": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x817db1fefa20613ef89f4afa036c0c67ebe050bb": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x6ff31e03f79e802c290b9afc700587246875d67d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x40cd16aa3aad6d112f8904ce0c0f66fe3b3db81e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x43dea97e75237ba81bc806c7047b48321f19ab9d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x8b59be2fc6fccc2256cc4841843a13ce29da16bd": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x0352086e5ce73fc2ec4c41fef56361f7def6ea91": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x9c4fe5ffd9a9fc5678cfbd93aa2d4fd684b67c4c": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xd0245a08f5f5c54a24907249651bee39f3fe7014": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xa336111f963661b121a3048e31a56fa4ad66fc51": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x6c6b87d44d239b3750bf9badce26a9a0a3d2364e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x221c2f9fe59f6d6dd569cb8fc94755e247afc309": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x7a13e6b74a1b1ccd1959156c7a9729254ca5d5a3": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x2b19fde5d7377b48be50a5d0a78398a496e8b15c": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xbb0d463aed10cd350e9b6b892a9b4b467a460a80": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x67e0ade75bb8d6197cf773695e43dd6113d5eb7d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x243a98e2e6b38f7ea48c8b6894b54b5a2007a3dd": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x63210d191639f84067bc08b54b3c5e344e161cb2": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x30e6a59bd52a2fd4c1be41dd638d4ae0b3a4a6ef": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb4269299be7e756b62c572337dc5217f1a6405e6": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x74ad56fa24d1163cfcab69f20a6016b6ef9c325d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x00bfff67002158c639570c00785b000061dc9648": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x928ee7f1b0c81967c05c56d7f149d6fde5f35f20": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x812fe0841e67a87998812a9693293cd5b63c6b49": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf42ecdc112365ff79a745b4cf7d4c266bd6e4b25": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x726f8c237c8e307c5f2d9388b7518d058aafef99": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x6918c7606b456b60cb04ae11a7b6a1cbfaaeaee9": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x13699f398a3e96abd2225e75a8ade50ca9179ff6": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xbb553fb3d63ea7230b46e799fa6969ada1b6b043": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xce5066460684892186d48ac3ab44f3e4d9c143b4": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xae3f770cf50e3a99ab73743922f9791252628d0a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xa8be07a56ab39b22c7e58d88b2ee401c34d112fb": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf3d707693a3c069dd4197333d57be63141982912": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x1f673c6afedecc4ef70d21039b0e5e3409b92d35": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xa478c2975ab1ea89e8196811f51a7b7ade33eb11": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xae5c67ceb16b4851f169ec1c65f405d7e6308b90": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x8ffd3e95e71c1b975eda461e54af27d10bedab44": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x507888e987257a8dde6f8afa46375cefe2cbf504": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x362c5ff2046ccf299fc8773a77d586c826d12f25": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x6f762807ad474dde10dc9d9099c2c1816241267b": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x16d9d7fc3b19d03caf88b70be54200310e5641d4": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xe6aae95501e861d478ea1787dae0d6a9d9780cce": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf29450019834d7874b4e306275c4334326ac27f1": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x9cfa49b2478de8e626e114fa8a0cc4f631a8a9b3": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x00f4912e9090b3f12ce9456e278389b3ce6969d2": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x2347539f16f54349fabab886f9473013d3990c1e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x510529df0cac1284f2610c9f295be3220e718967": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x79d2ed67ddfacba8564071edf243b634f5c88723": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xc1f656269ffc528064c54215677811299ec4fecc": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x465e47c4cb9a419e85280fc0bc0bba36bcc03ac7": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x57b3abae7e7392571396a4a91bc1ae35bbdd19d7": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xfbdab0f1e0903d576dd82822e1c55030cf3f400f": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb1659e24824c4ac7faf64be742dee596b1bd1d8c": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xe9191dc0376a01b13751df0ff0cef710bcdf506e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x0efbb1de19e1a74db49618ef4f0071b877aab853": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x38422082204866f62d114f2f2205b0ce8d988af8": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x81870dfd40809d070957f6d510f775fa1cc5df01": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x4abdf7dbee4290b8cb2d9eb6dd1263acf671f11b": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x0f3b7961632a7f5965bd84560bb5e0903a2ad175": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x00000000a991c429ee2ec6df19d40fe0c80088b8": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xbbb911e4354c1c5dab8a0bae5aeec918de390e2a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xc2b4edb2de0e549d2df1098b8119b486d5a0a8cb": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xe7b0ce0526fbe3969035a145c9e9691d4d9d216c": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb0236f2ca327fb62c506b348f42b2f13cd3089eb": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x6ad1bfdb6d3b8d6ca09725068dfdb59d4eb135aa": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xfb4dd74260f74ffdeb141a1a8f209710c5ec9d07": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x30a123cbf79fdb6ac10556b20531545de0da652b": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x0ac60fe21cdf4f60326563e21edda606c750ae6d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x1111111254fb6c44bac0bed2854e76f90643097d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xfb745fa1824bb085362a7f0933017ab41d24e05c": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x224e69025a2f705c8f31efb6694398f8fd09ac5c": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x89621b037cdaf3629ab9aa6079fc0bd77dab46fe": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xea6c7e4bf604bc7b362b556575923e0c5e1c6f1f": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb4c046680ceda5bf71b3ba196e9578b44312fdea": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x288931fa76d7b0482f0fd0bca9a50bf0d22b9fef": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x9217d33d9ad1a9c5f0b09bba4d47466ead444458": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x9fc4c30b78820f1adbe542a031f5b6a8f89db0be": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x45bf64fc90f65ee4ecc47c1b00b8f2fa797e7100": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x0901549bc297bcff4221d0ecfc0f718932205e33": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xee96724745c052b7ef462d814a5c33d4838bf9cd": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x61742df6f341f84c59c408d203e7bd38be3b85b0": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x0eae044f00b0af300500f090ea00027097d03000": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x7be57cec3c9fbef1663e4878bddacd960d4ee9ef": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x36c4e6f0aedc443caca66ec1bec166834587a4c9": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x130c2c0764be2def34b9d65005609ac1e4b8139a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x00000000e4fe87d59da8286c93649643bc68f996": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x9611c51e069272b650ee5c22602cdc30e26a57ac": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x5201883feeb05822ce25c9af8ab41fc78ca73fa9": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xa6519d62471b77afb719d0a7bd3e30c7becbd095": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x95c545c3faec8ee932cd3d42c1e45b57d3622e2b": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xa8db2bd73c79da50f7d9453aa9f9a4431921cd65": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xbe70b7c2f6e13f28bc90c460cb75a8e5d316c749": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xcdd37ada79f589c15bd4f8fd2083dc88e34a2af2": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf43f53a3cf53ae44cb15bfecac700d0d7f5c83f9": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xa6cc3c2531fdaa6ae1a3ca84c2855806728693e8": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xaec539a116fa75e8bdcf016d3c146a25bc1af93b": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x25860e620b076fd16473d5201156f178b2533ad1": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xec0b42d861aa350ff06a8ab78c5d92c9bad604c7": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xdc7d8cc3a22fe0ec69770e02931f43451b7b975e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x55daaea3c636b4c00da79451b6432ed02e171b43": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xfdb861d20e90df1574b258a991a274bad15ee72a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x9f236ce1db4fbc7c167c37f01990105802994010": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xbdda50b54a361a7807b98f750bb71a4184e3f666": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb82eba476027e4a41436a5b9275372f4063db4dc": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb9b05fe6585ed123910cd3cfa11bbb90941f5f42": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x06b94cba55bcfbade94c1a84d877c7fee101664d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x4178ccf4ad82a117347eb0afe3a37243eb04f588": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xccbf87a238391f752d594cf9407099456053fa02": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xd370c6b84435ffe3edf0441b53cb278be42dc673": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xfa01d53f01edbc622ab4a5553ef3b93e35edb4f5": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xddf8da887a1d5c07d05a948856b79dab091efc78": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf7d31825946e7fd99ef07212d34b9dad84c396b7": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb433749aa1abb8353b6af29d8b985fa178864117": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xebf31aac31ec71db5bf4b7ecf9957849e20d8a13": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x5f0bee213e5dc3f7b7ca2a9d0b854468974802c4": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x0e113904cb1d53cabb324927dffae2f8f6705111": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x5d3260514f59bb459f639c8dabd93649bfa8d995": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x3ce57f502def98e58c41bdf432bb701bc7d88fd8": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x83762d2ba601bb7424b9d60b03c08775fba3ae71": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x656e479691100014863689b528ca164f2d80a9b1": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x8abdcef84a78497416d476d3424d930d65b453bf": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x25eaea36100a4581c550e487ae08e0767cf253b9": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x835b94f20d5858a234f3bd1d36d1597fc09e12a6": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xe24c8123c8054fb9e8c53496948c34ea59914cdf": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x68842ccd38fac9a4f79606efffcf9e8bad7bd3e7": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xd10c70000bb40b1c4579b522a7597eb8db2d10a7": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x320345c9965b8a41054627a5d71591c37294cf17": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x388dc90403fd444bc02208a7ab3759baeb63141e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x48392728a3fb0ef6e994c655ffb71dbfe8a5253d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x271779b1e3a19c0fb8832795428574f86fcdd83b": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xd936aee17bb23f3eb0fd645245c31e9e2ef65f8c": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xef574b411182692c92ad426c114ca07c4c4f550a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xfb3485c2e209a5cfbdc1447674256578f1a80ee3": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xd688b62ff99122a34a1883be2e49808a9283afe0": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xa1f0aca0fade2e7c5fbc6694aa288478a05bbb18": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xb4c8177a1864240f81bf4897e7c08839036d0d69": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xdf129c6607b6366e68cb352debd13b324a99ff5c": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x0000000000a84d1a9b0063a910315c7ffa9cd248": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xe6ccf64a728afaff2471f568fe3c9c5014c5d47d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x1166ed79a1a94db2a6c157b944fcbd04af5a21eb": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x2f6d96e17bdae380d0b6b738c2090b9ebf57e4da": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf71530c1f043703085b42608ff9dcccc43210a8e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x1398cf6c71ff4adf23e81ce9bf8838c54edb71a9": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x1e036bbc89d5fa75c7c32ea3d27af06a0caf3948": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x8d915b30381bbe153124f852b3c3b74f01d1f043": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xa80db00007020e013fa10d0560700c0018003b8b": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xfbd66f7e8039fdfa82a69cb3543c627f29942e5a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x018f36c405e98799dabd78ed69686a35aa0b2712": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf24f5e3705014960aa69c495ea3ebee0d97fd3fd": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf8c16ccd432f573ab135c92e644281327979dee4": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xa1e6f3313535205ea1f983b973d27c7bd4327229": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xdd81bea6fa9ac29187aeb2fb97dddf99fb0e6630": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x4aa277b0cc5e556fffb3710212dc252999646d70": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x6f9ff76474f0fda4c049a8f1bc913a1c5c3a0a0c": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x819f3450da6f110ba6ea52195b3beafa246062de": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x8211a92ea17369952b6f3f08e47968812627dc7e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xef6fa3307af6ab6ddcc4826c4945041dd5c18d4b": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xfbd25c369b45caf7cb64cacdc904bc9f60bd56d5": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xc2842c30cea6e373a208a0fde79af75cabc8ff07": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x021b60f29f192f59587b89cea87d82b70d69969c": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x71c08a09209438d9724c5bcc1685b6010dfd1092": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x4d38ab1832b8caed218f8cbb77d3a621ce63205b": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xfeeea149ddc94b172ef6f8d04a712c550958b4fb": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xbfbb6b0341f73380906cd4af13895360465fb53e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x284cb18f03eded45bcec27988a0c82cddf15f691": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x2892b9f1695059f0a69723cd9d7a789757a29140": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x9807ac1ec740b1b86fd947c94c7b9a9f326d2663": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xe30df233048fb35902d2dd2a1876f35447c00099": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x6754ac75ab31b76ce57192362c1ee362b8549f14": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xee956511a3819339b22314ae18f95bb75c3d7160": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x41e1dd7579240be36756f84cb012f8a26515cfdf": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x54d07cfa91f05fe3b45d8810fef05705117afe53": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x5ee28853547b5733f72f40bd54f5d55ae54cce52": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x28136a2530ebcf4298dfe551a1d78a33071ea459": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x6f338a5f83ae312ada79de1c5fc84f49a228ea3a": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xf9ba5a5ec068a347a021efd32977e49a2724feb0": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x983f69b28f59bec7c166b9d61ffc7b37de9b303e": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x56178a0d5f301baf6cf3e1cd53d9863437345bf9": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xa57bd00134b2850b2a1c55860c9e9ea100fdd6cf": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x03180215daa2759cbc86f2e487b25cca2883566d": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x872e5124506c40acc7dfbf269b8632bd351e86ab": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0xe13ccb8c29e1a921cbd70e1dd5cfe802f9f9d415": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  },
+  "0x5492a302991751fd6b5c051d85be48acc9fec4d3": {
+    "protocols": [
+      "uniswap"
+    ],
+    "roles": {
+      "uniswap": {
+        "lp": false,
+        "swap": true
+      }
+    }
+  }
+}

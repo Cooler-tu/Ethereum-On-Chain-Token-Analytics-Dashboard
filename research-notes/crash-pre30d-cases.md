@@ -1,14 +1,17 @@
 # Crash cases — 30 days before incident
 
-Windows are `[incident-216000, incident]` with `--incident-block` set to the crash block.
-Index is Dune-only. These are sudden-crash / collapse events with prior trading history;
+The original screening windows used `[incident-216000, incident]` as an approximate
+30-day range. Formal validation now uses exact UTC-duration windows because Ethereum
+block time changed around the Merge. The current Dune SQL execution endpoint is
+deprecated, so the FTT pilot uses curated pools plus RPC indexing. These are
+sudden-crash / collapse events with prior trading history;
 one-day rugs (e.g. ApeMars APRZ, listed 2026-06-06 and dumped 2026-06-07) are excluded
 because the pre-30d window would be mostly empty.
 
 | Token | Why this event | Incident (UTC) | `--incident-block` | `--from-block` | Output |
 |---|---|---|---:|---:|---|
 | OM (MANTRA) | ~90% in ~1h (CEX liquidation cascade; DEX still a control) | 2025-04-13 18:28 | 22261846 | 22045846 | `output-om-crash-pre30d` |
-| FTT | FTX collapse | 2022-11-08 16:00 | 15926371 | 15710371 | `output-ftt-crash-pre30d` |
+| FTT | FTX collapse | 2022-11-08 16:00 | 15926371 | 15711590 (exact 30-day UTC start) | `output-ftt-crash-30d` |
 | CEL | Celsius paused withdrawals | 2022-06-13 12:00 | 14955880 | 14739880 | `output-cel-crash-pre30d` |
 | CREDI | ~97% down from 2025-08-08 ATH | 2025-08-08 22:18 | 23099271 | 22883271 | `output-credi-crash-pre30d` |
 
@@ -22,3 +25,6 @@ Contracts:
 OM/FTT/CEL dumps were largely CEX-driven; this pipeline only sees DEX pools. Treat
 DEX-side concentration / withdrawals as incomplete evidence, not the full crash
 mechanism.
+
+Selection results and the frozen FTT/control design are in
+`research-notes/ftt-crash-control-preregistration.md`.

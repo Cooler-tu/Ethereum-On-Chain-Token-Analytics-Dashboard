@@ -194,6 +194,9 @@ def _new_flow() -> dict[str, Any]:
         "_remove_quantified": 0,
         "_lp_actors": set(),
         "_lp_identity_events": 0,
+        "actual_transfer_in_token": 0.0,
+        "actual_transfer_out_token": 0.0,
+        "_pool_transfer_events": 0,
     }
 
 
@@ -338,6 +341,18 @@ def _finish_flow(flow: Optional[dict[str, Any]]) -> dict[str, Any]:
         if add_amount is not None and remove_amount is not None
         else None
     )
+    gross_lp_activity = (
+        add_amount + remove_amount
+        if add_amount is not None and remove_amount is not None
+        else None
+    )
+    recycling_share = (
+        2 * min(add_amount, remove_amount) / gross_lp_activity
+        if gross_lp_activity not in (None, 0)
+        else None
+    )
+    transfer_in = float(value["actual_transfer_in_token"] or 0)
+    transfer_out = float(value["actual_transfer_out_token"] or 0)
     return {
         "price_open": value["price_open"],
         "price_high": value["price_high"],
@@ -361,6 +376,8 @@ def _finish_flow(flow: Optional[dict[str, Any]]) -> dict[str, Any]:
         "liquidity_added_token": add_amount,
         "liquidity_removed_token": remove_amount,
         "net_lp_flow_token": net_amount,
+        "gross_lp_activity_token": gross_lp_activity,
+        "recycling_share": recycling_share,
         "lp_add_event_count": add_events,
         "lp_remove_event_count": remove_events,
         "active_lp_count": (
@@ -383,6 +400,10 @@ def _finish_flow(flow: Optional[dict[str, Any]]) -> dict[str, Any]:
             if remove_events
             else None
         ),
+        "actual_transfer_in_token": transfer_in,
+        "actual_transfer_out_token": transfer_out,
+        "actual_transfer_net_token": transfer_in - transfer_out,
+        "pool_transfer_event_count": int(value["_pool_transfer_events"] or 0),
     }
 
 
@@ -399,6 +420,7 @@ def build_analysis_series(
     bucket_seconds: int = 3600,
     tvl_source: str = "",
     lp_identity_available: bool = True,
+    transfers: Optional[Iterable[dict[str, Any]]] = None,
 ) -> list[dict[str, Any]]:
     """Return pool-level and token-total rows aligned to fixed time buckets."""
     seconds = int(bucket_seconds or 0)
@@ -446,6 +468,45 @@ def build_analysis_series(
         all_buckets.add(bucket)
         _update_liquidity_flow(flows[(bucket, meta.identifier)], row, amount)
         _update_liquidity_flow(flows[(bucket, None)], row, amount)
+
+    for row in transfers or []:
+        if str(row.get("event_type") or "").upper() not in {
+            "TOKEN_TRANSFER", "TRANSFER"
+        }:
+            continue
+        bucket = _bucket(row.get("block_timestamp"), seconds)
+        if not bucket:
+            continue
+        try:
+            amount = abs(int(row.get("token0_amount") or 0)) / scale
+        except (TypeError, ValueError):
+            continue
+        sender = _lower(row.get("actor") or row.get("from"))
+        recipient = _lower(row.get("recipient") or row.get("to"))
+        inbound_ids = aliases.get(recipient, set())
+        outbound_ids = aliases.get(sender, set())
+        if not inbound_ids and not outbound_ids:
+            continue
+        all_buckets.add(bucket)
+        total_in = 0.0
+        total_out = 0.0
+        touched: set[str] = set()
+        for identifier in inbound_ids:
+            observed_pools.add(identifier)
+            touched.add(identifier)
+            flows[(bucket, identifier)]["actual_transfer_in_token"] += amount
+            total_in += amount
+        for identifier in outbound_ids:
+            observed_pools.add(identifier)
+            touched.add(identifier)
+            flows[(bucket, identifier)]["actual_transfer_out_token"] += amount
+            total_out += amount
+        for identifier in touched:
+            flows[(bucket, identifier)]["_pool_transfer_events"] += 1
+        total_flow = flows[(bucket, None)]
+        total_flow["actual_transfer_in_token"] += total_in
+        total_flow["actual_transfer_out_token"] += total_out
+        total_flow["_pool_transfer_events"] += 1
 
     latest_tvl: dict[tuple[int, str], tuple[tuple[int, int, int], dict[str, Any]]] = {}
     for row in tvl_timeline or []:
@@ -499,6 +560,7 @@ def build_analysis_series(
                 flow["swap_count"]
                 or flow["lp_add_event_count"]
                 or flow["lp_remove_event_count"]
+                or flow["pool_transfer_event_count"]
             )
             if state is None and not has_activity:
                 continue
@@ -543,7 +605,12 @@ def build_analysis_series(
         if not lp_identity_available:
             total_flow["active_lp_count"] = None
             total_flow["lp_identity_coverage"] = None
-        if pool_output or total_state is not None or total_flow["swap_count"]:
+        if (
+            pool_output
+            or total_state is not None
+            or total_flow["swap_count"]
+            or total_flow["pool_transfer_event_count"]
+        ):
             total = _base_row(
                 chain_id=chain_id,
                 target_token=target_token,
@@ -662,17 +729,25 @@ def _base_row(
         "liquidity_added_token": flow["liquidity_added_token"],
         "liquidity_removed_token": flow["liquidity_removed_token"],
         "net_lp_flow_token": flow["net_lp_flow_token"],
+        "gross_lp_activity_token": flow["gross_lp_activity_token"],
+        "recycling_share": flow["recycling_share"],
         "lp_add_event_count": flow["lp_add_event_count"],
         "lp_remove_event_count": flow["lp_remove_event_count"],
         "active_lp_count": flow["active_lp_count"],
         "lp_identity_coverage": flow["lp_identity_coverage"],
         "liquidity_add_amount_coverage": flow["liquidity_add_amount_coverage"],
         "withdrawal_amount_coverage": flow["withdrawal_amount_coverage"],
+        "actual_transfer_in_token": flow["actual_transfer_in_token"],
+        "actual_transfer_out_token": flow["actual_transfer_out_token"],
+        "actual_transfer_net_token": flow["actual_transfer_net_token"],
+        "pool_transfer_event_count": flow["pool_transfer_event_count"],
         "measured_pool_count": 1 if state else 0,
         "verified_pool_count": 1 if meta else 0,
         "price_return": None,
         "tvl_change": None,
         "net_lp_flow_ratio": None,
+        "gross_lp_activity_ratio": None,
+        "actual_transfer_net_ratio": None,
         "withdrawal_ratio": None,
         "volume_turnover": None,
         "close_vwap_gap": (
@@ -711,7 +786,15 @@ def _add_derived_features(rows: list[dict[str, Any]]) -> None:
             if prior_tvl and prior_tvl > 0:
                 net = _float(row.get("net_lp_flow_token"))
                 removed = _float(row.get("liquidity_removed_token"))
+                gross_lp = _float(row.get("gross_lp_activity_token"))
+                transfer_net = _float(row.get("actual_transfer_net_token"))
                 row["net_lp_flow_ratio"] = net / prior_tvl if net is not None else None
+                row["gross_lp_activity_ratio"] = (
+                    gross_lp / prior_tvl if gross_lp is not None else None
+                )
+                row["actual_transfer_net_ratio"] = (
+                    transfer_net / prior_tvl if transfer_net is not None else None
+                )
                 row["withdrawal_ratio"] = (
                     removed / prior_tvl if removed is not None else None
                 )
@@ -740,14 +823,22 @@ _PREVIEW_COLUMNS = (
     "liquidity_added_token",
     "liquidity_removed_token",
     "net_lp_flow_token",
+    "gross_lp_activity_token",
+    "recycling_share",
     "lp_add_event_count",
     "lp_remove_event_count",
     "active_lp_count",
     "lp_identity_coverage",
     "withdrawal_amount_coverage",
+    "actual_transfer_in_token",
+    "actual_transfer_out_token",
+    "actual_transfer_net_token",
+    "pool_transfer_event_count",
     "price_return",
     "tvl_change",
     "net_lp_flow_ratio",
+    "gross_lp_activity_ratio",
+    "actual_transfer_net_ratio",
     "withdrawal_ratio",
     "volume_turnover",
     "close_vwap_gap",

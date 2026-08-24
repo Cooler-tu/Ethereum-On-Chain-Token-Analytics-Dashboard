@@ -1,0 +1,2764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FTX Token Token Dashboard</title>
+<meta name="description" content="On-chain liquidity and holdings analysis for FTX Token on Ethereum mainnet.">
+<meta property="og:title" content="FTX Token Token Dashboard">
+<meta property="og:description" content="On-chain liquidity and holdings analysis for FTX Token.">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0f172a;--card:#1e293b;--border:#334155;--text:#f1f5f9;--text-muted:#94a3b8;--text-dim:#64748b;--accent:#3b82f6;--accent-light:#60a5fa;--green:#4ade80;--yellow:#facc15;--red:#f87171;--radius:10px;--shadow:0 4px 24px rgba(0,0,0,0.25)}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);padding:20px;min-height:100vh}
+.container{max-width:1400px;margin:0 auto}
+h1{font-size:24px;font-weight:700;letter-spacing:-0.3px}
+.symbol-muted{color:var(--text-muted);font-weight:400}
+.subtitle{color:var(--text-muted);font-size:13px;margin-bottom:20px}
+.nav-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.brand{font-size:18px;font-weight:700}
+.brand a{color:inherit;text-decoration:none}
+.brand a:hover{color:var(--accent-light)}
+.brand-accent{color:var(--accent)}
+.nav-links a{color:var(--text-dim);text-decoration:none;font-size:13px;margin-left:20px;transition:color 0.2s}
+.nav-links a:hover,.nav-links a.active{color:var(--accent-light)}
+.nav-links a.active{font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:18px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+.card h2{font-size:12px;color:var(--text-muted);margin-bottom:14px;text-transform:uppercase;letter-spacing:0.6px;font-weight:600}
+.stat-value{font-size:30px;font-weight:700;color:var(--text)}
+.stat-label{font-size:12px;color:var(--text-dim);margin-top:2px}
+.stat-note{font-size:10px;color:var(--text-dim);margin-top:4px;opacity:.85}
+.badge{display:inline-block;padding:3px 16px;border-radius:20px;font-weight:600;font-size:13px}
+.method-badge{display:inline-block;margin-left:8px;padding:2px 7px;border-radius:999px;font-size:10px;font-weight:600;vertical-align:2px;text-transform:uppercase;letter-spacing:.35px}
+.method-snapshot{background:rgba(34,197,94,.13);color:var(--green)}
+.method-reconstructed{background:rgba(250,204,21,.13);color:var(--yellow)}
+.method-unavailable{background:rgba(100,116,139,.13);color:var(--text-muted)}
+.bg-low{background:rgba(34,197,94,0.12);color:var(--green)}
+.bg-medium{background:rgba(250,204,21,0.12);color:var(--yellow)}
+.bg-high{background:rgba(239,68,68,0.12);color:var(--red)}
+.bg-n-a{background:rgba(100,116,139,0.12);color:var(--text-muted)}
+.fw{grid-column:1/-1}
+.chart-box{position:relative;height:260px;width:100%}
+.chart-box-sm{position:relative;height:200px;width:100%}
+.pools-layout{display:grid;grid-template-columns:minmax(0,1fr) 230px;gap:14px;align-items:start}
+@media (max-width:980px){.pools-layout{grid-template-columns:1fr}}
+.pool-reserve-side{border:1px solid var(--border);border-radius:8px;padding:12px;background:rgba(15,23,42,0.35)}
+.pool-reserve-side-title{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;font-weight:600;margin-bottom:8px}
+.pool-reserve-side-note{font-size:10px;color:var(--text-dim);line-height:1.4;margin-top:8px}
+.pool-reserve-mini{position:relative;height:190px;width:100%}
+.token-pair{display:inline-flex;align-items:center;gap:4px;flex-wrap:wrap}
+.token-pair .pair-sep{color:var(--text-dim);font-weight:600}
+.point-details{margin-top:14px;padding:14px;background:rgba(15,23,42,0.65);border:1px solid var(--border);border-radius:8px}
+.point-details-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.point-details-title{font-size:13px;font-weight:600;color:var(--text)}
+.point-details-meta{font-size:12px;color:var(--text-dim);margin-bottom:10px}
+.detail-summary{font-size:12px;color:var(--text-muted);margin-bottom:4px}
+.detail-summary strong{color:var(--text)}
+.close-btn{border:1px solid var(--border);background:transparent;color:var(--text-muted);width:26px;height:26px;border-radius:6px;font-size:16px;line-height:1;cursor:pointer;flex:0 0 auto}
+.close-btn:hover{color:var(--text);border-color:var(--accent)}
+.muted{color:var(--text-dim)}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{text-align:left;padding:8px 6px;border-bottom:1px solid var(--border);color:var(--text-dim);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:0.5px}
+td{padding:6px;border-bottom:1px solid #1e293b;color:#cbd5e1}
+tr:hover td{background:rgba(59,130,246,0.04)}
+.addr{font-family:'SF Mono','Fira Code','Cascadia Code','Courier New',monospace;font-size:11px;color:var(--accent-light);word-break:break-all}
+.identifier-wrap{display:inline-flex;align-items:center;gap:4px;max-width:100%}
+.identifier-copy{appearance:none;border:0;background:transparent;padding:2px 3px;border-radius:4px;cursor:pointer;white-space:nowrap;line-height:1.35}
+.identifier-copy:hover,.identifier-copy:focus-visible{background:rgba(96,165,250,.12);outline:none;color:#93c5fd}
+.identifier-copy:focus-visible{box-shadow:0 0 0 2px rgba(96,165,250,.45)}
+.identifier-link{display:inline-flex;align-items:center;justify-content:center;color:var(--text-dim);text-decoration:none;font-size:12px;width:18px;height:18px;border-radius:4px}
+.identifier-link:hover,.identifier-link:focus-visible{color:var(--accent-light);background:rgba(96,165,250,.12);outline:none}
+.identifier-tooltip{position:fixed;z-index:1000;max-width:min(620px,calc(100vw - 24px));padding:7px 9px;border:1px solid var(--border);border-radius:6px;background:#020617;color:var(--text);box-shadow:var(--shadow);font:11px/1.4 'SF Mono','Fira Code','Cascadia Code','Courier New',monospace;overflow-wrap:anywhere;pointer-events:none}
+.copy-toast{position:fixed;right:20px;bottom:20px;z-index:1100;padding:10px 14px;border:1px solid rgba(74,222,128,.35);border-radius:8px;background:#052e16;color:#bbf7d0;box-shadow:var(--shadow);font-size:12px;opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .16s,transform .16s}
+.copy-toast.copy-toast-visible{opacity:1;transform:translateY(0)}
+.copy-toast.copy-toast-error{border-color:rgba(248,113,113,.35);background:#450a0a;color:#fecaca}
+.plabel{display:inline-block;padding:1px 8px;border-radius:4px;font-size:10px;font-weight:600;background:rgba(96,165,250,0.12);color:var(--accent-light)}
+.scroll{max-height:360px;overflow-y:auto}
+.scroll::-webkit-scrollbar{width:5px}
+.scroll::-webkit-scrollbar-track{background:transparent}
+.scroll::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+.glow{box-shadow:0 0 30px rgba(59,130,246,0.06)}
+.info-bar{display:flex;flex-wrap:wrap;gap:12px 24px;margin-bottom:20px;padding:12px 16px;background:var(--card);border:1px solid var(--border);border-radius:8px}
+.info-item{font-size:12px;color:var(--text-muted)}
+.info-item span{color:var(--text);font-weight:500}
+.coverage-note{margin:-4px 0 14px;padding:10px 12px;border:1px solid rgba(250,204,21,.24);border-radius:7px;background:rgba(250,204,21,.07);font-size:12px;line-height:1.55;color:var(--text-muted)}
+.coverage-note strong{display:block;color:var(--yellow);margin-bottom:2px}
+.coverage-inline{color:var(--yellow);font-weight:600}
+.not-measured{color:var(--text-dim);font-style:italic;white-space:nowrap}
+.amount-missing{display:inline-block;padding:3px 7px;border-radius:5px;background:rgba(250,204,21,.10);color:var(--yellow);font-size:11px;font-weight:600;font-style:normal;white-space:nowrap}
+.cannot-calculate{color:var(--text-dim);font-size:11px;white-space:nowrap}
+.measured-share{white-space:nowrap;color:var(--text)}
+.measured-share small{color:var(--text-dim);font-size:10px}
+.empty-note{padding:12px 16px;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);border-radius:8px;color:var(--red);font-size:13px;margin-bottom:16px}
+.footer{margin-top:32px;padding:16px;border-top:1px solid var(--border);text-align:center;font-size:12px;color:var(--text-dim)}
+.footer a{color:var(--accent-light);text-decoration:none}
+.holder-row{cursor:pointer;transition:background .15s}
+.holder-row:hover{background:var(--bg-card-hover,#1e293b)}
+.expand-icon{display:inline-block;width:20px;height:20px;line-height:18px;text-align:center;border-radius:4px;background:var(--bg-card,#0f172a);color:var(--accent);font-weight:700;font-size:14px;transition:transform .2s}
+.badge-eoa{display:inline-block;padding:2px 6px;border-radius:4px;font-size:11px;font-weight:600;background:rgba(34,197,94,.15);color:#22c55e}
+.badge-contract{display:inline-block;padding:2px 6px;border-radius:4px;font-size:11px;font-weight:600;background:rgba(234,179,8,.15);color:#eab308}
+.badge-pool{display:inline-block;padding:2px 6px;border-radius:4px;font-size:11px;font-weight:600;background:rgba(59,130,246,.15);color:#3b82f6}
+.badge-uniswap{display:inline-block;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:600;background:rgba(255,0,122,.15);color:#ff007a;margin:1px}
+.badge-curve{display:inline-block;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:600;background:rgba(0,0,0,.35);color:#a0aec0;margin:1px;border:1px solid #4a5568}
+.badge-balancer{display:inline-block;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:600;background:rgba(30,144,255,.15);color:#1e90ff;margin:1px}
+.badge-dex-other{display:inline-block;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:600;background:rgba(148,163,184,.15);color:#94a3b8;margin:1px}
+.dex-muted{color:var(--text-dim);font-size:11px}
+.portfolio-row>td{padding:0!important;background:var(--bg-card,#0f172a)}
+.portfolio-inner{padding:12px 16px 16px}
+.portfolio-table{width:100%;border-collapse:collapse;font-size:12px}
+.portfolio-table th{padding:6px 8px;text-align:left;color:var(--text-dim);border-bottom:1px solid var(--border);font-weight:600}
+.portfolio-table td{padding:5px 8px;border-bottom:1px solid rgba(255,255,255,.04);color:var(--text)}
+.portfolio-table tr:last-child td{border-bottom:none}
+.no-positions{padding:16px;text-align:center;color:var(--text-dim);font-size:13px}
+@media(max-width:640px){.grid{grid-template-columns:1fr}.nav-bar{flex-direction:column;gap:10px;align-items:flex-start}.nav-links a{margin-left:0;margin-right:14px}.stat-value{font-size:24px}}
+</style>
+</head>
+<body>
+<div class="container">
+  <nav class="nav-bar">
+    <div class="brand"><a id="nav-home-brand" href="../"><span class="brand-accent">On-Chain</span> Token Crash</a></div>
+    <div class="nav-links">
+      <a id="nav-home" href="../">Home</a>
+      <a href="#" class="active">Dashboard</a>
+      <a href="https://github.com/Cooler-tu/On-Chain-Token-Crash-Liquidity-Analysis" target="_blank">GitHub</a>
+    </div>
+  </nav>
+  <script>
+  (function(){{
+    var path = location.pathname || "";
+    var home = (path.indexOf("/run/") !== -1 || path === "/" || path === "/index.html") ? "/" : "../";
+    ["nav-home", "nav-home-brand"].forEach(function(id){{
+      var el = document.getElementById(id);
+      if (el) el.href = home;
+    }});
+  }})();
+  </script>
+
+  <h1>FTX Token <span class="symbol-muted">Holdings &amp; Liquidity</span></h1>
+  <p class="subtitle">Chain ID: 1 &middot; Token: <span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0x50D1c9771902476076eCFc8B2A83Ad6b9355a4c9" aria-label="Copy full identifier 0x50D1c9771902476076eCFc8B2A83Ad6b9355a4c9" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">FTX Token</button><a class="identifier-link" href="https://etherscan.io/address/0x50D1c9771902476076eCFc8B2A83Ad6b9355a4c9" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0x50D1c9771902476076eCFc8B2A83Ad6b9355a4c9 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></p>
+  
+
+  <div class="info-bar">
+    <div class="info-item">Blocks &middot; <span>15,711,590 → 15,926,371</span></div>
+    <div class="info-item">Balance query &middot; <span>2026-08-24 09:40:29 UTC</span></div>
+    <div class="info-item">Balance coverage &middot; <span>3 / 3 addresses (100.0%)</span></div>
+    <div class="info-item">Balance source &middot; <span>RPC</span></div>
+    <div class="info-item">Token &middot; <span>FTT</span></div>
+    <div class="info-item">Decimals &middot; <span>18</span> <span style="opacity:.6">(onchain)</span></div>
+
+  </div>
+<div class="coverage-note"><strong>LP NFT identity not collected</strong>V3/V4 Position Manager event history was intentionally skipped for this run. Pool-level Swap/Mint/Burn/Collect data remains available; missing LP identities do not mean zero LP activity.</div>
+
+  <div class="grid">
+    <div class="card glow">
+      <div class="stat-value">3</div>
+      <div class="stat-label">Unique Transfer Addresses</div>
+    </div>
+    <div class="card glow">
+      <div class="stat-value">0</div>
+      <div class="stat-label">Positive-Balance Holders</div>
+      <div class="stat-note">Non-pool addresses in covered rows</div>
+    </div>
+    <div class="card glow">
+      <div class="stat-value">3</div>
+      <div class="stat-label">Verified Liquidity Pools</div>
+    </div>
+    <div class="card glow">
+      <div class="stat-value"><span class="badge bg-low">LOW</span></div>
+      <div class="stat-label">Risk Index &middot; Score <span style="color:#facc15">0.2758</span></div>
+      <div class="stat-note">raw = 0.15·pool + 0.15·lp + 0.20·withdrawal + 0.15·temporal + 0.15·role + 0.15·impact + 0.05·activity</div>
+      <div class="stat-note">final = clamp(raw − migration, 0, 1) × confidence · not a crash probability · LOW &lt; 0.40 · MEDIUM 0.40–0.70 · HIGH ≥ 0.70</div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Positive Holder Distribution</h2>
+      <div class="chart-box-sm"><canvas id="c1"></canvas></div>
+    </div>
+    <div class="card">
+      <h2>Measured Pool Concentration</h2>
+      <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 8px;line-height:1.5"><span class="coverage-inline">Coverage · 3 of 3 verified pools measured (100.0%)</span><br>Main measured liquidity pool: <span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" aria-label="Copy full identifier 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · FTX Token/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span> (60.28%) · Main volume pool: <span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b" aria-label="Copy full identifier 0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · FTX Token/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span> (83.45%)</p>
+      <div class="chart-box-sm"><canvas id="c2"></canvas></div>
+    </div>
+    <div class="card">
+      <h2>Top 0 Non-Pool Holders</h2>
+      <p style="font-size:11px;color:var(--text-dim);margin:-8px 0 8px">Positive end balances, ranked highest to lowest &middot; Hover for the full address and balance &middot; Click a bar to copy.</p>
+      <div class="chart-box-sm"><canvas id="c3"></canvas></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Price Timeline (WETH per FTX Token)</h2>
+      <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 10px">Swap-derived quote-token price per pool; this is not USD unless the heading says USD.</p>
+      <div class="chart-box"><canvas id="c5"></canvas></div>
+    </div>
+    <div class="card">
+      <h2>Trading Volume by Pool</h2>
+      <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 10px">Volume in FTX Token; stacked by pool. Same time bucket as price &amp; TVL (daily buckets (month)).</p>
+      <div class="chart-box"><canvas id="c6"></canvas></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card fw">
+      <h2>Top 0 Non-Pool Holders by End Balance</h2>
+      <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 6px">Pool and DEX custody addresses are excluded. Positive end balances are ranked from highest to lowest among addresses covered by the balance query. EOA and contract addresses may both appear; this is not a complete holder census when coverage is partial.</p>
+      <p style="font-size:11px;color:var(--text-dim);margin:0 0 12px">DEX = touched that venue in this window (LP, swap, pool transfer, or same tx as a pool trade). “—” = only P2P / no DEX link found here.<br><span style="opacity:.85">Snapshot blocks: start 15,711,590 → end 15,926,371 · 0 addresses via Dune historical snapshot · 0 addresses with event-flow peak/trajectory · source: rpc · 3 balance-covered; 0 unqueried/zero-filled · positive-holder count excludes pools and zero-filled rows</span></p>
+      <div class="scroll"><table><thead><tr><th>#</th><th>Address</th><th>Type</th><th>DEX</th><th>End Balance (FTX Token)</th><th>Start Balance</th><th>Net Change</th><th>Peak</th><th>Tx Count</th><th></th></tr></thead><tbody><tr><td colspan="10" style="text-align:center;padding:24px;color:#64748b">No holder data available</td></tr></tbody></table></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card fw">
+      <h2>All Verified Pools</h2>
+      <div class="coverage-note"><strong>Coverage · 3 of 3 verified pools measured (100.0%)</strong>The percentages below compare all verified pools.<br>End-block on-chain estimate · Block 15,926,371. Estimated pool liquidity is expressed in target-token units, not USD. “Not measured” does not mean zero liquidity. Observed Token Reserve is the target-token balance at the pool or custody address (not LP count or full USD TVL); V4 may use a shared PoolManager balance.</div>
+      <div class="pools-layout">
+        <div class="scroll"><table><thead><tr><th>Pool Address</th><th>Protocol / Version</th><th>Token Pair</th><th>Observed Token Reserve</th><th>Estimated Pool Liquidity (in FTX Token)</th><th>Volume (FTX Token)</th><th>Share Among Measured Pools (3/3)</th><th>Vol Share</th><th>In Holders</th></tr></thead><tbody><tr><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xF04543fBF20DAEE9B0357db966428EF2A4Ae0F5A" aria-label="Copy full identifier 0xF04543fBF20DAEE9B0357db966428EF2A4Ae0F5A" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v2 · FTX Token/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0xF04543fBF20DAEE9B0357db966428EF2A4Ae0F5A" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xF04543fBF20DAEE9B0357db966428EF2A4Ae0F5A in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td>uniswap v2</td><td><span class="token-pair"><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0x50D1c9771902476076eCFc8B2A83Ad6b9355a4c9" aria-label="Copy full identifier 0x50D1c9771902476076eCFc8B2A83Ad6b9355a4c9" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">FTX Token</button><a class="identifier-link" href="https://etherscan.io/address/0x50D1c9771902476076eCFc8B2A83Ad6b9355a4c9" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0x50D1c9771902476076eCFc8B2A83Ad6b9355a4c9 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span><span class="pair-sep">/</span><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2" aria-label="Copy full identifier 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">WETH</button><a class="identifier-link" href="https://etherscan.io/address/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></span></td><td>1.63K FTX Token (4.86%)</td><td>3.26K FTX Token</td><td>21.29K FTX Token</td><td><span class="measured-share">4.9% <small>of measured liquidity</small></span></td><td>3.32%</td><td>Yes</td></tr>
+<tr><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" aria-label="Copy full identifier 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · FTX Token/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td>uniswap v3</td><td><span class="token-pair"><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0x50D1c9771902476076eCFc8B2A83Ad6b9355a4c9" aria-label="Copy full identifier 0x50D1c9771902476076eCFc8B2A83Ad6b9355a4c9" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">FTX Token</button><a class="identifier-link" href="https://etherscan.io/address/0x50D1c9771902476076eCFc8B2A83Ad6b9355a4c9" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0x50D1c9771902476076eCFc8B2A83Ad6b9355a4c9 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span><span class="pair-sep">/</span><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2" aria-label="Copy full identifier 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">WETH</button><a class="identifier-link" href="https://etherscan.io/address/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></span></td><td>20.17K FTX Token (60.28%)</td><td>40.33K FTX Token</td><td>534.52K FTX Token</td><td><span class="measured-share">60.3% <small>of measured liquidity</small></span></td><td>83.45%</td><td>Yes</td></tr>
+<tr><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0x9D2713fa2f387eD1284a4176E7841253B4Da2A71" aria-label="Copy full identifier 0x9D2713fa2f387eD1284a4176E7841253B4Da2A71" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · FTX Token/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0x9D2713fa2f387eD1284a4176E7841253B4Da2A71" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0x9D2713fa2f387eD1284a4176E7841253B4Da2A71 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td>uniswap v3</td><td><span class="token-pair"><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0x50D1c9771902476076eCFc8B2A83Ad6b9355a4c9" aria-label="Copy full identifier 0x50D1c9771902476076eCFc8B2A83Ad6b9355a4c9" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">FTX Token</button><a class="identifier-link" href="https://etherscan.io/address/0x50D1c9771902476076eCFc8B2A83Ad6b9355a4c9" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0x50D1c9771902476076eCFc8B2A83Ad6b9355a4c9 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span><span class="pair-sep">/</span><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2" aria-label="Copy full identifier 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">WETH</button><a class="identifier-link" href="https://etherscan.io/address/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></span></td><td>11.66K FTX Token (34.86%)</td><td>23.33K FTX Token</td><td>84.72K FTX Token</td><td><span class="measured-share">34.9% <small>of measured liquidity</small></span></td><td>13.23%</td><td>Yes</td></tr></tbody></table></div>
+<aside class="pool-reserve-side">
+        <div class="pool-reserve-side-title">Reserve share</div>
+        <div class="pool-reserve-mini"><canvas id="c7"></canvas></div>
+        <p class="pool-reserve-side-note">Observed target-token reserve mix across verified pools (same values as the Reserve column).</p>
+      </aside>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card fw">
+      <h2>Pool Target-Token Reserve Timeline (Total + Per Pool) <span class="method-badge method-snapshot">Target-token reserve snapshot</span></h2>
+      <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 10px">Historical RPC balanceOf snapshots show the target-token reserve held by each attributable pool. Values are in target-token units, not full two-sided USD TVL; local quote-price metadata does not supply a USD conversion by itself. Bucket configuration: daily buckets (month).</p>
+      <div class="chart-box"><canvas id="c4"></canvas></div>
+      <div id="tvl-details" class="point-details" style="display:none">
+        <div class="point-details-head">
+          <div id="tvl-detail-title" class="point-details-title"></div>
+          <button type="button" class="close-btn" onclick="closeTvlDetails()" aria-label="Close details">&times;</button>
+        </div>
+        <div id="tvl-detail-meta" class="point-details-meta"></div>
+        <div class="scroll">
+          <table>
+            <thead><tr><th>Pool</th><th>Protocol / Version</th><th>Observed Reserve (FTX Token)</th><th>Reserve Share</th><th>Price (USD)</th><th>Volume (FTX Token)</th><th>Volume (USD)</th></tr></thead>
+            <tbody id="tvl-detail-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card fw">
+      <h2>Liquidity Flow by Bucket (Gross Added, Gross Removed &amp; Net)</h2>
+      <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 10px">Green bars are measured target-token additions; red bars are measured removals plotted below zero; the blue line is net LP flow = added − removed. This is LP-event flow, not the same as pool reserve change: swaps and direct token transfers can also change pool balances.</p>
+      <div class="coverage-note"><strong>Measured LP-event flow</strong>94 adds · 68 removals · gross added 70.08K FTX Token · gross removed 64.45K FTX Token · net +5.62K FTX Token. Amount coverage: 162 known actions, 0 missing. Gross totals may count capital that is removed and re-added.</div>
+      <div class="chart-box"><canvas id="c8"></canvas></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card fw">
+      <h2>Liquidity Withdrawals</h2>
+      <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 12px">Read this table in two layers: a negative raw liquidity change confirms a removal action; calculating removed FTX Token, USD value, and TVL share additionally requires token amounts. Missing token amounts are never converted to zero.</p>
+<div class="coverage-note"><strong>68 removal actions detected</strong>Amount known: 68 · Amount missing: 0 · Pool mapping failed: 0. Every detected action in this window includes token amounts.</div>
+<div class="scroll"><table><thead><tr><th>Pool</th><th>Events</th><th>Removed (FTX Token)</th><th>Est. USD</th><th>% Pool TVL</th><th>Protocol</th></tr></thead><tbody><tr><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" aria-label="Copy full identifier 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · FTX Token/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td>34</td><td>50.46K FTX Token</td><td><span style="color:#64748b">—</span></td><td>125.11%</td><td>uniswap v3</td></tr>
+<tr><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0x9D2713fa2f387eD1284a4176E7841253B4Da2A71" aria-label="Copy full identifier 0x9D2713fa2f387eD1284a4176E7841253B4Da2A71" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · FTX Token/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0x9D2713fa2f387eD1284a4176E7841253B4Da2A71" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0x9D2713fa2f387eD1284a4176E7841253B4Da2A71 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td>15</td><td>13.98K FTX Token</td><td><span style="color:#64748b">—</span></td><td>59.92%</td><td>uniswap v3</td></tr>
+<tr><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xF04543fBF20DAEE9B0357db966428EF2A4Ae0F5A" aria-label="Copy full identifier 0xF04543fBF20DAEE9B0357db966428EF2A4Ae0F5A" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v2 · FTX Token/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0xF04543fBF20DAEE9B0357db966428EF2A4Ae0F5A" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xF04543fBF20DAEE9B0357db966428EF2A4Ae0F5A in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td>2</td><td>14.8303 FTX Token</td><td><span style="color:#64748b">—</span></td><td>0.46%</td><td>uniswap v2</td></tr></tbody></table></div>
+      <div class="scroll"><table><thead><tr><th>Block</th><th>Pool</th><th>Events</th><th>Actor / Scope</th><th>Raw Liquidity Change</th><th>Removed (FTX Token)</th><th>Est. USD</th><th>% Pool TVL</th><th>Protocol</th></tr></thead><tbody><tr><td>15926366</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" aria-label="Copy full identifier 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · FTX Token/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td>1</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xc36442b4a4522e871399cd717abdd847ab11fe88" aria-label="Copy full identifier 0xc36442b4a4522e871399cd717abdd847ab11fe88" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">0xc36442...fe88</button><a class="identifier-link" href="https://etherscan.io/address/0xc36442b4a4522e871399cd717abdd847ab11fe88" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xc36442b4a4522e871399cd717abdd847ab11fe88 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td><span title="-117807967717147819123">-117,807,967,717,147,819,123</span></td><td>359.4823 FTX Token</td><td><span style="color:#64748b">—</span></td><td>0.89%</td><td>uniswap v3</td></tr>
+<tr><td>15926334</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" aria-label="Copy full identifier 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · FTX Token/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td>1</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xc36442b4a4522e871399cd717abdd847ab11fe88" aria-label="Copy full identifier 0xc36442b4a4522e871399cd717abdd847ab11fe88" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">0xc36442...fe88</button><a class="identifier-link" href="https://etherscan.io/address/0xc36442b4a4522e871399cd717abdd847ab11fe88" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xc36442b4a4522e871399cd717abdd847ab11fe88 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td><span title="-1466348998740706786478">-1,466,348,998,740,706,786,478</span></td><td>1.94K FTX Token</td><td><span style="color:#64748b">—</span></td><td>4.81%</td><td>uniswap v3</td></tr>
+<tr><td>15925754</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" aria-label="Copy full identifier 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · FTX Token/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td>1</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xc36442b4a4522e871399cd717abdd847ab11fe88" aria-label="Copy full identifier 0xc36442b4a4522e871399cd717abdd847ab11fe88" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">0xc36442...fe88</button><a class="identifier-link" href="https://etherscan.io/address/0xc36442b4a4522e871399cd717abdd847ab11fe88" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xc36442b4a4522e871399cd717abdd847ab11fe88 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td><span title="-864726997500788404507">-864,726,997,500,788,404,507</span></td><td>610.0011 FTX Token</td><td><span style="color:#64748b">—</span></td><td>1.51%</td><td>uniswap v3</td></tr>
+<tr><td>15925149</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" aria-label="Copy full identifier 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · FTX Token/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td>1</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xc36442b4a4522e871399cd717abdd847ab11fe88" aria-label="Copy full identifier 0xc36442b4a4522e871399cd717abdd847ab11fe88" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">0xc36442...fe88</button><a class="identifier-link" href="https://etherscan.io/address/0xc36442b4a4522e871399cd717abdd847ab11fe88" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xc36442b4a4522e871399cd717abdd847ab11fe88 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td><span title="-0">0</span></td><td>0.0000 FTX Token</td><td><span style="color:#64748b">—</span></td><td><span style="color:#64748b">—</span></td><td>uniswap v3</td></tr>
+<tr><td>15925071</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" aria-label="Copy full identifier 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · FTX Token/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td>1</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xc36442b4a4522e871399cd717abdd847ab11fe88" aria-label="Copy full identifier 0xc36442b4a4522e871399cd717abdd847ab11fe88" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">0xc36442...fe88</button><a class="identifier-link" href="https://etherscan.io/address/0xc36442b4a4522e871399cd717abdd847ab11fe88" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xc36442b4a4522e871399cd717abdd847ab11fe88 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td><span title="-0">0</span></td><td>0.0000 FTX Token</td><td><span style="color:#64748b">—</span></td><td><span style="color:#64748b">—</span></td><td>uniswap v3</td></tr>
+<tr><td>15925044</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" aria-label="Copy full identifier 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · FTX Token/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td>1</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xc36442b4a4522e871399cd717abdd847ab11fe88" aria-label="Copy full identifier 0xc36442b4a4522e871399cd717abdd847ab11fe88" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">0xc36442...fe88</button><a class="identifier-link" href="https://etherscan.io/address/0xc36442b4a4522e871399cd717abdd847ab11fe88" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xc36442b4a4522e871399cd717abdd847ab11fe88 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td><span title="-76257470543957820691">-76,257,470,543,957,820,691</span></td><td>64.6968 FTX Token</td><td><span style="color:#64748b">—</span></td><td>0.16%</td><td>uniswap v3</td></tr>
+<tr><td>15924725</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0x9D2713fa2f387eD1284a4176E7841253B4Da2A71" aria-label="Copy full identifier 0x9D2713fa2f387eD1284a4176E7841253B4Da2A71" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · FTX Token/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0x9D2713fa2f387eD1284a4176E7841253B4Da2A71" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0x9D2713fa2f387eD1284a4176E7841253B4Da2A71 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td>1</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xc36442b4a4522e871399cd717abdd847ab11fe88" aria-label="Copy full identifier 0xc36442b4a4522e871399cd717abdd847ab11fe88" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">0xc36442...fe88</button><a class="identifier-link" href="https://etherscan.io/address/0xc36442b4a4522e871399cd717abdd847ab11fe88" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xc36442b4a4522e871399cd717abdd847ab11fe88 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td><span title="-4296182505507850899673">-4,296,182,505,507,850,899,673</span></td><td>1.67K FTX Token</td><td><span style="color:#64748b">—</span></td><td>7.14%</td><td>uniswap v3</td></tr>
+<tr><td>15924662</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0x9D2713fa2f387eD1284a4176E7841253B4Da2A71" aria-label="Copy full identifier 0x9D2713fa2f387eD1284a4176E7841253B4Da2A71" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · FTX Token/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0x9D2713fa2f387eD1284a4176E7841253B4Da2A71" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0x9D2713fa2f387eD1284a4176E7841253B4Da2A71 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td>1</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xc36442b4a4522e871399cd717abdd847ab11fe88" aria-label="Copy full identifier 0xc36442b4a4522e871399cd717abdd847ab11fe88" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">0xc36442...fe88</button><a class="identifier-link" href="https://etherscan.io/address/0xc36442b4a4522e871399cd717abdd847ab11fe88" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xc36442b4a4522e871399cd717abdd847ab11fe88 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td><span title="-0">0</span></td><td>0.0000 FTX Token</td><td><span style="color:#64748b">—</span></td><td><span style="color:#64748b">—</span></td><td>uniswap v3</td></tr>
+<tr><td>15924642</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" aria-label="Copy full identifier 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · FTX Token/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td>1</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xc36442b4a4522e871399cd717abdd847ab11fe88" aria-label="Copy full identifier 0xc36442b4a4522e871399cd717abdd847ab11fe88" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">0xc36442...fe88</button><a class="identifier-link" href="https://etherscan.io/address/0xc36442b4a4522e871399cd717abdd847ab11fe88" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xc36442b4a4522e871399cd717abdd847ab11fe88 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td><span title="-0">0</span></td><td>0.0000 FTX Token</td><td><span style="color:#64748b">—</span></td><td><span style="color:#64748b">—</span></td><td>uniswap v3</td></tr>
+<tr><td>15923983</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0x9D2713fa2f387eD1284a4176E7841253B4Da2A71" aria-label="Copy full identifier 0x9D2713fa2f387eD1284a4176E7841253B4Da2A71" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · FTX Token/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0x9D2713fa2f387eD1284a4176E7841253B4Da2A71" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0x9D2713fa2f387eD1284a4176E7841253B4Da2A71 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td>1</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xc36442b4a4522e871399cd717abdd847ab11fe88" aria-label="Copy full identifier 0xc36442b4a4522e871399cd717abdd847ab11fe88" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">0xc36442...fe88</button><a class="identifier-link" href="https://etherscan.io/address/0xc36442b4a4522e871399cd717abdd847ab11fe88" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xc36442b4a4522e871399cd717abdd847ab11fe88 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td><span title="-2373930204569382698921">-2,373,930,204,569,382,698,921</span></td><td>1.36K FTX Token</td><td><span style="color:#64748b">—</span></td><td>5.82%</td><td>uniswap v3</td></tr>
+<tr><td>15923983</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0x9D2713fa2f387eD1284a4176E7841253B4Da2A71" aria-label="Copy full identifier 0x9D2713fa2f387eD1284a4176E7841253B4Da2A71" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · FTX Token/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0x9D2713fa2f387eD1284a4176E7841253B4Da2A71" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0x9D2713fa2f387eD1284a4176E7841253B4Da2A71 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td>1</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xc36442b4a4522e871399cd717abdd847ab11fe88" aria-label="Copy full identifier 0xc36442b4a4522e871399cd717abdd847ab11fe88" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">0xc36442...fe88</button><a class="identifier-link" href="https://etherscan.io/address/0xc36442b4a4522e871399cd717abdd847ab11fe88" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xc36442b4a4522e871399cd717abdd847ab11fe88 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td><span title="-0">0</span></td><td>0.0000 FTX Token</td><td><span style="color:#64748b">—</span></td><td><span style="color:#64748b">—</span></td><td>uniswap v3</td></tr>
+<tr><td>15923912</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" aria-label="Copy full identifier 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · FTX Token/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td>1</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xc36442b4a4522e871399cd717abdd847ab11fe88" aria-label="Copy full identifier 0xc36442b4a4522e871399cd717abdd847ab11fe88" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">0xc36442...fe88</button><a class="identifier-link" href="https://etherscan.io/address/0xc36442b4a4522e871399cd717abdd847ab11fe88" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xc36442b4a4522e871399cd717abdd847ab11fe88 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td><span title="-683516539149339650326">-683,516,539,149,339,650,326</span></td><td>447.1723 FTX Token</td><td><span style="color:#64748b">—</span></td><td>1.11%</td><td>uniswap v3</td></tr>
+<tr><td>15923909</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" aria-label="Copy full identifier 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · FTX Token/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td>1</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xc36442b4a4522e871399cd717abdd847ab11fe88" aria-label="Copy full identifier 0xc36442b4a4522e871399cd717abdd847ab11fe88" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">0xc36442...fe88</button><a class="identifier-link" href="https://etherscan.io/address/0xc36442b4a4522e871399cd717abdd847ab11fe88" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xc36442b4a4522e871399cd717abdd847ab11fe88 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td><span title="-477412794724697705857">-477,412,794,724,697,705,857</span></td><td>0.0000 FTX Token</td><td><span style="color:#64748b">—</span></td><td><span style="color:#64748b">—</span></td><td>uniswap v3</td></tr>
+<tr><td>15923850</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" aria-label="Copy full identifier 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · FTX Token/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td>1</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xc36442b4a4522e871399cd717abdd847ab11fe88" aria-label="Copy full identifier 0xc36442b4a4522e871399cd717abdd847ab11fe88" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">0xc36442...fe88</button><a class="identifier-link" href="https://etherscan.io/address/0xc36442b4a4522e871399cd717abdd847ab11fe88" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xc36442b4a4522e871399cd717abdd847ab11fe88 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td><span title="-3492995514387651933115">-3,492,995,514,387,651,933,115</span></td><td>1.71K FTX Token</td><td><span style="color:#64748b">—</span></td><td>4.24%</td><td>uniswap v3</td></tr>
+<tr><td>15923796</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" aria-label="Copy full identifier 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · FTX Token/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td>1</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xc36442b4a4522e871399cd717abdd847ab11fe88" aria-label="Copy full identifier 0xc36442b4a4522e871399cd717abdd847ab11fe88" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">0xc36442...fe88</button><a class="identifier-link" href="https://etherscan.io/address/0xc36442b4a4522e871399cd717abdd847ab11fe88" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xc36442b4a4522e871399cd717abdd847ab11fe88 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td><span title="-0">0</span></td><td>0.0000 FTX Token</td><td><span style="color:#64748b">—</span></td><td><span style="color:#64748b">—</span></td><td>uniswap v3</td></tr>
+<tr><td>15923717</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0x9D2713fa2f387eD1284a4176E7841253B4Da2A71" aria-label="Copy full identifier 0x9D2713fa2f387eD1284a4176E7841253B4Da2A71" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · FTX Token/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0x9D2713fa2f387eD1284a4176E7841253B4Da2A71" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0x9D2713fa2f387eD1284a4176E7841253B4Da2A71 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td>1</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xc36442b4a4522e871399cd717abdd847ab11fe88" aria-label="Copy full identifier 0xc36442b4a4522e871399cd717abdd847ab11fe88" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">0xc36442...fe88</button><a class="identifier-link" href="https://etherscan.io/address/0xc36442b4a4522e871399cd717abdd847ab11fe88" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xc36442b4a4522e871399cd717abdd847ab11fe88 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td><span title="-0">0</span></td><td>0.0000 FTX Token</td><td><span style="color:#64748b">—</span></td><td><span style="color:#64748b">—</span></td><td>uniswap v3</td></tr>
+<tr><td>15923622</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" aria-label="Copy full identifier 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · FTX Token/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td>1</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xc36442b4a4522e871399cd717abdd847ab11fe88" aria-label="Copy full identifier 0xc36442b4a4522e871399cd717abdd847ab11fe88" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">0xc36442...fe88</button><a class="identifier-link" href="https://etherscan.io/address/0xc36442b4a4522e871399cd717abdd847ab11fe88" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xc36442b4a4522e871399cd717abdd847ab11fe88 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td><span title="-791800315482287537129">-791,800,315,482,287,537,129</span></td><td>1.25K FTX Token</td><td><span style="color:#64748b">—</span></td><td>3.10%</td><td>uniswap v3</td></tr>
+<tr><td>15923542</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" aria-label="Copy full identifier 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · FTX Token/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td>1</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xc36442b4a4522e871399cd717abdd847ab11fe88" aria-label="Copy full identifier 0xc36442b4a4522e871399cd717abdd847ab11fe88" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">0xc36442...fe88</button><a class="identifier-link" href="https://etherscan.io/address/0xc36442b4a4522e871399cd717abdd847ab11fe88" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xc36442b4a4522e871399cd717abdd847ab11fe88 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td><span title="-522730427621400394628">-522,730,427,621,400,394,628</span></td><td>0.0000 FTX Token</td><td><span style="color:#64748b">—</span></td><td><span style="color:#64748b">—</span></td><td>uniswap v3</td></tr>
+<tr><td>15923206</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0x9D2713fa2f387eD1284a4176E7841253B4Da2A71" aria-label="Copy full identifier 0x9D2713fa2f387eD1284a4176E7841253B4Da2A71" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · FTX Token/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0x9D2713fa2f387eD1284a4176E7841253B4Da2A71" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0x9D2713fa2f387eD1284a4176E7841253B4Da2A71 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td>1</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xc36442b4a4522e871399cd717abdd847ab11fe88" aria-label="Copy full identifier 0xc36442b4a4522e871399cd717abdd847ab11fe88" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">0xc36442...fe88</button><a class="identifier-link" href="https://etherscan.io/address/0xc36442b4a4522e871399cd717abdd847ab11fe88" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xc36442b4a4522e871399cd717abdd847ab11fe88 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td><span title="-32970147234729188484">-32,970,147,234,729,188,484</span></td><td>127.3944 FTX Token</td><td><span style="color:#64748b">—</span></td><td>0.55%</td><td>uniswap v3</td></tr>
+<tr><td>15923155</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0x9D2713fa2f387eD1284a4176E7841253B4Da2A71" aria-label="Copy full identifier 0x9D2713fa2f387eD1284a4176E7841253B4Da2A71" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · FTX Token/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0x9D2713fa2f387eD1284a4176E7841253B4Da2A71" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0x9D2713fa2f387eD1284a4176E7841253B4Da2A71 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td>1</td><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xc36442b4a4522e871399cd717abdd847ab11fe88" aria-label="Copy full identifier 0xc36442b4a4522e871399cd717abdd847ab11fe88" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">0xc36442...fe88</button><a class="identifier-link" href="https://etherscan.io/address/0xc36442b4a4522e871399cd717abdd847ab11fe88" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xc36442b4a4522e871399cd717abdd847ab11fe88 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td><span title="-3246803398106497218668">-3,246,803,398,106,497,218,668</span></td><td>2.96K FTX Token</td><td><span style="color:#64748b">—</span></td><td>12.69%</td><td>uniswap v3</td></tr></tbody></table></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Generated by <a href="https://github.com/Cooler-tu/On-Chain-Token-Crash-Liquidity-Analysis">On-Chain Token Crash &amp; Liquidity Analysis</a>
+    &middot; Data sourced from Ethereum mainnet
+  </div>
+</div>
+<div id="identifier-tooltip" class="identifier-tooltip" role="tooltip" hidden></div>
+<div id="copy-toast" class="copy-toast" role="status" aria-live="polite"></div>
+<script>
+const topH = [];
+const poolReserveRows = [
+  {
+    "address": "0xF04543fBF20DAEE9B0357db966428EF2A4Ae0F5A",
+    "pool_label": "uniswap v2 \u00b7 FTX Token/WETH",
+    "balance_decimal": 1627.573517
+  },
+  {
+    "address": "0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b",
+    "pool_label": "uniswap v3 \u00b7 FTX Token/WETH",
+    "balance_decimal": 20167.021568
+  },
+  {
+    "address": "0x9D2713fa2f387eD1284a4176E7841253B4Da2A71",
+    "pool_label": "uniswap v3 \u00b7 FTX Token/WETH",
+    "balance_decimal": 11663.555272
+  }
+];
+const addressLabels = {
+  "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": "WETH",
+  "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": "USDC",
+  "0xdac17f958d2ee523a2206206994597c13d831ec7": "USDT",
+  "0x6b175474e89094c44da98b954eedeac495271d0f": "DAI",
+  "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": "WBTC",
+  "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee": "ETH",
+  "0x50d1c9771902476076ecfc8b2a83ad6b9355a4c9": "FTX Token",
+  "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a": "uniswap v2 \u00b7 FTX Token/WETH",
+  "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b": "uniswap v3 \u00b7 FTX Token/WETH",
+  "0x9d2713fa2f387ed1284a4176e7841253b4da2a71": "uniswap v3 \u00b7 FTX Token/WETH"
+};
+const tvlD = [
+  {
+    "block_number": 1665273600,
+    "block_timestamp": 1665273600,
+    "snapshot_block": 15712654,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "4708038997475616041287",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "4708038997475616041287",
+    "tvl_usd": null,
+    "price": 0.018237972106086277,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1665273600,
+    "block_timestamp": 1665273600,
+    "snapshot_block": 15712654,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "323880200976749075397",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "323880200976749075397",
+    "tvl_usd": null,
+    "price": 0.018198292157739684,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1665360000,
+    "block_timestamp": 1665360000,
+    "snapshot_block": 15720426,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "4833078780413420849039",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "4833078780413420849039",
+    "tvl_usd": null,
+    "price": 0.017815575584800614,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1665360000,
+    "block_timestamp": 1665360000,
+    "snapshot_block": 15720426,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "322676369416426099756",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "322676369416426099756",
+    "tvl_usd": null,
+    "price": 0.017797895739531177,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1665360000,
+    "block_timestamp": 1665360000,
+    "snapshot_block": 15720426,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1191279737591675020651",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1191279737591675020651",
+    "tvl_usd": null,
+    "price": 0.01778950414550816,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1665446400,
+    "block_timestamp": 1665446400,
+    "snapshot_block": 15727155,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "4869300581637907918897",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "4869300581637907918897",
+    "tvl_usd": null,
+    "price": 0.01796536097944295,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1665446400,
+    "block_timestamp": 1665446400,
+    "snapshot_block": 15727155,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "333348306863365978271",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "333348306863365978271",
+    "tvl_usd": null,
+    "price": 0.01761888777041279,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1665446400,
+    "block_timestamp": 1665446400,
+    "snapshot_block": 15727155,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1184254910524267403099",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1184254910524267403099",
+    "tvl_usd": null,
+    "price": 0.018480904007843493,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1665532800,
+    "block_timestamp": 1665532800,
+    "snapshot_block": 15734308,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "4868224672648151456528",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "4868224672648151456528",
+    "tvl_usd": null,
+    "price": 0.017782295845880338,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1665532800,
+    "block_timestamp": 1665532800,
+    "snapshot_block": 15734308,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "341545026489832819683",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "341545026489832819683",
+    "tvl_usd": null,
+    "price": 0.01785989263623092,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1665532800,
+    "block_timestamp": 1665532800,
+    "snapshot_block": 15734308,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1197040510214665570383",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1197040510214665570383",
+    "tvl_usd": null,
+    "price": 0.01774754619530804,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1665619200,
+    "block_timestamp": 1665619200,
+    "snapshot_block": 15740615,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "4739302276159593590343",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "4739302276159593590343",
+    "tvl_usd": null,
+    "price": 0.018404875589787404,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1665619200,
+    "block_timestamp": 1665619200,
+    "snapshot_block": 15740615,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "313950751813578572259",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "313950751813578572259",
+    "tvl_usd": null,
+    "price": 0.018224087969013834,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1665619200,
+    "block_timestamp": 1665619200,
+    "snapshot_block": 15740615,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1183985800589691386647",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1183985800589691386647",
+    "tvl_usd": null,
+    "price": 0.018212868967032177,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1665705600,
+    "block_timestamp": 1665705600,
+    "snapshot_block": 15748496,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "4902640960966744647037",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "4902640960966744647037",
+    "tvl_usd": null,
+    "price": 0.017859068437081158,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1665705600,
+    "block_timestamp": 1665705600,
+    "snapshot_block": 15748496,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "339453270082262261442",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "339453270082262261442",
+    "tvl_usd": null,
+    "price": 0.017776021557341124,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1665705600,
+    "block_timestamp": 1665705600,
+    "snapshot_block": 15748496,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1196094201449205602782",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1196094201449205602782",
+    "tvl_usd": null,
+    "price": 0.01774182851195622,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1665792000,
+    "block_timestamp": 1665792000,
+    "snapshot_block": 15756293,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "4819829274808815166217",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "4819829274808815166217",
+    "tvl_usd": null,
+    "price": 0.0182985551800911,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1665792000,
+    "block_timestamp": 1665792000,
+    "snapshot_block": 15756293,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "323009773300479514722",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "323009773300479514722",
+    "tvl_usd": null,
+    "price": 0.018107971916096442,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1665792000,
+    "block_timestamp": 1665792000,
+    "snapshot_block": 15756293,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1189643819826148768993",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1189643819826148768993",
+    "tvl_usd": null,
+    "price": 0.018061479416107164,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1665878400,
+    "block_timestamp": 1665878400,
+    "snapshot_block": 15764055,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "4758828860370208430964",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "4758828860370208430964",
+    "tvl_usd": null,
+    "price": 0.018197470536234054,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1665878400,
+    "block_timestamp": 1665878400,
+    "snapshot_block": 15764055,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "317198991169362735664",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "317198991169362735664",
+    "tvl_usd": null,
+    "price": 0.01827104302812809,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1665878400,
+    "block_timestamp": 1665878400,
+    "snapshot_block": 15764055,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1185530723996598463894",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1185530723996598463894",
+    "tvl_usd": null,
+    "price": 0.018464888683850305,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1665964800,
+    "block_timestamp": 1665964800,
+    "snapshot_block": 15771126,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "4796124402847114544859",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "4796124402847114544859",
+    "tvl_usd": null,
+    "price": 0.018136301224486635,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1665964800,
+    "block_timestamp": 1665964800,
+    "snapshot_block": 15771126,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "897849196714730389302",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "897849196714730389302",
+    "tvl_usd": null,
+    "price": 0.01810852620132816,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1665964800,
+    "block_timestamp": 1665964800,
+    "snapshot_block": 15771126,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1198294134610433994222",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1198294134610433994222",
+    "tvl_usd": null,
+    "price": 0.022951521624415973,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666051200,
+    "block_timestamp": 1666051200,
+    "snapshot_block": 15777580,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "4844592510983300277140",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "4844592510983300277140",
+    "tvl_usd": null,
+    "price": 0.01801854522414413,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666051200,
+    "block_timestamp": 1666051200,
+    "snapshot_block": 15777580,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "906390814403251865007",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "906390814403251865007",
+    "tvl_usd": null,
+    "price": 0.018095725061548957,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666051200,
+    "block_timestamp": 1666051200,
+    "snapshot_block": 15777580,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1188294134606986133973",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1188294134606986133973",
+    "tvl_usd": null,
+    "price": 0.018184502060978578,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666137600,
+    "block_timestamp": 1666137600,
+    "snapshot_block": 15785181,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "4981503692605814762524",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "4981503692605814762524",
+    "tvl_usd": null,
+    "price": 0.01764730499868411,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666137600,
+    "block_timestamp": 1666137600,
+    "snapshot_block": 15785181,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1013051267816646548494",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1013051267816646548494",
+    "tvl_usd": null,
+    "price": 0.017643695700407632,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666137600,
+    "block_timestamp": 1666137600,
+    "snapshot_block": 15785181,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1212753069087438938591",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1212753069087438938591",
+    "tvl_usd": null,
+    "price": 0.01769615150099588,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666224000,
+    "block_timestamp": 1666224000,
+    "snapshot_block": 15791956,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "5031503692605814762524",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "5031503692605814762524",
+    "tvl_usd": null,
+    "price": 0.0174672483737628,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666224000,
+    "block_timestamp": 1666224000,
+    "snapshot_block": 15791956,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1016866100488413403852",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1016866100488413403852",
+    "tvl_usd": null,
+    "price": 0.017569241467919307,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666224000,
+    "block_timestamp": 1666224000,
+    "snapshot_block": 15791956,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1212753026711047041549",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1212753026711047041549",
+    "tvl_usd": null,
+    "price": 0.017609037168926304,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666310400,
+    "block_timestamp": 1666310400,
+    "snapshot_block": 15798799,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "5144679638698323530878",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "5144679638698323530878",
+    "tvl_usd": null,
+    "price": 0.01743205334609008,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666310400,
+    "block_timestamp": 1666310400,
+    "snapshot_block": 15798799,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1087861556812060488555",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1087861556812060488555",
+    "tvl_usd": null,
+    "price": 0.017253542700688216,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666310400,
+    "block_timestamp": 1666310400,
+    "snapshot_block": 15798799,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1221279331651047262141",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1221279331651047262141",
+    "tvl_usd": null,
+    "price": 0.01682460517195111,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666396800,
+    "block_timestamp": 1666396800,
+    "snapshot_block": 15805868,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "5201059431329247429647",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "5201059431329247429647",
+    "tvl_usd": null,
+    "price": 0.017002947123089376,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666396800,
+    "block_timestamp": 1666396800,
+    "snapshot_block": 15805868,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1138184664683601845230",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1138184664683601845230",
+    "tvl_usd": null,
+    "price": 0.017049444629398728,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666396800,
+    "block_timestamp": 1666396800,
+    "snapshot_block": 15805868,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1226067069151047262141",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1226067069151047262141",
+    "tvl_usd": null,
+    "price": 0.017196377849340794,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666483200,
+    "block_timestamp": 1666483200,
+    "snapshot_block": 15814146,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "5258712431890280228291",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "5258712431890280228291",
+    "tvl_usd": null,
+    "price": 0.01685486927676124,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666483200,
+    "block_timestamp": 1666483200,
+    "snapshot_block": 15814146,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1177658778191593499413",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1177658778191593499413",
+    "tvl_usd": null,
+    "price": 0.01695338067263482,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666483200,
+    "block_timestamp": 1666483200,
+    "snapshot_block": 15814146,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1236163355876769147809",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1236163355876769147809",
+    "tvl_usd": null,
+    "price": 0.01699637346889822,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666569600,
+    "block_timestamp": 1666569600,
+    "snapshot_block": 15820825,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "5330497322564308980338",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "5330497322564308980338",
+    "tvl_usd": null,
+    "price": 0.01699556122031405,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666569600,
+    "block_timestamp": 1666569600,
+    "snapshot_block": 15820825,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1169096163025112271759",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1169096163025112271759",
+    "tvl_usd": null,
+    "price": 0.016998056302853826,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666569600,
+    "block_timestamp": 1666569600,
+    "snapshot_block": 15820825,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1236134555620842954543",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1236134555620842954543",
+    "tvl_usd": null,
+    "price": 0.016933544949658826,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666656000,
+    "block_timestamp": 1666656000,
+    "snapshot_block": 15827578,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "5525714681403437892074",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "5525714681403437892074",
+    "tvl_usd": null,
+    "price": 0.016273000007901123,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666656000,
+    "block_timestamp": 1666656000,
+    "snapshot_block": 15827578,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1353001957052802954862",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1353001957052802954862",
+    "tvl_usd": null,
+    "price": 0.01622410250803006,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666656000,
+    "block_timestamp": 1666656000,
+    "snapshot_block": 15827578,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1262068812258100557532",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1262068812258100557532",
+    "tvl_usd": null,
+    "price": 0.016375779195336,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666742400,
+    "block_timestamp": 1666742400,
+    "snapshot_block": 15835661,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "5563819618243956357284",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "5563819618243956357284",
+    "tvl_usd": null,
+    "price": 0.01599328330341209,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666742400,
+    "block_timestamp": 1666742400,
+    "snapshot_block": 15835661,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1500675335262612804192",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1500675335262612804192",
+    "tvl_usd": null,
+    "price": 0.01570854580411905,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666742400,
+    "block_timestamp": 1666742400,
+    "snapshot_block": 15835661,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1271533278247264032867",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1271533278247264032867",
+    "tvl_usd": null,
+    "price": 0.015840778847535153,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666828800,
+    "block_timestamp": 1666828800,
+    "snapshot_block": 15841996,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "5141863471603079974085",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "5141863471603079974085",
+    "tvl_usd": null,
+    "price": 0.015865160598364063,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666828800,
+    "block_timestamp": 1666828800,
+    "snapshot_block": 15841996,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1652844477587462700880",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1652844477587462700880",
+    "tvl_usd": null,
+    "price": 0.01592113995020307,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666828800,
+    "block_timestamp": 1666828800,
+    "snapshot_block": 15841996,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1279462610853941607407",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1279462610853941607407",
+    "tvl_usd": null,
+    "price": 0.015782985245383893,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666915200,
+    "block_timestamp": 1666915200,
+    "snapshot_block": 15849551,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "5097296966860869936973",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "5097296966860869936973",
+    "tvl_usd": null,
+    "price": 0.01611036101047434,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666915200,
+    "block_timestamp": 1666915200,
+    "snapshot_block": 15849551,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1662928394754146772781",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1662928394754146772781",
+    "tvl_usd": null,
+    "price": 0.015911821027303586,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1666915200,
+    "block_timestamp": 1666915200,
+    "snapshot_block": 15849551,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1271587840524721961537",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1271587840524721961537",
+    "tvl_usd": null,
+    "price": 0.015977082866897023,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667001600,
+    "block_timestamp": 1667001600,
+    "snapshot_block": 15856736,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "5186960537015246026810",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "5186960537015246026810",
+    "tvl_usd": null,
+    "price": 0.015680723839513595,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667001600,
+    "block_timestamp": 1667001600,
+    "snapshot_block": 15856736,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1739743514900658648537",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1739743514900658648537",
+    "tvl_usd": null,
+    "price": 0.015747545342544106,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667001600,
+    "block_timestamp": 1667001600,
+    "snapshot_block": 15856736,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1280546636787274627041",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1280546636787274627041",
+    "tvl_usd": null,
+    "price": 0.01562866243498745,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667088000,
+    "block_timestamp": 1667088000,
+    "snapshot_block": 15864195,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "5083870355769698699889",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "5083870355769698699889",
+    "tvl_usd": null,
+    "price": 0.016116071709985903,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667088000,
+    "block_timestamp": 1667088000,
+    "snapshot_block": 15864195,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1566604861743396241638",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1566604861743396241638",
+    "tvl_usd": null,
+    "price": 0.01613725408038468,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667088000,
+    "block_timestamp": 1667088000,
+    "snapshot_block": 15864195,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1270097849179378878957",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1270097849179378878957",
+    "tvl_usd": null,
+    "price": 0.016078907135668175,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667174400,
+    "block_timestamp": 1667174400,
+    "snapshot_block": 15870791,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "4987163191441201851584",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "4987163191441201851584",
+    "tvl_usd": null,
+    "price": 0.016520102838875395,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667174400,
+    "block_timestamp": 1667174400,
+    "snapshot_block": 15870791,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1876877441486177803553",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1876877441486177803553",
+    "tvl_usd": null,
+    "price": 0.01665874274343857,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667174400,
+    "block_timestamp": 1667174400,
+    "snapshot_block": 15870791,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1249502848657290123937",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1249502848657290123937",
+    "tvl_usd": null,
+    "price": 0.01661986848333146,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667260800,
+    "block_timestamp": 1667260800,
+    "snapshot_block": 15877421,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "5032163191534495772820",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "5032163191534495772820",
+    "tvl_usd": null,
+    "price": 0.01619188530876053,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667260800,
+    "block_timestamp": 1667260800,
+    "snapshot_block": 15877421,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "2011036011186981504960",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "2011036011186981504960",
+    "tvl_usd": null,
+    "price": 0.01637565435104233,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667260800,
+    "block_timestamp": 1667260800,
+    "snapshot_block": 15877421,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1259681448440774608983",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1259681448440774608983",
+    "tvl_usd": null,
+    "price": 0.016366934422705537,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667347200,
+    "block_timestamp": 1667347200,
+    "snapshot_block": 15885587,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "4996690150212735595513",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "4996690150212735595513",
+    "tvl_usd": null,
+    "price": 0.01650510120005394,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667347200,
+    "block_timestamp": 1667347200,
+    "snapshot_block": 15885587,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1929069725577624770068",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1929069725577624770068",
+    "tvl_usd": null,
+    "price": 0.016552990255711185,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667347200,
+    "block_timestamp": 1667347200,
+    "snapshot_block": 15885587,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1251845918486813207881",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1251845918486813207881",
+    "tvl_usd": null,
+    "price": 0.01649665862028278,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667433600,
+    "block_timestamp": 1667433600,
+    "snapshot_block": 15892790,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "5161221414603664164455",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "5161221414603664164455",
+    "tvl_usd": null,
+    "price": 0.015423977295771203,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667433600,
+    "block_timestamp": 1667433600,
+    "snapshot_block": 15892790,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "2335197316905097900540",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "2335197316905097900540",
+    "tvl_usd": null,
+    "price": 0.015346085311948046,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667433600,
+    "block_timestamp": 1667433600,
+    "snapshot_block": 15892790,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1278044153781918279445",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1278044153781918279445",
+    "tvl_usd": null,
+    "price": 0.015837218024207945,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667520000,
+    "block_timestamp": 1667520000,
+    "snapshot_block": 15899976,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "5232370366687955600159",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "5232370366687955600159",
+    "tvl_usd": null,
+    "price": 0.015432676245630364,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667520000,
+    "block_timestamp": 1667520000,
+    "snapshot_block": 15899976,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "2869586837892566125500",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "2869586837892566125500",
+    "tvl_usd": null,
+    "price": 0.015476246874299103,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667520000,
+    "block_timestamp": 1667520000,
+    "snapshot_block": 15899976,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1298202212794300659638",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1298202212794300659638",
+    "tvl_usd": null,
+    "price": 0.01544065802963108,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667606400,
+    "block_timestamp": 1667606400,
+    "snapshot_block": 15907078,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "5402605645121601512670",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "5402605645121601512670",
+    "tvl_usd": null,
+    "price": 0.014916704716229759,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667606400,
+    "block_timestamp": 1667606400,
+    "snapshot_block": 15907078,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "3401279024475205113969",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "3401279024475205113969",
+    "tvl_usd": null,
+    "price": 0.014736718751821712,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667606400,
+    "block_timestamp": 1667606400,
+    "snapshot_block": 15907078,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1317276054773646165746",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1317276054773646165746",
+    "tvl_usd": null,
+    "price": 0.014709392205008512,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667692800,
+    "block_timestamp": 1667692800,
+    "snapshot_block": 15914397,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "5711374714113636155764",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "5711374714113636155764",
+    "tvl_usd": null,
+    "price": 0.014057882342989672,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667692800,
+    "block_timestamp": 1667692800,
+    "snapshot_block": 15914397,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "2795321288086151713876",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "2795321288086151713876",
+    "tvl_usd": null,
+    "price": 0.014074997329237289,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667692800,
+    "block_timestamp": 1667692800,
+    "snapshot_block": 15914397,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1360214370100543311784",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1360214370100543311784",
+    "tvl_usd": null,
+    "price": 0.013983380543854923,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667779200,
+    "block_timestamp": 1667779200,
+    "snapshot_block": 15921587,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "6396779616104842301550",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "6396779616104842301550",
+    "tvl_usd": null,
+    "price": 0.014077108820769764,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667779200,
+    "block_timestamp": 1667779200,
+    "snapshot_block": 15921587,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "8578845145307396377078",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "8578845145307396377078",
+    "tvl_usd": null,
+    "price": 0.014106931968020922,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667779200,
+    "block_timestamp": 1667779200,
+    "snapshot_block": 15921587,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1367479186442918240619",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1367479186442918240619",
+    "tvl_usd": null,
+    "price": 0.014013092817193543,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667865600,
+    "block_timestamp": 1667865600,
+    "snapshot_block": 15926369,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "11663555271645182270208",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "11663555271645182270208",
+    "tvl_usd": null,
+    "price": 0.010078736106620606,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667865600,
+    "block_timestamp": 1667865600,
+    "snapshot_block": 15926369,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "20167021567733549059436",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "20167021567733549059436",
+    "tvl_usd": null,
+    "price": 0.009951577642245201,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1667865600,
+    "block_timestamp": 1667865600,
+    "snapshot_block": 15926369,
+    "bucket": "day",
+    "chart_span": "month",
+    "pool_address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a",
+    "protocol": "uniswap",
+    "version": "v2",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "1627573517056690035513",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "1627573517056690035513",
+    "tvl_usd": null,
+    "price": 0.010418409937904069,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  }
+];
+const portfolioData = {};
+const tokenSymbol = "FTX Token";
+const chainId = 1;
+const tvlPointDetails = [{"block": "2022-10-09 00:00 UTC", "time_label": "2022-10-09 00:00 UTC", "total_tvl": 5031.919198452365, "volume_bucket_label": "2022-10-09 00:00 UTC", "pools": [{"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 4708.038997475616, "share_pct": 93.56348565620127, "price_usd": null, "volume_token": 20.0, "volume_usd": 0.0}, {"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 323.8802009767491, "share_pct": 6.436514343798741, "price_usd": null, "volume_token": 20.0, "volume_usd": 0.0}]}, {"block": "2022-10-10 00:00 UTC", "time_label": "2022-10-10 00:00 UTC", "total_tvl": 6347.034887421523, "volume_bucket_label": "2022-10-10 00:00 UTC", "pools": [{"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 4833.078780413422, "share_pct": 76.14703347529345, "price_usd": null, "volume_token": 687.7460377868779, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1191.279737591675, "share_pct": 18.769074988898183, "price_usd": null, "volume_token": 248.71272937990156, "volume_usd": 0.0}, {"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 322.6763694164261, "share_pct": 5.083891535808354, "price_usd": null, "volume_token": 470.60840160652333, "volume_usd": 0.0}]}, {"block": "2022-10-11 00:00 UTC", "time_label": "2022-10-11 00:00 UTC", "total_tvl": 6386.90379902554, "volume_bucket_label": "2022-10-11 00:00 UTC", "pools": [{"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 4869.300581637907, "share_pct": 76.23882768331072, "price_usd": null, "volume_token": 647.0141736803872, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1184.2549105242674, "share_pct": 18.54192497317638, "price_usd": null, "volume_token": 97.58461766301748, "volume_usd": 0.0}, {"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 333.34830686336596, "share_pct": 5.219247343512915, "price_usd": null, "volume_token": 301.82631915282684, "volume_usd": 0.0}]}, {"block": "2022-10-12 00:00 UTC", "time_label": "2022-10-12 00:00 UTC", "total_tvl": 6406.81020935265, "volume_bucket_label": "2022-10-12 00:00 UTC", "pools": [{"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 4868.224672648152, "share_pct": 75.98515507048306, "price_usd": null, "volume_token": 1081.4188428436319, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1197.0405102146656, "share_pct": 18.683876548539363, "price_usd": null, "volume_token": 165.44351733881936, "volume_usd": 0.0}, {"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 341.5450264898328, "share_pct": 5.3309683809775725, "price_usd": null, "volume_token": 339.0553457640183, "volume_usd": 0.0}]}, {"block": "2022-10-13 00:00 UTC", "time_label": "2022-10-13 00:00 UTC", "total_tvl": 6237.238828562864, "volume_bucket_label": "2022-10-13 00:00 UTC", "pools": [{"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 4739.302276159594, "share_pct": 75.98397955288154, "price_usd": null, "volume_token": 239.99489648855786, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1183.9858005896913, "share_pct": 18.982531102829295, "price_usd": null, "volume_token": 14.144709624974183, "volume_usd": 0.0}, {"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 313.95075181357856, "share_pct": 5.033489344289173, "price_usd": null, "volume_token": 271.7867528913752, "volume_usd": 0.0}]}, {"block": "2022-10-14 00:00 UTC", "time_label": "2022-10-14 00:00 UTC", "total_tvl": 6438.188432498213, "volume_bucket_label": "2022-10-14 00:00 UTC", "pools": [{"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 4902.640960966745, "share_pct": 76.14938600149625, "price_usd": null, "volume_token": 427.1958430881084, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1196.0942014492057, "share_pct": 18.578117338281828, "price_usd": null, "volume_token": 57.492530340485786, "volume_usd": 0.0}, {"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 339.4532700822623, "share_pct": 5.27249666022192, "price_usd": null, "volume_token": 167.43570864731583, "volume_usd": 0.0}]}, {"block": "2022-10-15 00:00 UTC", "time_label": "2022-10-15 00:00 UTC", "total_tvl": 6332.482867935442, "volume_bucket_label": "2022-10-15 00:00 UTC", "pools": [{"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 4819.829274808814, "share_pct": 76.11278822741146, "price_usd": null, "volume_token": 1626.349871150503, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1189.6438198261487, "share_pct": 18.786372496164436, "price_usd": null, "volume_token": 336.3279672756747, "volume_usd": 0.0}, {"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 323.0097733004795, "share_pct": 5.100839276424118, "price_usd": null, "volume_token": 660.1643456201634, "volume_usd": 0.0}]}, {"block": "2022-10-16 00:00 UTC", "time_label": "2022-10-16 00:00 UTC", "total_tvl": 6261.55857553617, "volume_bucket_label": "2022-10-16 00:00 UTC", "pools": [{"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 4758.8288603702085, "share_pct": 76.0007081777194, "price_usd": null, "volume_token": 168.85358735860675, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1185.5307239965985, "share_pct": 18.933476540943847, "price_usd": null, "volume_token": 87.04541345227784, "volume_usd": 0.0}, {"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 317.1989911693627, "share_pct": 5.065815281336746, "price_usd": null, "volume_token": 203.25003244299808, "volume_usd": 0.0}]}, {"block": "2022-10-17 00:00 UTC", "time_label": "2022-10-17 00:00 UTC", "total_tvl": 6892.267734172279, "volume_bucket_label": "2022-10-17 00:00 UTC", "pools": [{"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 4796.124402847115, "share_pct": 69.58702981121351, "price_usd": null, "volume_token": 661.4294150631745, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1198.294134610434, "share_pct": 17.386064802288793, "price_usd": null, "volume_token": 573.7025559215122, "volume_usd": 0.0}, {"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 897.8491967147303, "share_pct": 13.026905386497681, "price_usd": null, "volume_token": 572.3561917833783, "volume_usd": 0.0}]}, {"block": "2022-10-18 00:00 UTC", "time_label": "2022-10-18 00:00 UTC", "total_tvl": 6939.277459993539, "volume_bucket_label": "2022-10-18 00:00 UTC", "pools": [{"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 4844.592510983301, "share_pct": 69.81407702622415, "price_usd": null, "volume_token": 208.46810813618575, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1188.2941346069863, "share_pct": 17.124176709430678, "price_usd": null, "volume_token": 10.00000000344786, "volume_usd": 0.0}, {"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 906.390814403252, "share_pct": 13.061746264345162, "price_usd": null, "volume_token": 678.6617743271859, "volume_usd": 0.0}]}, {"block": "2022-10-19 00:00 UTC", "time_label": "2022-10-19 00:00 UTC", "total_tvl": 7207.308029509901, "volume_bucket_label": "2022-10-19 00:00 UTC", "pools": [{"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 4981.503692605816, "share_pct": 69.11739684510971, "price_usd": null, "volume_token": 304.1815279564267, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1212.753069087439, "share_pct": 16.826713443103756, "price_usd": null, "volume_token": 75.34598707046095, "volume_usd": 0.0}, {"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 1013.0512678166465, "share_pct": 14.055889711786529, "price_usd": null, "volume_token": 466.8880608783965, "volume_usd": 0.0}]}, {"block": "2022-10-20 00:00 UTC", "time_label": "2022-10-20 00:00 UTC", "total_tvl": 7261.122819805275, "volume_bucket_label": "2022-10-20 00:00 UTC", "pools": [{"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 5031.503692605815, "share_pct": 69.29374171831935, "price_usd": null, "volume_token": 50.0, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1212.7530267110471, "share_pct": 16.702004039969815, "price_usd": null, "volume_token": 4.2376391897042e-05, "volume_usd": 0.0}, {"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 1016.8661004884134, "share_pct": 14.00425424171083, "price_usd": null, "volume_token": 56.18621303281046, "volume_usd": 0.0}]}, {"block": "2022-10-21 00:00 UTC", "time_label": "2022-10-21 00:00 UTC", "total_tvl": 7453.8205271614315, "volume_bucket_label": "2022-10-21 00:00 UTC", "pools": [{"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 5144.679638698323, "share_pct": 69.02070716555774, "price_usd": null, "volume_token": 736.0117928920776, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1221.2793316510474, "share_pct": 16.38460876809085, "price_usd": null, "volume_token": 87.12630493999978, "volume_usd": 0.0}, {"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 1087.8615568120604, "share_pct": 14.594684066351412, "price_usd": null, "volume_token": 740.522007843125, "volume_usd": 0.0}]}, {"block": "2022-10-22 00:00 UTC", "time_label": "2022-10-22 00:00 UTC", "total_tvl": 7565.311165163896, "volume_bucket_label": "2022-10-22 00:00 UTC", "pools": [{"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 5201.059431329247, "share_pct": 68.74878399289966, "price_usd": null, "volume_token": 56.3797926309239, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1226.0670691510472, "share_pct": 16.206432787546625, "price_usd": null, "volume_token": 4.7877375, "volume_usd": 0.0}, {"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 1138.1846646836018, "share_pct": 15.04478321955372, "price_usd": null, "volume_token": 401.5087983977888, "volume_usd": 0.0}]}, {"block": "2022-10-23 00:00 UTC", "time_label": "2022-10-23 00:00 UTC", "total_tvl": 7672.534565958643, "volume_bucket_label": "2022-10-23 00:00 UTC", "pools": [{"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 5258.712431890281, "share_pct": 68.5394426924062, "price_usd": null, "volume_token": 57.65297300614543, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1236.1633558767692, "share_pct": 16.111538439479382, "price_usd": null, "volume_token": 11.047466143488986, "volume_usd": 0.0}, {"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 1177.6587781915935, "share_pct": 15.349018868114428, "price_usd": null, "volume_token": 136.32588649200835, "volume_usd": 0.0}]}, {"block": "2022-10-24 00:00 UTC", "time_label": "2022-10-24 00:00 UTC", "total_tvl": 7735.728041210265, "volume_bucket_label": "2022-10-24 00:00 UTC", "pools": [{"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 5330.497322564309, "share_pct": 68.90750675524454, "price_usd": null, "volume_token": 372.7314069433519, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1236.134555620843, "share_pct": 15.979550328496916, "price_usd": null, "volume_token": 67.36432021211225, "volume_usd": 0.0}, {"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 1169.0961630251122, "share_pct": 15.11294291625854, "price_usd": null, "volume_token": 1130.5771461788986, "volume_usd": 0.0}]}, {"block": "2022-10-25 00:00 UTC", "time_label": "2022-10-25 00:00 UTC", "total_tvl": 8140.785450714341, "volume_bucket_label": "2022-10-25 00:00 UTC", "pools": [{"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 5525.714681403438, "share_pct": 67.87692311579794, "price_usd": null, "volume_token": 580.6060359144897, "volume_usd": 0.0}, {"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 1353.001957052803, "share_pct": 16.620041951039003, "price_usd": null, "volume_token": 1436.2548926624038, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1262.0688122581007, "share_pct": 15.503034933163068, "price_usd": null, "volume_token": 78.21244868930832, "volume_usd": 0.0}]}, {"block": "2022-10-26 00:00 UTC", "time_label": "2022-10-26 00:00 UTC", "total_tvl": 8336.028231753833, "volume_bucket_label": "2022-10-26 00:00 UTC", "pools": [{"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 5563.819618243956, "share_pct": 66.74425114168997, "price_usd": null, "volume_token": 248.572285707717, "volume_usd": 0.0}, {"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 1500.6753352626129, "share_pct": 18.002282304493622, "price_usd": null, "volume_token": 2601.8394823888884, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1271.533278247264, "share_pct": 15.253466553816406, "price_usd": null, "volume_token": 88.55038873303582, "volume_usd": 0.0}]}, {"block": "2022-10-27 00:00 UTC", "time_label": "2022-10-27 00:00 UTC", "total_tvl": 8074.170560044484, "volume_bucket_label": "2022-10-27 00:00 UTC", "pools": [{"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 5141.86347160308, "share_pct": 63.68286913640269, "price_usd": null, "volume_token": 321.9542173195665, "volume_usd": 0.0}, {"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 1652.8444775874627, "share_pct": 20.470764957166775, "price_usd": null, "volume_token": 1174.7228001254568, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1279.4626108539414, "share_pct": 15.846365906430545, "price_usd": null, "volume_token": 127.29206992146979, "volume_usd": 0.0}]}, {"block": "2022-10-28 00:00 UTC", "time_label": "2022-10-28 00:00 UTC", "total_tvl": 8031.81320213974, "volume_bucket_label": "2022-10-28 00:00 UTC", "pools": [{"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 5097.29696686087, "share_pct": 63.463838595037416, "price_usd": null, "volume_token": 105.96415052922774, "volume_usd": 0.0}, {"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 1662.9283947541467, "share_pct": 20.704271288469823, "price_usd": null, "volume_token": 1008.2764235737591, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1271.5878405247217, "share_pct": 15.831890116492756, "price_usd": null, "volume_token": 13.890642348299002, "volume_usd": 0.0}]}, {"block": "2022-10-29 00:00 UTC", "time_label": "2022-10-29 00:00 UTC", "total_tvl": 8207.25068870318, "volume_bucket_label": "2022-10-29 00:00 UTC", "pools": [{"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 5186.960537015246, "share_pct": 63.19973318415637, "price_usd": null, "volume_token": 563.9682247133583, "volume_usd": 0.0}, {"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 1739.7435149006587, "share_pct": 21.19764073120513, "price_usd": null, "volume_token": 3521.3588593746417, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1280.5466367872748, "share_pct": 15.602626084638494, "price_usd": null, "volume_token": 275.85262509823576, "volume_usd": 0.0}]}, {"block": "2022-10-30 00:00 UTC", "time_label": "2022-10-30 00:00 UTC", "total_tvl": 7920.573066692473, "volume_bucket_label": "2022-10-30 00:00 UTC", "pools": [{"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 5083.870355769698, "share_pct": 64.18563799566911, "price_usd": null, "volume_token": 103.09018124554731, "volume_usd": 0.0}, {"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 1566.6048617433962, "share_pct": 19.778933273543927, "price_usd": null, "volume_token": 1491.4955239005617, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1270.0978491793787, "share_pct": 16.035428730786965, "price_usd": null, "volume_token": 291.9254206348606, "volume_usd": 0.0}]}, {"block": "2022-10-31 00:00 UTC", "time_label": "2022-10-31 00:00 UTC", "total_tvl": 8113.543481584669, "volume_bucket_label": "2022-10-31 00:00 UTC", "pools": [{"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 4987.163191441202, "share_pct": 61.46714074757323, "price_usd": null, "volume_token": 997.2292933832925, "volume_usd": 0.0}, {"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 1876.8774414861778, "share_pct": 23.132647846728517, "price_usd": null, "volume_token": 3677.2631500424436, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1249.50284865729, "share_pct": 15.400211405698261, "price_usd": null, "volume_token": 178.9415598323945, "volume_usd": 0.0}]}, {"block": "2022-11-01 00:00 UTC", "time_label": "2022-11-01 00:00 UTC", "total_tvl": 8302.880651162252, "volume_bucket_label": "2022-11-01 00:00 UTC", "pools": [{"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 5032.163191534496, "share_pct": 60.607437381748774, "price_usd": null, "volume_token": 45.00000009329392, "volume_usd": 0.0}, {"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 2011.0360111869813, "share_pct": 24.220943256669276, "price_usd": null, "volume_token": 627.8059788765107, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1259.6814484407746, "share_pct": 15.171619361581962, "price_usd": null, "volume_token": 10.178599783484485, "volume_usd": 0.0}]}, {"block": "2022-11-02 00:00 UTC", "time_label": "2022-11-02 00:00 UTC", "total_tvl": 8177.605794277174, "volume_bucket_label": "2022-11-02 00:00 UTC", "pools": [{"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 4996.690150212736, "share_pct": 61.10211565479842, "price_usd": null, "volume_token": 263.3312030331807, "volume_usd": 0.0}, {"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 1929.0697255776247, "share_pct": 23.589663944520538, "price_usd": null, "volume_token": 2015.294204595281, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1251.8459184868132, "share_pct": 15.30822040068104, "price_usd": null, "volume_token": 72.37507038181654, "volume_usd": 0.0}]}, {"block": "2022-11-03 00:00 UTC", "time_label": "2022-11-03 00:00 UTC", "total_tvl": 8774.46288529068, "volume_bucket_label": "2022-11-03 00:00 UTC", "pools": [{"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 5161.221414603664, "share_pct": 58.82093846742259, "price_usd": null, "volume_token": 1111.0108002040138, "volume_usd": 0.0}, {"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 2335.197316905098, "share_pct": 26.613564242430975, "price_usd": null, "volume_token": 5602.60592365038, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1278.0441537819183, "share_pct": 14.565497290146428, "price_usd": null, "volume_token": 230.9756649132797, "volume_usd": 0.0}]}, {"block": "2022-11-04 00:00 UTC", "time_label": "2022-11-04 00:00 UTC", "total_tvl": 9400.159417374822, "volume_bucket_label": "2022-11-04 00:00 UTC", "pools": [{"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 5232.3703666879555, "share_pct": 55.66257054126852, "price_usd": null, "volume_token": 566.6422425212369, "volume_usd": 0.0}, {"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 2869.586837892566, "share_pct": 30.527001835613067, "price_usd": null, "volume_token": 2672.652400420197, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1298.2022127943005, "share_pct": 13.810427623118427, "price_usd": null, "volume_token": 108.80546082878782, "volume_usd": 0.0}]}, {"block": "2022-11-05 00:00 UTC", "time_label": "2022-11-05 00:00 UTC", "total_tvl": 10121.160724370453, "volume_bucket_label": "2022-11-05 00:00 UTC", "pools": [{"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 5402.605645121602, "share_pct": 53.379308878208235, "price_usd": null, "volume_token": 736.8982922951714, "volume_usd": 0.0}, {"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 3401.279024475205, "share_pct": 33.60562209317912, "price_usd": null, "volume_token": 3689.145175540954, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1317.2760547736461, "share_pct": 13.015069028612647, "price_usd": null, "volume_token": 152.60903322847872, "volume_usd": 0.0}]}, {"block": "2022-11-06 00:00 UTC", "time_label": "2022-11-06 00:00 UTC", "total_tvl": 9866.91037230033, "volume_bucket_label": "2022-11-06 00:00 UTC", "pools": [{"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 5711.3747141136355, "share_pct": 57.88412480311311, "price_usd": null, "volume_token": 15015.829553232195, "volume_usd": 0.0}, {"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 2795.321288086152, "share_pct": 28.330259246435848, "price_usd": null, "volume_token": 62932.38288743516, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1360.2143701005432, "share_pct": 13.78561595045105, "price_usd": null, "volume_token": 3277.006441215972, "volume_usd": 0.0}]}, {"block": "2022-11-07 00:00 UTC", "time_label": "2022-11-07 00:00 UTC", "total_tvl": 16343.103947855157, "volume_bucket_label": "2022-11-07 00:00 UTC", "pools": [{"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 8578.845145307396, "share_pct": 52.492140860630506, "price_usd": null, "volume_token": 123846.86715292349, "volume_usd": 0.0}, {"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 6396.779616104843, "share_pct": 39.14054292571728, "price_usd": null, "volume_token": 7829.982203275814, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1367.4791864429183, "share_pct": 8.367316213652206, "price_usd": null, "volume_token": 1221.8156520447092, "volume_usd": 0.0}]}, {"block": "2022-11-08 00:00 UTC", "time_label": "2022-11-08 00:00 UTC", "total_tvl": 33458.15035643542, "volume_bucket_label": "2022-11-08 00:00 UTC", "pools": [{"address": "0xb404057ee4b1d7359ca5a57ac1c020b74c23e56b", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 20167.021567733547, "share_pct": 60.275362962060974, "price_usd": null, "volume_token": 311600.70205890236, "volume_usd": 0.0}, {"address": "0x9d2713fa2f387ed1284a4176e7841253b4da2a71", "label": "uniswap v3 \u00b7 FTX Token/WETH", "protocol": "uniswap v3", "tvl": 11663.555271645182, "share_pct": 34.86013167910158, "price_usd": null, "volume_token": 48880.898908230505, "volume_usd": 0.0}, {"address": "0xf04543fbf20daee9b0357db966428ef2a4ae0f5a", "label": "uniswap v2 \u00b7 FTX Token/WETH", "protocol": "uniswap v2", "tvl": 1627.5735170566902, "share_pct": 4.864505358837444, "price_usd": null, "volume_token": 13329.918541673127, "volume_usd": 0.0}]}];
+const tvlMetricLabel = "Total observed reserve";
+const chartSeriesColors = ["#f59e0b", "#22c55e", "#f43f5e", "#8b5cf6", "#14b8a6", "#60a5fa", "#f97316", "#a3e635", "#ec4899", "#06b6d4", "#fb7185", "#c084fc", "#2dd4bf", "#eab308", "#84cc16", "#38bdf8", "#e879f9", "#a78bfa", "#34d399", "#fbbf24"];
+const topChartHolders = topH.slice(0, 10);
+
+function fmtNum(v, digits){
+  if (v === null || v === undefined || isNaN(v)) return '<span class="muted">-</span>';
+  return Number(v).toLocaleString(undefined,{maximumFractionDigits:digits});
+}
+function fmtUsd(v, digits){
+  if (v === null || v === undefined || isNaN(v)) return '<span class="muted">-</span>';
+  return '$' + Number(v).toLocaleString(undefined,{maximumFractionDigits:digits});
+}
+function escTxt(s){
+  return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function shortIdentifier(value){
+  var text = String(value == null ? '' : value);
+  return text.length > 14 ? text.slice(0, 8) + '...' + text.slice(-4) : (text || '-');
+}
+function displayLabelFor(value){
+  var full = String(value == null ? '' : value);
+  if (!full) return '-';
+  var mapped = addressLabels && addressLabels[full.toLowerCase()];
+  if (mapped) return String(mapped);
+  return shortIdentifier(full);
+}
+function isEthereumAddress(value){
+  return /^0x[0-9a-fA-F]{40}$/.test(String(value || ''));
+}
+function identifierHtml(value){
+  var full = String(value == null ? '' : value);
+  if (!full) return '<span class="muted">-</span>';
+  var safe = escTxt(full);
+  var result = '<span class="identifier-wrap">'
+    + '<button type="button" class="identifier-copy addr" data-identifier="' + safe + '"'
+    + ' aria-label="Copy full identifier ' + safe + '"'
+    + ' onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()"'
+    + ' onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()"'
+    + ' onclick="copyIdentifier(event,this)">' + escTxt(displayLabelFor(full)) + '</button>';
+  if (chainId === 1 && isEthereumAddress(full)) {
+    result += '<a class="identifier-link" href="https://etherscan.io/address/' + safe + '"'
+      + ' target="_blank" rel="noopener noreferrer" title="Open in Etherscan"'
+      + ' aria-label="Open ' + safe + ' in Etherscan" onclick="event.stopPropagation()">&#8599;</a>';
+  }
+  return result + '</span>';
+}
+function showIdentifierTooltip(button){
+  var tooltip = document.getElementById('identifier-tooltip');
+  if (!tooltip || !button) return;
+  tooltip.textContent = button.getAttribute('data-identifier') || '';
+  tooltip.hidden = false;
+  var rect = button.getBoundingClientRect();
+  var left = Math.max(12, Math.min(rect.left, window.innerWidth - tooltip.offsetWidth - 12));
+  var top = rect.top - tooltip.offsetHeight - 8;
+  if (top < 8) top = rect.bottom + 8;
+  tooltip.style.left = left + 'px';
+  tooltip.style.top = top + 'px';
+}
+function hideIdentifierTooltip(){
+  var tooltip = document.getElementById('identifier-tooltip');
+  if (tooltip) tooltip.hidden = true;
+}
+function fallbackCopyIdentifier(value){
+  var textarea = document.createElement('textarea');
+  textarea.value = value;
+  textarea.setAttribute('readonly', '');
+  textarea.style.position = 'fixed';
+  textarea.style.opacity = '0';
+  document.body.appendChild(textarea);
+  textarea.select();
+  var copied = document.execCommand('copy');
+  document.body.removeChild(textarea);
+  return copied;
+}
+var copyToastTimer = null;
+function showCopyToast(message, failed){
+  var toast = document.getElementById('copy-toast');
+  if (!toast) return;
+  toast.textContent = message;
+  toast.classList.toggle('copy-toast-error', !!failed);
+  toast.classList.add('copy-toast-visible');
+  if (copyToastTimer) window.clearTimeout(copyToastTimer);
+  copyToastTimer = window.setTimeout(function(){
+    toast.classList.remove('copy-toast-visible');
+  }, 1800);
+}
+async function copyIdentifierValue(event, value){
+  if (event && typeof event.preventDefault === 'function') {
+    event.preventDefault();
+  }
+  if (event && typeof event.stopPropagation === 'function') {
+    event.stopPropagation();
+  }
+  value = String(value || '');
+  if (!value) return;
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(value);
+    } else if (!fallbackCopyIdentifier(value)) {
+      throw new Error('copy unavailable');
+    }
+    showCopyToast('Copied: ' + shortIdentifier(value), false);
+  } catch (err) {
+    showCopyToast('Copy failed — full value is shown on hover', true);
+  }
+}
+async function copyIdentifier(event, button){
+  var value = button ? (button.getAttribute('data-identifier') || '') : '';
+  return copyIdentifierValue(event, value);
+}
+function renderTvlDetails(index){
+  var panel = document.getElementById('tvl-details');
+  var detail = (tvlPointDetails || [])[index];
+  if (!panel || !detail) return;
+  var blockLabel = (typeof detail.block === 'number')
+    ? ('Block ' + fmtNum(detail.block, 0))
+    : escTxt(detail.block);
+  document.getElementById('tvl-detail-title').innerHTML =
+    blockLabel + (detail.time_label ? (' &middot; ' + escTxt(detail.time_label)) : '');
+  var meta = '<div class="detail-summary">' + escTxt(tvlMetricLabel) + ' <strong>' + fmtNum(detail.total_tvl, 4) + ' ' + escTxt(tokenSymbol) + '</strong></div>';
+  if (detail.volume_bucket_label) {
+    meta += '<span style="opacity:.85">Volume bucket: ' + escTxt(detail.volume_bucket_label) + '</span>';
+  }
+  document.getElementById('tvl-detail-meta').innerHTML = meta;
+  var rows = '';
+  for (var i = 0; i < detail.pools.length; i++) {
+    var p = detail.pools[i];
+    var share = (p.share_pct == null) ? '-' : Number(p.share_pct).toFixed(2) + '%';
+    rows += '<tr>'
+      + '<td>' + identifierHtml(p.address) + '</td>'
+      + '<td>' + escTxt(p.protocol) + '</td>'
+      + '<td>' + fmtNum(p.tvl, 4) + '</td>'
+      + '<td>' + share + '</td>'
+      + '<td>' + fmtUsd(p.price_usd, 4) + '</td>'
+      + '<td>' + fmtNum(p.volume_token, 4) + '</td>'
+      + '<td>' + fmtUsd(p.volume_usd, 2) + '</td>'
+      + '</tr>';
+  }
+  document.getElementById('tvl-detail-body').innerHTML = rows;
+  panel.style.display = '';
+  panel.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+function closeTvlDetails(){
+  var panel = document.getElementById('tvl-details');
+  if (panel) panel.style.display = 'none';
+}
+
+(function(){
+  function tc(id,cfg){ new Chart(document.getElementById(id),cfg); }
+
+  tc('c1',{
+    type:'doughnut',
+    data:{
+      labels:['Pools with positive balance','Non-pool positive holders'],
+      datasets:[{data:[3,0],backgroundColor:['#3b82f6','#64748b'],borderWidth:0}]
+    },
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:'#94a3b8',padding:12,font:{size:12}}}}}
+  });
+
+  tc('c2',{
+    type:'doughnut',
+    data:{
+      labels:['Main measured pool','Other measured pools'],
+      datasets:[{data:[60.275400000000005,39.724599999999995],backgroundColor:['#f59e0b','#64748b'],borderColor:'#1e293b',borderWidth:2}]
+    },
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:'#94a3b8',padding:12,font:{size:12}}}}}
+  });
+
+  tc('c3',{
+    type:'bar',
+    data:{
+      labels:topChartHolders.map(function(d){return displayLabelFor(d.address);}),
+      datasets:[{label:'Balance',data:topChartHolders.map(function(d){return d.balance_decimal;}),backgroundColor:'#3b82f6',borderRadius:4}]
+    },
+    options:{
+      responsive:true,
+      maintainAspectRatio:false,
+      plugins:{
+        legend:{display:false},
+        tooltip:{callbacks:{
+          title:function(items){
+            var row = items && items.length ? topChartHolders[items[0].dataIndex] : null;
+            return row && row.address ? row.address : '-';
+          },
+          label:function(ctx){
+            var row = topChartHolders[ctx.dataIndex] || {};
+            var balance = Number(row.balance_decimal || 0).toLocaleString(undefined,{maximumFractionDigits:6});
+            return 'Balance: ' + balance + ' ' + tokenSymbol;
+          },
+          footer:function(){return 'Click bar to copy full address';}
+        }}
+      },
+      onHover:function(event,elements){
+        if (event && event.native && event.native.target) {
+          event.native.target.style.cursor = elements && elements.length ? 'pointer' : 'default';
+        }
+      },
+      onClick:function(event,elements){
+        if (!elements || !elements.length) return;
+        var row = topChartHolders[elements[0].index];
+        if (row && row.address) copyIdentifierValue(event.native || event, row.address);
+      },
+      scales:{y:{beginAtZero:true,ticks:{color:'#64748b'},grid:{color:'#1e293b'}},x:{ticks:{color:'#64748b'},grid:{display:false}}}
+    }
+  });
+  if (document.getElementById('c7') && poolReserveRows && poolReserveRows.length) {
+    tc('c7',{
+      type:'pie',
+      data:{
+        labels:poolReserveRows.map(function(d){
+          return d.pool_label || shortIdentifier(d.address);
+        }),
+        datasets:[{
+          label:'Observed token reserve',
+          data:poolReserveRows.map(function(d){return Number(d.balance_decimal || 0);}),
+          backgroundColor:poolReserveRows.map(function(_,i){return chartSeriesColors[i % chartSeriesColors.length];}),
+          borderColor:'#1e293b',
+          borderWidth:1,
+          hoverOffset:6
+        }]
+      },
+      options:{
+        responsive:true,
+        maintainAspectRatio:false,
+        plugins:{
+          legend:{
+            position:'bottom',
+            labels:{color:'#94a3b8',padding:8,boxWidth:10,font:{size:10}}
+          },
+          tooltip:{callbacks:{
+            title:function(items){
+              var row = items && items.length ? poolReserveRows[items[0].dataIndex] : null;
+              return row && row.address ? row.address : '-';
+            },
+            label:function(ctx){
+              var row = poolReserveRows[ctx.dataIndex] || {};
+              var total = poolReserveRows.reduce(function(sum,d){return sum + Number(d.balance_decimal || 0);},0);
+              var value = Number(row.balance_decimal || 0);
+              var share = total > 0 ? value / total * 100 : 0;
+              return (row.pool_label || 'Reserve') + ': '
+                + value.toLocaleString(undefined,{maximumFractionDigits:4}) + ' ' + tokenSymbol
+                + ' (' + share.toFixed(2) + '%)';
+            },
+            footer:function(){return 'Click slice to copy address';}
+          }}
+        },
+        onHover:function(event,elements){
+          if (event && event.native && event.native.target) {
+            event.native.target.style.cursor = elements && elements.length ? 'pointer' : 'default';
+          }
+        },
+        onClick:function(event,elements){
+          if (!elements || !elements.length) return;
+          var row = poolReserveRows[elements[0].index];
+          if (row && row.address) copyIdentifierValue(event.native || event, row.address);
+        }
+      }
+    });
+  }
+  tc('c5',{"type": "line", "data": {"labels": ["10-09", "10-10", "10-11", "10-12", "10-13", "10-14", "10-15", "10-16", "10-17", "10-18", "10-19", "10-20", "10-21", "10-22", "10-23", "10-24", "10-25", "10-26", "10-27", "10-28", "10-29", "10-30", "10-31", "11-01", "11-02", "11-03", "11-04", "11-05", "11-06", "11-07", "11-08"], "datasets": [{"label": "uniswap v3 \u00b7 FTX Token/WETH", "data": [0.018237972106086277, 0.017815575584800614, 0.01796536097944295, 0.017782295845880338, 0.018404875589787404, 0.017859068437081158, 0.0182985551800911, 0.018197470536234054, 0.018136301224486635, 0.01801854522414413, 0.01764730499868411, 0.0174672483737628, 0.01743205334609008, 0.017002947123089376, 0.01685486927676124, 0.01699556122031405, 0.016273000007901123, 0.01599328330341209, 0.015865160598364063, 0.01611036101047434, 0.015680723839513595, 0.016116071709985903, 0.016520102838875395, 0.01619188530876053, 0.01650510120005394, 0.015423977295771203, 0.015432676245630364, 0.014916704716229759, 0.014057882342989672, 0.014077108820769764, 0.010078736106620606], "borderColor": "#f59e0b", "backgroundColor": "#f59e0b33", "borderWidth": 1.5, "borderDash": [], "pointRadius": 0, "fill": false, "spanGaps": true, "tension": 0.2}, {"label": "uniswap v3 \u00b7 FTX Token/WETH", "data": [0.018198292157739684, 0.017797895739531177, 0.01761888777041279, 0.01785989263623092, 0.018224087969013834, 0.017776021557341124, 0.018107971916096442, 0.01827104302812809, 0.01810852620132816, 0.018095725061548957, 0.017643695700407632, 0.017569241467919307, 0.017253542700688216, 0.017049444629398728, 0.01695338067263482, 0.016998056302853826, 0.01622410250803006, 0.01570854580411905, 0.01592113995020307, 0.015911821027303586, 0.015747545342544106, 0.01613725408038468, 0.01665874274343857, 0.01637565435104233, 0.016552990255711185, 0.015346085311948046, 0.015476246874299103, 0.014736718751821712, 0.014074997329237289, 0.014106931968020922, 0.009951577642245201], "borderColor": "#22c55e", "backgroundColor": "#22c55e33", "borderWidth": 1.5, "borderDash": [9, 4], "pointRadius": 0, "fill": false, "spanGaps": true, "tension": 0.2}, {"label": "uniswap v2 \u00b7 FTX Token/WETH", "data": [null, 0.01778950414550816, 0.018480904007843493, 0.01774754619530804, 0.018212868967032177, 0.01774182851195622, 0.018061479416107164, 0.018464888683850305, 0.022951521624415973, 0.018184502060978578, 0.01769615150099588, 0.017609037168926304, 0.01682460517195111, 0.017196377849340794, 0.01699637346889822, 0.016933544949658826, 0.016375779195336, 0.015840778847535153, 0.015782985245383893, 0.015977082866897023, 0.01562866243498745, 0.016078907135668175, 0.01661986848333146, 0.016366934422705537, 0.01649665862028278, 0.015837218024207945, 0.01544065802963108, 0.014709392205008512, 0.013983380543854923, 0.014013092817193543, 0.010418409937904069], "borderColor": "#f43f5e", "backgroundColor": "#f43f5e33", "borderWidth": 1.5, "borderDash": [3, 3], "pointRadius": 0, "fill": false, "spanGaps": true, "tension": 0.2}]}, "options": {"responsive": true, "maintainAspectRatio": false, "interaction": {"intersect": false, "mode": "index"}, "plugins": {"legend": {"labels": {"color": "#94a3b8"}, "position": "top"}}, "scales": {"y": {"beginAtZero": true, "ticks": {"color": "#64748b"}, "grid": {"color": "#1e293b"}}, "x": {"ticks": {"color": "#64748b", "maxRotation": 45}, "grid": {"display": false}}}}});
+  tc('c6',{"type": "bar", "data": {"labels": ["10-09 00:00", "10-10 00:00", "10-11 00:00", "10-12 00:00", "10-13 00:00", "10-14 00:00", "10-15 00:00", "10-16 00:00", "10-17 00:00", "10-18 00:00", "10-19 00:00", "10-20 00:00", "10-21 00:00", "10-22 00:00", "10-23 00:00", "10-24 00:00", "10-25 00:00", "10-26 00:00", "10-27 00:00", "10-28 00:00", "10-29 00:00", "10-30 00:00", "10-31 00:00", "11-01 00:00", "11-02 00:00", "11-03 00:00", "11-04 00:00", "11-05 00:00", "11-06 00:00", "11-07 00:00", "11-08 00:00"], "datasets": [{"label": "uniswap v3 \u00b7 FTX Token/WETH", "data": [20.0, 687.7460377868779, 647.0141736803872, 1081.4188428436319, 239.99489648855786, 427.1958430881084, 1626.349871150503, 168.85358735860675, 661.4294150631745, 208.46810813618575, 304.1815279564267, 50.0, 736.0117928920776, 56.3797926309239, 57.65297300614543, 372.7314069433519, 580.6060359144897, 248.572285707717, 321.9542173195665, 105.96415052922774, 563.9682247133583, 103.09018124554731, 997.2292933832925, 45.00000009329392, 263.3312030331807, 1111.0108002040138, 566.6422425212369, 736.8982922951714, 15015.829553232195, 7829.982203275814, 48880.898908230505], "backgroundColor": "#f59e0b", "borderColor": "#f59e0b", "borderWidth": 1, "stack": "volume"}, {"label": "uniswap v3 \u00b7 FTX Token/WETH", "data": [20.0, 470.60840160652333, 301.82631915282684, 339.0553457640183, 271.7867528913752, 167.43570864731583, 660.1643456201634, 203.25003244299808, 572.3561917833783, 678.6617743271859, 466.8880608783965, 56.18621303281046, 740.522007843125, 401.5087983977888, 136.32588649200835, 1130.5771461788986, 1436.2548926624038, 2601.8394823888884, 1174.7228001254568, 1008.2764235737591, 3521.3588593746417, 1491.4955239005617, 3677.2631500424436, 627.8059788765107, 2015.294204595281, 5602.60592365038, 2672.652400420197, 3689.145175540954, 62932.38288743516, 123846.86715292349, 311600.70205890236], "backgroundColor": "#22c55e", "borderColor": "#22c55e", "borderWidth": 1, "stack": "volume"}, {"label": "uniswap v2 \u00b7 FTX Token/WETH", "data": [0, 248.71272937990156, 97.58461766301748, 165.44351733881936, 14.144709624974183, 57.492530340485786, 336.3279672756747, 87.04541345227784, 573.7025559215122, 10.00000000344786, 75.34598707046095, 4.2376391897042e-05, 87.12630493999978, 4.7877375, 11.047466143488986, 67.36432021211225, 78.21244868930832, 88.55038873303582, 127.29206992146979, 13.890642348299002, 275.85262509823576, 291.9254206348606, 178.9415598323945, 10.178599783484485, 72.37507038181654, 230.9756649132797, 108.80546082878782, 152.60903322847872, 3277.006441215972, 1221.8156520447092, 13329.918541673127], "backgroundColor": "#f43f5e", "borderColor": "#f43f5e", "borderWidth": 1, "stack": "volume"}]}, "options": {"responsive": true, "maintainAspectRatio": false, "plugins": {"legend": {"labels": {"color": "#94a3b8"}, "position": "top"}}, "scales": {"x": {"stacked": true, "ticks": {"color": "#64748b", "maxRotation": 45}, "grid": {"display": false}}, "y": {"stacked": true, "beginAtZero": true, "ticks": {"color": "#64748b"}, "grid": {"color": "#1e293b"}}}}});
+  tc('c4',{"type": "line", "data": {"labels": ["10-09", "10-10", "10-11", "10-12", "10-13", "10-14", "10-15", "10-16", "10-17", "10-18", "10-19", "10-20", "10-21", "10-22", "10-23", "10-24", "10-25", "10-26", "10-27", "10-28", "10-29", "10-30", "10-31", "11-01", "11-02", "11-03", "11-04", "11-05", "11-06", "11-07", "11-08"], "datasets": [{"label": "Total (FTX Token)", "data": [5031.919198452365, 6347.034887421523, 6386.90379902554, 6406.81020935265, 6237.238828562864, 6438.188432498213, 6332.482867935442, 6261.55857553617, 6892.267734172279, 6939.277459993539, 7207.308029509901, 7261.122819805275, 7453.8205271614315, 7565.311165163896, 7672.534565958643, 7735.728041210265, 8140.785450714341, 8336.028231753833, 8074.170560044484, 8031.81320213974, 8207.25068870318, 7920.573066692473, 8113.543481584669, 8302.880651162252, 8177.605794277174, 8774.46288529068, 9400.159417374822, 10121.160724370453, 9866.91037230033, 16343.103947855157, 33458.15035643542], "borderColor": "#3b82f6", "backgroundColor": "rgba(59,130,246,0.08)", "fill": true, "tension": 0.25, "pointRadius": 0}, {"label": "uniswap v3 \u00b7 FTX Token/WETH", "data": [4708.038997475616, 4833.078780413422, 4869.300581637907, 4868.224672648152, 4739.302276159594, 4902.640960966745, 4819.829274808814, 4758.8288603702085, 4796.124402847115, 4844.592510983301, 4981.503692605816, 5031.503692605815, 5144.679638698323, 5201.059431329247, 5258.712431890281, 5330.497322564309, 5525.714681403438, 5563.819618243956, 5141.86347160308, 5097.29696686087, 5186.960537015246, 5083.870355769698, 4987.163191441202, 5032.163191534496, 4996.690150212736, 5161.221414603664, 5232.3703666879555, 5402.605645121602, 5711.3747141136355, 6396.779616104843, 11663.555271645182], "borderColor": "#f59e0b", "backgroundColor": "#f59e0b33", "borderWidth": 1.5, "borderDash": [], "fill": false, "tension": 0.2, "pointRadius": 0, "spanGaps": true}, {"label": "uniswap v3 \u00b7 FTX Token/WETH", "data": [323.8802009767491, 322.6763694164261, 333.34830686336596, 341.5450264898328, 313.95075181357856, 339.4532700822623, 323.0097733004795, 317.1989911693627, 897.8491967147303, 906.390814403252, 1013.0512678166465, 1016.8661004884134, 1087.8615568120604, 1138.1846646836018, 1177.6587781915935, 1169.0961630251122, 1353.001957052803, 1500.6753352626129, 1652.8444775874627, 1662.9283947541467, 1739.7435149006587, 1566.6048617433962, 1876.8774414861778, 2011.0360111869813, 1929.0697255776247, 2335.197316905098, 2869.586837892566, 3401.279024475205, 2795.321288086152, 8578.845145307396, 20167.021567733547], "borderColor": "#22c55e", "backgroundColor": "#22c55e33", "borderWidth": 1.5, "borderDash": [9, 4], "fill": false, "tension": 0.2, "pointRadius": 0, "spanGaps": true}, {"label": "uniswap v2 \u00b7 FTX Token/WETH", "data": [0.0, 1191.279737591675, 1184.2549105242674, 1197.0405102146656, 1183.9858005896913, 1196.0942014492057, 1189.6438198261487, 1185.5307239965985, 1198.294134610434, 1188.2941346069863, 1212.753069087439, 1212.7530267110471, 1221.2793316510474, 1226.0670691510472, 1236.1633558767692, 1236.134555620843, 1262.0688122581007, 1271.533278247264, 1279.4626108539414, 1271.5878405247217, 1280.5466367872748, 1270.0978491793787, 1249.50284865729, 1259.6814484407746, 1251.8459184868132, 1278.0441537819183, 1298.2022127943005, 1317.2760547736461, 1360.2143701005432, 1367.4791864429183, 1627.5735170566902], "borderColor": "#f43f5e", "backgroundColor": "#f43f5e33", "borderWidth": 1.5, "borderDash": [3, 3], "fill": false, "tension": 0.2, "pointRadius": 0, "spanGaps": true}]}, "options": {"onClick":function(evt,els,chart){var active=chart.getElementsAtEventForMode(evt,'index',{intersect:false},true);if(active&&active.length){renderTvlDetails(active[0].index);}},"responsive": true, "maintainAspectRatio": false, "interaction": {"intersect": false, "mode": "index"}, "plugins": {"legend": {"labels": {"color": "#94a3b8"}, "position": "top"}}, "scales": {"y": {"beginAtZero": true, "ticks": {"color": "#64748b"}, "grid": {"color": "#1e293b"}}, "x": {"ticks": {"color": "#64748b", "maxRotation": 45}, "grid": {"display": false}}}}});
+  tc('c8',{"type": "bar", "data": {"labels": ["10-12", "10-17", "10-26", "10-27", "10-29", "10-31", "11-04", "11-06", "11-07", "11-08"], "datasets": [{"label": "Gross added (FTX Token)", "data": [0.0, 586.679922080092, 383.1524644423015, 243.72288944730983, 0.0, 589.9908588067, 244.92964548171415, 24723.661985601786, 13463.113418322722, 29841.55235683314], "backgroundColor": "rgba(34,197,94,0.65)", "borderColor": "#22c55e", "borderWidth": 1}, {"label": "Gross removed (FTX Token)", "data": [-111.43562689966619, -0.0, -1628.9586016478388, -451.62797867720957, -0.9986512174291371, -0.0, -0.0, -25881.612181719454, -6260.692109606271, -30118.427823816673], "backgroundColor": "rgba(244,63,94,0.65)", "borderColor": "#f43f5e", "borderWidth": 1}, {"type": "line", "label": "Net LP flow (FTX Token)", "data": [-111.43562689966619, 586.679922080092, -1245.8061372055372, -207.90508922989974, -0.9986512174291371, 589.9908588067, 244.92964548171415, -1157.9501961176684, 7202.421308716452, -276.87546698353253], "borderColor": "#60a5fa", "backgroundColor": "#60a5fa", "borderWidth": 2, "pointRadius": 2, "tension": 0.2}]}, "options": {"responsive": true, "maintainAspectRatio": false, "interaction": {"intersect": false, "mode": "index"}, "plugins": {"legend": {"labels": {"color": "#94a3b8"}, "position": "top"}}, "scales": {"x": {"ticks": {"color": "#64748b", "maxRotation": 45}, "grid": {"display": false}}, "y": {"ticks": {"color": "#64748b"}, "grid": {"color": "#1e293b"}}}}});
+})();
+
+function togglePortfolio(addr) {
+  var row = document.getElementById('portfolio-' + addr);
+  if (!row) return;
+  var holderRow = row.previousElementSibling;
+  var icon = holderRow ? holderRow.querySelector('.expand-icon') : null;
+  var open = row.style.display !== 'none';
+  if (open) {
+    row.style.display = 'none';
+    if (icon) icon.textContent = '+';
+    return;
+  }
+  row.style.display = '';
+  if (icon) icon.textContent = '-';
+  var inner = row.querySelector('.portfolio-inner');
+  if (!inner) return;
+  var key = (addr || '').toLowerCase();
+  var positions = (portfolioData && portfolioData[key]) || [];
+  if (!positions.length) {
+    inner.innerHTML = '<div style="color:#64748b;padding:8px 0">No LP positions with share &gt; 0 for this address in the analysis window.</div>';
+    return;
+  }
+  var html = '<table class="portfolio-table"><thead><tr>'
+    + '<th>Protocol</th><th>Pool</th><th>Share %</th><th>Liquidity</th><th>Token0</th><th>Token1</th><th>Ticks</th>'
+    + '</tr></thead><tbody>';
+  for (var i = 0; i < positions.length; i++) {
+    var p = positions[i];
+    var pool = (p.pool || '');
+    var ticks = (p.tick_lower != null && p.tick_upper != null)
+      ? (p.tick_lower + ' / ' + p.tick_upper) : '-';
+    var proto = ((p.protocol || '') + ' ' + (p.version || '')).trim() || '-';
+    html += '<tr>'
+      + '<td>' + proto + '</td>'
+      + '<td>' + identifierHtml(pool) + '</td>'
+      + '<td>' + (p.share_pct != null ? p.share_pct : '-') + '</td>'
+      + '<td>' + (p.liquidity || '-') + '</td>'
+      + '<td>' + (p.token0_amount || '-') + '</td>'
+      + '<td>' + (p.token1_amount || '-') + '</td>'
+      + '<td>' + ticks + '</td>'
+      + '</tr>';
+  }
+  html += '</tbody></table>';
+  inner.innerHTML = html;
+}
+
+</script>
+</body>
+</html>

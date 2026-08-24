@@ -13,6 +13,7 @@ import json
 import os
 import sys
 import time
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from typing import Any, Callable, Optional
 
@@ -39,8 +40,19 @@ def _fetch_block_timestamps(
             )
         except (TypeError, ValueError):
             batch_size = 500
-        for offset in range(0, len(missing), batch_size):
-            chunk = missing[offset:offset + batch_size]
+        try:
+            batch_workers = max(
+                1, int(os.environ.get("ETH_BLOCK_BATCH_WORKERS") or 1)
+            )
+        except (TypeError, ValueError):
+            batch_workers = 1
+
+        chunks = [
+            missing[offset:offset + batch_size]
+            for offset in range(0, len(missing), batch_size)
+        ]
+
+        def fetch_batch(chunk: list[int]) -> list[dict]:
             payload = [
                 {
                     "jsonrpc": "2.0",
@@ -54,17 +66,26 @@ def _fetch_block_timestamps(
                 response = requests.post(endpoint, json=payload, timeout=60)
                 response.raise_for_status()
                 body = response.json()
-                if not isinstance(body, list):
-                    continue
+                return body if isinstance(body, list) else []
+            except Exception:
+                return []
+
+        if batch_workers == 1:
+            bodies = map(fetch_batch, chunks)
+        else:
+            executor = ThreadPoolExecutor(max_workers=batch_workers)
+            bodies = executor.map(fetch_batch, chunks)
+        try:
+            for body in bodies:
                 for item in body:
                     result = item.get("result") or {}
                     bn = int(item.get("id") or 0)
                     timestamp = result.get("timestamp")
                     if bn and timestamp is not None:
                         cache[bn] = int(timestamp, 16)
-            except Exception:
-                # Providers without JSON-RPC batch support use the safe path below.
-                break
+        finally:
+            if batch_workers != 1:
+                executor.shutdown(wait=True)
     for bn in missing:
         if bn in cache:
             continue
@@ -135,6 +156,27 @@ def _load_jsonl(path: Path) -> list[dict]:
             if line:
                 rows.append(json.loads(line))
     return _dedupe_events(rows)
+
+
+def _load_timestamp_cache(cache_dir: Path) -> dict[int, int]:
+    """Recover known block timestamps from resumable event JSONL streams."""
+    cache: dict[int, int] = {}
+    if not cache_dir.exists():
+        return cache
+    for path in cache_dir.glob("*.jsonl"):
+        try:
+            with open(path) as handle:
+                for line in handle:
+                    if not line.strip():
+                        continue
+                    row = json.loads(line)
+                    block = int(row.get("block_number") or 0)
+                    timestamp = int(row.get("block_timestamp") or 0)
+                    if block > 0 and timestamp > 0:
+                        cache[block] = timestamp
+        except (OSError, TypeError, ValueError, json.JSONDecodeError):
+            continue
+    return cache
 
 
 def _append_jsonl(path: Path, rows: list[dict]) -> None:
@@ -1343,6 +1385,83 @@ def index_token_transfers(
     return stream.run(contract.events.Transfer)
 
 
+def index_pool_token_transfers(
+    w3: Web3,
+    token_address: str,
+    pool_addresses: list[str],
+    from_block: int,
+    to_block: int,
+    checkpoint: dict,
+    checkpoint_path: Path,
+    cache_dir: Path,
+    ts_cache: dict[int, int],
+) -> list[dict]:
+    """Index target-token Transfers where either endpoint is a selected pool."""
+    token = Web3.to_checksum_address(token_address)
+    contract = get_contract(w3, token, "erc20")
+
+    def _norm(evt: EventData, timestamps: dict[int, int]) -> Optional[NormalizedEvent]:
+        bn = evt["blockNumber"]
+        args = evt["args"]
+        return NormalizedEvent(
+            block_number=bn,
+            block_timestamp=timestamps.get(bn, 0),
+            transaction_hash=_tx_hash_hex(evt["transactionHash"]),
+            log_index=evt.get("logIndex", 0),
+            protocol="",
+            version="",
+            pool_address="",
+            event_type="TOKEN_TRANSFER",
+            actor=Web3.to_checksum_address(args["from"]),
+            recipient=Web3.to_checksum_address(args["to"]),
+            token0_amount=str(args["value"]),
+            source_event="Transfer",
+            verified=True,
+        )
+
+    events: list[dict] = []
+    unique_pools = sorted(
+        {Web3.to_checksum_address(address) for address in pool_addresses},
+        key=str.lower,
+    )
+    for pool in unique_pools:
+        for direction, filters in (
+            ("to", {"to": pool}),
+            ("from", {"from": pool}),
+        ):
+            key = _stream_key(
+                "token", token, "Transfer_{}_{}".format(direction, pool.lower())
+            )
+            stream = _StreamIndexer(
+                w3,
+                key,
+                from_block,
+                to_block,
+                checkpoint,
+                checkpoint_path,
+                cache_dir,
+                ts_cache,
+                _norm,
+                argument_filters=filters,
+            )
+            events.extend(stream.run(contract.events.Transfer))
+
+    # A pool-to-pool transfer can match two selected endpoint streams.  Keep one
+    # canonical event without weakening the general cross-stream dedupe rules.
+    seen: set[tuple[str, int]] = set()
+    result: list[dict] = []
+    for event in events:
+        identity = (
+            str(event.get("transaction_hash") or "").lower(),
+            int(event.get("log_index") or 0),
+        )
+        if identity in seen:
+            continue
+        seen.add(identity)
+        result.append(event)
+    return result
+
+
 def index_v4_pool_events(
     w3: Web3,
     pool_manager: str,
@@ -1511,6 +1630,7 @@ def index_events(
     force_dune_refresh: bool = False,
     artifact_format: str = "json",
     pool_event_types: Optional[set[str]] = None,
+    token_transfer_addresses: Optional[list[str]] = None,
 ) -> dict[str, list]:
     """Index swaps / liquidity / transfers.
 
@@ -1518,6 +1638,11 @@ def index_events(
     streams while retaining pool-level Swap/Mint/Burn/Collect events.  This is
     appropriate for aggregate market research where LP NFT identity is not
     required.
+
+    ``token_transfer_addresses`` limits target-token Transfer collection to
+    events whose sender or recipient is one of the supplied pool/custody
+    addresses.  It preserves pool-flow reconciliation while intentionally
+    excluding unrelated wallet-to-wallet Transfers.
 
     ``source``:
       - ``auto`` (default): Dune when ``DUNE_API_KEY`` is set, else RPC
@@ -1536,6 +1661,10 @@ def index_events(
     mode = (source or "auto").strip().lower()
     if mode not in ("auto", "dune", "rpc"):
         mode = "auto"
+    if token_transfer_addresses and mode != "rpc":
+        raise ValueError(
+            "pool-scoped target-token Transfer indexing requires source='rpc'"
+        )
 
     prefer_dune = mode == "dune"
     if mode == "auto":
@@ -1590,7 +1719,13 @@ def index_events(
     )
     _save_checkpoint(cp_path, checkpoint)
 
-    ts_cache: dict[int, int] = {}
+    ts_cache = _load_timestamp_cache(cache_dir)
+    if ts_cache:
+        _progress(
+            "Recovered {:,} cached block timestamp(s) from prior chunks.".format(
+                len(ts_cache)
+            )
+        )
     collected: list[dict] = []
 
     v3_pools = [p for p in verified_pools if p.protocol == "uniswap" and p.version == "v3" and p.verified]
@@ -1703,10 +1838,23 @@ def index_events(
         )
 
     if index_token_transfer:
-        token_evts = index_token_transfers(
-            w3, target_token, from_block, to_block,
-            checkpoint, cp_path, cache_dir, ts_cache,
-        )
+        if token_transfer_addresses:
+            token_evts = index_pool_token_transfers(
+                w3,
+                target_token,
+                token_transfer_addresses,
+                from_block,
+                to_block,
+                checkpoint,
+                cp_path,
+                cache_dir,
+                ts_cache,
+            )
+        else:
+            token_evts = index_token_transfers(
+                w3, target_token, from_block, to_block,
+                checkpoint, cp_path, cache_dir, ts_cache,
+            )
         collected.extend(token_evts)
 
     result = _flush_outputs(out, collected, from_block, to_block)
@@ -1748,6 +1896,11 @@ def index_events(
                 if index_position_manager
                 else "unavailable"
             ),
+            "token_transfer_scope": (
+                "selected_pool_endpoints"
+                if token_transfer_addresses
+                else "all_target_token_transfers"
+            ),
             "artifacts": table_artifacts,
             "counts": {
                 "swaps": len(result["swaps"]),
@@ -1756,12 +1909,13 @@ def index_events(
                 "position_events": len(result["position_events"]),
             },
             "notes": (
-                []
-                if index_position_manager
-                else [
+                ([] if index_position_manager else [
                     "V3/V4 Position Manager event history was intentionally skipped.",
                     "Pool-level Swap/Mint/Burn/Collect coverage is retained; an empty position-event table does not mean zero LP activity.",
-                ]
+                ])
+                + ([
+                    "Target-token Transfer indexing was limited to selected pool/custody endpoints; unrelated wallet-to-wallet Transfers are not included."
+                ] if token_transfer_addresses else [])
             ),
         },
     )

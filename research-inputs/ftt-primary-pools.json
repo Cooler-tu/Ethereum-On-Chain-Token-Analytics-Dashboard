@@ -1,0 +1,29 @@
+{
+  "token": "0x50D1C9771902476076eCFc8B2A83Ad6b9355a4c9",
+  "selection": "Pre-registered FTT/WETH pools that existed at the control-window start block and had observable Swap activity before the incident cutoff.",
+  "pools": [
+    {
+      "project": "uniswap",
+      "version": "v2",
+      "pool_address": "0xF04543fBF20DAEE9B0357db966428EF2A4Ae0F5A",
+      "token0": "0x50D1C9771902476076eCFc8B2A83Ad6b9355a4c9",
+      "token1": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+    },
+    {
+      "project": "uniswap",
+      "version": "v3",
+      "pool_address": "0xb404057EE4B1d7359Ca5a57aC1C020B74c23E56b",
+      "token0": "0x50D1C9771902476076eCFc8B2A83Ad6b9355a4c9",
+      "token1": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "fee": 3000
+    },
+    {
+      "project": "uniswap",
+      "version": "v3",
+      "pool_address": "0x9D2713fa2f387eD1284a4176E7841253B4Da2A71",
+      "token0": "0x50D1C9771902476076eCFc8B2A83Ad6b9355a4c9",
+      "token1": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "fee": 10000
+    }
+  ]
+}

@@ -37,6 +37,7 @@ End-to-end **Ethereum mainnet** tool for token liquidity / crash analysis: disco
 - The first pre-registered same-token crash/control validation passed its data-quality gates: 100% hourly target-reserve coverage, 181/181 quantified Mint/Burn rows, exact Transfer-to-balance reconciliation for all three pools in both windows, and 142 control / 171 crash observed-price endpoint pairs.
 - None of the three primary 24-hour hypotheses met all confirmation rules. Pool Transfer net flow was weak (`ρ=-0.1279`, BH `q=0.1618`), and gross LP activity did not reliably precede larger absolute returns (`ρ=0.1564`, `q=0.1618`).
 - The counterintuitive candidate is net LP flow: its crash-window association with future 24-hour return was negative (`ρ=-0.2979`, block-permutation `p=0.0026`, BH `q=0.0078`) instead of the frozen positive direction. Its crash-minus-control 95% interval `[-0.5090, 0.0863]` crosses zero, so this is an anomaly for transaction-level follow-up, not a confirmed warning signal. Full interpretation: `research-notes/ftt-crash-control-results.md`.
+- The CEL replication is frozen before outcome calculation. The corrected public-pause cutoff is `2022-06-13 02:10 UTC` / block `14953505` (the old noon boundary was about ten hours late). Two active CEL/WETH pools—V2 and V3 0.30%—exist with non-zero reserves throughout the boundaries and have Swap activity in all four feasibility samples. The FTT variables, directions, 24-hour horizon, stop rules, and random seed are unchanged; see `research-notes/cel-crash-control-preregistration.md`.
 
 ### Recent Findings (TURBO)
 
@@ -301,6 +302,7 @@ See `SUPPORTED_PROTOCOLS.md` for contract addresses and notes.
 - 首次预注册的同代币崩盘/对照验证通过数据质量门槛：小时级目标代币储备覆盖 100%，181/181 条 Mint/Burn 均有可量化金额，两个窗口中三个池的 Transfer 净额均与历史余额变化精确对账，并保留 142 个对照期与 171 个崩盘期真实成交端点配对。
 - 三项 24 小时主要假设均未满足全部确认条件。池 Transfer 净流的关系较弱（`ρ=-0.1279`，BH `q=0.1618`），累计 LP 活动也未能稳定领先更大的绝对收益（`ρ=0.1564`，`q=0.1618`）。
 - 反常候选来自净 LP 流：崩盘期它与未来 24 小时收益呈负相关（`ρ=-0.2979`，区块置换 `p=0.0026`，BH `q=0.0078`），与预注册的正方向相反；崩盘减对照的 95% 区间 `[-0.5090, 0.0863]` 仍跨过 0。因此它只是值得做交易级追踪的异常线索，不是已确认预警信号。完整解释见 `research-notes/ftt-crash-control-results.md`。
+- CEL 独立复验已在计算结果前冻结。公开暂停事件截止点修正为 `2022-06-13 02:10 UTC` / 区块 `14953505`，旧的中午边界晚了约十小时。两个活跃 CEL/WETH 池（V2 与 V3 0.30%）在所有边界均有非零储备，且四个可行性抽样段均有 Swap。FTT 的变量、方向、24 小时预测期、停止规则和随机种子均保持不变；详见 `research-notes/cel-crash-control-preregistration.md`。
 
 ### 近期发现（TURBO）
 

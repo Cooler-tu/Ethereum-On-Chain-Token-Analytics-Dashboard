@@ -2,7 +2,7 @@
 """Pre-registered same-token crash/control correlation validation.
 
 The primary design compares three hourly liquidity/flow predictors with an
-observed-price 24-hour FTT return in a frozen control window and crash window.
+observed-price 24-hour token return in a frozen control window and crash window.
 It deliberately avoids a lag search: secondary horizons, methods, and bucket
 sizes are written separately and remain exploratory.
 """
@@ -349,10 +349,12 @@ def write_summary(
     alpha: float,
     min_pairs: int,
     block_length: int,
+    study_label: str,
+    pool_count: int,
 ) -> None:
     passed = [row for row in primary if row["confirmatory"]]
     lines = [
-        "# FTT crash/control validation",
+        f"# {study_label} crash/control validation",
         "",
         f"- Confirmatory primary tests: **{len(passed)}/{len(primary)}**.",
         "- Primary design: hourly predictors vs observed-endpoint future 24h return; Spearman correlation.",
@@ -404,17 +406,18 @@ def write_summary(
         "",
         "A primary hypothesis is confirmed only when the crash association has the frozen direction, its bootstrap CI excludes zero, its crash permutation p-value survives the three-test BH correction, and the crash-minus-control bootstrap CI excludes zero.",
         "",
-        "This is an Ethereum Uniswap study of three pre-selected FTT/WETH pools. It does not observe the complete centralized-exchange order flow and does not establish causality. Secondary horizons, Pearson results, and coarser buckets are saved separately and must not be promoted to confirmatory findings.",
+        f"This is an Ethereum Uniswap study of {pool_count} pre-selected {study_label}/WETH pool(s). It does not observe complete centralized-venue order flow and does not establish causality. Secondary horizons, Pearson results, and coarser buckets are saved separately and must not be promoted to confirmatory findings.",
         "",
     ])
     path.write_text("\n".join(lines), encoding="utf-8")
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Run frozen FTT crash/control validation")
+    parser = argparse.ArgumentParser(description="Run a frozen same-token crash/control validation")
     parser.add_argument("--control-dir", required=True)
     parser.add_argument("--crash-dir", required=True)
     parser.add_argument("--out-dir", required=True)
+    parser.add_argument("--study-label", default="", help="Token label for the report")
     parser.add_argument("--min-pairs", type=int, default=80)
     parser.add_argument("--bootstrap-repetitions", type=int, default=1999)
     parser.add_argument("--permutation-repetitions", type=int, default=4999)
@@ -427,6 +430,15 @@ def main() -> None:
 
     control_dir = Path(args.control_dir)
     crash_dir = Path(args.crash_dir)
+    control_profile = json.loads((control_dir / "token_profile.json").read_text(encoding="utf-8"))
+    crash_profile = json.loads((crash_dir / "token_profile.json").read_text(encoding="utf-8"))
+    control_address = str(control_profile.get("address") or "").lower()
+    crash_address = str(crash_profile.get("address") or "").lower()
+    if not control_address or control_address != crash_address:
+        parser.error("control and crash directories must contain the same token address")
+    study_label = args.study_label.strip() or str(crash_profile.get("symbol") or "token")
+    verified_pools = json.loads((crash_dir / "verified_pools.json").read_text(encoding="utf-8"))
+    pool_count = sum(bool(row.get("verified", True)) for row in verified_pools)
     control_rows = select_token_total_rows(control_dir)
     crash_rows = select_token_total_rows(crash_dir)
     coverage_rows = {
@@ -455,6 +467,9 @@ def main() -> None:
     _write_csv(out / "secondary_tests.csv", secondary)
     (out / "results.json").write_text(json.dumps({
         "design": {
+            "study_label": study_label,
+            "token_address": crash_address,
+            "pool_count": pool_count,
             "primary_horizon_hours": 24,
             "primary_method": "spearman",
             "observed_price_endpoints_only": True,
@@ -472,6 +487,7 @@ def main() -> None:
     write_summary(
         out / "summary.md", primary, coverage_rows,
         alpha=args.alpha, min_pairs=args.min_pairs, block_length=args.block_length,
+        study_label=study_label, pool_count=pool_count,
     )
     print(f"Wrote {out / 'summary.md'}")
     print(f"Confirmatory primary tests: {sum(row['confirmatory'] for row in primary)}/{len(primary)}")

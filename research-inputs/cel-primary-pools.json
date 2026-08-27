@@ -1,0 +1,21 @@
+{
+  "token": "0xaaAEBE6Fe48E54f431b0C390CfaF0b017d09D42d",
+  "selection": "Pre-registered CEL/WETH V2/V3 pools that existed at the control-window start, held non-zero CEL and WETH, and had Swap activity in both control/crash feasibility samples.",
+  "pools": [
+    {
+      "project": "uniswap",
+      "version": "v2",
+      "pool_address": "0xa5E79baEe540f000ef6F23D067cd3AC22c7d9Fe6",
+      "token0": "0xaaAEBE6Fe48E54f431b0C390CfaF0b017d09D42d",
+      "token1": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+    },
+    {
+      "project": "uniswap",
+      "version": "v3",
+      "pool_address": "0x06729eb2424da47898F935267BD4a62940DE5105",
+      "token0": "0xaaAEBE6Fe48E54f431b0C390CfaF0b017d09D42d",
+      "token1": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "fee": 3000
+    }
+  ]
+}

@@ -51,12 +51,13 @@
 - **Correlation & lead-lag Phase 2 robustness** (2026-08-24) — added moving-block bootstrap CIs, block-permutation p-values, BH-FDR families, and multi-bucket sensitivity in `scripts/correlation_robustness.py`. uPEG's contemporaneous price/reserve inverse relation survives the pre-specified zero-lag family across useful intraday buckets; no uPEG or TURBO predictive non-zero lag survives correction. TURBO's only pass is the expected mechanical reserve-change/net-LP-flow relation. Evidence: `research-notes/correlation-robustness-audit.md`.
 - **Crash/control case screening + pre-registration** (2026-08-24) — screened OM, FTT, CEL, and CREDI with light RPC pool discovery, historical reserve checks, and fixed 10,000-block Swap samples; selected FTT as the first independent crash case and CEL as the second replication. Frozen exact 30-day UTC crash/control windows, three FTT/WETH pools, metrics, lag families, and stop rules before full indexing. Evidence: `research-notes/ftt-crash-control-preregistration.md`.
 - **FTT independent crash/control validation** (2026-08-24) — indexed two frozen 30-day windows across three FTT/WETH pools, reconciled every pool's Transfer net flow to historical balance change exactly, and passed 100% reserve/LP-amount coverage gates. None of three primary 24-hour hypotheses was confirmed. Net LP flow showed a significant but opposite-direction crash association (`ρ=-0.2979`, BH `q=0.0078`), while the crash-minus-control CI crossed zero; it remains an anomaly, not a warning signal. Evidence: `research-notes/ftt-crash-control-results.md`.
+- **CEL replication pre-registration** (2026-08-27) — corrected the withdrawal-pause cutoff from the old noon approximation to `2022-06-13 02:10 UTC` / block `14953505`, fixed adjacent exact 30-day windows, and selected the active CEL/WETH V2 and V3 0.30% pools after code, reserve, and four-segment Swap feasibility checks. Reused the FTT hypotheses and inference unchanged before outcome calculation. Evidence: `research-notes/cel-crash-control-preregistration.md`.
 
 ---
 
 ## 🎯 Current
 
-- **Choose the next validation step** — either trace the opposite-direction FTT net-LP-flow anomaly at transaction level, or preserve independence and run the already-reserved CEL crash/control replication before interpreting FTT behavior.
+- **CEL independent crash/control replication** — freeze the corrected withdrawal-pause cutoff and active CEL/WETH V2/V3 pool universe before outcomes, collect adjacent 30-day RPC windows, enforce the FTT stop rules, then rerun the unchanged primary tests.
 
 ---
 

@@ -1,0 +1,38 @@
+{
+  "top_n": 5,
+  "horizon_hours": 24,
+  "cases": [
+    {
+      "case": "FTT",
+      "output_dir": "output-ftt-crash-30d",
+      "selection_rule": "net_lp_flow_ratio > 0 and observed future 24h log return < 0; rank descending by net_lp_flow_ratio",
+      "candidate_hour_count": 11,
+      "selected_hour_count": 5,
+      "selected_all_v3": true,
+      "selected_target_only_add_target": 23862.83214060318,
+      "selected_gross_add_target": 29994.39275494591,
+      "selected_target_add_value_weth": 434.5669110454185,
+      "selected_quote_add_weth": 98.19950866575286,
+      "selected_same_tx_recycled_target": 0.0,
+      "identity_guardrail": "Indexed Mint/Burn actors are contract-facing identities. Beneficial LP wallet/NFT identity and cross-transaction repositioning require targeted Position Manager tracing.",
+      "selected_target_only_add_share": 0.7955764377549643,
+      "selected_target_value_share_of_add": 0.8156799958995357
+    },
+    {
+      "case": "CEL",
+      "output_dir": "output-cel-crash-30d",
+      "selection_rule": "net_lp_flow_ratio > 0 and observed future 24h log return < 0; rank descending by net_lp_flow_ratio",
+      "candidate_hour_count": 10,
+      "selected_hour_count": 5,
+      "selected_all_v3": true,
+      "selected_target_only_add_target": 0.0,
+      "selected_gross_add_target": 40507.722200000004,
+      "selected_target_add_value_weth": 15.91675428734467,
+      "selected_quote_add_weth": 7.727379626853196,
+      "selected_same_tx_recycled_target": 0.0,
+      "identity_guardrail": "Indexed Mint/Burn actors are contract-facing identities. Beneficial LP wallet/NFT identity and cross-transaction repositioning require targeted Position Manager tracing.",
+      "selected_target_only_add_share": 0.0,
+      "selected_target_value_share_of_add": 0.6731798400865491
+    }
+  ]
+}

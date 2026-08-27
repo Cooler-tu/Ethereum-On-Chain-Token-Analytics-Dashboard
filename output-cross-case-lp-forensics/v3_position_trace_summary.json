@@ -1,0 +1,29 @@
+{
+  "transaction_count": 18,
+  "pool_event_count": 18,
+  "exact_manager_match_count": 17,
+  "unique_nft_token_ids": 14,
+  "known_owner_count": 10,
+  "unique_tx_senders": 10,
+  "target_only_range_events": 2,
+  "two_sided_range_events": 16,
+  "quote_only_range_events": 0,
+  "selected_position_cycle_count": 1,
+  "selected_position_cycles": [
+    {
+      "case": "FTT",
+      "nft_token_id": "355173",
+      "first_action": "Mint",
+      "second_action": "Burn",
+      "first_block": 15915923,
+      "second_block": 15916002,
+      "block_gap": 79,
+      "same_owner_at_block": true,
+      "same_tx_sender": true,
+      "same_tick_range": true,
+      "first_transaction_hash": "0xead43ccd6fb8abea815993bca9091529d9f441c3dfdac758c0e7676817f136ad",
+      "second_transaction_hash": "0xadf1f2f6fa4943c449e19f4efe683ec34f18df53483b02086616f395c3b2d9bf"
+    }
+  ],
+  "guardrail": "Owner is resolved at the transaction block when possible. No common-control claim is made across different owner addresses or tokenIds. Hour-close price classifies the range approximately; exact intra-block price may differ."
+}

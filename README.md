@@ -35,6 +35,7 @@ End-to-end **Ethereum mainnet** tool for token liquidity / crash analysis: disco
 
 ### Recent Findings (FTT crash/control)
 
+- Transaction forensics decomposed 11 FTT and 10 CEL positive-net-LP / negative-future-return hours, with the top five per case all driven by V3. Target inventory represents 81.57% of added WETH-equivalent value for FTT and 67.32% for CEL. FTT's largest hour is a below-range NFT adding 23,862.8321 FTT and zero WETH; targeted Position Manager tracing also verifies one same-wallet, same-NFT, same-tick Mint→Burn cycle 948 seconds apart. The mechanism is now framed as concentrated target-token inventory provision, not generic capital inflow. Evidence: `research-notes/ftt-cel-lp-flow-forensics.md`.
 - CEL independently replicated the counterintuitive net-LP-flow direction under the unchanged FTT design. CEL crash-window net LP flow versus future 24-hour return is `ρ=-0.0856` (block `p=0.0166`, BH `q=0.0498`), and crash minus control is `-0.1962` with 95% CI `[-0.2847, -0.0780]`. The original positive-direction hypothesis still fails; this is a repeated anomaly for transaction forensics, not a confirmed warning rule. CEL passed 100% reserve and Mint/Burn amount coverage with 522/504 primary pairs. Evidence: `research-notes/cel-crash-control-results.md`.
 - The first pre-registered same-token crash/control validation passed its data-quality gates: 100% hourly target-reserve coverage, 181/181 quantified Mint/Burn rows, exact Transfer-to-balance reconciliation for all three pools in both windows, and 142 control / 171 crash observed-price endpoint pairs.
 - None of the three primary 24-hour hypotheses met all confirmation rules. Pool Transfer net flow was weak (`ρ=-0.1279`, BH `q=0.1618`), and gross LP activity did not reliably precede larger absolute returns (`ρ=0.1564`, `q=0.1618`).
@@ -302,6 +303,7 @@ See `SUPPORTED_PROTOCOLS.md` for contract addresses and notes.
 
 ### 近期发现（FTT 崩盘/对照）
 
+- 交易取证拆解出 11 个 FTT 与 10 个 CEL“净 LP 流为正、未来收益为负”的小时，两组前五名全部由 V3 主导。按小时收盘价折算，新增价值中目标代币库存占 FTT 的 81.57%、CEL 的 67.32%。FTT 最大异常小时是一笔区间外 NFT 仓位，只加入 23,862.8321 FTT 而没有 WETH；定向 Position Manager 追踪还确认了一组同钱包、同 NFT、同 tick 的 Mint→Burn，间隔 948 秒。因此当前机制应描述为集中的目标代币库存配置，而不是笼统的外部资金流入。证据见 `research-notes/ftt-cel-lp-flow-forensics.md`。
 - CEL 在完全复用 FTT 设计的情况下，独立复现了净 LP 流的反常方向：崩盘期净 LP 流与未来 24 小时收益为 `ρ=-0.0856`（区块置换 `p=0.0166`，BH `q=0.0498`），崩盘减对照为 `-0.1962`，95% 区间 `[-0.2847, -0.0780]`。原先预注册的正方向假设仍然失败；这是需要交易级调查的重复异常，不是已确认预警规则。CEL 储备与 Mint/Burn 金额覆盖均为 100%，主要配对为 522/504。证据见 `research-notes/cel-crash-control-results.md`。
 - 首次预注册的同代币崩盘/对照验证通过数据质量门槛：小时级目标代币储备覆盖 100%，181/181 条 Mint/Burn 均有可量化金额，两个窗口中三个池的 Transfer 净额均与历史余额变化精确对账，并保留 142 个对照期与 171 个崩盘期真实成交端点配对。
 - 三项 24 小时主要假设均未满足全部确认条件。池 Transfer 净流的关系较弱（`ρ=-0.1279`，BH `q=0.1618`），累计 LP 活动也未能稳定领先更大的绝对收益（`ρ=0.1564`，`q=0.1618`）。

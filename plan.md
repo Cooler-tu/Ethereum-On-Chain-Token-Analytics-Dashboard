@@ -52,19 +52,20 @@
 - **Crash/control case screening + pre-registration** (2026-08-24) — screened OM, FTT, CEL, and CREDI with light RPC pool discovery, historical reserve checks, and fixed 10,000-block Swap samples; selected FTT as the first independent crash case and CEL as the second replication. Frozen exact 30-day UTC crash/control windows, three FTT/WETH pools, metrics, lag families, and stop rules before full indexing. Evidence: `research-notes/ftt-crash-control-preregistration.md`.
 - **FTT independent crash/control validation** (2026-08-24) — indexed two frozen 30-day windows across three FTT/WETH pools, reconciled every pool's Transfer net flow to historical balance change exactly, and passed 100% reserve/LP-amount coverage gates. None of three primary 24-hour hypotheses was confirmed. Net LP flow showed a significant but opposite-direction crash association (`ρ=-0.2979`, BH `q=0.0078`), while the crash-minus-control CI crossed zero; it remains an anomaly, not a warning signal. Evidence: `research-notes/ftt-crash-control-results.md`.
 - **CEL replication pre-registration** (2026-08-27) — corrected the withdrawal-pause cutoff from the old noon approximation to `2022-06-13 02:10 UTC` / block `14953505`, fixed adjacent exact 30-day windows, and selected the active CEL/WETH V2 and V3 0.30% pools after code, reserve, and four-segment Swap feasibility checks. Reused the FTT hypotheses and inference unchanged before outcome calculation. Evidence: `research-notes/cel-crash-control-preregistration.md`.
+- **CEL independent crash/control replication** (2026-08-27) — indexed adjacent 30-day windows across two CEL/WETH pools (4,076/4,972 Swaps), reconciled all four pool/window Transfer sums exactly, and passed 100% hourly reserve and Mint/Burn amount coverage with 522/504 primary pairs. Original hypotheses remain 0/3 confirmed, but CEL independently repeats FTT's opposite-direction net-LP-flow association (`ρ=-0.0856`, BH `q=0.0498`); CEL crash-minus-control CI is fully negative. Evidence: `research-notes/cel-crash-control-results.md`.
 
 ---
 
 ## 🎯 Current
 
-- **CEL independent crash/control replication** — freeze the corrected withdrawal-pause cutoff and active CEL/WETH V2/V3 pool universe before outcomes, collect adjacent 30-day RPC windows, enforce the FTT stop rules, then rerun the unchanged primary tests.
+- **Cross-case opposite-direction LP-flow forensics** — compare FTT and CEL high-net-inflow hours, separate V2/V3 Mint/Burn from actual Transfers, asymmetric inventory, price impact, and short-gap repositioning; formulate a new mechanism only after transaction evidence, then pre-register it on a third case.
 
 ---
 
 ## 📋 Backlog (ordered by priority)
 
-1. **FTT opposite-direction LP-flow forensics** — inspect the high-net-inflow hours behind the negative 24-hour association; separate V2/V3, Mint/Burn versus actual Transfer, asymmetric inventory, price impact, and short-gap repositioning without changing the primary result.
-2. **CEL second crash/control replication** — reuse the now-frozen FTT design before inspecting CEL outcomes; OM remains a bridge/mirror sensitivity case and CREDI remains blocked on a defensible incident boundary.
+1. **FTT + CEL opposite-direction LP-flow forensics** — rank the pre-specified high-net-inflow hours in both cases; inspect V2/V3, Mint/Burn versus actual Transfer, asymmetric inventory, price impact, short-gap repositioning, and transaction concentration without changing either primary result.
+2. **Third-case prospective replication** — pre-register any mechanism emerging from FTT/CEL transaction evidence before testing another collapse; OM remains a bridge/mirror sensitivity case and CREDI remains blocked on a defensible incident boundary.
 3. **Directional flow full-window expansion** — cache block/transaction metadata, then extend signed Swap, actual Transfer residual, sender concentration, and price-impact features across the 169-bucket uPEG V3 panel.
 4. **Anomaly transaction forensics Phase 3** — detect counterintuitive divergences, then trace swaps, liquidity events, pools, LPs, and wallets into evidence bundles.
 5. **Real token crash + matched-control research Phase 4** — known drain/rug windows with `--incident-block`; test which LP-withdrawal and market-structure patterns repeat outside a single token.

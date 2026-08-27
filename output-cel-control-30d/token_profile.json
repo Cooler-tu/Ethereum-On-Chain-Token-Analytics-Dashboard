@@ -1,0 +1,13 @@
+{
+  "chain_id": 1,
+  "address": "0xaaAEBE6Fe48E54f431b0C390CfaF0b017d09D42d",
+  "symbol": "CEL",
+  "name": "Celsius",
+  "decimals": 4,
+  "decimals_source": "onchain",
+  "is_contract": true,
+  "proxy_address": null,
+  "implementation_address": null,
+  "behavior_flags": [],
+  "total_supply": 357191259003
+}

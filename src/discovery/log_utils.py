@@ -35,8 +35,9 @@ def get_logs_chunked(event, from_block, to_block, argument_filters=None,
     on_chunk: optional ``(chunk_start, chunk_end, entries) -> None`` after each
     successful chunk (used for checkpoint/resume).
 
-    After a failure, a hard ceiling prevents thrashing (grow → fail → shrink loops).
-    Large failures jump directly to TOPIC_CHUNK_SIZE instead of slowly halving.
+    After a failure, the range drops to TOPIC_CHUNK_SIZE and may grow again
+    after repeated successes, capped below the failed size.  This avoids both
+    grow/fail thrashing and permanently pinning a transient failure to 10 blocks.
     """
     if from_block > to_block:
         return []
@@ -71,7 +72,7 @@ def get_logs_chunked(event, from_block, to_block, argument_filters=None,
             consecutive_ok = 0
             if size > 1:
                 if size > TOPIC_CHUNK_SIZE * 2:
-                    ceiling = TOPIC_CHUNK_SIZE
+                    ceiling = max(TOPIC_CHUNK_SIZE, size // 2)
                     adaptive_size = TOPIC_CHUNK_SIZE
                 else:
                     ceiling = max(1, size // 2)
@@ -159,7 +160,7 @@ def get_logs_with_topics(w3, contract_address, topics, from_block, to_block,
                 consecutive_ok = 0
                 if size > 1:
                     if size > TOPIC_CHUNK_SIZE * 2:
-                        ceiling = TOPIC_CHUNK_SIZE
+                        ceiling = max(TOPIC_CHUNK_SIZE, size // 2)
                         adaptive_size = TOPIC_CHUNK_SIZE
                     else:
                         ceiling = max(1, size // 2)
@@ -171,7 +172,7 @@ def get_logs_with_topics(w3, contract_address, topics, from_block, to_block,
             consecutive_ok = 0
             if size > 1:
                 if size > TOPIC_CHUNK_SIZE * 2:
-                    ceiling = TOPIC_CHUNK_SIZE
+                    ceiling = max(TOPIC_CHUNK_SIZE, size // 2)
                     adaptive_size = TOPIC_CHUNK_SIZE
                 else:
                     ceiling = max(1, size // 2)

@@ -25,6 +25,7 @@ End-to-end **Ethereum mainnet** tool for token liquidity / crash analysis: disco
 
 | Token | Window | Pools | Holders | Risk | Date | Dir |
 |-------|--------|-------|---------|------|------|-----|
+| CEL crash/control | 14580784–14953505 (two frozen 30d windows) | 2 CEL/WETH (V2/V3) | Pool-scoped Transfers; holder ranking skipped | Research: 0/3 original hypotheses confirmed; inverse LP-flow anomaly replicated | 2026-08-27 | `output-cel-control-30d/` + `output-cel-crash-30d/` |
 | FTT crash/control | 15503619–15926371 (two frozen 30d windows) | 3 FTT/WETH (V2/V3) | Pool-scoped Transfers; holder ranking skipped | Research: 0/3 primary hypotheses confirmed | 2026-08-24 | `output-ftt-control-30d/` + `output-ftt-crash-30d/` |
 | TURBO | 25580851–25796850 | 5 (V2/V3) | 45 positive in 3% balance coverage | 0.2593 LOW (provisional) | 2026-08-21 | `output-turbo-30d-25580851/` |
 | uPEG directional audit | 25043020–25043311 | 1 V3 | 99 tx senders | Research | 2026-08-18 | `output-upeg-v3-7d/research-directional-flow/2026-05-07T12/` |
@@ -34,6 +35,7 @@ End-to-end **Ethereum mainnet** tool for token liquidity / crash analysis: disco
 
 ### Recent Findings (FTT crash/control)
 
+- CEL independently replicated the counterintuitive net-LP-flow direction under the unchanged FTT design. CEL crash-window net LP flow versus future 24-hour return is `ρ=-0.0856` (block `p=0.0166`, BH `q=0.0498`), and crash minus control is `-0.1962` with 95% CI `[-0.2847, -0.0780]`. The original positive-direction hypothesis still fails; this is a repeated anomaly for transaction forensics, not a confirmed warning rule. CEL passed 100% reserve and Mint/Burn amount coverage with 522/504 primary pairs. Evidence: `research-notes/cel-crash-control-results.md`.
 - The first pre-registered same-token crash/control validation passed its data-quality gates: 100% hourly target-reserve coverage, 181/181 quantified Mint/Burn rows, exact Transfer-to-balance reconciliation for all three pools in both windows, and 142 control / 171 crash observed-price endpoint pairs.
 - None of the three primary 24-hour hypotheses met all confirmation rules. Pool Transfer net flow was weak (`ρ=-0.1279`, BH `q=0.1618`), and gross LP activity did not reliably precede larger absolute returns (`ρ=0.1564`, `q=0.1618`).
 - The counterintuitive candidate is net LP flow: its crash-window association with future 24-hour return was negative (`ρ=-0.2979`, block-permutation `p=0.0026`, BH `q=0.0078`) instead of the frozen positive direction. Its crash-minus-control 95% interval `[-0.5090, 0.0863]` crosses zero, so this is an anomaly for transaction-level follow-up, not a confirmed warning signal. Full interpretation: `research-notes/ftt-crash-control-results.md`.
@@ -290,6 +292,7 @@ See `SUPPORTED_PROTOCOLS.md` for contract addresses and notes.
 
 | Token | 窗口 | 池子 | 持有者 | 风险 | 日期 | 目录 |
 |-------|------|------|--------|------|------|------|
+| CEL 崩盘/对照 | 14580784–14953505（两个冻结的 30 天窗口） | 2 个 CEL/WETH（V2/V3） | 仅池级 Transfer；跳过 holder 排名 | 研究：0/3 原假设确认；反向 LP 流异常复现 | 2026-08-27 | `output-cel-control-30d/` + `output-cel-crash-30d/` |
 | FTT 崩盘/对照 | 15503619–15926371（两个冻结的 30 天窗口） | 3 个 FTT/WETH（V2/V3） | 仅池级 Transfer；跳过 holder 排名 | 研究：0/3 主要假设确认 | 2026-08-24 | `output-ftt-control-30d/` + `output-ftt-crash-30d/` |
 | TURBO | 25580851–25796850 | 5 (V2/V3) | 余额覆盖 3% 中 45 个正余额地址 | 0.2593 低（暂定） | 2026-08-21 | `output-turbo-30d-25580851/` |
 | uPEG 方向审计 | 25043020–25043311 | 1 V3 | 99 个交易发起地址 | 研究 | 2026-08-18 | `output-upeg-v3-7d/research-directional-flow/2026-05-07T12/` |
@@ -299,6 +302,7 @@ See `SUPPORTED_PROTOCOLS.md` for contract addresses and notes.
 
 ### 近期发现（FTT 崩盘/对照）
 
+- CEL 在完全复用 FTT 设计的情况下，独立复现了净 LP 流的反常方向：崩盘期净 LP 流与未来 24 小时收益为 `ρ=-0.0856`（区块置换 `p=0.0166`，BH `q=0.0498`），崩盘减对照为 `-0.1962`，95% 区间 `[-0.2847, -0.0780]`。原先预注册的正方向假设仍然失败；这是需要交易级调查的重复异常，不是已确认预警规则。CEL 储备与 Mint/Burn 金额覆盖均为 100%，主要配对为 522/504。证据见 `research-notes/cel-crash-control-results.md`。
 - 首次预注册的同代币崩盘/对照验证通过数据质量门槛：小时级目标代币储备覆盖 100%，181/181 条 Mint/Burn 均有可量化金额，两个窗口中三个池的 Transfer 净额均与历史余额变化精确对账，并保留 142 个对照期与 171 个崩盘期真实成交端点配对。
 - 三项 24 小时主要假设均未满足全部确认条件。池 Transfer 净流的关系较弱（`ρ=-0.1279`，BH `q=0.1618`），累计 LP 活动也未能稳定领先更大的绝对收益（`ρ=0.1564`，`q=0.1618`）。
 - 反常候选来自净 LP 流：崩盘期它与未来 24 小时收益呈负相关（`ρ=-0.2979`，区块置换 `p=0.0026`，BH `q=0.0078`），与预注册的正方向相反；崩盘减对照的 95% 区间 `[-0.5090, 0.0863]` 仍跨过 0。因此它只是值得做交易级追踪的异常线索，不是已确认预警信号。完整解释见 `research-notes/ftt-crash-control-results.md`。

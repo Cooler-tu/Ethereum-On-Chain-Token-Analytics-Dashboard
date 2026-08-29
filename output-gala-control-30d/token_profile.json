@@ -1,0 +1,13 @@
+{
+  "chain_id": 1,
+  "address": "0xd1d2Eb1B1e90B638588728b4130137D262C87cae",
+  "symbol": "GALA",
+  "name": "Gala",
+  "decimals": 8,
+  "decimals_source": "onchain",
+  "is_contract": true,
+  "proxy_address": "0xd1d2Eb1B1e90B638588728b4130137D262C87cae",
+  "implementation_address": "0x8D92A6812b3dA2346883F0631910c96Cb9c5a5f9",
+  "behavior_flags": [],
+  "total_supply": 4479812963555799980
+}

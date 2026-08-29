@@ -1,0 +1,477 @@
+{
+  "total_volume_in_token": 274501145.1228,
+  "main_volume_pool": "0x465e56cd21ad47d4d4790f17de5e0458f20c3719",
+  "main_volume_share": 0.97371,
+  "volume_by_pool": {
+    "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+      "protocol": "uniswap",
+      "version": "v2",
+      "volume_in_token": 7216633.043197,
+      "volume_usd": null,
+      "share": 0.02629,
+      "quote_symbol": "WETH"
+    },
+    "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+      "protocol": "uniswap",
+      "version": "v3",
+      "volume_in_token": 267284512.079603,
+      "volume_usd": null,
+      "share": 0.97371,
+      "quote_symbol": "WETH"
+    }
+  },
+  "volume_timeline": [
+    {
+      "bucket_ts": 1713571200,
+      "total_volume_in_token": 703533.688229,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 668672.3390032899,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 34861.34922617999,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1713657600,
+      "total_volume_in_token": 6675578.55285,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 6518499.727068179,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 157078.82578153006,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1713744000,
+      "total_volume_in_token": 7394405.589092,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 7034363.435939549,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 360042.15315237007,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1713830400,
+      "total_volume_in_token": 13888025.343712,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 13714135.108862562,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 173890.23484982998,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1713916800,
+      "total_volume_in_token": 9169386.629846,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 8915655.446559705,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 253731.18328598994,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1714003200,
+      "total_volume_in_token": 9938653.989252,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 8642184.736356566,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 1296469.2528956197,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1714089600,
+      "total_volume_in_token": 7365542.349426,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 7235359.579911653,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 130182.76951394002,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1714176000,
+      "total_volume_in_token": 7768335.603096,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 7725483.780586731,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 42851.822509180005,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1714262400,
+      "total_volume_in_token": 8076569.261927,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 7778800.751012968,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 297768.51091397,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1714348800,
+      "total_volume_in_token": 6189630.811421,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 6085302.675924627,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 104328.13549675002,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1714435200,
+      "total_volume_in_token": 12507401.740544,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 12360567.868716678,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 146833.87182734,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1714521600,
+      "total_volume_in_token": 11728904.911545,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 11618174.64542495,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 110730.26612,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1714608000,
+      "total_volume_in_token": 11407044.551512,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 11263157.60628833,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 143886.94522364,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1714694400,
+      "total_volume_in_token": 6726895.939026,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 6612254.022000168,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 114641.91702568001,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1714780800,
+      "total_volume_in_token": 5392309.34742,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 5220730.68802376,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 171578.65939582998,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1714867200,
+      "total_volume_in_token": 11614083.261276,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 11524894.285597667,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 89188.97567791998,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1714953600,
+      "total_volume_in_token": 11251606.086277,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 11012488.944245461,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 239117.14203142,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1715040000,
+      "total_volume_in_token": 7183257.428172,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 7122643.215354031,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 60614.21281838,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1715126400,
+      "total_volume_in_token": 5184447.968877,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 5095176.12626003,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 89271.84261651,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1715212800,
+      "total_volume_in_token": 5890911.641097,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 5751067.796480779,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 139843.84461610002,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1715299200,
+      "total_volume_in_token": 7677231.900208,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 7266352.440293329,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 410879.45991476014,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1715385600,
+      "total_volume_in_token": 10267949.051236,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 8888981.731129011,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 1378967.3201065299,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1715472000,
+      "total_volume_in_token": 3538007.282998,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 3472100.0205802396,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 65907.26241763998,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1715558400,
+      "total_volume_in_token": 12081101.25979,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 11938636.55775497,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 142464.70203552998,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1715644800,
+      "total_volume_in_token": 8458368.137176,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 8262905.0440082075,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 195463.09316810002,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1715731200,
+      "total_volume_in_token": 9574312.824902,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 9317606.415481493,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 256706.4094209,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1715817600,
+      "total_volume_in_token": 10131905.59474,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 9992761.258633725,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 139144.33610632998,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1715904000,
+      "total_volume_in_token": 9875860.894407,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 9780706.803386346,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 95154.09102072999,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1715990400,
+      "total_volume_in_token": 10880016.367297,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 10751953.51646585,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 128062.85083102,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1716076800,
+      "total_volume_in_token": 7580458.107903,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 7500217.447247981,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 80240.66065489,
+          "volume_usd": 0.0
+        }
+      }
+    },
+    {
+      "bucket_ts": 1716163200,
+      "total_volume_in_token": 18379409.007547,
+      "pools": {
+        "0x465e56cd21ad47d4d4790f17de5e0458f20c3719": {
+          "volume_in_token": 18212678.065004636,
+          "volume_usd": 0.0
+        },
+        "0x72b1410df9d22d5a3416066663fcc36b460c579a": {
+          "volume_in_token": 166730.94254202,
+          "volume_usd": 0.0
+        }
+      }
+    }
+  ],
+  "bucket_seconds": 86400,
+  "ambiguous_events": 0,
+  "note": "Legacy Dune events without token addresses are inferred by decimal magnitude; same-decimals quote pools are skipped.",
+  "chart_span": "month",
+  "bucket": "day",
+  "source": "local_swaps",
+  "artifact_format": "both",
+  "artifacts": {
+    "volume_timeline": {
+      "name": "volume_timeline",
+      "format": "both",
+      "rows": 62,
+      "paths": {
+        "json": "output-gala-control-30d/volume_timeline.json",
+        "parquet": "output-gala-control-30d/tables/volume_timeline.parquet"
+      }
+    }
+  }
+}

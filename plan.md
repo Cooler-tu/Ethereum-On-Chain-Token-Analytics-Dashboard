@@ -55,27 +55,28 @@
 - **CEL independent crash/control replication** (2026-08-27) — indexed adjacent 30-day windows across two CEL/WETH pools (4,076/4,972 Swaps), reconciled all four pool/window Transfer sums exactly, and passed 100% hourly reserve and Mint/Burn amount coverage with 522/504 primary pairs. Original hypotheses remain 0/3 confirmed, but CEL independently repeats FTT's opposite-direction net-LP-flow association (`ρ=-0.0856`, BH `q=0.0498`); CEL crash-minus-control CI is fully negative. Evidence: `research-notes/cel-crash-control-results.md`.
 - **FTT + CEL opposite-direction LP-flow forensics** (2026-08-27) — ranked 11/10 deterministic positive-net-LP / negative-future-return hours and decomposed the top five per case. All selected hours are V3; target inventory accounts for 81.57%/67.32% of added WETH-equivalent value. Targeted receipt tracing matched 17/18 pool events to 14 NFT tokenIds, verified FTT's largest add as a target-only below-range position, and found one same-wallet/same-NFT Mint→Burn cycle 948 seconds apart. Evidence: `research-notes/ftt-cel-lp-flow-forensics.md`.
 - **GALA third-case screening + pre-registration** (2026-08-29) — selected the exact unauthorized-mint incident over thinner EUL and mechanism-mismatched CRV; froze adjacent pre/post 30-day windows, active GALA/WETH V2 + V3 0.30% pools, event-price hierarchy, three primary tests, coverage gates, and a final-case stop rule before outcome calculation. Evidence: `research-notes/third-case-screening.md` and `research-notes/gala-inventory-mechanism-preregistration.md`.
+- **GALA prospective inventory-mechanism validation** (2026-08-29) — indexed frozen control/event windows (5,879/7,022 Swaps), priced all 200 quantified Mints from prior same-pool Swaps, and passed every coverage/sample gate. Zero of three primary hypotheses confirmed: H1 `ρ=-0.0915` with BH `q=0.6969`; H2 event-control target-share difference `+0.0420` with CI crossing zero; H3 median concentration unchanged at `1.0000`. The pre-registered hand-selected mechanism line is closed, with no fourth case or GALA Position Manager tracing. Evidence: `research-notes/gala-inventory-mechanism-results.md`.
 
 ---
 
 ## 🎯 Current
 
-- **GALA prospective inventory-mechanism validation** — collect the frozen control/event windows, build hourly reserve/price series, implement the pre-registered target-value/concentration tests, and stop this hand-selected case line after the result.
+- **Cross-case research synthesis and direction reset** — consolidate FTT/CEL/GALA evidence into one decision table, separate replicated observations from failed predictors, and choose the next broad-sample question before any additional chain scan.
 
 ---
 
 ## 📋 Backlog (ordered by priority)
 
-1. **GALA prospective replication** — run the committed pre-registration once; success moves to batch validation, failure closes the mechanism, and neither outcome authorizes a fourth hand-selected case.
+1. **Cross-case research synthesis** — produce the final FTT/CEL/GALA comparison and explicitly retire the failed target-inventory predictor before selecting a new hypothesis.
+2. **Mass-scan utility** — batch tokens → comparison table and cross-case feature panel, only after the synthesis defines a non-hand-selected sampling rule.
 3. **Directional flow full-window expansion** — cache block/transaction metadata, then extend signed Swap, actual Transfer residual, sender concentration, and price-impact features across the 169-bucket uPEG V3 panel.
 4. **Anomaly transaction forensics Phase 3** — detect counterintuitive divergences, then trace swaps, liquidity events, pools, LPs, and wallets into evidence bundles.
 5. **Real token crash + matched-control research Phase 4** — known drain/rug windows with `--incident-block`; test which LP-withdrawal and market-structure patterns repeat outside a single token.
 6. **Dune data-path completion for research** — retain parallel discovery/indexing; finish reliable `pool_balance_timeline` × local price snapshot TVL and clearly separate it from event-reconstructed proxy data.
-7. **Mass-scan utility** — batch tokens → comparison table and cross-case feature panel.
-8. **Dashboard pool identity / custody cleanup** — rename `Pool Address` to `Pool Identifier`, expose `Contract Address` vs `V4 Pool ID`, and explain the many-to-one V4 Pool ID → shared PoolManager mapping; defer further UI work unless required by research evidence.
-9. **Deep holder unwrap** — routers / aggregators / beneficial owners beyond surface EOA label.
-10. **Multi-chain / real-time monitoring** — add more chains only after research evidence is stable, then alert on sudden liquidity changes.
-11. **High-coverage holder/TVL mode (deferred)** — expand historical balance coverage and key-block TVL snapshots only when a real crash case requires it; keep optional because of Dune/RPC cost and quota risk.
+7. **Dashboard pool identity / custody cleanup** — rename `Pool Address` to `Pool Identifier`, expose `Contract Address` vs `V4 Pool ID`, and explain the many-to-one V4 Pool ID → shared PoolManager mapping; defer further UI work unless required by research evidence.
+8. **Deep holder unwrap** — routers / aggregators / beneficial owners beyond surface EOA label.
+9. **Multi-chain / real-time monitoring** — add more chains only after research evidence is stable, then alert on sudden liquidity changes.
+10. **High-coverage holder/TVL mode (deferred)** — expand historical balance coverage and key-block TVL snapshots only when a real crash case requires it; keep optional because of Dune/RPC cost and quota risk.
 
 ---
 

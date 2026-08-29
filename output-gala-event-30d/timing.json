@@ -1,0 +1,54 @@
+{
+  "steps": [
+    {
+      "step": "[1/12] Profile token",
+      "seconds": 4.37
+    },
+    {
+      "step": "[2/12] Discover pools",
+      "seconds": 0.01
+    },
+    {
+      "step": "[3/12] Verify pools",
+      "seconds": 9.98
+    },
+    {
+      "step": "[4/12] Holdings",
+      "seconds": 5.102
+    },
+    {
+      "step": "[5/12] Positions",
+      "seconds": 0.001
+    },
+    {
+      "step": "[6/12] Index events",
+      "seconds": 718.802
+    },
+    {
+      "step": "[7/12] Labels",
+      "seconds": 8.403
+    },
+    {
+      "step": "[8/12] Metrics",
+      "seconds": 822.661
+    },
+    {
+      "step": "[9/12] Timeline",
+      "seconds": 0.125
+    },
+    {
+      "step": "[10/12] Risk",
+      "seconds": 0.0
+    },
+    {
+      "step": "[11/12] Report",
+      "seconds": 0.001
+    },
+    {
+      "step": "[12/12] Dashboard",
+      "seconds": 0.234
+    }
+  ],
+  "total_seconds": 1570.708,
+  "total_human": "26m 10.7s"
+}

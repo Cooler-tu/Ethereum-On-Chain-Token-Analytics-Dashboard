@@ -1,0 +1,19 @@
+{
+  "total_positions": 0,
+  "total_unique_holders": 0,
+  "snapshot_block": 19913231,
+  "owner_allowlist_size": 0,
+  "top_5_holders": [],
+  "artifact_format": "both",
+  "artifacts": {
+    "positions": {
+      "name": "positions",
+      "format": "both",
+      "rows": 0,
+      "paths": {
+        "json": "output-gala-control-30d/positions.json",
+        "parquet": "output-gala-control-30d/tables/positions.parquet"
+      }
+    }
+  }
+}

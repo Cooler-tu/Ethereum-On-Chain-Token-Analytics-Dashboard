@@ -25,6 +25,7 @@ End-to-end **Ethereum mainnet** tool for token liquidity / crash analysis: disco
 
 | Token | Window | Pools | Holders | Risk | Date | Dir |
 |-------|--------|-------|---------|------|------|-----|
+| GALA incident/control | 19698731–20127891 (two frozen 30d windows) | 2 GALA/WETH (V2/V3) | Pool-scoped Transfers; holder ranking skipped | Research: 0/3 inventory hypotheses confirmed; hand-selected line closed | 2026-08-29 | `output-gala-control-30d/` + `output-gala-event-30d/` |
 | CEL crash/control | 14580784–14953505 (two frozen 30d windows) | 2 CEL/WETH (V2/V3) | Pool-scoped Transfers; holder ranking skipped | Research: 0/3 original hypotheses confirmed; inverse LP-flow anomaly replicated | 2026-08-27 | `output-cel-control-30d/` + `output-cel-crash-30d/` |
 | FTT crash/control | 15503619–15926371 (two frozen 30d windows) | 3 FTT/WETH (V2/V3) | Pool-scoped Transfers; holder ranking skipped | Research: 0/3 primary hypotheses confirmed | 2026-08-24 | `output-ftt-control-30d/` + `output-ftt-crash-30d/` |
 | TURBO | 25580851–25796850 | 5 (V2/V3) | 45 positive in 3% balance coverage | 0.2593 LOW (provisional) | 2026-08-21 | `output-turbo-30d-25580851/` |
@@ -33,9 +34,9 @@ End-to-end **Ethereum mainnet** tool for token liquidity / crash analysis: disco
 | SPX | 19000022–19000022 | 8 (V2+V3) | 3 | 0.1944 LOW | 2026-07-18 | `output/` (superseded) / `output-spx-demo/` |
 | USDC | 19000000–19000050 | — | — | 0.0000 LOW | — | `output-test/` |
 
-### Recent Findings (FTT crash/control)
+### Recent Findings (crash/control research)
 
-- GALA is frozen as the final prospective case before target-inventory outcomes are calculated. The exact unauthorized-mint transaction anchors adjacent 30-day control/event windows at block `19913232`; the fixed universe is the active GALA/WETH V2 and V3 0.30% pools. Three primary tests cover target-side add value versus future 24-hour return, event-control target-share change, and transaction-concentration change. No zero-fill, lag search, pool substitution, or fourth hand-picked case is allowed. See `research-notes/gala-inventory-mechanism-preregistration.md`.
+- GALA completed the frozen third and final hand-selected test with full coverage: all 72 control and 128 event Mints were quantified and priced from a prior same-pool Swap, yielding 65/79 eligible add hours. Zero of three hypotheses confirmed. H1 was weakly negative (`ρ=-0.0915`, BH `q=0.6969`); H2's event-control target-share difference was only `+0.0420` with a zero-crossing CI; H3's median largest-transaction share stayed `1.0000`. The pre-registered decision is to close this mechanism line, skip Position Manager tracing, and not select a fourth case. Evidence: `research-notes/gala-inventory-mechanism-results.md`.
 - Transaction forensics decomposed 11 FTT and 10 CEL positive-net-LP / negative-future-return hours, with the top five per case all driven by V3. Target inventory represents 81.57% of added WETH-equivalent value for FTT and 67.32% for CEL. FTT's largest hour is a below-range NFT adding 23,862.8321 FTT and zero WETH; targeted Position Manager tracing also verifies one same-wallet, same-NFT, same-tick Mint→Burn cycle 948 seconds apart. The mechanism is now framed as concentrated target-token inventory provision, not generic capital inflow. Evidence: `research-notes/ftt-cel-lp-flow-forensics.md`.
 - CEL independently replicated the counterintuitive net-LP-flow direction under the unchanged FTT design. CEL crash-window net LP flow versus future 24-hour return is `ρ=-0.0856` (block `p=0.0166`, BH `q=0.0498`), and crash minus control is `-0.1962` with 95% CI `[-0.2847, -0.0780]`. The original positive-direction hypothesis still fails; this is a repeated anomaly for transaction forensics, not a confirmed warning rule. CEL passed 100% reserve and Mint/Burn amount coverage with 522/504 primary pairs. Evidence: `research-notes/cel-crash-control-results.md`.
 - The first pre-registered same-token crash/control validation passed its data-quality gates: 100% hourly target-reserve coverage, 181/181 quantified Mint/Burn rows, exact Transfer-to-balance reconciliation for all three pools in both windows, and 142 control / 171 crash observed-price endpoint pairs.
@@ -294,6 +295,7 @@ See `SUPPORTED_PROTOCOLS.md` for contract addresses and notes.
 
 | Token | 窗口 | 池子 | 持有者 | 风险 | 日期 | 目录 |
 |-------|------|------|--------|------|------|------|
+| GALA 事件/对照 | 19698731–20127891（两个冻结的 30 天窗口） | 2 个 GALA/WETH（V2/V3） | 仅池级 Transfer；跳过 holder 排名 | 研究：0/3 库存假设确认；人工挑选案例线关闭 | 2026-08-29 | `output-gala-control-30d/` + `output-gala-event-30d/` |
 | CEL 崩盘/对照 | 14580784–14953505（两个冻结的 30 天窗口） | 2 个 CEL/WETH（V2/V3） | 仅池级 Transfer；跳过 holder 排名 | 研究：0/3 原假设确认；反向 LP 流异常复现 | 2026-08-27 | `output-cel-control-30d/` + `output-cel-crash-30d/` |
 | FTT 崩盘/对照 | 15503619–15926371（两个冻结的 30 天窗口） | 3 个 FTT/WETH（V2/V3） | 仅池级 Transfer；跳过 holder 排名 | 研究：0/3 主要假设确认 | 2026-08-24 | `output-ftt-control-30d/` + `output-ftt-crash-30d/` |
 | TURBO | 25580851–25796850 | 5 (V2/V3) | 余额覆盖 3% 中 45 个正余额地址 | 0.2593 低（暂定） | 2026-08-21 | `output-turbo-30d-25580851/` |
@@ -302,9 +304,9 @@ See `SUPPORTED_PROTOCOLS.md` for contract addresses and notes.
 | SPX | 19000022–19000022 | 8 (V2+V3) | 3 | 0.1944 低 | 2026-07-18 | `output-spx-demo/` 等 |
 | USDC | 19000000–19000050 | — | — | 0.0000 低 | — | `output-test/` |
 
-### 近期发现（FTT 崩盘/对照）
+### 近期发现（崩盘/对照研究）
 
-- GALA 已在计算目标库存结果前冻结为最后一个前瞻案例。未经授权增发交易将相邻的 30 天控制期/事件期锚定在区块 `19913232`，固定池为活跃的 GALA/WETH V2 与 V3 0.30%。三项主要检验分别是目标侧新增价值与未来 24 小时收益、事件期相对控制期的目标侧占比变化、以及单笔交易集中度变化；不允许把缺失小时填零、搜索其他 lag、更换池或再挑第四个案例。详见 `research-notes/gala-inventory-mechanism-preregistration.md`。
+- GALA 已完成冻结的第三个、也是最后一个人工挑选检验，并通过全部覆盖门槛：控制期 72 条、事件期 128 条 Mint 均有金额且能使用同池此前一小时内的 Swap 定价，得到 65/79 个有效加仓小时。三项假设均未确认：H1 仅为弱负相关（`ρ=-0.0915`，BH `q=0.6969`）；H2 的事件减控制目标侧占比差只有 `+0.0420`，区间跨 0；H3 的单笔集中度中位数均为 `1.0000`。按预注册规则，这条机制线到此关闭，不做 Position Manager 追踪，也不再挑第四个案例。证据见 `research-notes/gala-inventory-mechanism-results.md`。
 - 交易取证拆解出 11 个 FTT 与 10 个 CEL“净 LP 流为正、未来收益为负”的小时，两组前五名全部由 V3 主导。按小时收盘价折算，新增价值中目标代币库存占 FTT 的 81.57%、CEL 的 67.32%。FTT 最大异常小时是一笔区间外 NFT 仓位，只加入 23,862.8321 FTT 而没有 WETH；定向 Position Manager 追踪还确认了一组同钱包、同 NFT、同 tick 的 Mint→Burn，间隔 948 秒。因此当前机制应描述为集中的目标代币库存配置，而不是笼统的外部资金流入。证据见 `research-notes/ftt-cel-lp-flow-forensics.md`。
 - CEL 在完全复用 FTT 设计的情况下，独立复现了净 LP 流的反常方向：崩盘期净 LP 流与未来 24 小时收益为 `ρ=-0.0856`（区块置换 `p=0.0166`，BH `q=0.0498`），崩盘减对照为 `-0.1962`，95% 区间 `[-0.2847, -0.0780]`。原先预注册的正方向假设仍然失败；这是需要交易级调查的重复异常，不是已确认预警规则。CEL 储备与 Mint/Burn 金额覆盖均为 100%，主要配对为 522/504。证据见 `research-notes/cel-crash-control-results.md`。
 - 首次预注册的同代币崩盘/对照验证通过数据质量门槛：小时级目标代币储备覆盖 100%，181/181 条 Mint/Burn 均有可量化金额，两个窗口中三个池的 Transfer 净额均与历史余额变化精确对账，并保留 142 个对照期与 171 个崩盘期真实成交端点配对。

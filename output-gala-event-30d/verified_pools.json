@@ -1,0 +1,42 @@
+[
+  {
+    "chain_id": 1,
+    "protocol": "uniswap",
+    "version": "v2",
+    "architecture": "direct_pair",
+    "factory_address": "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f",
+    "router_addresses": [
+      "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D"
+    ],
+    "pool_address": "0x72B1410df9d22D5a3416066663fcc36b460C579A",
+    "custody_address": "0x72B1410df9d22D5a3416066663fcc36b460C579A",
+    "gauge_addresses": [],
+    "token0": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    "token1": "0xd1d2Eb1B1e90B638588728b4130137D262C87cae",
+    "creation_block": 0,
+    "creation_transaction": "",
+    "verified": true,
+    "verification_confidence": 1.0
+  },
+  {
+    "chain_id": 1,
+    "protocol": "uniswap",
+    "version": "v3",
+    "architecture": "concentrated_pool",
+    "factory_address": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+    "router_addresses": [
+      "0xE592427A0AEce92De3Edee1F18E0157C05861564"
+    ],
+    "pool_address": "0x465E56cD21ad47d4d4790F17de5E0458F20C3719",
+    "custody_address": "0x465E56cD21ad47d4d4790F17de5E0458F20C3719",
+    "position_manager_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+    "gauge_addresses": [],
+    "token0": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    "token1": "0xd1d2Eb1B1e90B638588728b4130137D262C87cae",
+    "fee": 3000,
+    "creation_block": 0,
+    "creation_transaction": "",
+    "verified": true,
+    "verification_confidence": 1.0
+  }
+]

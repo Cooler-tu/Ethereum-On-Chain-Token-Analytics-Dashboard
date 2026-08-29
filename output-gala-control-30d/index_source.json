@@ -1,0 +1,59 @@
+{
+  "source": "rpc",
+  "from_block": 19698731,
+  "to_block": 19913231,
+  "token": "0xd1d2Eb1B1e90B638588728b4130137D262C87cae",
+  "artifact_format": "both",
+  "position_manager_indexing": "skipped",
+  "position_identity_coverage": "unavailable",
+  "token_transfer_scope": "selected_pool_endpoints",
+  "artifacts": {
+    "swaps": {
+      "name": "swaps",
+      "format": "both",
+      "rows": 5879,
+      "paths": {
+        "json": "output-gala-control-30d/swaps.json",
+        "parquet": "output-gala-control-30d/tables/swaps.parquet"
+      }
+    },
+    "liquidity_events": {
+      "name": "liquidity_events",
+      "format": "both",
+      "rows": 252,
+      "paths": {
+        "json": "output-gala-control-30d/liquidity_events.json",
+        "parquet": "output-gala-control-30d/tables/liquidity_events.parquet"
+      }
+    },
+    "transfers": {
+      "name": "transfers",
+      "format": "both",
+      "rows": 5998,
+      "paths": {
+        "json": "output-gala-control-30d/transfers.json",
+        "parquet": "output-gala-control-30d/tables/transfers.parquet"
+      }
+    },
+    "position_events": {
+      "name": "position_events",
+      "format": "both",
+      "rows": 0,
+      "paths": {
+        "json": "output-gala-control-30d/position_events.json",
+        "parquet": "output-gala-control-30d/tables/position_events.parquet"
+      }
+    }
+  },
+  "counts": {
+    "swaps": 5879,
+    "liquidity_events": 252,
+    "transfers": 5998,
+    "position_events": 0
+  },
+  "notes": [
+    "V3/V4 Position Manager event history was intentionally skipped.",
+    "Pool-level Swap/Mint/Burn/Collect coverage is retained; an empty position-event table does not mean zero LP activity.",
+    "Target-token Transfer indexing was limited to selected pool/custody endpoints; unrelated wallet-to-wallet Transfers are not included."
+  ]
+}

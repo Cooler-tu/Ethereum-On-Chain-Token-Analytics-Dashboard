@@ -1,0 +1,21 @@
+{
+  "token": "0xd1d2Eb1B1e90B638588728b4130137D262C87cae",
+  "selection": "Pre-registered GALA/WETH pools that existed at the control-window start, held non-zero GALA, and had Swap activity in both pre-event feasibility samples. The sparse V3 1% pool is excluded before outcome analysis.",
+  "pools": [
+    {
+      "project": "uniswap",
+      "version": "v2",
+      "pool_address": "0x72B1410df9d22D5a3416066663fcc36b460C579A",
+      "token0": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "token1": "0xd1d2Eb1B1e90B638588728b4130137D262C87cae"
+    },
+    {
+      "project": "uniswap",
+      "version": "v3",
+      "pool_address": "0x465E56cD21ad47d4d4790F17de5E0458F20C3719",
+      "token0": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "token1": "0xd1d2Eb1B1e90B638588728b4130137D262C87cae",
+      "fee": 3000
+    }
+  ]
+}

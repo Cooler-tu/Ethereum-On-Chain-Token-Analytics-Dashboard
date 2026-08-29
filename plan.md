@@ -54,18 +54,19 @@
 - **CEL replication pre-registration** (2026-08-27) — corrected the withdrawal-pause cutoff from the old noon approximation to `2022-06-13 02:10 UTC` / block `14953505`, fixed adjacent exact 30-day windows, and selected the active CEL/WETH V2 and V3 0.30% pools after code, reserve, and four-segment Swap feasibility checks. Reused the FTT hypotheses and inference unchanged before outcome calculation. Evidence: `research-notes/cel-crash-control-preregistration.md`.
 - **CEL independent crash/control replication** (2026-08-27) — indexed adjacent 30-day windows across two CEL/WETH pools (4,076/4,972 Swaps), reconciled all four pool/window Transfer sums exactly, and passed 100% hourly reserve and Mint/Burn amount coverage with 522/504 primary pairs. Original hypotheses remain 0/3 confirmed, but CEL independently repeats FTT's opposite-direction net-LP-flow association (`ρ=-0.0856`, BH `q=0.0498`); CEL crash-minus-control CI is fully negative. Evidence: `research-notes/cel-crash-control-results.md`.
 - **FTT + CEL opposite-direction LP-flow forensics** (2026-08-27) — ranked 11/10 deterministic positive-net-LP / negative-future-return hours and decomposed the top five per case. All selected hours are V3; target inventory accounts for 81.57%/67.32% of added WETH-equivalent value. Targeted receipt tracing matched 17/18 pool events to 14 NFT tokenIds, verified FTT's largest add as a target-only below-range position, and found one same-wallet/same-NFT Mint→Burn cycle 948 seconds apart. Evidence: `research-notes/ftt-cel-lp-flow-forensics.md`.
+- **GALA third-case screening + pre-registration** (2026-08-29) — selected the exact unauthorized-mint incident over thinner EUL and mechanism-mismatched CRV; froze adjacent pre/post 30-day windows, active GALA/WETH V2 + V3 0.30% pools, event-price hierarchy, three primary tests, coverage gates, and a final-case stop rule before outcome calculation. Evidence: `research-notes/third-case-screening.md` and `research-notes/gala-inventory-mechanism-preregistration.md`.
 
 ---
 
 ## 🎯 Current
 
-- **Third-case inventory-mechanism pre-registration** — choose a defensible independent collapse and freeze V3 share, target-side WETH-value share, transaction concentration, event-time pricing, zero-hour treatment, windows, and inference before inspecting its outcomes.
+- **GALA prospective inventory-mechanism validation** — collect the frozen control/event windows, build hourly reserve/price series, implement the pre-registered target-value/concentration tests, and stop this hand-selected case line after the result.
 
 ---
 
 ## 📋 Backlog (ordered by priority)
 
-1. **Third-case prospective replication** — pre-register the V3 target-inventory mechanism emerging from FTT/CEL before testing another collapse; OM remains a bridge/mirror sensitivity case and CREDI remains blocked on a defensible incident boundary.
+1. **GALA prospective replication** — run the committed pre-registration once; success moves to batch validation, failure closes the mechanism, and neither outcome authorizes a fourth hand-selected case.
 3. **Directional flow full-window expansion** — cache block/transaction metadata, then extend signed Swap, actual Transfer residual, sender concentration, and price-impact features across the 169-bucket uPEG V3 panel.
 4. **Anomaly transaction forensics Phase 3** — detect counterintuitive divergences, then trace swaps, liquidity events, pools, LPs, and wallets into evidence bundles.
 5. **Real token crash + matched-control research Phase 4** — known drain/rug windows with `--incident-block`; test which LP-withdrawal and market-structure patterns repeat outside a single token.

@@ -26,7 +26,7 @@ from src.analysis.metrics import (
 )
 from src.analysis.holdings import _write_holdings_artifacts
 from src.analysis.positions import analyze_positions, _write_position_artifacts
-from src.analysis.dashboard import _load_dashboard_inputs
+from src.analysis.dashboard import _load_dashboard_inputs, generate_dashboard
 from scripts.lp_correlation import _load_analysis_inputs
 from scripts.fund_flow import _read_artifact_rows as _read_fund_flow_rows
 from scripts import publish_site
@@ -372,6 +372,82 @@ class ArtifactFormatTest(unittest.TestCase):
                 outputs = publish_site.discover_outputs([screen, crash])
             self.assertEqual(len(outputs), 1)
             self.assertEqual(outputs[0]["dir"], crash)
+
+    def test_dashboard_publication_mode_does_not_rewrite_analysis_artifacts(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            out = root / "output-token"
+            site_dashboard = root / "site" / "token" / "dashboard.html"
+            out.mkdir()
+            sentinels = {
+                "address_dex.json": '{"keep":"address-order"}',
+                "portfolios.json": '{"keep":"portfolio-order"}',
+                "dashboard.html": "historical dashboard",
+            }
+            for name, content in sentinels.items():
+                (out / name).write_text(content)
+
+            rendered = generate_dashboard(
+                out,
+                dashboard_path=site_dashboard,
+                write_supporting_artifacts=False,
+            )
+
+            self.assertEqual(Path(rendered), site_dashboard.resolve())
+            self.assertTrue(site_dashboard.exists())
+            self.assertIn("Token Dashboard", site_dashboard.read_text())
+            for name, content in sentinels.items():
+                self.assertEqual((out / name).read_text(), content)
+
+    def test_publish_build_keeps_source_output_directory_read_only(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            out = root / "output-token"
+            site = root / "site"
+            out.mkdir()
+            source_files = {
+                "token_profile.json": json.dumps(
+                    {
+                        "symbol": "TST",
+                        "name": "Test Token",
+                        "address": TARGET,
+                        "decimals": 18,
+                    }
+                ),
+                "verified_pools.json": "[]",
+                "address_dex.json": '{"keep":"address-order"}',
+                "portfolios.json": '{"keep":"portfolio-order"}',
+                "dashboard.html": "historical dashboard",
+            }
+            for name, content in source_files.items():
+                (out / name).write_text(content)
+            before = {path.name: path.read_bytes() for path in out.iterdir()}
+            output = {
+                "dir": out,
+                "symbol": "TST",
+                "name": "Test Token",
+                "address": TARGET,
+                "chain_id": 1,
+                "decimals": 18,
+                "total_supply": 0,
+                "holdings_count": 0,
+                "total_addresses": 0,
+                "num_pools": 0,
+                "risk_score": 0,
+                "risk_level": "N/A",
+                "pool_concentration": 0,
+                "incident_block": 0,
+                "query_time": "",
+            }
+
+            with patch.object(publish_site, "SITE_DIR", site), patch.object(
+                publish_site, "ASSETS_DIR", site / "assets"
+            ):
+                publish_site.build_site([output])
+
+            after = {path.name: path.read_bytes() for path in out.iterdir()}
+            self.assertEqual(after, before)
+            self.assertTrue((site / "tst" / "dashboard.html").exists())
 
     @unittest.skipIf(HAS_PYARROW, "only verifies the dependency error without PyArrow")
     def test_requested_parquet_has_clear_dependency_error(self):

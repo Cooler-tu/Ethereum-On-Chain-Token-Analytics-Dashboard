@@ -62,24 +62,24 @@
 - **Dashboard interpretation guardrails** (2026-08-30) — replaced predictive and full-coverage-sounding labels with explicit heuristic, queried-sample, target-token-equivalent, cumulative-reference-ratio, and balance-change wording. Rebuilt committed dashboards and the public site without changing calculations; full suite is 149 passed, 1 skipped.
 - **GitHub Actions regression gate** (2026-08-30) — added pull-request coverage for `main`, made the existing 149-test suite a prerequisite for Pages build and deployment, and prevented pull requests from deploying the public site. The first hosted regression, build, and deployment jobs all completed successfully in run `33301087742`.
 - **Plain-language data-analysis research narrative** (2026-08-30) — consolidated the full uPEG → TURBO → robustness → FTT/CEL → transaction forensics → GALA → cross-case sequence into `research-notes/data-analysis-research-summary-zh.md`, including the question, collected data, rationale, result, interpretation boundary, and decision at every stage.
+- **Side-effect-free public site build** (2026-08-30) — changed `scripts/publish_site.py` to render dashboards directly into `site/` while treating historical `output-*` artifacts as read-only inputs. Added two regression tests and verified all 10 published cases leave source JSON and dashboards byte-for-byte unchanged; full suite is 151 passed, 1 skipped.
 
 ---
 
 ## 🎯 Current
 
-- **Release consolidation** — manually review the consolidated research narrative, fix publication side effects, and settle the artifact publication policy; do not collect additional incidents without a stronger mechanism or explicit external requirement.
+- **Release consolidation** — manually review the consolidated research narrative and settle the artifact publication policy; do not collect additional incidents without a stronger mechanism or explicit external requirement.
 
 ---
 
 ## 📋 Backlog (ordered by priority)
 
 1. **Artifact publication policy** — keep compact summaries/reports/site files in Git while large canonical event tables remain local or external.
-2. **Publication side-effect fix** — make `scripts/publish_site.py` build `site/` without rewriting historical analysis-side JSON artifacts.
-3. **Incident registry and event-study panel (deferred)** — resume only with a stronger joint-response mechanism or an explicit research requirement; keep the frozen eight-case gate and pre-registration rules if resumed.
-4. **Directional flow full-window expansion (deferred)** — resume only if a broader event panel shows signed-flow value beyond mechanical reconciliation.
-5. **Dashboard pool identity / custody cleanup (deferred beyond acceptance fixes)** — redesign deeper V4 identity/custody views only when evidence requires it.
-6. **Deep holder unwrap (deferred)** — no wallet/router attribution until a broad effect merits mechanism tracing.
-7. **Multi-chain / real-time monitoring (deferred)** — add more chains only after Ethereum evidence and product demand justify it.
+2. **Incident registry and event-study panel (deferred)** — resume only with a stronger joint-response mechanism or an explicit research requirement; keep the frozen eight-case gate and pre-registration rules if resumed.
+3. **Directional flow full-window expansion (deferred)** — resume only if a broader event panel shows signed-flow value beyond mechanical reconciliation.
+4. **Dashboard pool identity / custody cleanup (deferred beyond acceptance fixes)** — redesign deeper V4 identity/custody views only when evidence requires it.
+5. **Deep holder unwrap (deferred)** — no wallet/router attribution until a broad effect merits mechanism tracing.
+6. **Multi-chain / real-time monitoring (deferred)** — add more chains only after Ethereum evidence and product demand justify it.
 
 ---
 

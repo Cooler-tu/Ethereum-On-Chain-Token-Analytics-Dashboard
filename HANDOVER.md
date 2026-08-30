@@ -4,7 +4,7 @@
 >
 > 本轮文档修正前的主分支基线：`c4503ce`，当时 `main` 与 `origin/main` 同步
 >
-> 自动化测试基线：149 passed、1 skipped
+> 自动化测试基线：151 passed、1 skipped
 >
 > 本文后续保留 2026-08-14 Dashboard 口径修复的详细背景；研究阶段的最终状态和交付方向以本页“当前状态”及 `research-notes/cross-case-evidence-synthesis.md` 为准。
 
@@ -189,13 +189,15 @@ python3 -m src.cli dashboard \
 python3 -m unittest discover -s tests -q
 ```
 
-当前测试结果（2026-08-30）：149 项通过，1 项因可选依赖条件按设计跳过。
+当前测试结果（2026-08-30）：151 项通过，1 项因可选依赖条件按设计跳过。
 
 如果需要把最新版同步到 public site：
 
 ```bash
 python3 scripts/publish_site.py
 ```
+
+该命令现在把历史 `output-*` 当作只读输入，只在 `site/` 中生成发布页面。
 
 然后检查 `site/` 首页和 token 页面，再提交并推送。推送到 `main` 后，`.github/workflows/deploy-pages.yml` 会重新生成并部署静态站点；它不会在服务器上运行任意 token 分析。
 
@@ -224,7 +226,7 @@ export DUNE_API_KEY="YOUR_DUNE_API_KEY"
 ## 6. 下一步建议（按优先级）
 
 1. **收口输出存储策略**：Git 保留摘要、报告和展示文件，大型原始事件表继续留在本地或外部存储。
-2. **修复发布副作用**：让 `scripts/publish_site.py` 只生成 `site/`，不再改写历史分析 JSON。
+2. **人工审阅研究总报告**：检查 `research-notes/data-analysis-research-summary-zh.md` 的表达是否适合最终读者。
 3. **暂缓低价值扩展**：不继续选择第四个手工相关性案例；八案例事件面板、Position Manager 全量追踪、beneficial owner、多链和实时告警只在出现新机制或明确外部需求时恢复。
 
 ## 7. Git 交接状态

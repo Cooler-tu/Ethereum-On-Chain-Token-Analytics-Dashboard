@@ -636,7 +636,18 @@ tr:hover td{background:rgba(59,130,246,0.04)}
 
 def generate_dashboard(
     output_dir: str | Path = "output",
+    *,
+    dashboard_path: str | Path | None = None,
+    write_supporting_artifacts: bool = True,
 ) -> str:
+    """Render a dashboard from analysis artifacts.
+
+    Normal CLI regeneration keeps the historical behavior of refreshing the
+    derived ``address_dex.json`` and ``portfolios.json`` files in ``output_dir``.
+    Publication callers can provide a separate ``dashboard_path`` and disable
+    supporting-artifact writes so the source analysis directory stays
+    read-only.
+    """
     out = Path(output_dir)
     _load_templates()
 
@@ -682,7 +693,8 @@ def generate_dashboard(
     dex_by_addr = _build_address_dex_map(
         pool_meta, positions_data, events_all
     )
-    _write_json(out / "address_dex.json", dex_by_addr)
+    if write_supporting_artifacts:
+        _write_json(out / "address_dex.json", dex_by_addr)
 
     # Enrich holdings rows for table/CSV convenience
     for h in holdings_data:
@@ -718,7 +730,8 @@ def generate_dashboard(
             "resolution_method": pos.get("resolution_method", ""),
         })
     portfolio_json = json.dumps(portfolio_map, indent=2)
-    _write_json(out / "portfolios.json", portfolio_map)
+    if write_supporting_artifacts:
+        _write_json(out / "portfolios.json", portfolio_map)
 
     top_holders = _rank_non_pool_holders(holdings_data, limit=20)
     pool_holders = [h for h in holdings_data if h.get("is_pool")]
@@ -1201,11 +1214,16 @@ def generate_dashboard(
     for k, v in html_vars.items():
         dashboard_html = dashboard_html.replace("{" + k + "}", str(v))
 
-    dashboard_path = out / "dashboard.html"
-    with open(dashboard_path, "w") as f:
+    destination = (
+        Path(dashboard_path)
+        if dashboard_path is not None
+        else out / "dashboard.html"
+    )
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    with open(destination, "w") as f:
         f.write(dashboard_html)
 
-    return str(dashboard_path.resolve())
+    return str(destination.resolve())
 
 
 def _config_to_chart_js(canvas_id: str, cfg: dict, *, with_tvl_click: bool = False) -> str:
@@ -3107,7 +3125,7 @@ def _build_address_dex_map(
 
     out: dict[str, dict[str, Any]] = {}
     addrs = set(lp) | set(swap)
-    for addr in addrs:
+    for addr in sorted(addrs):
         protocols = sorted(lp.get(addr, set()) | swap.get(addr, set()))
         roles = {}
         for p in protocols:

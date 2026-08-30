@@ -116,17 +116,22 @@ def _publication_score(output: dict[str, Any]) -> tuple[int, int, int, int]:
     )
 
 
-def generate_dashboard_for(output: dict[str, Any]) -> str:
-    """Generate a dashboard from an output directory, return the path."""
+def generate_dashboard_for(output: dict[str, Any], destination: Path) -> str:
+    """Generate a site dashboard without mutating its analysis directory."""
     out_dir = output["dir"]
     try:
-        return generate_dashboard(str(out_dir))
+        return generate_dashboard(
+            str(out_dir),
+            dashboard_path=destination,
+            write_supporting_artifacts=False,
+        )
     except Exception as e:
         print(f"  ⚠️  Dashboard generation failed for {out_dir.name}: {e}")
         # Fall back to existing dashboard.html
         existing = out_dir / "dashboard.html"
         if existing.exists():
-            return str(existing)
+            shutil.copy2(existing, destination)
+            return str(destination.resolve())
         raise
 
 
@@ -353,15 +358,12 @@ def build_site(outputs: list[dict[str, Any]]) -> Path:
         print(f"  📊 Generating dashboard for {sym}...")
 
         try:
-            dashboard_path = generate_dashboard_for(o)
-            # Copy dashboard
-            src = Path(dashboard_path)
-            if src.exists():
-                dest = dash_dir / "dashboard.html"
-                shutil.copy2(src, dest)
+            dest = dash_dir / "dashboard.html"
+            dashboard_path = generate_dashboard_for(o, dest)
+            if Path(dashboard_path).exists():
                 print(f"    → {dest.relative_to(SITE_DIR)}")
             else:
-                print(f"    ⚠️  No dashboard found at {src}")
+                print(f"    ⚠️  No dashboard found at {dashboard_path}")
         except Exception as e:
             print(f"    ⚠️  Failed: {e}")
 

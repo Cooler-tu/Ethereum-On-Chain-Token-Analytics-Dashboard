@@ -262,6 +262,8 @@ resolve + profile
 python3 scripts/publish_site.py
 ```
 
+The publisher treats historical `output-*` directories as read-only inputs and writes regenerated dashboards directly to `site/`.
+
 GitHub Pages: **Settings → Pages → Source = GitHub Actions**. Workflow: `.github/workflows/deploy-pages.yml`.
 
 Canonical deployment: <https://cooler-tu.github.io/On-Chain-Token-Crash-Liquidity-Analysis/>. A push to `main` rebuilds the static site from committed artifacts; it does not run arbitrary token analyses for site visitors.
@@ -277,7 +279,7 @@ Canonical deployment: <https://cooler-tu.github.io/On-Chain-Token-Crash-Liquidit
 | Expand row | Shows **LP positions**, not swap history |
 | V4 pool id | Portfolio “Pool” may be bytes32 poolId; custody is PoolManager |
 | Risk index validation | `--incident-block` is supported, but LOW / MEDIUM / HIGH remains a heuristic screening scale rather than a calibrated crash probability |
-| Test automation | 149 passed, 1 skipped on 2026-08-30; GitHub Actions runs the suite on pushes and pull requests to `main`, and Pages build/deploy waits for it to pass |
+| Test automation | 151 passed, 1 skipped on 2026-08-30; GitHub Actions runs the suite on pushes and pull requests to `main`, and Pages build/deploy waits for it to pass |
 | Public interaction | Local Studio is interactive; GitHub Pages only serves pre-generated static cases |
 
 See `SUPPORTED_PROTOCOLS.md` for contract addresses and notes.
@@ -458,7 +460,7 @@ python3 -m src.cli discover-only 0xD533a949740bb3306d119CC777fa900bA034cd52 \
 
 ## 公开站点
 
-`python3 scripts/publish_site.py` → `site/`。GitHub Pages 选 **GitHub Actions** 作为 Source。正式部署地址为 <https://cooler-tu.github.io/On-Chain-Token-Crash-Liquidity-Analysis/>；该站点展示已生成案例，本地 Studio 才负责交互式发起分析。
+`python3 scripts/publish_site.py` → `site/`。发布过程将历史 `output-*` 目录作为只读输入，不会改写其中的分析 JSON 或 Dashboard。GitHub Pages 选 **GitHub Actions** 作为 Source。正式部署地址为 <https://cooler-tu.github.io/On-Chain-Token-Crash-Liquidity-Analysis/>；该站点展示已生成案例，本地 Studio 才负责交互式发起分析。
 
 ---
 
@@ -470,6 +472,6 @@ python3 -m src.cli discover-only 0xD533a949740bb3306d119CC777fa900bA034cd52 \
 | DEX 标签 | 只看分析窗口内证据 |
 | 展开行 | 不是成交明细，只是 LP |
 | 风险指数尚未校准 | 已支持 `--incident-block`，但 LOW / MEDIUM / HIGH 仍是启发式筛查尺度，不是崩盘概率 |
-| 自动化测试 | 2026-08-30：149 passed、1 skipped；GitHub Actions 会在向 `main` 推送或提交 PR 时运行，Pages 构建和部署必须等待测试通过 |
+| 自动化测试 | 2026-08-30：151 passed、1 skipped；GitHub Actions 会在向 `main` 推送或提交 PR 时运行，Pages 构建和部署必须等待测试通过 |
 | 公网交互边界 | 本地 Studio 可交互；GitHub Pages 只展示预生成静态案例 |
 | 协议细节 | 见 `SUPPORTED_PROTOCOLS.md` |

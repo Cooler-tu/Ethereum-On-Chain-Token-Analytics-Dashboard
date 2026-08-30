@@ -1,6 +1,7 @@
 """Focused tests for TVL chart click-detail data."""
 from __future__ import annotations
 
+import inspect
 import unittest
 
 import src.analysis.dashboard as dashboard
@@ -16,6 +17,7 @@ from src.analysis.dashboard import (
     _pool_liquidity_presentation,
     _price_chart_presentation,
     _rank_non_pool_holders,
+    _table_withdrawal_summary,
     _table_withdrawals,
     _table_pool_ident,
     _table_large_wallets,
@@ -176,9 +178,12 @@ class IdentifierUxTest(unittest.TestCase):
         self.assertIn("Click bar to copy full address", script)
         self.assertIn("copyIdentifierValue(event.native || event, row.address)", script)
         self.assertIn("event.native.target.style.cursor", script)
-        self.assertIn("Positive end balances, ranked highest to lowest", template)
-        self.assertIn("Top {top_chart_holder_count} Non-Pool Holders", template)
-        self.assertIn("Top {top_table_holder_count} Non-Pool Holders by End Balance", template)
+        self.assertIn("Ranked only within queried non-pool addresses", template)
+        self.assertIn("Top {top_chart_holder_count} Queried Non-Pool Balances", template)
+        self.assertIn(
+            "Top {top_table_holder_count} Queried Non-Pool Addresses by End Balance",
+            template,
+        )
 
     def test_observed_token_reserve_column_replaces_custody_pie(self):
         dashboard._load_templates()
@@ -250,7 +255,10 @@ class IdentifierUxTest(unittest.TestCase):
         self.assertIn("AAA", rendered)
         self.assertIn("BBB", rendered)
         self.assertEqual(len(pie_rows), 2)
-        self.assertIn("Observed Token Reserve", _pool_liquidity_presentation(pools, metrics)["method_note"])
+        self.assertIn(
+            "Observed Target-Token Reserve",
+            _pool_liquidity_presentation(pools, metrics)["method_note"],
+        )
 
     def test_token_pair_prefers_symbol_labels(self):
         html = _token_pair_html(
@@ -374,6 +382,27 @@ class DashboardMetricSemanticsTest(unittest.TestCase):
         self.assertIn("Amount known: 1 · Amount missing: 5", note)
         self.assertIn("missing data—not a zero withdrawal", note)
 
+    def test_withdrawal_summary_labels_cumulative_reference_ratio(self):
+        metrics = {
+            "withdrawal_severity": {
+                "per_pool_removals": [{
+                    "pool_address": "0x" + "11" * 20,
+                    "num_withdrawals": 213,
+                    "removed_target_decimal": 1_865_730_000,
+                    "removed_usd": None,
+                    "pool_tvl_share": 14.1729,
+                    "protocol": "uniswap",
+                    "version": "v3",
+                }]
+            }
+        }
+
+        rendered = _table_withdrawal_summary(metrics, "TST")
+
+        self.assertIn("Cumulative Removed / Reference Pool Estimate", rendered)
+        self.assertIn("1417.29%", rendered)
+        self.assertNotIn("% Pool TVL", rendered)
+
     def test_non_pool_holder_ranking_is_positive_descending_and_limited(self):
         rows = [
             {"address": "low", "balance_raw": "5", "balance_decimal": 5, "is_pool": False},
@@ -419,14 +448,40 @@ class DashboardMetricSemanticsTest(unittest.TestCase):
         rendered, _pie = _table_pool_ident(pools, metrics, symbol="TST")
 
         self.assertIn("1 of 2 verified pools measured (50.0%)", presentation["coverage_title"])
-        self.assertEqual(presentation["share_header"], "Share Among Measured Pools (1/2)")
+        self.assertEqual(
+            presentation["share_header"],
+            "Share of Measured Target-Token-Equivalent Estimates (1/2)",
+        )
         self.assertIn("1 V4 pool is not included", presentation["comparison_note"])
         self.assertIn("Block 123,456", presentation["method_note"])
         self.assertIn("100.0%", rendered)
-        self.assertIn("of measured liquidity", rendered)
+        self.assertIn("of measured target-token-equivalent estimates", rendered)
         self.assertIn("Not measured", rendered)
         self.assertNotIn('<span class="measured-share">0.0%', rendered)
-        self.assertIn("Observed Token Reserve", presentation["method_note"])
+        self.assertIn("Observed Target-Token Reserve", presentation["method_note"])
+        self.assertIn("not USD or audited TVL", presentation["method_note"])
+        self.assertIn("2 × the observed target-token reserve", presentation["method_note"])
+
+    def test_dashboard_template_uses_non_predictive_and_reference_ratio_labels(self):
+        dashboard._load_templates()
+        template = dashboard._HTML_TEMPLATE or ""
+        generator_source = inspect.getsource(dashboard.generate_dashboard)
+
+        self.assertIn("Heuristic Risk Index", template)
+        self.assertIn("HEURISTIC&nbsp;{risk_level}", template)
+        self.assertIn("not a forecast, probability, or validated crash rating", template)
+        self.assertIn("not the number of traders or current holders", template)
+        self.assertIn("Positive Balances in Queried Non-Pool Sample", template)
+        self.assertIn("Covered Positive-Balance Rows by Address Role", template)
+        self.assertIn("Pool Identifier", generator_source)
+        self.assertIn("Target-Token-Equivalent Pool Estimate", generator_source)
+        self.assertIn(
+            "Largest Covered Balance Changes (Not Necessarily Trades)",
+            generator_source,
+        )
+        self.assertIn("Liquidity Removal Activity (Cumulative, Not Permanent Exit)", template)
+        self.assertIn("Removed / Reference Pool Estimate", template)
+        self.assertNotIn("% Pool TVL", template)
 
     def test_notable_wallet_table_uses_adaptive_labels_and_volume_share(self):
         metrics = {
@@ -495,6 +550,7 @@ class DashboardMetricSemanticsTest(unittest.TestCase):
         self.assertEqual(result["zero_fill_count"], 1)
         self.assertEqual(result["positive_non_pool_count"], 1)
         self.assertEqual(result["positive_pool_count"], 1)
+        self.assertEqual(result["covered_non_pool_count"], 2)
 
     def test_event_fallback_is_never_described_as_snapshot(self):
         result = _tvl_method_presentation("event_accumulate_fallback", [{}])

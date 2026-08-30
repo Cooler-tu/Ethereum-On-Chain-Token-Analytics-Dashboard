@@ -204,7 +204,7 @@ function closeTvlDetails(){
   tc('c1',{
     type:'doughnut',
     data:{
-      labels:['Pools with positive balance','Non-pool positive holders'],
+      labels:['Queried pool/custody rows with positive balance','Queried non-pool rows with positive balance'],
       datasets:[{data:[{pool_count},{holder_count}],backgroundColor:['#3b82f6','#64748b'],borderWidth:0}]
     },
     options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:'#94a3b8',padding:12,font:{size:12}}}}}
@@ -213,7 +213,7 @@ function closeTvlDetails(){
   tc('c2',{
     type:'doughnut',
     data:{
-      labels:['Main measured pool','Other measured pools'],
+      labels:['Main measured target-token-equivalent pool','Other measured pools'],
       datasets:[{data:[{pool_share},{pool_other}],backgroundColor:['#f59e0b','#64748b'],borderColor:'#1e293b',borderWidth:2}]
     },
     options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:'#94a3b8',padding:12,font:{size:12}}}}}
@@ -501,7 +501,7 @@ tr:hover td{background:rgba(59,130,246,0.04)}
 
   <h1>{symbol} <span class="symbol-muted">Holdings &amp; Liquidity</span></h1>
   <p class="subtitle">Chain ID: {chain_id} &middot; Token: {token_identifier}</p>
-  {empty_note}
+{empty_note}
 
   <div class="info-bar">
     <div class="info-item">Blocks &middot; <span>{block_window}</span></div>
@@ -517,20 +517,22 @@ tr:hover td{background:rgba(59,130,246,0.04)}
   <div class="grid">
     <div class="card glow">
       <div class="stat-value">{total_addresses}</div>
-      <div class="stat-label">Unique Transfer Addresses</div>
+      <div class="stat-label">Unique Addresses Observed in Transfers</div>
+      <div class="stat-note">Transfer participants · not the number of traders or current holders</div>
     </div>
     <div class="card glow">
       <div class="stat-value">{positive_holder_count}</div>
-      <div class="stat-label">Positive-Balance Holders</div>
-      <div class="stat-note">Non-pool addresses in covered rows</div>
+      <div class="stat-label">Positive Balances in Queried Non-Pool Sample</div>
+      <div class="stat-note">{holder_coverage_note}</div>
     </div>
     <div class="card glow">
       <div class="stat-value">{num_pools}</div>
       <div class="stat-label">Verified Liquidity Pools</div>
     </div>
     <div class="card glow">
-      <div class="stat-value"><span class="badge bg-{risk_lvl_class}">{risk_level}</span></div>
-      <div class="stat-label">Risk Index &middot; Score <span style="color:{risk_color}">{risk_score}</span></div>
+      <div class="stat-value"><span class="badge bg-{risk_lvl_class}">HEURISTIC&nbsp;{risk_level}</span></div>
+      <div class="stat-label">Heuristic Risk Index &middot; Score <span style="color:{risk_color}">{risk_score}</span></div>
+      <div class="stat-note">Screening signal only · not a forecast, probability, or validated crash rating</div>
       <div class="stat-note">raw = 0.15·pool + 0.15·lp + 0.20·withdrawal + 0.15·temporal + 0.15·role + 0.15·impact + 0.05·activity</div>
       <div class="stat-note">final = clamp(raw − migration, 0, 1) × confidence · not a crash probability · LOW &lt; 0.40 · MEDIUM 0.40–0.70 · HIGH ≥ 0.70</div>
     </div>
@@ -538,17 +540,18 @@ tr:hover td{background:rgba(59,130,246,0.04)}
 
   <div class="grid">
     <div class="card">
-      <h2>Positive Holder Distribution</h2>
+      <h2>Covered Positive-Balance Rows by Address Role</h2>
+      <p style="font-size:11px;color:var(--text-dim);margin:-8px 0 8px">{holder_coverage_note}</p>
       <div class="chart-box-sm"><canvas id="c1"></canvas></div>
     </div>
     <div class="card">
-      <h2>Measured Pool Concentration</h2>
+      <h2>Measured Target-Token-Equivalent Pool Concentration</h2>
       <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 8px;line-height:1.5">{pool_conc_summary}</p>
       <div class="chart-box-sm"><canvas id="c2"></canvas></div>
     </div>
     <div class="card">
-      <h2>Top {top_chart_holder_count} Non-Pool Holders</h2>
-      <p style="font-size:11px;color:var(--text-dim);margin:-8px 0 8px">Positive end balances, ranked highest to lowest &middot; Hover for the full address and balance &middot; Click a bar to copy.</p>
+      <h2>Top {top_chart_holder_count} Queried Non-Pool Balances</h2>
+      <p style="font-size:11px;color:var(--text-dim);margin:-8px 0 8px">Ranked only within queried non-pool addresses; not a complete holder leaderboard. Hover for the full address and balance &middot; Click a bar to copy.</p>
       <div class="chart-box-sm"><canvas id="c3"></canvas></div>
     </div>
   </div>
@@ -561,17 +564,17 @@ tr:hover td{background:rgba(59,130,246,0.04)}
     </div>
     <div class="card">
       <h2>Trading Volume by Pool</h2>
-      <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 10px">Volume in {symbol}; stacked by pool. Same time bucket as price &amp; TVL ({chart_bucket_label}).</p>
+      <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 10px">Volume in {symbol}; stacked by pool. Same time bucket as the price and pool-reserve/liquidity timeline ({chart_bucket_label}).</p>
       <div class="chart-box"><canvas id="c6"></canvas></div>
     </div>
   </div>
 
   <div class="grid">
     <div class="card fw">
-      <h2>Top {top_table_holder_count} Non-Pool Holders by End Balance</h2>
+      <h2>Top {top_table_holder_count} Queried Non-Pool Addresses by End Balance</h2>
       <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 6px">Pool and DEX custody addresses are excluded. Positive end balances are ranked from highest to lowest among addresses covered by the balance query. EOA and contract addresses may both appear; this is not a complete holder census when coverage is partial.</p>
-      <p style="font-size:11px;color:var(--text-dim);margin:0 0 12px">DEX = touched that venue in this window (LP, swap, pool transfer, or same tx as a pool trade). “—” = only P2P / no DEX link found here.{balance_note}</p>
-      <div class="scroll"><table><thead><tr><th>#</th><th>Address</th><th>Type</th><th>DEX</th><th>End Balance ({symbol})</th><th>Start Balance</th><th>Net Change</th><th>Peak</th><th>Tx Count</th><th></th></tr></thead><tbody>{table_top}</tbody></table></div>
+      <p style="font-size:11px;color:var(--text-dim);margin:0 0 12px">DEX = evidence that the address touched that venue in this window (LP, swap, pool transfer, or same tx as a pool trade); it is not a wallet identity, ownership label, or long-term venue preference. “—” = only P2P / no DEX link found here.{balance_note}</p>
+      <div class="scroll"><table><thead><tr><th>#</th><th>Address</th><th>Type</th><th>DEX</th><th>End Balance ({symbol})</th><th>Start Balance</th><th>Balance Change</th><th>Peak</th><th>Tx Count</th><th></th></tr></thead><tbody>{table_top}</tbody></table></div>
     </div>
   </div>
 
@@ -600,8 +603,8 @@ tr:hover td{background:rgba(59,130,246,0.04)}
 
   <div class="grid">
     <div class="card fw">
-      <h2>Liquidity Flow by Bucket (Gross Added, Gross Removed &amp; Net)</h2>
-      <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 10px">Green bars are measured target-token additions; red bars are measured removals plotted below zero; the blue line is net LP flow = added − removed. This is LP-event flow, not the same as pool reserve change: swaps and direct token transfers can also change pool balances.</p>
+      <h2>LP Event Flow by Bucket (Gross Added, Gross Removed &amp; Net)</h2>
+      <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 10px">Green bars are measured target-token additions; red bars are measured removals plotted below zero; the blue line is net LP flow = added − removed. Gross totals measure LP activity and may count the same capital repeatedly when positions are removed and recreated; they are not permanent external inflow/outflow. LP-event flow also differs from pool reserve change because swaps and direct token transfers can change balances.</p>
       {liquidity_flow_note}
       <div class="chart-box"><canvas id="c8"></canvas></div>
     </div>
@@ -609,11 +612,11 @@ tr:hover td{background:rgba(59,130,246,0.04)}
 
   <div class="grid">
     <div class="card fw">
-      <h2>Liquidity Withdrawals</h2>
-      <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 12px">Read this table in two layers: a negative raw liquidity change confirms a removal action; calculating removed {symbol}, USD value, and TVL share additionally requires token amounts. Missing token amounts are never converted to zero.</p>
+      <h2>Liquidity Removal Activity (Cumulative, Not Permanent Exit)</h2>
+      <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 12px">Read this table in two layers: a negative raw liquidity change confirms a removal action; calculating removed {symbol}, USD value, and the ratio to a reference pool estimate additionally requires token amounts. The ratio uses a fixed reference estimate rather than event-time TVL, can exceed 100%, and must not be read as the percentage of capital that permanently left. Missing token amounts are never converted to zero.</p>
 {withdrawal_quantification_note}
 {table_withdrawal_summary}
-      <div class="scroll"><table><thead><tr><th>Block</th><th>Pool</th><th>Events</th><th>Actor / Scope</th><th>Raw Liquidity Change</th><th>Removed ({symbol})</th><th>Est. USD</th><th>% Pool TVL</th><th>Protocol</th></tr></thead><tbody>{table_withdrawals}</tbody></table></div>
+      <div class="scroll"><table><thead><tr><th>Block</th><th>Pool</th><th>Events</th><th>Actor / Scope</th><th>Raw Liquidity Change</th><th>Removed ({symbol})</th><th>Est. USD</th><th>Removed / Reference Pool Estimate</th><th>Protocol</th></tr></thead><tbody>{table_withdrawals}</tbody></table></div>
     </div>
   </div>
 
@@ -767,6 +770,7 @@ def generate_dashboard(
     positive_holder_count = holder_semantics["positive_non_pool_count"]
     positive_pool_count = holder_semantics["positive_pool_count"]
     balance_covered_count = holder_semantics["covered_count"]
+    covered_non_pool_count = holder_semantics["covered_non_pool_count"]
     zero_fill_count = holder_semantics["zero_fill_count"]
     coverage_denominator = holder_semantics["total_count"]
     if coverage_denominator:
@@ -776,6 +780,19 @@ def generate_dashboard(
         )
     else:
         balance_coverage = "N/A"
+    if coverage_denominator:
+        holder_coverage_note = (
+            "{:,} positive balances among {:,} queried non-pool addresses · "
+            "overall balance coverage {} · not the token's total holder count"
+        ).format(
+            positive_holder_count,
+            covered_non_pool_count,
+            balance_coverage,
+        )
+    else:
+        holder_coverage_note = (
+            "Balance coverage unavailable · not a total holder count"
+        )
     balance_source_label = _humanize_source(holdings.get("balance_source") or "unknown")
     query_time = holdings.get("query_time_human", "")
     from_block = holdings.get("from_block") or 0
@@ -830,16 +847,16 @@ def generate_dashboard(
     )
     if main_pool_addr and main_volume_addr:
         pool_conc_summary = (
-            "Main measured liquidity pool: {} ({:.2f}%) · Main volume pool: {} ({:.2f}%)".format(
+            "Main measured target-token-equivalent pool: {} ({:.2f}%) · Main volume pool: {} ({:.2f}%)".format(
                 main_pool_label, main_pool_share, main_volume_label, main_volume_share
             )
         )
     elif main_pool_addr:
-        pool_conc_summary = "Main measured liquidity pool: {} ({:.2f}%)".format(
+        pool_conc_summary = "Main measured target-token-equivalent pool: {} ({:.2f}%)".format(
             main_pool_label, main_pool_share
         )
     else:
-        pool_conc_summary = "No active pool concentration data."
+        pool_conc_summary = "No active target-token-equivalent pool concentration data."
     pool_conc_summary = (
         '<span class="coverage-inline">{}</span><br>{}'.format(
             pool_liquidity["coverage_title"], pool_conc_summary
@@ -1004,7 +1021,7 @@ def generate_dashboard(
         reserve_pie_block = ""
         if reserve_pie_rows:
             reserve_pie_block = """<aside class="pool-reserve-side">
-        <div class="pool-reserve-side-title">Reserve share</div>
+        <div class="pool-reserve-side-title">Observed target-token reserve share</div>
         <div class="pool-reserve-mini"><canvas id="c7"></canvas></div>
         <p class="pool-reserve-side-note">Observed target-token reserve mix across verified pools (same values as the Reserve column).</p>
       </aside>"""
@@ -1013,7 +1030,7 @@ def generate_dashboard(
       <h2>All Verified Pools</h2>
       <div class="coverage-note"><strong>{pool_liquidity['coverage_title']}</strong>{pool_liquidity['comparison_note']}<br>{pool_liquidity['method_note']}</div>
       <div class="pools-layout">
-        <div class="scroll"><table><thead><tr><th>Pool Address</th><th>Protocol / Version</th><th>Token Pair</th><th>Observed Token Reserve</th><th>Estimated Pool Liquidity (in {html.escape(str(symbol))})</th><th>Volume ({symbol})</th><th>{pool_liquidity['share_header']}</th><th>Vol Share</th><th>In Holders</th></tr></thead><tbody>{table_ident}</tbody></table></div>
+        <div class="scroll"><table><thead><tr><th>Pool Identifier</th><th>Protocol / Version</th><th>Token Pair</th><th>Observed Target-Token Reserve</th><th>Target-Token-Equivalent Pool Estimate ({html.escape(str(symbol))})</th><th>Volume ({symbol})</th><th>{pool_liquidity['share_header']}</th><th>Vol Share</th><th>Appears in Balance Rows</th></tr></thead><tbody>{table_ident}</tbody></table></div>
 {reserve_pie_block}
       </div>
     </div>
@@ -1022,9 +1039,9 @@ def generate_dashboard(
     if table_movers:
         pool_section_parts.append(f"""<div class="grid">
     <div class="card fw">
-      <h2>Top Movers (Holder Net Change)</h2>
-      <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 12px">Net (Holdings) = end-block balance − start-block balance when a Dune/RPC snapshot exists. Bought/Sold/Swap Net are swap-only context; transfer-only moves can differ.</p>
-      <div class="scroll"><table><thead><tr><th>#</th><th>Address</th><th>Bought ({symbol})</th><th>Sold ({symbol})</th><th>Swap Net ({symbol})</th><th>Holdings Net ({symbol})</th><th>Peak ({symbol})</th><th>Source</th><th>Swap Tx</th></tr></thead><tbody>{table_movers}</tbody></table></div>
+      <h2>Largest Covered Balance Changes (Not Necessarily Trades)</h2>
+      <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 12px">Balance Change = end-block balance − start-block balance within the queried address sample. A positive change is not automatically a buy and a negative change is not automatically a sale: transfers, custody movements, and contract activity can also change balances. Bought/Sold/Swap Net are indexed-swap context only.</p>
+      <div class="scroll"><table><thead><tr><th>#</th><th>Address</th><th>Bought ({symbol})</th><th>Sold ({symbol})</th><th>Swap Net ({symbol})</th><th>Balance Change ({symbol})</th><th>Peak ({symbol})</th><th>Source</th><th>Swap Tx</th></tr></thead><tbody>{table_movers}</tbody></table></div>
     </div>
   </div>""")
     if table_large:
@@ -1149,6 +1166,7 @@ def generate_dashboard(
         "position_coverage_note": position_coverage_note,
         "total_addresses": total_addresses,
         "positive_holder_count": positive_holder_count,
+        "holder_coverage_note": holder_coverage_note,
         "top_chart_holder_count": min(10, len(top_holders)),
         "top_table_holder_count": len(top_holders),
         "balance_coverage": balance_coverage,
@@ -2242,12 +2260,19 @@ def _holder_semantics(rows: list[dict[str, Any]]) -> dict[str, int]:
         and row.get("balance_source") != "zero_fill"
         and _is_positive_balance(row)
     )
+    covered_non_pool_count = sum(
+        1
+        for row in rows or []
+        if not row.get("is_pool")
+        and row.get("balance_source") != "zero_fill"
+    )
     return {
         "total_count": total_count,
         "covered_count": max(0, total_count - zero_fill_count),
         "zero_fill_count": zero_fill_count,
         "positive_non_pool_count": positive_non_pool_count,
         "positive_pool_count": positive_pool_count,
+        "covered_non_pool_count": covered_non_pool_count,
     }
 
 
@@ -2757,7 +2782,8 @@ def _table_withdrawal_summary(
         )
     return (
         '<div class="scroll"><table><thead><tr><th>Pool</th><th>Events</th>'
-        "<th>Removed ({})</th><th>Est. USD</th><th>% Pool TVL</th>"
+        "<th>Removed ({})</th><th>Est. USD</th>"
+        "<th>Cumulative Removed / Reference Pool Estimate</th>"
         "<th>Protocol</th></tr></thead><tbody>{}</tbody></table></div>"
     ).format(symbol, "\n".join(table_rows))
 
@@ -3195,12 +3221,12 @@ def _pool_liquidity_presentation(pools: list, metrics: dict) -> dict[str, str]:
         and str(pool.get("pool_address") or "").lower() not in measured_ids
     )
     comparison_note = (
-        "The percentages below compare only the {} measured pool{}; "
-        "they do not represent all {} verified pools.".format(
+        "The percentages below compare target-token-equivalent estimates for only the {} measured pool{}; "
+        "they do not represent all {} verified pools or USD market share.".format(
             measured_count, "" if measured_count == 1 else "s", verified_count
         )
         if partial
-        else "The percentages below compare all verified pools."
+        else "The percentages below compare target-token-equivalent estimates across all verified pools; they are not USD market shares."
     )
     if missing_v4:
         comparison_note += (
@@ -3227,9 +3253,9 @@ def _pool_liquidity_presentation(pools: list, metrics: dict) -> dict[str, str]:
             method += " · Block {}".format(snapshot_block)
     method_note = (
         method
-        + ". Estimated pool liquidity is expressed in target-token units, not USD. "
+        + ". The pool estimate is expressed in target-token-equivalent units, not USD or audited TVL; for V2/V3 the current on-chain approximation commonly values both sides as 2 × the observed target-token reserve. "
         + "“Not measured” does not mean zero liquidity. "
-        + "Observed Token Reserve is the target-token balance at the pool or "
+        + "Observed Target-Token Reserve is the target-token balance at the pool or "
         + "custody address (not LP count or full USD TVL); V4 may use a shared "
         + "PoolManager balance."
     )
@@ -3237,7 +3263,7 @@ def _pool_liquidity_presentation(pools: list, metrics: dict) -> dict[str, str]:
         "coverage_title": coverage_title,
         "comparison_note": comparison_note,
         "method_note": method_note,
-        "share_header": "Share Among Measured Pools ({}/{})".format(
+        "share_header": "Share of Measured Target-Token-Equivalent Estimates ({}/{})".format(
             measured_count, verified_count
         ),
     }
@@ -3496,7 +3522,7 @@ def _table_pool_ident(
             )
             share_cell = (
                 '<span class="measured-share">{} '
-                '<small>of measured liquidity</small></span>'.format(share_label)
+                '<small>of measured target-token-equivalent estimates</small></span>'.format(share_label)
             )
         else:
             unavailable_note = (

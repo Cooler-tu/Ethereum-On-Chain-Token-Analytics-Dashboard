@@ -4,7 +4,7 @@
 >
 > 本轮文档修正前的主分支基线：`c4503ce`，当时 `main` 与 `origin/main` 同步
 >
-> 自动化测试基线：147 passed、1 skipped
+> 自动化测试基线：149 passed、1 skipped
 >
 > 本文后续保留 2026-08-14 Dashboard 口径修复的详细背景；研究阶段的最终状态和交付方向以本页“当前状态”及 `research-notes/cross-case-evidence-synthesis.md` 为准。
 
@@ -15,7 +15,7 @@
 - FTT、CEL、GALA 已完成冻结窗口、稳健性检验和跨案例统一校正。
 - 跨案例结果没有发现可迁移的独立价格预测变量。Transfer 净流、净 LP 流、累计 LP 活动和目标库存集中度不再作为独立崩盘预测器。
 - LOW / MEDIUM / HIGH Risk Index 仅用于启发式筛查，不是崩盘概率或经过大样本校准的预测模型。
-- 当前工作方向是文档校准、Dashboard 人工验收、CI 和交付收口；八案例事件面板、Position Manager 全量追踪、深层钱包归属、多链和实时监控均暂缓。
+- Dashboard 的高风险歧义文案已完成修正和人工验收；当前工作方向是 CI、输出存储策略和交付收口。八案例事件面板、Position Manager 全量追踪、深层钱包归属、多链和实时监控均暂缓。
 - `python3 -m src.cli studio` 是本地自助入口；GitHub Pages 是预生成案例的静态展示站，不是公网动态分析后端。
 - Dune 402/credits 错误现在会立即停止 Dune 查询并交给上层回退 RPC；只有明确的结果过大错误才拆分区块，429 限速仍按退避策略重试。
 
@@ -73,7 +73,7 @@ TVL、Price 等多池曲线原来只有少量颜色，池数量增加后会出�
 - 它不是完整的双边 USD TVL；
 - V4 PoolManager 是共享托管，一个扇区可能对应多个 V4 poolId。
 
-这个区域仍在待办中：导师如果更关注池身份而不是托管余额，下一步应移除或弱化饼图，并将 `Pool Address` 拆成 `Pool Identifier`、`Contract Address` 和 `V4 Pool ID`。
+表格入口现已使用 `Pool Identifier`，避免把 V4 poolId 直接称作合约地址。进一步拆分 `Contract Address` 和 `V4 Pool ID` 属于延后设计项，只有在研究需要逐池 V4 归属时再做。
 
 ### 1.4 Pool TVL Share 改为“已测池范围内的份额”
 
@@ -187,7 +187,7 @@ python3 -m src.cli dashboard \
 python3 -m unittest discover -s tests -q
 ```
 
-当前测试结果（2026-08-30）：147 项通过，1 项因可选依赖条件按设计跳过。
+当前测试结果（2026-08-30）：149 项通过，1 项因可选依赖条件按设计跳过。
 
 如果需要把最新版同步到 public site：
 
@@ -221,10 +221,9 @@ export DUNE_API_KEY="YOUR_DUNE_API_KEY"
 
 ## 6. 下一步建议（按优先级）
 
-1. **完成 Dashboard 人工验收**：重点检查累计撤出比例、Risk Index、holder coverage 和 V4 Pool Identifier 的展示语义。
-2. **把回归测试接入 GitHub Actions**：在 push / pull request 时自动运行测试，再部署静态站点。
-3. **收口输出存储策略**：Git 保留摘要、报告和展示文件，大型原始事件表继续留在本地或外部存储。
-4. **暂缓低价值扩展**：不继续选择第四个手工相关性案例；八案例事件面板、Position Manager 全量追踪、beneficial owner、多链和实时告警只在出现新机制或明确外部需求时恢复。
+1. **把回归测试接入 GitHub Actions**：在 push / pull request 时自动运行测试，再部署静态站点。
+2. **收口输出存储策略**：Git 保留摘要、报告和展示文件，大型原始事件表继续留在本地或外部存储。
+3. **暂缓低价值扩展**：不继续选择第四个手工相关性案例；八案例事件面板、Position Manager 全量追踪、beneficial owner、多链和实时告警只在出现新机制或明确外部需求时恢复。
 
 ## 7. Git 交接状态
 

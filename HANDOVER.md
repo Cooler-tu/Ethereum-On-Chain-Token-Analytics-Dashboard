@@ -1,16 +1,26 @@
-# 会后工作交接（HandOver）
+# 项目工作交接（HandOver）
 
-> 最新研究阶段交接（2026-08-18）见
-> `docs/TEAMMATE_UPDATE_2026-08-18.md`。本文保留 2026-08-14 Dashboard
-> 口径修复阶段的详细背景。
+> 状态更新时间：2026-08-30
+>
+> 本轮文档修正前的主分支基线：`c4503ce`，当时 `main` 与 `origin/main` 同步
+>
+> 自动化测试基线：138 passed、1 skipped
+>
+> 本文后续保留 2026-08-14 Dashboard 口径修复的详细背景；研究阶段的最终状态和交付方向以本页“当前状态”及 `research-notes/cross-case-evidence-synthesis.md` 为准。
 
-> 更新时间：2026-08-14
->
-> 交接范围：本次导师会议结束后至当前版本
->
-> 当前主提交：`d2be0a0 feat: clarify dashboard analysis semantics`
->
-> 远程状态：该提交已推送到 `origin/main`
+## 0. 当前状态（2026-08-30）
+
+- 核心分析流水线、Uniswap V1–V4、Curve、Balancer V2、Dashboard、Parquet 分析表和本地 Studio 已可运行。
+- TURBO 30 日案例完成了池级储备、成交量、价格、LP gross/net flow 和异常交易证据检查。
+- FTT、CEL、GALA 已完成冻结窗口、稳健性检验和跨案例统一校正。
+- 跨案例结果没有发现可迁移的独立价格预测变量。Transfer 净流、净 LP 流、累计 LP 活动和目标库存集中度不再作为独立崩盘预测器。
+- LOW / MEDIUM / HIGH Risk Index 仅用于启发式筛查，不是崩盘概率或经过大样本校准的预测模型。
+- 当前工作方向是文档校准、Dashboard 人工验收、CI 和交付收口；八案例事件面板、Position Manager 全量追踪、深层钱包归属、多链和实时监控均暂缓。
+- `python3 -m src.cli studio` 是本地自助入口；GitHub Pages 是预生成案例的静态展示站，不是公网动态分析后端。
+
+正式静态站点：<https://cooler-tu.github.io/On-Chain-Token-Crash-Liquidity-Analysis/>
+
+最终跨案例证据：`research-notes/cross-case-evidence-synthesis.md` 和 `output-cross-case-synthesis/summary.md`。
 
 ## 1. 这段时间完成了什么
 
@@ -176,7 +186,7 @@ python3 -m src.cli dashboard \
 python3 -m unittest discover -s tests -q
 ```
 
-当前测试结果：73 项通过，1 项因当前环境已安装/未安装的可选依赖按设计跳过。
+当前测试结果（2026-08-30）：138 项通过，1 项因可选依赖条件按设计跳过。
 
 如果需要把最新版同步到 public site：
 
@@ -184,7 +194,7 @@ python3 -m unittest discover -s tests -q
 python3 scripts/publish_site.py
 ```
 
-然后检查 `site/` 首页和 token 页面，再单独提交。当前会后提交主要更新了本地 `output/dashboard.html`；不要默认认为 GitHub Pages 已自动获得完全相同的页面内容。
+然后检查 `site/` 首页和 token 页面，再提交并推送。推送到 `main` 后，`.github/workflows/deploy-pages.yml` 会重新生成并部署静态站点；它不会在服务器上运行任意 token 分析。
 
 ## 4. API Key 与安全
 
@@ -210,16 +220,16 @@ export DUNE_API_KEY="YOUR_DUNE_API_KEY"
 
 ## 6. 下一步建议（按优先级）
 
-1. **Pool identity / custody cleanup**：决定是否从主流程移除 custody reserve 饼图；把 Contract Address、Pool Identifier、V4 Pool ID 和共享 PoolManager 关系讲清楚。
-2. **选择一个真实 crash/rug 窗口分析**：使用明确的 `--incident-block`，验证撤池、价格和大钱包流向之间的时间关系。
-3. **再考虑 wallet clustering UI**：原型已有，但在证据阈值和误聚类风险明确前，不建议直接作为确定性标签放进 Dashboard。
-4. **提高关键案例的 holder/TVL coverage**：仅在真实 crash 案例需要时启用，避免无意义消耗 Dune/RPC quota。
-5. **后续研究方向**：批量扫描、历史 crash pattern、beneficial owner 深度解析、多链和实时告警。
+1. **完成 Dashboard 人工验收**：重点检查累计撤出比例、Risk Index、holder coverage 和 V4 Pool Identifier 的展示语义。
+2. **Dune 402 快速降级**：余额或 credits 明确不足时直接回退 RPC，不再递归拆分窗口。
+3. **把回归测试接入 GitHub Actions**：在 push / pull request 时自动运行测试，再部署静态站点。
+4. **收口输出存储策略**：Git 保留摘要、报告和展示文件，大型原始事件表继续留在本地或外部存储。
+5. **暂缓低价值扩展**：不继续选择第四个手工相关性案例；八案例事件面板、Position Manager 全量追踪、beneficial owner、多链和实时告警只在出现新机制或明确外部需求时恢复。
 
 ## 7. Git 交接状态
 
 - 分支：`main`
-- 功能提交：`d2be0a0 feat: clarify dashboard analysis semantics`
+- 本轮 Markdown 修正前的基线提交：`c4503ce`
 - 远程：`origin/main`
-- 该功能提交包含 Dashboard、metrics、artifact schema、测试、README、方法文档和当前示例输出。
-- `HANDOVER.md` 是在上述提交之后更新的，提交前请先检查 `git status`。
+- 基线检查时本地与远端同步；本轮 Markdown 修正完成后仍需重新提交和推送。
+- 当前仓库已包含 TURBO、FTT、CEL、GALA、稳健性检验、跨案例综合、Dashboard、测试和公开站点文件。

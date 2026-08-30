@@ -2,7 +2,7 @@
 
 [English](#english) | [中文](#中文)
 
-Live site: [https://jelly577.github.io/On-Chain-Token-Crash-Liquidity-Analysis/](https://jelly577.github.io/On-Chain-Token-Crash-Liquidity-Analysis/)
+Live site: [https://cooler-tu.github.io/On-Chain-Token-Crash-Liquidity-Analysis/](https://cooler-tu.github.io/On-Chain-Token-Crash-Liquidity-Analysis/)
 
 ---
 
@@ -12,12 +12,14 @@ Live site: [https://jelly577.github.io/On-Chain-Token-Crash-Liquidity-Analysis/]
 
 ## Overview
 
-End-to-end **Ethereum mainnet** tool for token liquidity / crash analysis: discover pools across major DEXes, index swaps / liquidity / transfers, estimate concentration and risk, then emit JSON, Markdown, and a local HTML dashboard.
+End-to-end **Ethereum mainnet** tool for token liquidity / crash analysis: discover pools across major DEXes, index swaps / liquidity / transfers, estimate concentration and a heuristic risk index, then emit JSON, Markdown, and a local HTML dashboard.
 
 **Input:** token address, symbol, or name + block window  
 **Output:** verified pools, events, holdings, risk score, `report.md`, `dashboard.html`
 
 **Scope today:** Ethereum (`chain_id=1`) + **Uniswap V1–V4**, **Curve**, **Balancer V2**.
+
+**Product boundary:** `python3 -m src.cli studio` is a local self-service analyzer. The GitHub Pages site is a static showcase of pre-generated cases, not a hosted arbitrary-token analysis backend. The LOW / MEDIUM / HIGH risk index is a screening heuristic, not a crash probability or a validated prediction model.
 
 ---
 
@@ -36,14 +38,13 @@ End-to-end **Ethereum mainnet** tool for token liquidity / crash analysis: disco
 
 ### Recent Findings (crash/control research)
 
-- A uniform FTT/CEL/GALA ledger applied the same hourly predictors and future 24-hour outcomes to six windows, then corrected all 18 tests together. No standalone variable transports across the three incident-preceding windows. FTT net LP flow remains significant (`ρ=-0.2979`, global `q=0.0216`), but CEL weakens to `q=0.1056` and GALA reverses to `ρ=+0.0527`; gross LP activity keeps a positive sign but is insignificant in all three. Transfer net, net LP flow, gross LP activity, and target-inventory concentration are retired as standalone price predictors. The next gated direction is an objective eight-plus-case incident-centered panel of joint price, turnover, and pool-inventory response. Evidence: `research-notes/cross-case-evidence-synthesis.md`.
+- A uniform FTT/CEL/GALA ledger applied the same hourly predictors and future 24-hour outcomes to six windows, then corrected all 18 tests together. No standalone variable transports across the three incident-preceding windows. FTT net LP flow remains significant (`ρ=-0.2979`, global `q=0.0216`), but CEL weakens to `q=0.1056` and GALA reverses to `ρ=+0.0527`; gross LP activity keeps a positive sign but is insignificant in all three. Transfer net, net LP flow, gross LP activity, and target-inventory concentration are retired as standalone price predictors. An eight-plus-case incident panel was considered as a possible follow-up, but it is now deferred: the current priority is documentation, dashboard acceptance, and reproducible delivery rather than collecting more cases without a stronger mechanism. Evidence: `research-notes/cross-case-evidence-synthesis.md`.
 - GALA completed the frozen third and final hand-selected test with full coverage: all 72 control and 128 event Mints were quantified and priced from a prior same-pool Swap, yielding 65/79 eligible add hours. Zero of three hypotheses confirmed. H1 was weakly negative (`ρ=-0.0915`, BH `q=0.6969`); H2's event-control target-share difference was only `+0.0420` with a zero-crossing CI; H3's median largest-transaction share stayed `1.0000`. The pre-registered decision is to close this mechanism line, skip Position Manager tracing, and not select a fourth case. Evidence: `research-notes/gala-inventory-mechanism-results.md`.
 - Transaction forensics decomposed 11 FTT and 10 CEL positive-net-LP / negative-future-return hours, with the top five per case all driven by V3. Target inventory represents 81.57% of added WETH-equivalent value for FTT and 67.32% for CEL. FTT's largest hour is a below-range NFT adding 23,862.8321 FTT and zero WETH; targeted Position Manager tracing also verifies one same-wallet, same-NFT, same-tick Mint→Burn cycle 948 seconds apart. The mechanism is now framed as concentrated target-token inventory provision, not generic capital inflow. Evidence: `research-notes/ftt-cel-lp-flow-forensics.md`.
 - CEL independently replicated the counterintuitive net-LP-flow direction under the unchanged FTT design. CEL crash-window net LP flow versus future 24-hour return is `ρ=-0.0856` (block `p=0.0166`, BH `q=0.0498`), and crash minus control is `-0.1962` with 95% CI `[-0.2847, -0.0780]`. The original positive-direction hypothesis still fails; this is a repeated anomaly for transaction forensics, not a confirmed warning rule. CEL passed 100% reserve and Mint/Burn amount coverage with 522/504 primary pairs. Evidence: `research-notes/cel-crash-control-results.md`.
 - The first pre-registered same-token crash/control validation passed its data-quality gates: 100% hourly target-reserve coverage, 181/181 quantified Mint/Burn rows, exact Transfer-to-balance reconciliation for all three pools in both windows, and 142 control / 171 crash observed-price endpoint pairs.
 - None of the three primary 24-hour hypotheses met all confirmation rules. Pool Transfer net flow was weak (`ρ=-0.1279`, BH `q=0.1618`), and gross LP activity did not reliably precede larger absolute returns (`ρ=0.1564`, `q=0.1618`).
 - The counterintuitive candidate is net LP flow: its crash-window association with future 24-hour return was negative (`ρ=-0.2979`, block-permutation `p=0.0026`, BH `q=0.0078`) instead of the frozen positive direction. Its crash-minus-control 95% interval `[-0.5090, 0.0863]` crosses zero, so this is an anomaly for transaction-level follow-up, not a confirmed warning signal. Full interpretation: `research-notes/ftt-crash-control-results.md`.
-- The CEL replication is frozen before outcome calculation. The corrected public-pause cutoff is `2022-06-13 02:10 UTC` / block `14953505` (the old noon boundary was about ten hours late). Two active CEL/WETH pools—V2 and V3 0.30%—exist with non-zero reserves throughout the boundaries and have Swap activity in all four feasibility samples. The FTT variables, directions, 24-hour horizon, stop rules, and random seed are unchanged; see `research-notes/cel-crash-control-preregistration.md`.
 
 ### Recent Findings (TURBO)
 
@@ -66,7 +67,6 @@ python3 -m src.cli dashboard --output-dir output-turbo-30d-25580851
 
 - Directional audit of the verified `2026-05-07 12:00 UTC` V3 bucket found 48 sell-side and 71 buy-side Swap events: 39.5356 uPEG gross sells, 30.2685 gross buys, and 9.2671 net signed Swap flow into the pool. Actual uPEG Transfer net flow and the historical balance delta both equal 10.106754360913178103 uPEG exactly; the 0.83964 Transfer-minus-Swap residual proves that Swap amounts alone are not a complete cash-flow ledger for this token/window. Evidence and guardrails are in `research-notes/upeg-directional-flow-audit.md`.
 - Across 1/2/4/6-hour buckets, uPEG price return versus target-reserve change remains negative and passes the pre-specified zero-lag BH-FDR family (one-hour Pearson -0.6791, Spearman -0.7757; q=0.0045). No non-zero lag survives the 576-test exploratory family, so this remains a within-pool AMM inventory relationship rather than a predictive signal.
-- Independent crash/control validation is now pre-registered on FTT before full indexing. A light RPC screen found 2,104 Swaps across three fixed FTT/WETH pools in the last 10,000 blocks before the frozen 2022-11-08 cutoff, versus 7 in the last 10,000 blocks of the preceding control window. Exact UTC windows, primary metrics, 24-hour horizon, FDR family, and data-quality stop rules are frozen in `research-notes/ftt-crash-control-preregistration.md`; the count contrast is a feasibility result, not yet a predictive finding.
 - Window `25003546–25004000`: **10** verified Uniswap pools (1 V2 / 3 V3 / 6 V4). Curve/Balancer enabled in config; this token’s liquidity in-window was Uniswap-only.
 - **36** LP positions reconstructed (V3/V4 tick math; V4 share = in-range `L / StateView.getLiquidity`).
 - Holdings via Dune address discovery + RPC `balanceOf`; dashboard tags **EOA / contract / pool**.
@@ -229,7 +229,9 @@ resolve + profile
 | Holdings + pool account tags | Done (Dune-first when key set; RPC fallback) |
 | Dune unified query layer | Done (`pools` / `swaps` / `tvl` / `data-map` + caching) |
 | EOA vs contract labeling | Done (bytecode surface label) |
-| Dashboard + report + public site | Done |
+| Dashboard + report | Done |
+| Local self-service Studio | Done (`python3 -m src.cli studio`) |
+| Public site | Done as a static pre-generated case showcase; no hosted analysis backend |
 | DEX venue tags on holders | Done (window evidence; not beneficial-owner unwrap) |
 | LP portfolio drill-down | Done |
 | Deep holder / router unwrap | Not done |
@@ -261,6 +263,8 @@ python3 scripts/publish_site.py
 
 GitHub Pages: **Settings → Pages → Source = GitHub Actions**. Workflow: `.github/workflows/deploy-pages.yml`.
 
+Canonical deployment: <https://cooler-tu.github.io/On-Chain-Token-Crash-Liquidity-Analysis/>. A push to `main` rebuilds the static site from committed artifacts; it does not run arbitrary token analyses for site visitors.
+
 ---
 
 ## Known limitations
@@ -271,8 +275,9 @@ GitHub Pages: **Settings → Pages → Source = GitHub Actions**. Workflow: `.gi
 | DEX tags | Evidence in **this block window** only; P2P holders stay `—` |
 | Expand row | Shows **LP positions**, not swap history |
 | V4 pool id | Portfolio “Pool” may be bytes32 poolId; custody is PoolManager |
-| No `--incident-block` | Risk leans on concentration / withdrawals |
-| No automated tests | Manual CLI validation |
+| Risk index validation | `--incident-block` is supported, but LOW / MEDIUM / HIGH remains a heuristic screening scale rather than a calibrated crash probability |
+| Test automation | Local regression suite exists (138 passed, 1 skipped on 2026-08-30); GitHub Actions does not yet run it automatically |
+| Public interaction | Local Studio is interactive; GitHub Pages only serves pre-generated static cases |
 
 See `SUPPORTED_PROTOCOLS.md` for contract addresses and notes.
 
@@ -288,7 +293,9 @@ See `SUPPORTED_PROTOCOLS.md` for contract addresses and notes.
 
 **当前范围：** 以太坊 + **Uniswap V1–V4**、**Curve**、**Balancer V2**。
 
-线上站点：[https://jelly577.github.io/On-Chain-Token-Crash-Liquidity-Analysis/](https://jelly577.github.io/On-Chain-Token-Crash-Liquidity-Analysis/)
+线上站点：[https://cooler-tu.github.io/On-Chain-Token-Crash-Liquidity-Analysis/](https://cooler-tu.github.io/On-Chain-Token-Crash-Liquidity-Analysis/)
+
+**当前产品边界：** `python3 -m src.cli studio` 是本地自助分析入口；GitHub Pages 是预生成案例的静态展示站，不是可让公网用户任意提交代币的分析后端。LOW / MEDIUM / HIGH 风险指数属于启发式筛查指标，不是崩盘概率或已经验证的预测模型。
 
 ---
 
@@ -307,14 +314,13 @@ See `SUPPORTED_PROTOCOLS.md` for contract addresses and notes.
 
 ### 近期发现（崩盘/对照研究）
 
-- 统一的 FTT/CEL/GALA 证据账本对六个窗口使用相同的小时指标和未来 24 小时结果，并将 18 项检验整体校正。三个事前窗口中没有可迁移的独立变量：FTT 净 LP 流仍显著（`ρ=-0.2979`，全局 `q=0.0216`），CEL 降为 `q=0.1056`，GALA 更反转为 `ρ=+0.0527`；累计 LP 活动虽均为正，但三个案例都不显著。因此池 Transfer 净流、净 LP 流、累计 LP 活动与目标库存集中度均退出独立价格预测器名单。下一方向设置八个以上案例的客观门槛，以统一事件窗口研究价格、成交周转和池库存的联合响应。证据见 `research-notes/cross-case-evidence-synthesis.md`。
+- 统一的 FTT/CEL/GALA 证据账本对六个窗口使用相同的小时指标和未来 24 小时结果，并将 18 项检验整体校正。三个事前窗口中没有可迁移的独立变量：FTT 净 LP 流仍显著（`ρ=-0.2979`，全局 `q=0.0216`），CEL 降为 `q=0.1056`，GALA 更反转为 `ρ=+0.0527`；累计 LP 活动虽均为正，但三个案例都不显著。因此池 Transfer 净流、净 LP 流、累计 LP 活动与目标库存集中度均退出独立价格预测器名单。八个以上案例的事件面板曾被列为候选后续，但现已暂缓；当前优先进行文档校准、看板验收和可复现交付，不在缺乏更强机制时继续扩充案例。证据见 `research-notes/cross-case-evidence-synthesis.md`。
 - GALA 已完成冻结的第三个、也是最后一个人工挑选检验，并通过全部覆盖门槛：控制期 72 条、事件期 128 条 Mint 均有金额且能使用同池此前一小时内的 Swap 定价，得到 65/79 个有效加仓小时。三项假设均未确认：H1 仅为弱负相关（`ρ=-0.0915`，BH `q=0.6969`）；H2 的事件减控制目标侧占比差只有 `+0.0420`，区间跨 0；H3 的单笔集中度中位数均为 `1.0000`。按预注册规则，这条机制线到此关闭，不做 Position Manager 追踪，也不再挑第四个案例。证据见 `research-notes/gala-inventory-mechanism-results.md`。
 - 交易取证拆解出 11 个 FTT 与 10 个 CEL“净 LP 流为正、未来收益为负”的小时，两组前五名全部由 V3 主导。按小时收盘价折算，新增价值中目标代币库存占 FTT 的 81.57%、CEL 的 67.32%。FTT 最大异常小时是一笔区间外 NFT 仓位，只加入 23,862.8321 FTT 而没有 WETH；定向 Position Manager 追踪还确认了一组同钱包、同 NFT、同 tick 的 Mint→Burn，间隔 948 秒。因此当前机制应描述为集中的目标代币库存配置，而不是笼统的外部资金流入。证据见 `research-notes/ftt-cel-lp-flow-forensics.md`。
 - CEL 在完全复用 FTT 设计的情况下，独立复现了净 LP 流的反常方向：崩盘期净 LP 流与未来 24 小时收益为 `ρ=-0.0856`（区块置换 `p=0.0166`，BH `q=0.0498`），崩盘减对照为 `-0.1962`，95% 区间 `[-0.2847, -0.0780]`。原先预注册的正方向假设仍然失败；这是需要交易级调查的重复异常，不是已确认预警规则。CEL 储备与 Mint/Burn 金额覆盖均为 100%，主要配对为 522/504。证据见 `research-notes/cel-crash-control-results.md`。
 - 首次预注册的同代币崩盘/对照验证通过数据质量门槛：小时级目标代币储备覆盖 100%，181/181 条 Mint/Burn 均有可量化金额，两个窗口中三个池的 Transfer 净额均与历史余额变化精确对账，并保留 142 个对照期与 171 个崩盘期真实成交端点配对。
 - 三项 24 小时主要假设均未满足全部确认条件。池 Transfer 净流的关系较弱（`ρ=-0.1279`，BH `q=0.1618`），累计 LP 活动也未能稳定领先更大的绝对收益（`ρ=0.1564`，`q=0.1618`）。
 - 反常候选来自净 LP 流：崩盘期它与未来 24 小时收益呈负相关（`ρ=-0.2979`，区块置换 `p=0.0026`，BH `q=0.0078`），与预注册的正方向相反；崩盘减对照的 95% 区间 `[-0.5090, 0.0863]` 仍跨过 0。因此它只是值得做交易级追踪的异常线索，不是已确认预警信号。完整解释见 `research-notes/ftt-crash-control-results.md`。
-- CEL 独立复验已在计算结果前冻结。公开暂停事件截止点修正为 `2022-06-13 02:10 UTC` / 区块 `14953505`，旧的中午边界晚了约十小时。两个活跃 CEL/WETH 池（V2 与 V3 0.30%）在所有边界均有非零储备，且四个可行性抽样段均有 Swap。FTT 的变量、方向、24 小时预测期、停止规则和随机种子均保持不变；详见 `research-notes/cel-crash-control-preregistration.md`。
 
 ### 近期发现（TURBO）
 
@@ -337,7 +343,6 @@ python3 -m src.cli dashboard --output-dir output-turbo-30d-25580851
 
 - 对已人工核验的 `2026-05-07 12:00 UTC` V3 小时桶做方向审计：48 个卖出侧、71 个买入侧 Swap，卖出总量 39.5356 uPEG、买入总量 30.2685 uPEG，带符号 Swap 净流入池 9.2671 uPEG。实际 uPEG Transfer 净流入与历史池余额增加都精确等于 10.106754360913178103 uPEG；0.83964 uPEG 的“Transfer 减 Swap”残差证明该代币/窗口不能只用 Swap 数量作为完整资金流账本。证据与解释边界见 `research-notes/upeg-directional-flow-audit.md`。
 - uPEG 的价格收益与目标代币储备变化在 1/2/4/6 小时桶中持续负相关，并通过预先定义的同期 BH-FDR 家族（1 小时 Pearson -0.6791、Spearman -0.7757，q=0.0045）。576 个探索性非零 lag 没有一个通过校正，因此该结果只解释为 AMM 池内库存关系，不解释为预测信号。
-- 独立崩盘/对照验证已经在全量索引前预注册为 FTT。轻量 RPC 筛选显示，三个固定 FTT/WETH 池在 2022-11-08 冻结截止点前最后 10,000 个区块共有 2,104 笔 Swap，而前置对照窗最后 10,000 个区块只有 7 笔。精确 UTC 窗口、主要指标、24 小时预测期、FDR 检验家族和数据质量停止规则已冻结在 `research-notes/ftt-crash-control-preregistration.md`；该数量差异目前只是可行性证据，不是预测结论。
 - 窗口内验证 **10** 个 Uniswap 池（1 V2 / 3 V3 / 6 V4）。配置已开 Curve/Balancer，但该代币本窗口流动性主要在 Uniswap。
 - 重建 **36** 个 LP 仓位（V3/V4 tick；V4 份额 = 区间内 `L / StateView.getLiquidity`）。
 - 持仓：Dune 发现地址 + RPC `balanceOf`；看板区分 **EOA / 合约 / 池账户**。
@@ -451,7 +456,7 @@ python3 -m src.cli discover-only 0xD533a949740bb3306d119CC777fa900bA034cd52 \
 
 ## 公开站点
 
-`python3 scripts/publish_site.py` → `site/`。GitHub Pages 选 **GitHub Actions** 作为 Source。
+`python3 scripts/publish_site.py` → `site/`。GitHub Pages 选 **GitHub Actions** 作为 Source。正式部署地址为 <https://cooler-tu.github.io/On-Chain-Token-Crash-Liquidity-Analysis/>；该站点展示已生成案例，本地 Studio 才负责交互式发起分析。
 
 ---
 
@@ -462,5 +467,7 @@ python3 -m src.cli discover-only 0xD533a949740bb3306d119CC777fa900bA034cd52 \
 | 免费 RPC | Curve/Balancer 发现易卡住 |
 | DEX 标签 | 只看分析窗口内证据 |
 | 展开行 | 不是成交明细，只是 LP |
-| 无 incident-block | 风险偏结构信号 |
+| 风险指数尚未校准 | 已支持 `--incident-block`，但 LOW / MEDIUM / HIGH 仍是启发式筛查尺度，不是崩盘概率 |
+| 测试未接入 CI | 本地回归测试已存在（2026-08-30：138 passed、1 skipped），GitHub Actions 尚未自动运行 |
+| 公网交互边界 | 本地 Studio 可交互；GitHub Pages 只展示预生成静态案例 |
 | 协议细节 | 见 `SUPPORTED_PROTOCOLS.md` |

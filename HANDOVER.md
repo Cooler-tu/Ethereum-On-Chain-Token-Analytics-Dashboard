@@ -4,7 +4,7 @@
 >
 > 本轮文档修正前的主分支基线：`c4503ce`，当时 `main` 与 `origin/main` 同步
 >
-> 自动化测试基线：138 passed、1 skipped
+> 自动化测试基线：147 passed、1 skipped
 >
 > 本文后续保留 2026-08-14 Dashboard 口径修复的详细背景；研究阶段的最终状态和交付方向以本页“当前状态”及 `research-notes/cross-case-evidence-synthesis.md` 为准。
 
@@ -17,6 +17,7 @@
 - LOW / MEDIUM / HIGH Risk Index 仅用于启发式筛查，不是崩盘概率或经过大样本校准的预测模型。
 - 当前工作方向是文档校准、Dashboard 人工验收、CI 和交付收口；八案例事件面板、Position Manager 全量追踪、深层钱包归属、多链和实时监控均暂缓。
 - `python3 -m src.cli studio` 是本地自助入口；GitHub Pages 是预生成案例的静态展示站，不是公网动态分析后端。
+- Dune 402/credits 错误现在会立即停止 Dune 查询并交给上层回退 RPC；只有明确的结果过大错误才拆分区块，429 限速仍按退避策略重试。
 
 正式静态站点：<https://cooler-tu.github.io/On-Chain-Token-Crash-Liquidity-Analysis/>
 
@@ -186,7 +187,7 @@ python3 -m src.cli dashboard \
 python3 -m unittest discover -s tests -q
 ```
 
-当前测试结果（2026-08-30）：138 项通过，1 项因可选依赖条件按设计跳过。
+当前测试结果（2026-08-30）：147 项通过，1 项因可选依赖条件按设计跳过。
 
 如果需要把最新版同步到 public site：
 
@@ -221,10 +222,9 @@ export DUNE_API_KEY="YOUR_DUNE_API_KEY"
 ## 6. 下一步建议（按优先级）
 
 1. **完成 Dashboard 人工验收**：重点检查累计撤出比例、Risk Index、holder coverage 和 V4 Pool Identifier 的展示语义。
-2. **Dune 402 快速降级**：余额或 credits 明确不足时直接回退 RPC，不再递归拆分窗口。
-3. **把回归测试接入 GitHub Actions**：在 push / pull request 时自动运行测试，再部署静态站点。
-4. **收口输出存储策略**：Git 保留摘要、报告和展示文件，大型原始事件表继续留在本地或外部存储。
-5. **暂缓低价值扩展**：不继续选择第四个手工相关性案例；八案例事件面板、Position Manager 全量追踪、beneficial owner、多链和实时告警只在出现新机制或明确外部需求时恢复。
+2. **把回归测试接入 GitHub Actions**：在 push / pull request 时自动运行测试，再部署静态站点。
+3. **收口输出存储策略**：Git 保留摘要、报告和展示文件，大型原始事件表继续留在本地或外部存储。
+4. **暂缓低价值扩展**：不继续选择第四个手工相关性案例；八案例事件面板、Position Manager 全量追踪、beneficial owner、多链和实时告警只在出现新机制或明确外部需求时恢复。
 
 ## 7. Git 交接状态
 

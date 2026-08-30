@@ -1693,11 +1693,16 @@ def index_events(
         except Exception as exc:
             if mode == "dune":
                 raise
-            from ..data.dune import DuneQuotaError
+            from ..data.dune import DuneCreditError, DuneQuotaError
 
-            if isinstance(exc, DuneQuotaError):
+            if isinstance(exc, DuneCreditError):
                 _progress(
-                    "Dune still over quota after chunked retries ({}) — "
+                    "Dune credits/payment unavailable ({}) — "
+                    "falling back to RPC eth_getLogs".format(exc)
+                )
+            elif isinstance(exc, DuneQuotaError):
+                _progress(
+                    "Dune query remains too large after chunked retries ({}) — "
                     "falling back to RPC eth_getLogs".format(exc)
                 )
             else:

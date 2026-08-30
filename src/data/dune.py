@@ -71,7 +71,15 @@ class DuneError(RuntimeError):
 
 
 class DuneQuotaError(DuneError):
-    """Credits / result-size / payment limit — caller should shrink the request."""
+    """Base class for Dune account or query-size limits."""
+
+
+class DuneCreditError(DuneQuotaError):
+    """Account credits/payment are unavailable; shrinking cannot fix this."""
+
+
+class DuneResultSizeError(DuneQuotaError):
+    """Query result is too large; callers may retry smaller block ranges."""
 
 
 def configured() -> bool:
@@ -279,30 +287,55 @@ def _cache_put(cache_dir: Path, key: str, rows: list[dict[str, Any]]) -> None:
         tmp.replace(path)
 
 
-def _is_quota_http(exc: BaseException) -> bool:
-    """True for credit/payment/result-size limits (not transient 429 rate limits)."""
-    status = getattr(getattr(exc, "response", None), "status_code", None)
+def _classify_limit(status: Optional[int], text: str) -> Optional[str]:
+    """Return ``credit`` or ``size`` for non-retryable Dune limits.
+
+    HTTP 429 is deliberately left to the request retry/backoff path. A 402 or
+    account-credit error cannot be repaired by splitting the block range; only
+    explicit result-size errors are safe to split.
+    """
+    body = (text or "")[:1000].lower()
+    if status == 429:
+        return None
     if status == 402:
-        return True
-    text = ""
-    try:
-        resp = getattr(exc, "response", None)
-        if resp is not None:
-            text = (resp.text or "")[:500].lower()
-    except Exception:
-        pass
-    if status == 429 and "rate" in text:
-        return False
-    markers = (
-        "payment required",
-        "not enough credits",
-        "credit",
+        return "credit"
+
+    size_markers = (
         "datapoint",
         "too many rows",
         "result too large",
+        "result size",
+        "maximum row",
+        "max rows",
+    )
+    if any(marker in body for marker in size_markers):
+        return "size"
+
+    credit_markers = (
+        "payment required",
+        "credit",
         "quota",
     )
-    return any(m in text for m in markers)
+    if any(marker in body for marker in credit_markers):
+        return "credit"
+    return None
+
+
+def _http_limit_kind(exc: BaseException) -> Optional[str]:
+    response = getattr(exc, "response", None)
+    status = getattr(response, "status_code", None)
+    text = ""
+    try:
+        if response is not None:
+            text = response.text or ""
+    except Exception:
+        pass
+    return _classify_limit(status, text)
+
+
+def _is_quota_http(exc: BaseException) -> bool:
+    """Backward-compatible boolean helper for recognized Dune limits."""
+    return _http_limit_kind(exc) is not None
 
 
 def _execute_remote(
@@ -329,9 +362,14 @@ def _execute_remote(
             except (requests.Timeout, requests.ConnectionError, requests.HTTPError) as exc:
                 last = exc
                 status = getattr(getattr(exc, "response", None), "status_code", None)
-                if status != 429 and _is_quota_http(exc):
-                    raise DuneQuotaError(
-                        f"{label}: quota/size limit: {exc}"
+                limit_kind = _http_limit_kind(exc)
+                if limit_kind == "credit":
+                    raise DuneCreditError(
+                        f"{label}: Dune credits/payment unavailable: {exc}"
+                    ) from exc
+                if limit_kind == "size":
+                    raise DuneResultSizeError(
+                        f"{label}: Dune result-size limit: {exc}"
                     ) from exc
                 retryable = isinstance(
                     exc, (requests.Timeout, requests.ConnectionError)
@@ -381,12 +419,14 @@ def _execute_remote(
             break
         if "FAIL" in state or "CANCEL" in state:
             body = status.text[:500]
-            if any(
-                m in body.lower()
-                for m in ("credit", "quota", "datapoint", "too large", "payment")
-            ):
-                raise DuneQuotaError(
-                    f"Dune SQL execution {state}: {body}"
+            limit_kind = _classify_limit(None, body)
+            if limit_kind == "credit":
+                raise DuneCreditError(
+                    f"Dune SQL execution {state}: credits/payment unavailable: {body}"
+                )
+            if limit_kind == "size":
+                raise DuneResultSizeError(
+                    f"Dune SQL execution {state}: result-size limit: {body}"
                 )
             raise DuneError(f"Dune SQL execution {state}: {body}")
         if on_status is None and (i == 0 or (i + 1) % 10 == 0):
@@ -462,9 +502,11 @@ def query(
 ) -> list[dict[str, Any]]:
     """Load SQL section ``sql_name`` from ``dune_sql/queries.sql``, run, return rows.
 
-    When ``from_block``/``to_block`` span a large window (or a quota/size error
-    hits), the range is split into multiple Dune queries and concatenated —
-    instead of falling back to RPC.
+    When ``from_block``/``to_block`` span a large window (or an explicit
+    result-size error hits), the range is split into multiple Dune queries and
+    concatenated. Account credit/payment errors are never split, because a
+    smaller query cannot repair them; they propagate so callers can fall back
+    to RPC immediately.
 
     ``chunk_blocks``:
       - ``None`` (default): auto — chunk when window > 3000 blocks (size 2000)
@@ -504,11 +546,11 @@ def query(
                 api_key=api_key,
                 prepared=prepared,
             )
-        except DuneQuotaError:
+        except DuneResultSizeError:
             if not has_range or span <= min_chunk_blocks:
                 raise
             print(
-                f"  [dune] {sql_name}: quota/size on full window "
+                f"  [dune] {sql_name}: result too large on full window "
                 f"[{fb}-{tb}] — splitting …"
             )
             size = max(min_chunk_blocks, span // 2)
@@ -535,17 +577,17 @@ def query(
                 prepared=piece,
             )
             merged.extend(rows)
-        except DuneQuotaError as exc:
+        except DuneResultSizeError as exc:
             width = b - a + 1
             if width <= min_chunk_blocks:
-                raise DuneQuotaError(
-                    f"{sql_name} [{a}-{b}]: still over quota after min chunk "
+                raise DuneResultSizeError(
+                    f"{sql_name} [{a}-{b}]: still too large after min chunk "
                     f"({min_chunk_blocks} blocks): {exc}"
                 ) from exc
             mid = a + width // 2 - 1
             left, right = (a, mid), (mid + 1, b)
             print(
-                f"  [dune] {sql_name} [{a}-{b}] over quota — "
+                f"  [dune] {sql_name} [{a}-{b}] result too large — "
                 f"split → [{left[0]}-{left[1]}] + [{right[0]}-{right[1]}]"
             )
             pending.insert(0, right)

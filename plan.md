@@ -58,6 +58,7 @@
 - **GALA prospective inventory-mechanism validation** (2026-08-29) — indexed frozen control/event windows (5,879/7,022 Swaps), priced all 200 quantified Mints from prior same-pool Swaps, and passed every coverage/sample gate. Zero of three primary hypotheses confirmed: H1 `ρ=-0.0915` with BH `q=0.6969`; H2 event-control target-share difference `+0.0420` with CI crossing zero; H3 median concentration unchanged at `1.0000`. The pre-registered hand-selected mechanism line is closed, with no fourth case or GALA Position Manager tracing. Evidence: `research-notes/gala-inventory-mechanism-results.md`.
 - **FTT/CEL/GALA cross-case evidence ledger** (2026-08-30) — standardized six existing windows to three hourly predictors and a future 24-hour outcome with one 18-test BH family. No variable transports across all three incident-preceding windows: FTT net LP flow remains globally significant (`q=0.0216`), CEL weakens (`q=0.1056`), and GALA reverses positive. Retired Transfer net, net LP flow, gross LP activity, and target-inventory concentration as standalone predictors; pivoted to an objective incident-centered joint-response panel with an eight-case feasibility gate. Evidence: `research-notes/cross-case-evidence-synthesis.md`.
 - **Project status documentation refresh** (2026-08-30) — corrected stale test and `--incident-block` claims, aligned the canonical Pages URL and local-vs-static product boundary, refreshed `HANDOVER.md`, and deferred further case expansion in favor of dashboard acceptance and reproducible delivery.
+- **Dune 402 fail-fast** (2026-08-30) — separated account credit/payment failures from splittable result-size limits. HTTP 402 now stops after one request so existing callers can fall back to RPC immediately; HTTP 429 still retries with backoff, and explicit oversized results still split and merge. Added nine regression tests; full suite is 147 passed, 1 skipped.
 
 ---
 
@@ -70,14 +71,13 @@
 ## 📋 Backlog (ordered by priority)
 
 1. **Dashboard semantic acceptance** — manually verify cumulative-withdrawal ratios, Risk Index wording, holder coverage, and V4 Pool Identifier/custody labels.
-2. **Dune 402 fail-fast** — distinguish exhausted credits/payment errors from oversized results and fall back to RPC without recursive splitting.
-3. **Continuous integration** — run the existing regression suite in GitHub Actions before site deployment.
-4. **Artifact publication policy** — keep compact summaries/reports/site files in Git while large canonical event tables remain local or external.
-5. **Incident registry and event-study panel (deferred)** — resume only with a stronger joint-response mechanism or an explicit research requirement; keep the frozen eight-case gate and pre-registration rules if resumed.
-6. **Directional flow full-window expansion (deferred)** — resume only if a broader event panel shows signed-flow value beyond mechanical reconciliation.
-7. **Dashboard pool identity / custody cleanup (deferred beyond acceptance fixes)** — redesign deeper V4 identity/custody views only when evidence requires it.
-8. **Deep holder unwrap (deferred)** — no wallet/router attribution until a broad effect merits mechanism tracing.
-9. **Multi-chain / real-time monitoring (deferred)** — add more chains only after Ethereum evidence and product demand justify it.
+2. **Continuous integration** — run the existing regression suite in GitHub Actions before site deployment.
+3. **Artifact publication policy** — keep compact summaries/reports/site files in Git while large canonical event tables remain local or external.
+4. **Incident registry and event-study panel (deferred)** — resume only with a stronger joint-response mechanism or an explicit research requirement; keep the frozen eight-case gate and pre-registration rules if resumed.
+5. **Directional flow full-window expansion (deferred)** — resume only if a broader event panel shows signed-flow value beyond mechanical reconciliation.
+6. **Dashboard pool identity / custody cleanup (deferred beyond acceptance fixes)** — redesign deeper V4 identity/custody views only when evidence requires it.
+7. **Deep holder unwrap (deferred)** — no wallet/router attribution until a broad effect merits mechanism tracing.
+8. **Multi-chain / real-time monitoring (deferred)** — add more chains only after Ethereum evidence and product demand justify it.
 
 ---
 

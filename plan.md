@@ -60,19 +60,20 @@
 - **Project status documentation refresh** (2026-08-30) — corrected stale test and `--incident-block` claims, aligned the canonical Pages URL and local-vs-static product boundary, refreshed `HANDOVER.md`, and deferred further case expansion in favor of dashboard acceptance and reproducible delivery.
 - **Dune 402 fail-fast** (2026-08-30) — separated account credit/payment failures from splittable result-size limits. HTTP 402 now stops after one request so existing callers can fall back to RPC immediately; HTTP 429 still retries with backoff, and explicit oversized results still split and merge. Added nine regression tests; full suite was 147 passed, 1 skipped at completion.
 - **Dashboard interpretation guardrails** (2026-08-30) — replaced predictive and full-coverage-sounding labels with explicit heuristic, queried-sample, target-token-equivalent, cumulative-reference-ratio, and balance-change wording. Rebuilt committed dashboards and the public site without changing calculations; full suite is 149 passed, 1 skipped.
+- **GitHub Actions regression gate** (2026-08-30) — added pull-request coverage for `main`, made the existing 149-test suite a prerequisite for Pages build and deployment, and prevented pull requests from deploying the public site. The workflow structure and dependency gates were validated locally; the first hosted run awaits the next push.
 
 ---
 
 ## 🎯 Current
 
-- **Release consolidation** — add CI and settle the artifact publication policy; do not collect additional incidents without a stronger mechanism or explicit external requirement.
+- **Release consolidation** — settle the artifact publication policy and confirm the first hosted CI run after the next push; do not collect additional incidents without a stronger mechanism or explicit external requirement.
 
 ---
 
 ## 📋 Backlog (ordered by priority)
 
-1. **Continuous integration** — run the existing regression suite in GitHub Actions before site deployment.
-2. **Artifact publication policy** — keep compact summaries/reports/site files in Git while large canonical event tables remain local or external.
+1. **Artifact publication policy** — keep compact summaries/reports/site files in Git while large canonical event tables remain local or external.
+2. **First hosted CI run** — after the next push, confirm regression tests, Pages build, and deployment complete in order.
 3. **Incident registry and event-study panel (deferred)** — resume only with a stronger joint-response mechanism or an explicit research requirement; keep the frozen eight-case gate and pre-registration rules if resumed.
 4. **Directional flow full-window expansion (deferred)** — resume only if a broader event panel shows signed-flow value beyond mechanical reconciliation.
 5. **Dashboard pool identity / custody cleanup (deferred beyond acceptance fixes)** — redesign deeper V4 identity/custody views only when evidence requires it.

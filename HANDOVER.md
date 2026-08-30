@@ -15,13 +15,15 @@
 - FTT、CEL、GALA 已完成冻结窗口、稳健性检验和跨案例统一校正。
 - 跨案例结果没有发现可迁移的独立价格预测变量。Transfer 净流、净 LP 流、累计 LP 活动和目标库存集中度不再作为独立崩盘预测器。
 - LOW / MEDIUM / HIGH Risk Index 仅用于启发式筛查，不是崩盘概率或经过大样本校准的预测模型。
-- Dashboard 的高风险歧义文案已完成修正和人工验收；GitHub Actions 已配置为在 push / pull request 时运行回归测试，Pages 只在测试通过后构建和部署。当前工作方向是输出存储策略和交付收口。八案例事件面板、Position Manager 全量追踪、深层钱包归属、多链和实时监控均暂缓。
+- Dashboard 的高风险歧义文案已完成修正和人工验收；GitHub Actions 已配置为在 push / pull request 时运行回归测试，Pages 只在测试通过后构建和部署，首次远端测试、构建与部署已全部成功。当前工作方向是研究总结、输出存储策略和交付收口。八案例事件面板、Position Manager 全量追踪、深层钱包归属、多链和实时监控均暂缓。
 - `python3 -m src.cli studio` 是本地自助入口；GitHub Pages 是预生成案例的静态展示站，不是公网动态分析后端。
 - Dune 402/credits 错误现在会立即停止 Dune 查询并交给上层回退 RPC；只有明确的结果过大错误才拆分区块，429 限速仍按退避策略重试。
 
 正式静态站点：<https://cooler-tu.github.io/On-Chain-Token-Crash-Liquidity-Analysis/>
 
 最终跨案例证据：`research-notes/cross-case-evidence-synthesis.md` 和 `output-cross-case-synthesis/summary.md`。
+
+完整中文白话研究过程：`research-notes/data-analysis-research-summary-zh.md`。
 
 ## 1. 这段时间完成了什么
 
@@ -222,7 +224,7 @@ export DUNE_API_KEY="YOUR_DUNE_API_KEY"
 ## 6. 下一步建议（按优先级）
 
 1. **收口输出存储策略**：Git 保留摘要、报告和展示文件，大型原始事件表继续留在本地或外部存储。
-2. **在下一次推送后确认 Actions 首次远端运行**：检查 regression tests、Pages build 和 deploy 三段是否依次通过。
+2. **修复发布副作用**：让 `scripts/publish_site.py` 只生成 `site/`，不再改写历史分析 JSON。
 3. **暂缓低价值扩展**：不继续选择第四个手工相关性案例；八案例事件面板、Position Manager 全量追踪、beneficial owner、多链和实时告警只在出现新机制或明确外部需求时恢复。
 
 ## 7. Git 交接状态

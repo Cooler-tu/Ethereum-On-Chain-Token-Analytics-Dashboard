@@ -1,0 +1,347 @@
+{
+  "rows": [
+    {
+      "case": "FTT",
+      "phase": "baseline",
+      "test_id": "pool_transfer_net",
+      "predictor": "actual_transfer_net_ratio",
+      "outcome": "future_24h_log_return",
+      "n": 142,
+      "spearman": -0.008480880821306352,
+      "bootstrap_ci_low": -0.18589230200821827,
+      "bootstrap_ci_high": 0.24868461544772,
+      "bootstrap_valid": 1999,
+      "block_permutation_p": 0.9336,
+      "bh_q_global_18": 0.9336,
+      "global_q_below_0_05": false
+    },
+    {
+      "case": "FTT",
+      "phase": "baseline",
+      "test_id": "net_lp_flow",
+      "predictor": "net_lp_flow_ratio",
+      "outcome": "future_24h_log_return",
+      "n": 142,
+      "spearman": -0.027971708289226786,
+      "bootstrap_ci_low": -0.21236979002764034,
+      "bootstrap_ci_high": 0.11173177667314557,
+      "bootstrap_valid": 1851,
+      "block_permutation_p": 0.7078,
+      "bh_q_global_18": 0.84936,
+      "global_q_below_0_05": false
+    },
+    {
+      "case": "FTT",
+      "phase": "baseline",
+      "test_id": "gross_lp_activity",
+      "predictor": "gross_lp_activity_ratio",
+      "outcome": "future_abs_24h_log_return",
+      "n": 142,
+      "spearman": 0.09957928150964736,
+      "bootstrap_ci_low": -0.0035796018067597323,
+      "bootstrap_ci_high": 0.1837125971767633,
+      "bootstrap_valid": 1861,
+      "block_permutation_p": 0.295,
+      "bh_q_global_18": 0.5424923076923076,
+      "global_q_below_0_05": false
+    },
+    {
+      "case": "FTT",
+      "phase": "incident_preceding",
+      "test_id": "pool_transfer_net",
+      "predictor": "actual_transfer_net_ratio",
+      "outcome": "future_24h_log_return",
+      "n": 171,
+      "spearman": -0.12790217678258575,
+      "bootstrap_ci_low": -0.22833628505703682,
+      "bootstrap_ci_high": 0.05115514603935363,
+      "bootstrap_valid": 1999,
+      "block_permutation_p": 0.1202,
+      "bh_q_global_18": 0.4284,
+      "global_q_below_0_05": false
+    },
+    {
+      "case": "FTT",
+      "phase": "incident_preceding",
+      "test_id": "net_lp_flow",
+      "predictor": "net_lp_flow_ratio",
+      "outcome": "future_24h_log_return",
+      "n": 171,
+      "spearman": -0.29786322787117614,
+      "bootstrap_ci_low": -0.4801708401444823,
+      "bootstrap_ci_high": -0.010901449268948277,
+      "bootstrap_valid": 1999,
+      "block_permutation_p": 0.0012,
+      "bh_q_global_18": 0.021599999999999998,
+      "global_q_below_0_05": true
+    },
+    {
+      "case": "FTT",
+      "phase": "incident_preceding",
+      "test_id": "gross_lp_activity",
+      "predictor": "gross_lp_activity_ratio",
+      "outcome": "future_abs_24h_log_return",
+      "n": 171,
+      "spearman": 0.15643809669725545,
+      "bootstrap_ci_low": -0.1923694922992662,
+      "bootstrap_ci_high": 0.39847286091541684,
+      "bootstrap_valid": 1999,
+      "block_permutation_p": 0.1764,
+      "bh_q_global_18": 0.4284,
+      "global_q_below_0_05": false
+    },
+    {
+      "case": "CEL",
+      "phase": "baseline",
+      "test_id": "pool_transfer_net",
+      "predictor": "actual_transfer_net_ratio",
+      "outcome": "future_24h_log_return",
+      "n": 522,
+      "spearman": 0.09152202303372632,
+      "bootstrap_ci_low": 0.03435535732563206,
+      "bootstrap_ci_high": 0.17246804196168544,
+      "bootstrap_valid": 1999,
+      "block_permutation_p": 0.0256,
+      "bh_q_global_18": 0.11520000000000001,
+      "global_q_below_0_05": false
+    },
+    {
+      "case": "CEL",
+      "phase": "baseline",
+      "test_id": "net_lp_flow",
+      "predictor": "net_lp_flow_ratio",
+      "outcome": "future_24h_log_return",
+      "n": 522,
+      "spearman": 0.11069442752996932,
+      "bootstrap_ci_low": 0.02916114823403592,
+      "bootstrap_ci_high": 0.17992667473051402,
+      "bootstrap_valid": 1999,
+      "block_permutation_p": 0.0042,
+      "bh_q_global_18": 0.0378,
+      "global_q_below_0_05": true
+    },
+    {
+      "case": "CEL",
+      "phase": "baseline",
+      "test_id": "gross_lp_activity",
+      "predictor": "gross_lp_activity_ratio",
+      "outcome": "future_abs_24h_log_return",
+      "n": 522,
+      "spearman": -0.0316823425486875,
+      "bootstrap_ci_low": -0.137639218837821,
+      "bootstrap_ci_high": 0.061688718828835865,
+      "bootstrap_valid": 1999,
+      "block_permutation_p": 0.3918,
+      "bh_q_global_18": 0.5424923076923076,
+      "global_q_below_0_05": false
+    },
+    {
+      "case": "CEL",
+      "phase": "incident_preceding",
+      "test_id": "pool_transfer_net",
+      "predictor": "actual_transfer_net_ratio",
+      "outcome": "future_24h_log_return",
+      "n": 504,
+      "spearman": -0.004817019617326686,
+      "bootstrap_ci_low": -0.07637002519712223,
+      "bootstrap_ci_high": 0.08361398864920064,
+      "bootstrap_valid": 1999,
+      "block_permutation_p": 0.904,
+      "bh_q_global_18": 0.9336,
+      "global_q_below_0_05": false
+    },
+    {
+      "case": "CEL",
+      "phase": "incident_preceding",
+      "test_id": "net_lp_flow",
+      "predictor": "net_lp_flow_ratio",
+      "outcome": "future_24h_log_return",
+      "n": 504,
+      "spearman": -0.0855509161979038,
+      "bootstrap_ci_low": -0.14960630837962133,
+      "bootstrap_ci_high": 0.0016233872844510688,
+      "bootstrap_valid": 1999,
+      "block_permutation_p": 0.0176,
+      "bh_q_global_18": 0.10560000000000001,
+      "global_q_below_0_05": false
+    },
+    {
+      "case": "CEL",
+      "phase": "incident_preceding",
+      "test_id": "gross_lp_activity",
+      "predictor": "gross_lp_activity_ratio",
+      "outcome": "future_abs_24h_log_return",
+      "n": 504,
+      "spearman": 0.019054339899001595,
+      "bootstrap_ci_low": -0.04914686450855868,
+      "bootstrap_ci_high": 0.0796782139967419,
+      "bootstrap_valid": 1999,
+      "block_permutation_p": 0.7014,
+      "bh_q_global_18": 0.84936,
+      "global_q_below_0_05": false
+    },
+    {
+      "case": "GALA",
+      "phase": "incident_preceding",
+      "test_id": "pool_transfer_net",
+      "predictor": "actual_transfer_net_ratio",
+      "outcome": "future_24h_log_return",
+      "n": 693,
+      "spearman": 0.0495163718081877,
+      "bootstrap_ci_low": -0.014740947012867782,
+      "bootstrap_ci_high": 0.12402155840913726,
+      "bootstrap_valid": 1999,
+      "block_permutation_p": 0.1904,
+      "bh_q_global_18": 0.4284,
+      "global_q_below_0_05": false
+    },
+    {
+      "case": "GALA",
+      "phase": "incident_preceding",
+      "test_id": "net_lp_flow",
+      "predictor": "net_lp_flow_ratio",
+      "outcome": "future_24h_log_return",
+      "n": 693,
+      "spearman": 0.05274492303127387,
+      "bootstrap_ci_low": -0.03395263753962623,
+      "bootstrap_ci_high": 0.1366763974177173,
+      "bootstrap_valid": 1999,
+      "block_permutation_p": 0.1814,
+      "bh_q_global_18": 0.4284,
+      "global_q_below_0_05": false
+    },
+    {
+      "case": "GALA",
+      "phase": "incident_preceding",
+      "test_id": "gross_lp_activity",
+      "predictor": "gross_lp_activity_ratio",
+      "outcome": "future_abs_24h_log_return",
+      "n": 693,
+      "spearman": 0.03855050287424374,
+      "bootstrap_ci_low": -0.04695791558581805,
+      "bootstrap_ci_high": 0.11935678425099035,
+      "bootstrap_valid": 1999,
+      "block_permutation_p": 0.3378,
+      "bh_q_global_18": 0.5424923076923076,
+      "global_q_below_0_05": false
+    },
+    {
+      "case": "GALA",
+      "phase": "incident_following",
+      "test_id": "pool_transfer_net",
+      "predictor": "actual_transfer_net_ratio",
+      "outcome": "future_24h_log_return",
+      "n": 690,
+      "spearman": -0.004772719448101632,
+      "bootstrap_ci_low": -0.08825063952773306,
+      "bootstrap_ci_high": 0.08608046276873595,
+      "bootstrap_valid": 1999,
+      "block_permutation_p": 0.908,
+      "bh_q_global_18": 0.9336,
+      "global_q_below_0_05": false
+    },
+    {
+      "case": "GALA",
+      "phase": "incident_following",
+      "test_id": "net_lp_flow",
+      "predictor": "net_lp_flow_ratio",
+      "outcome": "future_24h_log_return",
+      "n": 690,
+      "spearman": -0.028103435256842623,
+      "bootstrap_ci_low": -0.09209882567802798,
+      "bootstrap_ci_high": 0.03286101393317236,
+      "bootstrap_valid": 1999,
+      "block_permutation_p": 0.3784,
+      "bh_q_global_18": 0.5424923076923076,
+      "global_q_below_0_05": false
+    },
+    {
+      "case": "GALA",
+      "phase": "incident_following",
+      "test_id": "gross_lp_activity",
+      "predictor": "gross_lp_activity_ratio",
+      "outcome": "future_abs_24h_log_return",
+      "n": 690,
+      "spearman": 0.051145830619809506,
+      "bootstrap_ci_low": -0.0701646084451688,
+      "bootstrap_ci_high": 0.15361843739612682,
+      "bootstrap_valid": 1999,
+      "block_permutation_p": 0.3784,
+      "bh_q_global_18": 0.5424923076923076,
+      "global_q_below_0_05": false
+    }
+  ],
+  "summary": {
+    "design": "exploratory cross-case evidence ledger",
+    "seed": 20260830,
+    "bootstrap_repetitions": 1999,
+    "permutation_repetitions": 4999,
+    "global_test_count": 18,
+    "globally_significant_rows": [
+      {
+        "case": "FTT",
+        "phase": "incident_preceding",
+        "test_id": "net_lp_flow"
+      },
+      {
+        "case": "CEL",
+        "phase": "baseline",
+        "test_id": "net_lp_flow"
+      }
+    ],
+    "incident_preceding_transport": [
+      {
+        "test_id": "pool_transfer_net",
+        "incident_preceding_values": {
+          "FTT": -0.12790217678258575,
+          "CEL": -0.004817019617326686,
+          "GALA": 0.0495163718081877
+        },
+        "incident_preceding_signs": {
+          "FTT": "negative",
+          "CEL": "negative",
+          "GALA": "positive"
+        },
+        "same_sign_all_three": false,
+        "global_q_significant_cases": [],
+        "transportable_single_variable_signal": false
+      },
+      {
+        "test_id": "net_lp_flow",
+        "incident_preceding_values": {
+          "FTT": -0.29786322787117614,
+          "CEL": -0.0855509161979038,
+          "GALA": 0.05274492303127387
+        },
+        "incident_preceding_signs": {
+          "FTT": "negative",
+          "CEL": "negative",
+          "GALA": "positive"
+        },
+        "same_sign_all_three": false,
+        "global_q_significant_cases": [
+          "FTT"
+        ],
+        "transportable_single_variable_signal": false
+      },
+      {
+        "test_id": "gross_lp_activity",
+        "incident_preceding_values": {
+          "FTT": 0.15643809669725545,
+          "CEL": 0.019054339899001595,
+          "GALA": 0.03855050287424374
+        },
+        "incident_preceding_signs": {
+          "FTT": "positive",
+          "CEL": "positive",
+          "GALA": "positive"
+        },
+        "same_sign_all_three": true,
+        "global_q_significant_cases": [],
+        "transportable_single_variable_signal": false
+      }
+    ],
+    "decision": "retire_liquidity_single_variables_as_standalone_predictors",
+    "comparability_guardrail": "FTT/CEL incident windows end at the public cutoff; GALA has separate pre- and post-incident windows. Associations are listed by phase and are not pooled."
+  }
+}

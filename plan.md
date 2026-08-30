@@ -56,27 +56,26 @@
 - **FTT + CEL opposite-direction LP-flow forensics** (2026-08-27) — ranked 11/10 deterministic positive-net-LP / negative-future-return hours and decomposed the top five per case. All selected hours are V3; target inventory accounts for 81.57%/67.32% of added WETH-equivalent value. Targeted receipt tracing matched 17/18 pool events to 14 NFT tokenIds, verified FTT's largest add as a target-only below-range position, and found one same-wallet/same-NFT Mint→Burn cycle 948 seconds apart. Evidence: `research-notes/ftt-cel-lp-flow-forensics.md`.
 - **GALA third-case screening + pre-registration** (2026-08-29) — selected the exact unauthorized-mint incident over thinner EUL and mechanism-mismatched CRV; froze adjacent pre/post 30-day windows, active GALA/WETH V2 + V3 0.30% pools, event-price hierarchy, three primary tests, coverage gates, and a final-case stop rule before outcome calculation. Evidence: `research-notes/third-case-screening.md` and `research-notes/gala-inventory-mechanism-preregistration.md`.
 - **GALA prospective inventory-mechanism validation** (2026-08-29) — indexed frozen control/event windows (5,879/7,022 Swaps), priced all 200 quantified Mints from prior same-pool Swaps, and passed every coverage/sample gate. Zero of three primary hypotheses confirmed: H1 `ρ=-0.0915` with BH `q=0.6969`; H2 event-control target-share difference `+0.0420` with CI crossing zero; H3 median concentration unchanged at `1.0000`. The pre-registered hand-selected mechanism line is closed, with no fourth case or GALA Position Manager tracing. Evidence: `research-notes/gala-inventory-mechanism-results.md`.
+- **FTT/CEL/GALA cross-case evidence ledger** (2026-08-30) — standardized six existing windows to three hourly predictors and a future 24-hour outcome with one 18-test BH family. No variable transports across all three incident-preceding windows: FTT net LP flow remains globally significant (`q=0.0216`), CEL weakens (`q=0.1056`), and GALA reverses positive. Retired Transfer net, net LP flow, gross LP activity, and target-inventory concentration as standalone predictors; pivoted to an objective incident-centered joint-response panel with an eight-case feasibility gate. Evidence: `research-notes/cross-case-evidence-synthesis.md`.
 
 ---
 
 ## 🎯 Current
 
-- **Cross-case research synthesis and direction reset** — consolidate FTT/CEL/GALA evidence into one decision table, separate replicated observations from failed predictors, and choose the next broad-sample question before any additional chain scan.
+- **Objective incident registry + light feasibility screen** — identify exact-timestamp Ethereum incidents without looking at correlation outcomes; require at least eight cases with pre-existing WETH liquidity and usable pre/post activity before any full indexing.
 
 ---
 
 ## 📋 Backlog (ordered by priority)
 
-1. **Cross-case research synthesis** — produce the final FTT/CEL/GALA comparison and explicitly retire the failed target-inventory predictor before selecting a new hypothesis.
-2. **Mass-scan utility** — batch tokens → comparison table and cross-case feature panel, only after the synthesis defines a non-hand-selected sampling rule.
-3. **Directional flow full-window expansion** — cache block/transaction metadata, then extend signed Swap, actual Transfer residual, sender concentration, and price-impact features across the 169-bucket uPEG V3 panel.
-4. **Anomaly transaction forensics Phase 3** — detect counterintuitive divergences, then trace swaps, liquidity events, pools, LPs, and wallets into evidence bundles.
-5. **Real token crash + matched-control research Phase 4** — known drain/rug windows with `--incident-block`; test which LP-withdrawal and market-structure patterns repeat outside a single token.
-6. **Dune data-path completion for research** — retain parallel discovery/indexing; finish reliable `pool_balance_timeline` × local price snapshot TVL and clearly separate it from event-reconstructed proxy data.
-7. **Dashboard pool identity / custody cleanup** — rename `Pool Address` to `Pool Identifier`, expose `Contract Address` vs `V4 Pool ID`, and explain the many-to-one V4 Pool ID → shared PoolManager mapping; defer further UI work unless required by research evidence.
-8. **Deep holder unwrap** — routers / aggregators / beneficial owners beyond surface EOA label.
-9. **Multi-chain / real-time monitoring** — add more chains only after research evidence is stable, then alert on sudden liquidity changes.
-10. **High-coverage holder/TVL mode (deferred)** — expand historical balance coverage and key-block TVL snapshots only when a real crash case requires it; keep optional because of Dune/RPC cost and quota risk.
+1. **Incident registry and feasibility gate** — primary-source event timestamp/block, token contract, venue existence, historical reserve, and fixed-sample Swap counts; stop if fewer than eight cases qualify.
+2. **Incident-centered event-study pre-registration** — only after the gate passes, freeze identical pre/post geometry, outcomes, normalizations, multiplicity, and missing-data rules.
+3. **Mass-scan utility** — batch the eligible registry into one comparison panel; do not add wallet tracing, lag search, or machine learning before a cross-case effect exists.
+4. **Directional flow full-window expansion (deferred)** — resume only if the event panel shows signed-flow value beyond mechanical reconciliation.
+5. **Dune data-path completion for research (conditional)** — improve only if the registry's eligible cases cannot be collected reliably through RPC.
+6. **Dashboard pool identity / custody cleanup (deferred)** — resume UI work only when required by new research evidence.
+7. **Deep holder unwrap (deferred)** — no wallet/router attribution until a broad effect merits mechanism tracing.
+8. **Multi-chain / real-time monitoring** — add more chains only after Ethereum event evidence is stable.
 
 ---
 

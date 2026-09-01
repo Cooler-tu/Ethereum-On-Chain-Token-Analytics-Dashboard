@@ -525,6 +525,8 @@ body.print-preparing .chart-box{height:220px}
 body.print-preparing .chart-box-sm{height:170px}
 body.print-preparing .pool-reserve-mini{height:160px}
 body.print-preparing .chart-grid{grid-template-columns:1fr}
+body.print-preparing .chart-box-sm.radial-chart{width:min(340px,100%);height:auto;aspect-ratio:1/1;margin-inline:auto}
+body.print-preparing .pool-reserve-mini.radial-chart{width:min(300px,100%);height:auto;aspect-ratio:1/1;margin-inline:auto}
 @media(max-width:640px){.grid{grid-template-columns:1fr}.nav-bar{flex-direction:column;gap:10px;align-items:flex-start}.nav-links a{margin-left:0;margin-right:14px}.print-button{margin-left:0}.stat-value{font-size:24px}}
 @page{size:A4 portrait;margin:10mm}
 @media print{
@@ -548,6 +550,8 @@ body.print-preparing .chart-grid{grid-template-columns:1fr}
   .chart-box{height:220px!important}
   .chart-box-sm{height:170px!important}
   .pool-reserve-mini{height:160px!important}
+  .chart-box-sm.radial-chart{width:min(340px,100%)!important;height:auto!important;aspect-ratio:1/1;margin-inline:auto}
+  .pool-reserve-mini.radial-chart{width:min(300px,100%)!important;height:auto!important;aspect-ratio:1/1;margin-inline:auto}
   canvas{max-width:100%!important}
   .pools-layout{grid-template-columns:1fr}
   .pool-reserve-side{background:#fff;break-inside:avoid-page;page-break-inside:avoid}
@@ -627,12 +631,12 @@ body.print-preparing .chart-grid{grid-template-columns:1fr}
     <div class="card">
       <h2>Covered Positive-Balance Rows by Address Role</h2>
       <p style="font-size:11px;color:var(--text-dim);margin:-8px 0 8px">{holder_coverage_note}</p>
-      <div class="chart-box-sm"><canvas id="c1"></canvas></div>
+      <div class="chart-box-sm radial-chart"><canvas id="c1"></canvas></div>
     </div>
     <div class="card">
       <h2>Measured Target-Token-Equivalent Pool Concentration</h2>
       <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 8px;line-height:1.5">{pool_conc_summary}</p>
-      <div class="chart-box-sm"><canvas id="c2"></canvas></div>
+      <div class="chart-box-sm radial-chart"><canvas id="c2"></canvas></div>
     </div>
     <div class="card">
       <h2>Top {top_chart_holder_count} Queried Non-Pool Balances</h2>
@@ -1120,7 +1124,7 @@ def generate_dashboard(
         if reserve_pie_rows:
             reserve_pie_block = """<aside class="pool-reserve-side">
         <div class="pool-reserve-side-title">Observed target-token reserve share</div>
-        <div class="pool-reserve-mini"><canvas id="c7"></canvas></div>
+        <div class="pool-reserve-mini radial-chart"><canvas id="c7"></canvas></div>
         <p class="pool-reserve-side-note">Observed target-token reserve mix across verified pools (same values as the Reserve column).</p>
       </aside>"""
         pool_section_parts.append(f"""<div class="grid">

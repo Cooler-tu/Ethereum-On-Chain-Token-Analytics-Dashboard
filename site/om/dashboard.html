@@ -118,6 +118,8 @@ body.print-preparing .chart-box{height:220px}
 body.print-preparing .chart-box-sm{height:170px}
 body.print-preparing .pool-reserve-mini{height:160px}
 body.print-preparing .chart-grid{grid-template-columns:1fr}
+body.print-preparing .chart-box-sm.radial-chart{width:min(340px,100%);height:auto;aspect-ratio:1/1;margin-inline:auto}
+body.print-preparing .pool-reserve-mini.radial-chart{width:min(300px,100%);height:auto;aspect-ratio:1/1;margin-inline:auto}
 @media(max-width:640px){.grid{grid-template-columns:1fr}.nav-bar{flex-direction:column;gap:10px;align-items:flex-start}.nav-links a{margin-left:0;margin-right:14px}.print-button{margin-left:0}.stat-value{font-size:24px}}
 @page{size:A4 portrait;margin:10mm}
 @media print{
@@ -141,6 +143,8 @@ body.print-preparing .chart-grid{grid-template-columns:1fr}
   .chart-box{height:220px!important}
   .chart-box-sm{height:170px!important}
   .pool-reserve-mini{height:160px!important}
+  .chart-box-sm.radial-chart{width:min(340px,100%)!important;height:auto!important;aspect-ratio:1/1;margin-inline:auto}
+  .pool-reserve-mini.radial-chart{width:min(300px,100%)!important;height:auto!important;aspect-ratio:1/1;margin-inline:auto}
   canvas{max-width:100%!important}
   .pools-layout{grid-template-columns:1fr}
   .pool-reserve-side{background:#fff;break-inside:avoid-page;page-break-inside:avoid}
@@ -220,12 +224,12 @@ body.print-preparing .chart-grid{grid-template-columns:1fr}
     <div class="card">
       <h2>Covered Positive-Balance Rows by Address Role</h2>
       <p style="font-size:11px;color:var(--text-dim);margin:-8px 0 8px">0 positive balances among 0 queried non-pool addresses · overall balance coverage 7 / 7 addresses (100.0%) · not the token's total holder count</p>
-      <div class="chart-box-sm"><canvas id="c1"></canvas></div>
+      <div class="chart-box-sm radial-chart"><canvas id="c1"></canvas></div>
     </div>
     <div class="card">
       <h2>Measured Target-Token-Equivalent Pool Concentration</h2>
       <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 8px;line-height:1.5"><span class="coverage-inline">Partial coverage · 5 of 7 verified pools measured (71.4%)</span><br>Main measured target-token-equivalent pool: <span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xe46935aE80E05cdEbD4a4008B6ccaA36d2845370" aria-label="Copy full identifier 0xe46935aE80E05cdEbD4a4008B6ccaA36d2845370" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v2 · OM/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0xe46935aE80E05cdEbD4a4008B6ccaA36d2845370" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xe46935aE80E05cdEbD4a4008B6ccaA36d2845370 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span> (98.38%) · Main volume pool: <span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xe46935ae80e05cdebd4a4008b6ccaa36d2845370" aria-label="Copy full identifier 0xe46935ae80e05cdebd4a4008b6ccaa36d2845370" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v2 · OM/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0xe46935ae80e05cdebd4a4008b6ccaa36d2845370" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xe46935ae80e05cdebd4a4008b6ccaa36d2845370 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span> (97.46%)</p>
-      <div class="chart-box-sm"><canvas id="c2"></canvas></div>
+      <div class="chart-box-sm radial-chart"><canvas id="c2"></canvas></div>
     </div>
     <div class="card">
       <h2>Top 0 Queried Non-Pool Balances</h2>
@@ -270,7 +274,7 @@ body.print-preparing .chart-grid{grid-template-columns:1fr}
 <tr><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0x179F3dB346851d1A9f4Ff7EbA57eABb91CC505be" aria-label="Copy full identifier 0x179F3dB346851d1A9f4Ff7EbA57eABb91CC505be" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · OM/USDT</button><a class="identifier-link" href="https://etherscan.io/address/0x179F3dB346851d1A9f4Ff7EbA57eABb91CC505be" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0x179F3dB346851d1A9f4Ff7EbA57eABb91CC505be in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td>uniswap v3</td><td><span class="token-pair"><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0x3593D125a4f7849a1B059E64F4517A86Dd60c95d" aria-label="Copy full identifier 0x3593D125a4f7849a1B059E64F4517A86Dd60c95d" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">OM</button><a class="identifier-link" href="https://etherscan.io/address/0x3593D125a4f7849a1B059E64F4517A86Dd60c95d" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0x3593D125a4f7849a1B059E64F4517A86Dd60c95d in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span><span class="pair-sep">/</span><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xdAC17F958D2ee523a2206206994597C13D831ec7" aria-label="Copy full identifier 0xdAC17F958D2ee523a2206206994597C13D831ec7" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">USDT</button><a class="identifier-link" href="https://etherscan.io/address/0xdAC17F958D2ee523a2206206994597C13D831ec7" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xdAC17F958D2ee523a2206206994597C13D831ec7 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></span></td><td><span class="muted">0</span></td><td><span class="not-measured" title="Not measured in the current pool-liquidity snapshot.">Not measured</span></td><td>0.0000 OM</td><td><span class="not-measured" title="Not measured in the current pool-liquidity snapshot.">Not measured</span></td><td>0.00%</td><td>Yes</td></tr></tbody></table></div>
 <aside class="pool-reserve-side">
         <div class="pool-reserve-side-title">Observed target-token reserve share</div>
-        <div class="pool-reserve-mini"><canvas id="c7"></canvas></div>
+        <div class="pool-reserve-mini radial-chart"><canvas id="c7"></canvas></div>
         <p class="pool-reserve-side-note">Observed target-token reserve mix across verified pools (same values as the Reserve column).</p>
       </aside>
       </div>

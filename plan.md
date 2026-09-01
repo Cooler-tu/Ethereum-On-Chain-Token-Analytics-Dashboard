@@ -61,7 +61,7 @@
 - **Dune 402 fail-fast** (2026-08-30) — separated account credit/payment failures from splittable result-size limits. HTTP 402 now stops after one request so existing callers can fall back to RPC immediately; HTTP 429 still retries with backoff, and explicit oversized results still split and merge. Added nine regression tests; full suite was 147 passed, 1 skipped at completion.
 - **Dashboard interpretation guardrails** (2026-08-30) — replaced predictive and full-coverage-sounding labels with explicit heuristic, queried-sample, target-token-equivalent, cumulative-reference-ratio, and balance-change wording. Rebuilt committed dashboards and the public site without changing calculations; full suite is 149 passed, 1 skipped.
 - **GitHub Actions regression gate** (2026-08-30) — added pull-request coverage for `main`, made the existing 149-test suite a prerequisite for Pages build and deployment, and prevented pull requests from deploying the public site. The workflow structure and dependency gates were validated locally; the first hosted run awaits the next push.
-- **Dashboard print / PDF export** (2026-09-01) — added a shared `Print / Save PDF` action to every generated dashboard, with an A4 light print layout, uncropped tables, print-safe Chart.js resizing, restored interactive sizing after print, and regression coverage.
+- **Dashboard print / PDF export** (2026-09-01) — added a shared `Print / Save PDF` action to every generated dashboard, with an A4 light print layout, full-width single-row chart cards, uncropped tables, print-safe Chart.js resizing, restored interactive sizing after print, and regression coverage.
 
 ---
 

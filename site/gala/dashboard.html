@@ -24,6 +24,8 @@ h1{font-size:24px;font-weight:700;letter-spacing:-0.3px}
 .nav-links a{color:var(--text-dim);text-decoration:none;font-size:13px;margin-left:20px;transition:color 0.2s}
 .nav-links a:hover,.nav-links a.active{color:var(--accent-light)}
 .nav-links a.active{font-weight:600}
+.print-button{appearance:none;margin-left:20px;padding:7px 11px;border:1px solid rgba(96,165,250,.45);border-radius:7px;background:rgba(59,130,246,.12);color:var(--accent-light);font:600 12px/1 inherit;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.print-button:hover,.print-button:focus-visible{background:rgba(59,130,246,.22);border-color:var(--accent-light);color:var(--text);outline:none}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:18px}
 .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
 .card h2{font-size:12px;color:var(--text-muted);margin-bottom:14px;text-transform:uppercase;letter-spacing:0.6px;font-weight:600}
@@ -112,7 +114,42 @@ tr:hover td{background:rgba(59,130,246,0.04)}
 .portfolio-table td{padding:5px 8px;border-bottom:1px solid rgba(255,255,255,.04);color:var(--text)}
 .portfolio-table tr:last-child td{border-bottom:none}
 .no-positions{padding:16px;text-align:center;color:var(--text-dim);font-size:13px}
-@media(max-width:640px){.grid{grid-template-columns:1fr}.nav-bar{flex-direction:column;gap:10px;align-items:flex-start}.nav-links a{margin-left:0;margin-right:14px}.stat-value{font-size:24px}}
+body.print-preparing .chart-box{height:220px}
+body.print-preparing .chart-box-sm{height:170px}
+body.print-preparing .pool-reserve-mini{height:160px}
+@media(max-width:640px){.grid{grid-template-columns:1fr}.nav-bar{flex-direction:column;gap:10px;align-items:flex-start}.nav-links a{margin-left:0;margin-right:14px}.print-button{margin-left:0}.stat-value{font-size:24px}}
+@page{size:A4 portrait;margin:10mm}
+@media print{
+  :root{--bg:#fff;--card:#fff;--border:#cbd5e1;--text:#0f172a;--text-muted:#334155;--text-dim:#475569;--accent:#1d4ed8;--accent-light:#1d4ed8;--green:#15803d;--yellow:#a16207;--red:#b91c1c;--shadow:none}
+  html,body{width:auto!important;min-height:0!important;background:#fff!important;color:#0f172a!important}
+  body{padding:0;font-size:10pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .container{max-width:none;margin:0}
+  .nav-bar{margin-bottom:12px;padding-bottom:8px;border-color:#cbd5e1}
+  .nav-links,.identifier-link,.identifier-tooltip,.copy-toast,.close-btn,.point-details{display:none!important}
+  .brand a,.brand-accent{color:#0f172a!important}
+  h1{font-size:18pt}
+  .subtitle{margin-bottom:10px}
+  .info-bar{gap:6px 16px;margin-bottom:10px;padding:8px 10px;background:#fff}
+  .coverage-note,.empty-note{margin-bottom:8px;padding:7px 9px;background:#fff}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:8px}
+  .card{padding:10px;background:#fff;box-shadow:none;break-inside:avoid-page;page-break-inside:avoid}
+  .card h2{margin-bottom:8px;font-size:9pt}
+  .stat-value{font-size:18pt}
+  .chart-box{height:220px!important}
+  .chart-box-sm{height:170px!important}
+  .pool-reserve-mini{height:160px!important}
+  canvas{max-width:100%!important}
+  .pools-layout{grid-template-columns:1fr}
+  .pool-reserve-side{background:#fff;break-inside:avoid-page;page-break-inside:avoid}
+  .scroll{max-height:none!important;overflow:visible!important}
+  table{font-size:7.5pt}
+  thead{display:table-header-group}
+  tr{break-inside:avoid-page;page-break-inside:avoid}
+  th,td{padding:3px;color:#334155;border-color:#cbd5e1;overflow-wrap:anywhere}
+  .identifier-copy{padding:0;color:#1d4ed8!important;white-space:normal;cursor:default}
+  .identifier-wrap{display:inline;max-width:none}
+  .footer{margin-top:14px;padding:8px;color:#475569}
+}
 </style>
 </head>
 <body>
@@ -123,6 +160,7 @@ tr:hover td{background:rgba(59,130,246,0.04)}
       <a id="nav-home" href="../">Home</a>
       <a href="#" class="active">Dashboard</a>
       <a href="https://github.com/Cooler-tu/On-Chain-Token-Crash-Liquidity-Analysis" target="_blank">GitHub</a>
+      <button type="button" id="print-dashboard" class="print-button" onclick="printDashboard()" aria-label="Print dashboard or save it as PDF" title="Print dashboard or save it as PDF">Print / Save PDF</button>
     </div>
   </nav>
   <script>
@@ -1758,6 +1796,7 @@ const tvlPointDetails = [{"block": "2024-04-20 00:00 UTC", "time_label": "2024-0
 const tvlMetricLabel = "Total observed reserve";
 const chartSeriesColors = ["#f59e0b", "#22c55e", "#f43f5e", "#8b5cf6", "#14b8a6", "#60a5fa", "#f97316", "#a3e635", "#ec4899", "#06b6d4", "#fb7185", "#c084fc", "#2dd4bf", "#eab308", "#84cc16", "#38bdf8", "#e879f9", "#a78bfa", "#34d399", "#fbbf24"];
 const topChartHolders = topH.slice(0, 10);
+const dashboardCharts = [];
 
 function fmtNum(v, digits){
   if (v === null || v === undefined || isNaN(v)) return '<span class="muted">-</span>';
@@ -1902,8 +1941,48 @@ function closeTvlDetails(){
   if (panel) panel.style.display = 'none';
 }
 
+var printPrepared = false;
+function resizeDashboardCharts(){
+  dashboardCharts.forEach(function(chart){
+    if (!chart) return;
+    chart.stop();
+    chart.resize();
+  });
+}
+function prepareDashboardPrint(){
+  if (printPrepared) return;
+  printPrepared = true;
+  hideIdentifierTooltip();
+  var toast = document.getElementById('copy-toast');
+  if (toast) toast.classList.remove('copy-toast-visible');
+  document.body.classList.add('print-preparing');
+  resizeDashboardCharts();
+}
+function restoreDashboardAfterPrint(){
+  document.body.classList.remove('print-preparing');
+  printPrepared = false;
+  window.requestAnimationFrame(resizeDashboardCharts);
+}
+function printDashboard(){
+  prepareDashboardPrint();
+  window.requestAnimationFrame(function(){
+    window.requestAnimationFrame(function(){
+      resizeDashboardCharts();
+      window.print();
+    });
+  });
+}
+window.addEventListener('beforeprint', prepareDashboardPrint);
+window.addEventListener('afterprint', restoreDashboardAfterPrint);
+
 (function(){
-  function tc(id,cfg){ new Chart(document.getElementById(id),cfg); }
+  function tc(id,cfg){
+    var canvas = document.getElementById(id);
+    if (!canvas) return null;
+    var chart = new Chart(canvas,cfg);
+    dashboardCharts.push(chart);
+    return chart;
+  }
 
   tc('c1',{
     type:'doughnut',

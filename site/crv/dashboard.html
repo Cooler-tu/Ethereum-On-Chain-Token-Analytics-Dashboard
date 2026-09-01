@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRV Token Dashboard</title>
+<meta name="description" content="On-chain liquidity and holdings analysis for CRV on Ethereum mainnet.">
+<meta property="og:title" content="CRV Token Dashboard">
+<meta property="og:description" content="On-chain liquidity and holdings analysis for CRV.">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0f172a;--card:#1e293b;--border:#334155;--text:#f1f5f9;--text-muted:#94a3b8;--text-dim:#64748b;--accent:#3b82f6;--accent-light:#60a5fa;--green:#4ade80;--yellow:#facc15;--red:#f87171;--radius:10px;--shadow:0 4px 24px rgba(0,0,0,0.25)}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);padding:20px;min-height:100vh}
+.container{max-width:1400px;margin:0 auto}
+h1{font-size:24px;font-weight:700;letter-spacing:-0.3px}
+.symbol-muted{color:var(--text-muted);font-weight:400}
+.subtitle{color:var(--text-muted);font-size:13px;margin-bottom:20px}
+.nav-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.brand{font-size:18px;font-weight:700}
+.brand a{color:inherit;text-decoration:none}
+.brand a:hover{color:var(--accent-light)}
+.brand-accent{color:var(--accent)}
+.nav-links a{color:var(--text-dim);text-decoration:none;font-size:13px;margin-left:20px;transition:color 0.2s}
+.nav-links a:hover,.nav-links a.active{color:var(--accent-light)}
+.nav-links a.active{font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:18px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+.card h2{font-size:12px;color:var(--text-muted);margin-bottom:14px;text-transform:uppercase;letter-spacing:0.6px;font-weight:600}
+.stat-value{font-size:30px;font-weight:700;color:var(--text)}
+.stat-label{font-size:12px;color:var(--text-dim);margin-top:2px}
+.stat-note{font-size:10px;color:var(--text-dim);margin-top:4px;opacity:.85}
+.badge{display:inline-block;padding:3px 16px;border-radius:20px;font-weight:600;font-size:13px}
+.method-badge{display:inline-block;margin-left:8px;padding:2px 7px;border-radius:999px;font-size:10px;font-weight:600;vertical-align:2px;text-transform:uppercase;letter-spacing:.35px}
+.method-snapshot{background:rgba(34,197,94,.13);color:var(--green)}
+.method-reconstructed{background:rgba(250,204,21,.13);color:var(--yellow)}
+.method-unavailable{background:rgba(100,116,139,.13);color:var(--text-muted)}
+.bg-low{background:rgba(34,197,94,0.12);color:var(--green)}
+.bg-medium{background:rgba(250,204,21,0.12);color:var(--yellow)}
+.bg-high{background:rgba(239,68,68,0.12);color:var(--red)}
+.bg-n-a{background:rgba(100,116,139,0.12);color:var(--text-muted)}
+.fw{grid-column:1/-1}
+.chart-box{position:relative;height:260px;width:100%}
+.chart-box-sm{position:relative;height:200px;width:100%}
+.pools-layout{display:grid;grid-template-columns:minmax(0,1fr) 230px;gap:14px;align-items:start}
+@media (max-width:980px){.pools-layout{grid-template-columns:1fr}}
+.pool-reserve-side{border:1px solid var(--border);border-radius:8px;padding:12px;background:rgba(15,23,42,0.35)}
+.pool-reserve-side-title{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;font-weight:600;margin-bottom:8px}
+.pool-reserve-side-note{font-size:10px;color:var(--text-dim);line-height:1.4;margin-top:8px}
+.pool-reserve-mini{position:relative;height:190px;width:100%}
+.token-pair{display:inline-flex;align-items:center;gap:4px;flex-wrap:wrap}
+.token-pair .pair-sep{color:var(--text-dim);font-weight:600}
+.point-details{margin-top:14px;padding:14px;background:rgba(15,23,42,0.65);border:1px solid var(--border);border-radius:8px}
+.point-details-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.point-details-title{font-size:13px;font-weight:600;color:var(--text)}
+.point-details-meta{font-size:12px;color:var(--text-dim);margin-bottom:10px}
+.detail-summary{font-size:12px;color:var(--text-muted);margin-bottom:4px}
+.detail-summary strong{color:var(--text)}
+.close-btn{border:1px solid var(--border);background:transparent;color:var(--text-muted);width:26px;height:26px;border-radius:6px;font-size:16px;line-height:1;cursor:pointer;flex:0 0 auto}
+.close-btn:hover{color:var(--text);border-color:var(--accent)}
+.muted{color:var(--text-dim)}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{text-align:left;padding:8px 6px;border-bottom:1px solid var(--border);color:var(--text-dim);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:0.5px}
+td{padding:6px;border-bottom:1px solid #1e293b;color:#cbd5e1}
+tr:hover td{background:rgba(59,130,246,0.04)}
+.addr{font-family:'SF Mono','Fira Code','Cascadia Code','Courier New',monospace;font-size:11px;color:var(--accent-light);word-break:break-all}
+.identifier-wrap{display:inline-flex;align-items:center;gap:4px;max-width:100%}
+.identifier-copy{appearance:none;border:0;background:transparent;padding:2px 3px;border-radius:4px;cursor:pointer;white-space:nowrap;line-height:1.35}
+.identifier-copy:hover,.identifier-copy:focus-visible{background:rgba(96,165,250,.12);outline:none;color:#93c5fd}
+.identifier-copy:focus-visible{box-shadow:0 0 0 2px rgba(96,165,250,.45)}
+.identifier-link{display:inline-flex;align-items:center;justify-content:center;color:var(--text-dim);text-decoration:none;font-size:12px;width:18px;height:18px;border-radius:4px}
+.identifier-link:hover,.identifier-link:focus-visible{color:var(--accent-light);background:rgba(96,165,250,.12);outline:none}
+.identifier-tooltip{position:fixed;z-index:1000;max-width:min(620px,calc(100vw - 24px));padding:7px 9px;border:1px solid var(--border);border-radius:6px;background:#020617;color:var(--text);box-shadow:var(--shadow);font:11px/1.4 'SF Mono','Fira Code','Cascadia Code','Courier New',monospace;overflow-wrap:anywhere;pointer-events:none}
+.copy-toast{position:fixed;right:20px;bottom:20px;z-index:1100;padding:10px 14px;border:1px solid rgba(74,222,128,.35);border-radius:8px;background:#052e16;color:#bbf7d0;box-shadow:var(--shadow);font-size:12px;opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .16s,transform .16s}
+.copy-toast.copy-toast-visible{opacity:1;transform:translateY(0)}
+.copy-toast.copy-toast-error{border-color:rgba(248,113,113,.35);background:#450a0a;color:#fecaca}
+.plabel{display:inline-block;padding:1px 8px;border-radius:4px;font-size:10px;font-weight:600;background:rgba(96,165,250,0.12);color:var(--accent-light)}
+.scroll{max-height:360px;overflow-y:auto}
+.scroll::-webkit-scrollbar{width:5px}
+.scroll::-webkit-scrollbar-track{background:transparent}
+.scroll::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+.glow{box-shadow:0 0 30px rgba(59,130,246,0.06)}
+.info-bar{display:flex;flex-wrap:wrap;gap:12px 24px;margin-bottom:20px;padding:12px 16px;background:var(--card);border:1px solid var(--border);border-radius:8px}
+.info-item{font-size:12px;color:var(--text-muted)}
+.info-item span{color:var(--text);font-weight:500}
+.coverage-note{margin:-4px 0 14px;padding:10px 12px;border:1px solid rgba(250,204,21,.24);border-radius:7px;background:rgba(250,204,21,.07);font-size:12px;line-height:1.55;color:var(--text-muted)}
+.coverage-note strong{display:block;color:var(--yellow);margin-bottom:2px}
+.coverage-inline{color:var(--yellow);font-weight:600}
+.not-measured{color:var(--text-dim);font-style:italic;white-space:nowrap}
+.amount-missing{display:inline-block;padding:3px 7px;border-radius:5px;background:rgba(250,204,21,.10);color:var(--yellow);font-size:11px;font-weight:600;font-style:normal;white-space:nowrap}
+.cannot-calculate{color:var(--text-dim);font-size:11px;white-space:nowrap}
+.measured-share{white-space:nowrap;color:var(--text)}
+.measured-share small{color:var(--text-dim);font-size:10px}
+.empty-note{padding:12px 16px;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);border-radius:8px;color:var(--red);font-size:13px;margin-bottom:16px}
+.footer{margin-top:32px;padding:16px;border-top:1px solid var(--border);text-align:center;font-size:12px;color:var(--text-dim)}
+.footer a{color:var(--accent-light);text-decoration:none}
+.holder-row{cursor:pointer;transition:background .15s}
+.holder-row:hover{background:var(--bg-card-hover,#1e293b)}
+.expand-icon{display:inline-block;width:20px;height:20px;line-height:18px;text-align:center;border-radius:4px;background:var(--bg-card,#0f172a);color:var(--accent);font-weight:700;font-size:14px;transition:transform .2s}
+.badge-eoa{display:inline-block;padding:2px 6px;border-radius:4px;font-size:11px;font-weight:600;background:rgba(34,197,94,.15);color:#22c55e}
+.badge-contract{display:inline-block;padding:2px 6px;border-radius:4px;font-size:11px;font-weight:600;background:rgba(234,179,8,.15);color:#eab308}
+.badge-pool{display:inline-block;padding:2px 6px;border-radius:4px;font-size:11px;font-weight:600;background:rgba(59,130,246,.15);color:#3b82f6}
+.badge-uniswap{display:inline-block;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:600;background:rgba(255,0,122,.15);color:#ff007a;margin:1px}
+.badge-curve{display:inline-block;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:600;background:rgba(0,0,0,.35);color:#a0aec0;margin:1px;border:1px solid #4a5568}
+.badge-balancer{display:inline-block;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:600;background:rgba(30,144,255,.15);color:#1e90ff;margin:1px}
+.badge-dex-other{display:inline-block;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:600;background:rgba(148,163,184,.15);color:#94a3b8;margin:1px}
+.dex-muted{color:var(--text-dim);font-size:11px}
+.portfolio-row>td{padding:0!important;background:var(--bg-card,#0f172a)}
+.portfolio-inner{padding:12px 16px 16px}
+.portfolio-table{width:100%;border-collapse:collapse;font-size:12px}
+.portfolio-table th{padding:6px 8px;text-align:left;color:var(--text-dim);border-bottom:1px solid var(--border);font-weight:600}
+.portfolio-table td{padding:5px 8px;border-bottom:1px solid rgba(255,255,255,.04);color:var(--text)}
+.portfolio-table tr:last-child td{border-bottom:none}
+.no-positions{padding:16px;text-align:center;color:var(--text-dim);font-size:13px}
+@media(max-width:640px){.grid{grid-template-columns:1fr}.nav-bar{flex-direction:column;gap:10px;align-items:flex-start}.nav-links a{margin-left:0;margin-right:14px}.stat-value{font-size:24px}}
+</style>
+</head>
+<body>
+<div class="container">
+  <nav class="nav-bar">
+    <div class="brand"><a id="nav-home-brand" href="../"><span class="brand-accent">On-Chain</span> Token Crash</a></div>
+    <div class="nav-links">
+      <a id="nav-home" href="../">Home</a>
+      <a href="#" class="active">Dashboard</a>
+      <a href="https://github.com/Cooler-tu/On-Chain-Token-Crash-Liquidity-Analysis" target="_blank">GitHub</a>
+    </div>
+  </nav>
+  <script>
+  (function(){{
+    var path = location.pathname || "";
+    var home = (path.indexOf("/run/") !== -1 || path === "/" || path === "/index.html") ? "/" : "../";
+    ["nav-home", "nav-home-brand"].forEach(function(id){{
+      var el = document.getElementById(id);
+      if (el) el.href = home;
+    }});
+  }})();
+  </script>
+
+  <h1>CRV <span class="symbol-muted">Holdings &amp; Liquidity</span></h1>
+  <p class="subtitle">Chain ID: 1 &middot; Token: <span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xD533a949740bb3306d119CC777fa900bA034cd52" aria-label="Copy full identifier 0xD533a949740bb3306d119CC777fa900bA034cd52" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">CRV</button><a class="identifier-link" href="https://etherscan.io/address/0xD533a949740bb3306d119CC777fa900bA034cd52" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xD533a949740bb3306d119CC777fa900bA034cd52 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></p>
+
+
+  <div class="info-bar">
+    <div class="info-item">Blocks &middot; <span>25,875,738 → 25,880,738</span></div>
+    <div class="info-item">Balance query &middot; <span>2026-09-01 09:05:40 UTC</span></div>
+    <div class="info-item">Balance coverage &middot; <span>1 / 1 addresses (100.0%)</span></div>
+    <div class="info-item">Balance source &middot; <span>RPC</span></div>
+    <div class="info-item">Token &middot; <span>Curve DAO Token</span></div>
+    <div class="info-item">Decimals &middot; <span>18</span> <span style="opacity:.6">(onchain)</span></div>
+
+  </div>
+<div class="coverage-note"><strong>LP NFT identity not collected</strong>V3/V4 Position Manager event history was intentionally skipped for this run. Pool-level Swap/Mint/Burn/Collect data remains available; missing LP identities do not mean zero LP activity.</div>
+
+  <div class="grid">
+    <div class="card glow">
+      <div class="stat-value">1</div>
+      <div class="stat-label">Unique Addresses Observed in Transfers</div>
+      <div class="stat-note">Transfer participants · not the number of traders or current holders</div>
+    </div>
+    <div class="card glow">
+      <div class="stat-value">0</div>
+      <div class="stat-label">Positive Balances in Queried Non-Pool Sample</div>
+      <div class="stat-note">0 positive balances among 0 queried non-pool addresses · overall balance coverage 1 / 1 addresses (100.0%) · not the token's total holder count</div>
+    </div>
+    <div class="card glow">
+      <div class="stat-value">1</div>
+      <div class="stat-label">Verified Liquidity Pools</div>
+    </div>
+    <div class="card glow">
+      <div class="stat-value"><span class="badge bg-low">HEURISTIC&nbsp;LOW</span></div>
+      <div class="stat-label">Heuristic Risk Index &middot; Score <span style="color:#4ade80">0.1971</span></div>
+      <div class="stat-note">Screening signal only · not a forecast, probability, or validated crash rating</div>
+      <div class="stat-note">raw = 0.15·pool + 0.15·lp + 0.20·withdrawal + 0.15·temporal + 0.15·role + 0.15·impact + 0.05·activity</div>
+      <div class="stat-note">final = clamp(raw − migration, 0, 1) × confidence · not a crash probability · LOW &lt; 0.40 · MEDIUM 0.40–0.70 · HIGH ≥ 0.70</div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Covered Positive-Balance Rows by Address Role</h2>
+      <p style="font-size:11px;color:var(--text-dim);margin:-8px 0 8px">0 positive balances among 0 queried non-pool addresses · overall balance coverage 1 / 1 addresses (100.0%) · not the token's total holder count</p>
+      <div class="chart-box-sm"><canvas id="c1"></canvas></div>
+    </div>
+    <div class="card">
+      <h2>Measured Target-Token-Equivalent Pool Concentration</h2>
+      <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 8px;line-height:1.5"><span class="coverage-inline">Coverage · 1 of 1 verified pools measured (100.0%)</span><br>Main measured target-token-equivalent pool: <span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0x919Fa96e88d67499339577Fa202345436bcDaf79" aria-label="Copy full identifier 0x919Fa96e88d67499339577Fa202345436bcDaf79" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · WETH/CRV</button><a class="identifier-link" href="https://etherscan.io/address/0x919Fa96e88d67499339577Fa202345436bcDaf79" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0x919Fa96e88d67499339577Fa202345436bcDaf79 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span> (100.00%) · Main volume pool: <span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0x919fa96e88d67499339577fa202345436bcdaf79" aria-label="Copy full identifier 0x919fa96e88d67499339577fa202345436bcdaf79" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · WETH/CRV</button><a class="identifier-link" href="https://etherscan.io/address/0x919fa96e88d67499339577fa202345436bcdaf79" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0x919fa96e88d67499339577fa202345436bcdaf79 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span> (100.00%)</p>
+      <div class="chart-box-sm"><canvas id="c2"></canvas></div>
+    </div>
+    <div class="card">
+      <h2>Top 0 Queried Non-Pool Balances</h2>
+      <p style="font-size:11px;color:var(--text-dim);margin:-8px 0 8px">Ranked only within queried non-pool addresses; not a complete holder leaderboard. Hover for the full address and balance &middot; Click a bar to copy.</p>
+      <div class="chart-box-sm"><canvas id="c3"></canvas></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Price Timeline (WETH per CRV)</h2>
+      <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 10px">Swap-derived quote-token price per pool; this is not USD unless the heading says USD.</p>
+      <div class="chart-box"><canvas id="c5"></canvas></div>
+    </div>
+    <div class="card">
+      <h2>Trading Volume by Pool</h2>
+      <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 10px">Volume in CRV; stacked by pool. Same time bucket as the price and pool-reserve/liquidity timeline (hourly buckets (day)).</p>
+      <div class="chart-box"><canvas id="c6"></canvas></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card fw">
+      <h2>Top 0 Queried Non-Pool Addresses by End Balance</h2>
+      <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 6px">Pool and DEX custody addresses are excluded. Positive end balances are ranked from highest to lowest among addresses covered by the balance query. EOA and contract addresses may both appear; this is not a complete holder census when coverage is partial.</p>
+      <p style="font-size:11px;color:var(--text-dim);margin:0 0 12px">DEX = evidence that the address touched that venue in this window (LP, swap, pool transfer, or same tx as a pool trade); it is not a wallet identity, ownership label, or long-term venue preference. “—” = only P2P / no DEX link found here.<br><span style="opacity:.85">Snapshot blocks: start 25,875,738 → end 25,880,738 · 0 addresses via Dune historical snapshot · 0 addresses with event-flow peak/trajectory · source: rpc · 1 balance-covered; 0 unqueried/zero-filled · positive-holder count excludes pools and zero-filled rows</span></p>
+      <div class="scroll"><table><thead><tr><th>#</th><th>Address</th><th>Type</th><th>DEX</th><th>End Balance (CRV)</th><th>Start Balance</th><th>Balance Change</th><th>Peak</th><th>Tx Count</th><th></th></tr></thead><tbody><tr><td colspan="10" style="text-align:center;padding:24px;color:#64748b">No holder data available</td></tr></tbody></table></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card fw">
+      <h2>All Verified Pools</h2>
+      <div class="coverage-note"><strong>Coverage · 1 of 1 verified pools measured (100.0%)</strong>The percentages below compare target-token-equivalent estimates across all verified pools; they are not USD market shares.<br>End-block on-chain estimate · Block 25,880,738. The pool estimate is expressed in target-token-equivalent units, not USD or audited TVL; for V2/V3 the current on-chain approximation commonly values both sides as 2 × the observed target-token reserve. “Not measured” does not mean zero liquidity. Observed Target-Token Reserve is the target-token balance at the pool or custody address (not LP count or full USD TVL); V4 may use a shared PoolManager balance.</div>
+      <div class="pools-layout">
+        <div class="scroll"><table><thead><tr><th>Pool Identifier</th><th>Protocol / Version</th><th>Token Pair</th><th>Observed Target-Token Reserve</th><th>Target-Token-Equivalent Pool Estimate (CRV)</th><th>Volume (CRV)</th><th>Share of Measured Target-Token-Equivalent Estimates (1/1)</th><th>Vol Share</th><th>Appears in Balance Rows</th></tr></thead><tbody><tr><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0x919Fa96e88d67499339577Fa202345436bcDaf79" aria-label="Copy full identifier 0x919Fa96e88d67499339577Fa202345436bcDaf79" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · WETH/CRV</button><a class="identifier-link" href="https://etherscan.io/address/0x919Fa96e88d67499339577Fa202345436bcDaf79" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0x919Fa96e88d67499339577Fa202345436bcDaf79 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></td><td>uniswap v3</td><td><span class="token-pair"><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2" aria-label="Copy full identifier 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">WETH</button><a class="identifier-link" href="https://etherscan.io/address/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span><span class="pair-sep">/</span><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xD533a949740bb3306d119CC777fa900bA034cd52" aria-label="Copy full identifier 0xD533a949740bb3306d119CC777fa900bA034cd52" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">CRV</button><a class="identifier-link" href="https://etherscan.io/address/0xD533a949740bb3306d119CC777fa900bA034cd52" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xD533a949740bb3306d119CC777fa900bA034cd52 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></span></td><td>941.78K CRV (100.00%)</td><td>1.88M CRV</td><td>378.67K CRV</td><td><span class="measured-share">100.0% <small>of measured target-token-equivalent estimates</small></span></td><td>100.00%</td><td>Yes</td></tr></tbody></table></div>
+<aside class="pool-reserve-side">
+        <div class="pool-reserve-side-title">Observed target-token reserve share</div>
+        <div class="pool-reserve-mini"><canvas id="c7"></canvas></div>
+        <p class="pool-reserve-side-note">Observed target-token reserve mix across verified pools (same values as the Reserve column).</p>
+      </aside>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card fw">
+      <h2>Pool Target-Token Reserve Timeline (Total + Per Pool) <span class="method-badge method-snapshot">Target-token reserve snapshot</span></h2>
+      <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 10px">Historical RPC balanceOf snapshots show the target-token reserve held by each attributable pool. Values are in target-token units, not full two-sided USD TVL; local quote-price metadata does not supply a USD conversion by itself. Bucket configuration: hourly buckets (day).</p>
+      <div class="chart-box"><canvas id="c4"></canvas></div>
+      <div id="tvl-details" class="point-details" style="display:none">
+        <div class="point-details-head">
+          <div id="tvl-detail-title" class="point-details-title"></div>
+          <button type="button" class="close-btn" onclick="closeTvlDetails()" aria-label="Close details">&times;</button>
+        </div>
+        <div id="tvl-detail-meta" class="point-details-meta"></div>
+        <div class="scroll">
+          <table>
+            <thead><tr><th>Pool</th><th>Protocol / Version</th><th>Observed Reserve (CRV)</th><th>Reserve Share</th><th>Price (USD)</th><th>Volume (CRV)</th><th>Volume (USD)</th></tr></thead>
+            <tbody id="tvl-detail-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card fw">
+      <h2>LP Event Flow by Bucket (Gross Added, Gross Removed &amp; Net)</h2>
+      <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 10px">Green bars are measured target-token additions; red bars are measured removals plotted below zero; the blue line is net LP flow = added − removed. Gross totals measure LP activity and may count the same capital repeatedly when positions are removed and recreated; they are not permanent external inflow/outflow. LP-event flow also differs from pool reserve change because swaps and direct token transfers can change balances.</p>
+      <div class="coverage-note"><strong>Measured LP-event flow</strong>1 adds · 0 removals · gross added 130.00K CRV · gross removed 0.0000 CRV · net +130.00K CRV. Amount coverage: 1 known actions, 0 missing. Gross totals may count capital that is removed and re-added.</div>
+      <div class="chart-box"><canvas id="c8"></canvas></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card fw">
+      <h2>Liquidity Removal Activity (Cumulative, Not Permanent Exit)</h2>
+      <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 12px">Read this table in two layers: a negative raw liquidity change confirms a removal action; calculating removed CRV, USD value, and the ratio to a reference pool estimate additionally requires token amounts. The ratio uses a fixed reference estimate rather than event-time TVL, can exceed 100%, and must not be read as the percentage of capital that permanently left. Missing token amounts are never converted to zero.</p>
+
+
+      <div class="scroll"><table><thead><tr><th>Block</th><th>Pool</th><th>Events</th><th>Actor / Scope</th><th>Raw Liquidity Change</th><th>Removed (CRV)</th><th>Est. USD</th><th>Removed / Reference Pool Estimate</th><th>Protocol</th></tr></thead><tbody><tr><td colspan="9" style="text-align:center;padding:24px;color:#64748b">No liquidity removal events in this window.</td></tr></tbody></table></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Generated by <a href="https://github.com/Cooler-tu/On-Chain-Token-Crash-Liquidity-Analysis">On-Chain Token Crash &amp; Liquidity Analysis</a>
+    &middot; Data sourced from Ethereum mainnet
+  </div>
+</div>
+<div id="identifier-tooltip" class="identifier-tooltip" role="tooltip" hidden></div>
+<div id="copy-toast" class="copy-toast" role="status" aria-live="polite"></div>
+<script>
+const topH = [];
+const poolReserveRows = [
+  {
+    "address": "0x919Fa96e88d67499339577Fa202345436bcDaf79",
+    "pool_label": "uniswap v3 \u00b7 WETH/CRV",
+    "balance_decimal": 941784.263986
+  }
+];
+const addressLabels = {
+  "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": "WETH",
+  "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": "USDC",
+  "0xdac17f958d2ee523a2206206994597c13d831ec7": "USDT",
+  "0x6b175474e89094c44da98b954eedeac495271d0f": "DAI",
+  "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": "WBTC",
+  "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee": "ETH",
+  "0xd533a949740bb3306d119cc777fa900ba034cd52": "CRV",
+  "0x919fa96e88d67499339577fa202345436bcdaf79": "uniswap v3 \u00b7 WETH/CRV"
+};
+const tvlD = [
+  {
+    "block_number": 1788184800,
+    "block_timestamp": 1788184800,
+    "snapshot_block": 25875996,
+    "bucket": "hour",
+    "chart_span": "day",
+    "pool_address": "0x919fa96e88d67499339577fa202345436bcdaf79",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "918955146135555893746862",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "918955146135555893746862",
+    "tvl_usd": null,
+    "price": 0.000125930033785176,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1788188400,
+    "block_timestamp": 1788188400,
+    "snapshot_block": 25876305,
+    "bucket": "hour",
+    "chart_span": "day",
+    "pool_address": "0x919fa96e88d67499339577fa202345436bcdaf79",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "905547472260321255800313",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "905547472260321255800313",
+    "tvl_usd": null,
+    "price": 0.000126416726960905,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1788192000,
+    "block_timestamp": 1788192000,
+    "snapshot_block": 25876603,
+    "bucket": "hour",
+    "chart_span": "day",
+    "pool_address": "0x919fa96e88d67499339577fa202345436bcdaf79",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "912798985578907309324475",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "912798985578907309324475",
+    "tvl_usd": null,
+    "price": 0.000126469201547357,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1788195600,
+    "block_timestamp": 1788195600,
+    "snapshot_block": 25876908,
+    "bucket": "hour",
+    "chart_span": "day",
+    "pool_address": "0x919fa96e88d67499339577fa202345436bcdaf79",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "909649766955392934655335",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "909649766955392934655335",
+    "tvl_usd": null,
+    "price": 0.000126759750220637,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1788199200,
+    "block_timestamp": 1788199200,
+    "snapshot_block": 25877174,
+    "bucket": "hour",
+    "chart_span": "day",
+    "pool_address": "0x919fa96e88d67499339577fa202345436bcdaf79",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "894571362402699452575385",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "894571362402699452575385",
+    "tvl_usd": null,
+    "price": 0.000127328755932047,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1788202800,
+    "block_timestamp": 1788202800,
+    "snapshot_block": 25877461,
+    "bucket": "hour",
+    "chart_span": "day",
+    "pool_address": "0x919fa96e88d67499339577fa202345436bcdaf79",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "871738035520230379477134",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "871738035520230379477134",
+    "tvl_usd": null,
+    "price": 0.000129281755522115,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1788206400,
+    "block_timestamp": 1788206400,
+    "snapshot_block": 25877775,
+    "bucket": "hour",
+    "chart_span": "day",
+    "pool_address": "0x919fa96e88d67499339577fa202345436bcdaf79",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "825080462536174767812266",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "825080462536174767812266",
+    "tvl_usd": null,
+    "price": 0.000134840012969992,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1788210000,
+    "block_timestamp": 1788210000,
+    "snapshot_block": 25878077,
+    "bucket": "hour",
+    "chart_span": "day",
+    "pool_address": "0x919fa96e88d67499339577fa202345436bcdaf79",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "822791482223699686765813",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "822791482223699686765813",
+    "tvl_usd": null,
+    "price": 0.000136248270357352,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1788213600,
+    "block_timestamp": 1788213600,
+    "snapshot_block": 25878396,
+    "bucket": "hour",
+    "chart_span": "day",
+    "pool_address": "0x919fa96e88d67499339577fa202345436bcdaf79",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "822422194895929007503214",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "822422194895929007503214",
+    "tvl_usd": null,
+    "price": 0.000137217152654854,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1788217200,
+    "block_timestamp": 1788217200,
+    "snapshot_block": 25878694,
+    "bucket": "hour",
+    "chart_span": "day",
+    "pool_address": "0x919fa96e88d67499339577fa202345436bcdaf79",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "952329932285502678378615",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "952329932285502678378615",
+    "tvl_usd": null,
+    "price": 0.000136513489130576,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1788220800,
+    "block_timestamp": 1788220800,
+    "snapshot_block": 25878953,
+    "bucket": "hour",
+    "chart_span": "day",
+    "pool_address": "0x919fa96e88d67499339577fa202345436bcdaf79",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "950839588077461389406474",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "950839588077461389406474",
+    "tvl_usd": null,
+    "price": 0.000137226456542483,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1788224400,
+    "block_timestamp": 1788224400,
+    "snapshot_block": 25879296,
+    "bucket": "hour",
+    "chart_span": "day",
+    "pool_address": "0x919fa96e88d67499339577fa202345436bcdaf79",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "940355390572690713959580",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "940355390572690713959580",
+    "tvl_usd": null,
+    "price": 0.000142148040713765,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1788228000,
+    "block_timestamp": 1788228000,
+    "snapshot_block": 25879540,
+    "bucket": "hour",
+    "chart_span": "day",
+    "pool_address": "0x919fa96e88d67499339577fa202345436bcdaf79",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "939634274244105158870839",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "939634274244105158870839",
+    "tvl_usd": null,
+    "price": 0.000143306454079681,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1788231600,
+    "block_timestamp": 1788231600,
+    "snapshot_block": 25879899,
+    "bucket": "hour",
+    "chart_span": "day",
+    "pool_address": "0x919fa96e88d67499339577fa202345436bcdaf79",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "935809136960719318119422",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "935809136960719318119422",
+    "tvl_usd": null,
+    "price": 0.00014513924719235,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1788235200,
+    "block_timestamp": 1788235200,
+    "snapshot_block": 25880167,
+    "bucket": "hour",
+    "chart_span": "day",
+    "pool_address": "0x919fa96e88d67499339577fa202345436bcdaf79",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "935646875384927960354816",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "935646875384927960354816",
+    "tvl_usd": null,
+    "price": 0.00014441925525156,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1788238800,
+    "block_timestamp": 1788238800,
+    "snapshot_block": 25880468,
+    "bucket": "hour",
+    "chart_span": "day",
+    "pool_address": "0x919fa96e88d67499339577fa202345436bcdaf79",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "937970831861722365853533",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "937970831861722365853533",
+    "tvl_usd": null,
+    "price": 0.000143377569150997,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  },
+  {
+    "block_number": 1788242400,
+    "block_timestamp": 1788242400,
+    "snapshot_block": 25880716,
+    "bucket": "hour",
+    "chart_span": "day",
+    "pool_address": "0x919fa96e88d67499339577fa202345436bcdaf79",
+    "protocol": "uniswap",
+    "version": "v3",
+    "event_type": "SNAPSHOT",
+    "source_event": "rpc_target_balance_x_local_price",
+    "balance_raw": "941784263985853229640588",
+    "liquidity": null,
+    "reserve0": null,
+    "reserve1": null,
+    "token0_amount": null,
+    "token1_amount": null,
+    "tvl_in_token": "941784263985853229640588",
+    "tvl_usd": null,
+    "price": 0.000141512086763139,
+    "price_usd": null,
+    "quote_symbol": "WETH"
+  }
+];
+const portfolioData = {};
+const tokenSymbol = "CRV";
+const chainId = 1;
+const tvlPointDetails = [{"block": "2026-08-31 14:00 UTC", "time_label": "2026-08-31 14:00 UTC", "total_tvl": 918955.1461355559, "volume_bucket_label": "2026-08-31 14:00 UTC", "pools": [{"address": "0x919fa96e88d67499339577fa202345436bcdaf79", "label": "uniswap v3 \u00b7 WETH/CRV", "protocol": "uniswap v3", "tvl": 918955.1461355559, "share_pct": 100.0, "price_usd": null, "volume_token": 37594.96669928502, "volume_usd": 0.0}]}, {"block": "2026-08-31 15:00 UTC", "time_label": "2026-08-31 15:00 UTC", "total_tvl": 905547.4722603213, "volume_bucket_label": "2026-08-31 15:00 UTC", "pools": [{"address": "0x919fa96e88d67499339577fa202345436bcdaf79", "label": "uniswap v3 \u00b7 WETH/CRV", "protocol": "uniswap v3", "tvl": 905547.4722603213, "share_pct": 100.0, "price_usd": null, "volume_token": 58470.921855280736, "volume_usd": 0.0}]}, {"block": "2026-08-31 16:00 UTC", "time_label": "2026-08-31 16:00 UTC", "total_tvl": 912798.9855789073, "volume_bucket_label": "2026-08-31 16:00 UTC", "pools": [{"address": "0x919fa96e88d67499339577fa202345436bcdaf79", "label": "uniswap v3 \u00b7 WETH/CRV", "protocol": "uniswap v3", "tvl": 912798.9855789073, "share_pct": 100.0, "price_usd": null, "volume_token": 11947.460705178402, "volume_usd": 0.0}]}, {"block": "2026-08-31 17:00 UTC", "time_label": "2026-08-31 17:00 UTC", "total_tvl": 909649.766955393, "volume_bucket_label": "2026-08-31 17:00 UTC", "pools": [{"address": "0x919fa96e88d67499339577fa202345436bcdaf79", "label": "uniswap v3 \u00b7 WETH/CRV", "protocol": "uniswap v3", "tvl": 909649.766955393, "share_pct": 100.0, "price_usd": null, "volume_token": 3151.5338672519697, "volume_usd": 0.0}]}, {"block": "2026-08-31 18:00 UTC", "time_label": "2026-08-31 18:00 UTC", "total_tvl": 894571.3624026995, "volume_bucket_label": "2026-08-31 18:00 UTC", "pools": [{"address": "0x919fa96e88d67499339577fa202345436bcdaf79", "label": "uniswap v3 \u00b7 WETH/CRV", "protocol": "uniswap v3", "tvl": 894571.3624026995, "share_pct": 100.0, "price_usd": null, "volume_token": 36320.26146623224, "volume_usd": 0.0}]}, {"block": "2026-08-31 19:00 UTC", "time_label": "2026-08-31 19:00 UTC", "total_tvl": 871738.0355202303, "volume_bucket_label": "2026-08-31 19:00 UTC", "pools": [{"address": "0x919fa96e88d67499339577fa202345436bcdaf79", "label": "uniswap v3 \u00b7 WETH/CRV", "protocol": "uniswap v3", "tvl": 871738.0355202303, "share_pct": 100.0, "price_usd": null, "volume_token": 51477.078383965, "volume_usd": 0.0}]}, {"block": "2026-08-31 20:00 UTC", "time_label": "2026-08-31 20:00 UTC", "total_tvl": 825080.4625361747, "volume_bucket_label": "2026-08-31 20:00 UTC", "pools": [{"address": "0x919fa96e88d67499339577fa202345436bcdaf79", "label": "uniswap v3 \u00b7 WETH/CRV", "protocol": "uniswap v3", "tvl": 825080.4625361747, "share_pct": 100.0, "price_usd": null, "volume_token": 79863.52112139382, "volume_usd": 0.0}]}, {"block": "2026-08-31 21:00 UTC", "time_label": "2026-08-31 21:00 UTC", "total_tvl": 822791.4822236997, "volume_bucket_label": "2026-08-31 21:00 UTC", "pools": [{"address": "0x919fa96e88d67499339577fa202345436bcdaf79", "label": "uniswap v3 \u00b7 WETH/CRV", "protocol": "uniswap v3", "tvl": 822791.4822236997, "share_pct": 100.0, "price_usd": null, "volume_token": 9904.440870191427, "volume_usd": 0.0}]}, {"block": "2026-08-31 22:00 UTC", "time_label": "2026-08-31 22:00 UTC", "total_tvl": 822422.1948959291, "volume_bucket_label": "2026-08-31 22:00 UTC", "pools": [{"address": "0x919fa96e88d67499339577fa202345436bcdaf79", "label": "uniswap v3 \u00b7 WETH/CRV", "protocol": "uniswap v3", "tvl": 822422.1948959291, "share_pct": 100.0, "price_usd": null, "volume_token": 4458.833393051668, "volume_usd": 0.0}]}, {"block": "2026-08-31 23:00 UTC", "time_label": "2026-08-31 23:00 UTC", "total_tvl": 952329.9322855027, "volume_bucket_label": "2026-08-31 23:00 UTC", "pools": [{"address": "0x919fa96e88d67499339577fa202345436bcdaf79", "label": "uniswap v3 \u00b7 WETH/CRV", "protocol": "uniswap v3", "tvl": 952329.9322855027, "share_pct": 100.0, "price_usd": null, "volume_token": 6829.621002516466, "volume_usd": 0.0}]}, {"block": "2026-09-01 00:00 UTC", "time_label": "2026-09-01 00:00 UTC", "total_tvl": 950839.5880774613, "volume_bucket_label": "2026-09-01 00:00 UTC", "pools": [{"address": "0x919fa96e88d67499339577fa202345436bcdaf79", "label": "uniswap v3 \u00b7 WETH/CRV", "protocol": "uniswap v3", "tvl": 950839.5880774613, "share_pct": 100.0, "price_usd": null, "volume_token": 10635.693404881726, "volume_usd": 0.0}]}, {"block": "2026-09-01 01:00 UTC", "time_label": "2026-09-01 01:00 UTC", "total_tvl": 940355.3905726908, "volume_bucket_label": "2026-09-01 01:00 UTC", "pools": [{"address": "0x919fa96e88d67499339577fa202345436bcdaf79", "label": "uniswap v3 \u00b7 WETH/CRV", "protocol": "uniswap v3", "tvl": 940355.3905726908, "share_pct": 100.0, "price_usd": null, "volume_token": 17054.76478347888, "volume_usd": 0.0}]}, {"block": "2026-09-01 02:00 UTC", "time_label": "2026-09-01 02:00 UTC", "total_tvl": 939634.2742441052, "volume_bucket_label": "2026-09-01 02:00 UTC", "pools": [{"address": "0x919fa96e88d67499339577fa202345436bcdaf79", "label": "uniswap v3 \u00b7 WETH/CRV", "protocol": "uniswap v3", "tvl": 939634.2742441052, "share_pct": 100.0, "price_usd": null, "volume_token": 12936.511148307969, "volume_usd": 0.0}]}, {"block": "2026-09-01 03:00 UTC", "time_label": "2026-09-01 03:00 UTC", "total_tvl": 935809.1369607194, "volume_bucket_label": "2026-09-01 03:00 UTC", "pools": [{"address": "0x919fa96e88d67499339577fa202345436bcdaf79", "label": "uniswap v3 \u00b7 WETH/CRV", "protocol": "uniswap v3", "tvl": 935809.1369607194, "share_pct": 100.0, "price_usd": null, "volume_token": 10112.422835688792, "volume_usd": 0.0}]}, {"block": "2026-09-01 04:00 UTC", "time_label": "2026-09-01 04:00 UTC", "total_tvl": 935646.875384928, "volume_bucket_label": "2026-09-01 04:00 UTC", "pools": [{"address": "0x919fa96e88d67499339577fa202345436bcdaf79", "label": "uniswap v3 \u00b7 WETH/CRV", "protocol": "uniswap v3", "tvl": 935646.875384928, "share_pct": 100.0, "price_usd": null, "volume_token": 8852.064945943866, "volume_usd": 0.0}]}, {"block": "2026-09-01 05:00 UTC", "time_label": "2026-09-01 05:00 UTC", "total_tvl": 937970.8318617224, "volume_bucket_label": "2026-09-01 05:00 UTC", "pools": [{"address": "0x919fa96e88d67499339577fa202345436bcdaf79", "label": "uniswap v3 \u00b7 WETH/CRV", "protocol": "uniswap v3", "tvl": 937970.8318617224, "share_pct": 100.0, "price_usd": null, "volume_token": 8593.391563587878, "volume_usd": 0.0}]}, {"block": "2026-09-01 06:00 UTC", "time_label": "2026-09-01 06:00 UTC", "total_tvl": 941784.2639858532, "volume_bucket_label": "2026-09-01 06:00 UTC", "pools": [{"address": "0x919fa96e88d67499339577fa202345436bcdaf79", "label": "uniswap v3 \u00b7 WETH/CRV", "protocol": "uniswap v3", "tvl": 941784.2639858532, "share_pct": 100.0, "price_usd": null, "volume_token": 10464.840772849439, "volume_usd": 0.0}]}];
+const tvlMetricLabel = "Total observed reserve";
+const chartSeriesColors = ["#f59e0b", "#22c55e", "#f43f5e", "#8b5cf6", "#14b8a6", "#60a5fa", "#f97316", "#a3e635", "#ec4899", "#06b6d4", "#fb7185", "#c084fc", "#2dd4bf", "#eab308", "#84cc16", "#38bdf8", "#e879f9", "#a78bfa", "#34d399", "#fbbf24"];
+const topChartHolders = topH.slice(0, 10);
+
+function fmtNum(v, digits){
+  if (v === null || v === undefined || isNaN(v)) return '<span class="muted">-</span>';
+  return Number(v).toLocaleString(undefined,{maximumFractionDigits:digits});
+}
+function fmtUsd(v, digits){
+  if (v === null || v === undefined || isNaN(v)) return '<span class="muted">-</span>';
+  return '$' + Number(v).toLocaleString(undefined,{maximumFractionDigits:digits});
+}
+function escTxt(s){
+  return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function shortIdentifier(value){
+  var text = String(value == null ? '' : value);
+  return text.length > 14 ? text.slice(0, 8) + '...' + text.slice(-4) : (text || '-');
+}
+function displayLabelFor(value){
+  var full = String(value == null ? '' : value);
+  if (!full) return '-';
+  var mapped = addressLabels && addressLabels[full.toLowerCase()];
+  if (mapped) return String(mapped);
+  return shortIdentifier(full);
+}
+function isEthereumAddress(value){
+  return /^0x[0-9a-fA-F]{40}$/.test(String(value || ''));
+}
+function identifierHtml(value){
+  var full = String(value == null ? '' : value);
+  if (!full) return '<span class="muted">-</span>';
+  var safe = escTxt(full);
+  var result = '<span class="identifier-wrap">'
+    + '<button type="button" class="identifier-copy addr" data-identifier="' + safe + '"'
+    + ' aria-label="Copy full identifier ' + safe + '"'
+    + ' onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()"'
+    + ' onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()"'
+    + ' onclick="copyIdentifier(event,this)">' + escTxt(displayLabelFor(full)) + '</button>';
+  if (chainId === 1 && isEthereumAddress(full)) {
+    result += '<a class="identifier-link" href="https://etherscan.io/address/' + safe + '"'
+      + ' target="_blank" rel="noopener noreferrer" title="Open in Etherscan"'
+      + ' aria-label="Open ' + safe + ' in Etherscan" onclick="event.stopPropagation()">&#8599;</a>';
+  }
+  return result + '</span>';
+}
+function showIdentifierTooltip(button){
+  var tooltip = document.getElementById('identifier-tooltip');
+  if (!tooltip || !button) return;
+  tooltip.textContent = button.getAttribute('data-identifier') || '';
+  tooltip.hidden = false;
+  var rect = button.getBoundingClientRect();
+  var left = Math.max(12, Math.min(rect.left, window.innerWidth - tooltip.offsetWidth - 12));
+  var top = rect.top - tooltip.offsetHeight - 8;
+  if (top < 8) top = rect.bottom + 8;
+  tooltip.style.left = left + 'px';
+  tooltip.style.top = top + 'px';
+}
+function hideIdentifierTooltip(){
+  var tooltip = document.getElementById('identifier-tooltip');
+  if (tooltip) tooltip.hidden = true;
+}
+function fallbackCopyIdentifier(value){
+  var textarea = document.createElement('textarea');
+  textarea.value = value;
+  textarea.setAttribute('readonly', '');
+  textarea.style.position = 'fixed';
+  textarea.style.opacity = '0';
+  document.body.appendChild(textarea);
+  textarea.select();
+  var copied = document.execCommand('copy');
+  document.body.removeChild(textarea);
+  return copied;
+}
+var copyToastTimer = null;
+function showCopyToast(message, failed){
+  var toast = document.getElementById('copy-toast');
+  if (!toast) return;
+  toast.textContent = message;
+  toast.classList.toggle('copy-toast-error', !!failed);
+  toast.classList.add('copy-toast-visible');
+  if (copyToastTimer) window.clearTimeout(copyToastTimer);
+  copyToastTimer = window.setTimeout(function(){
+    toast.classList.remove('copy-toast-visible');
+  }, 1800);
+}
+async function copyIdentifierValue(event, value){
+  if (event && typeof event.preventDefault === 'function') {
+    event.preventDefault();
+  }
+  if (event && typeof event.stopPropagation === 'function') {
+    event.stopPropagation();
+  }
+  value = String(value || '');
+  if (!value) return;
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(value);
+    } else if (!fallbackCopyIdentifier(value)) {
+      throw new Error('copy unavailable');
+    }
+    showCopyToast('Copied: ' + shortIdentifier(value), false);
+  } catch (err) {
+    showCopyToast('Copy failed — full value is shown on hover', true);
+  }
+}
+async function copyIdentifier(event, button){
+  var value = button ? (button.getAttribute('data-identifier') || '') : '';
+  return copyIdentifierValue(event, value);
+}
+function renderTvlDetails(index){
+  var panel = document.getElementById('tvl-details');
+  var detail = (tvlPointDetails || [])[index];
+  if (!panel || !detail) return;
+  var blockLabel = (typeof detail.block === 'number')
+    ? ('Block ' + fmtNum(detail.block, 0))
+    : escTxt(detail.block);
+  document.getElementById('tvl-detail-title').innerHTML =
+    blockLabel + (detail.time_label ? (' &middot; ' + escTxt(detail.time_label)) : '');
+  var meta = '<div class="detail-summary">' + escTxt(tvlMetricLabel) + ' <strong>' + fmtNum(detail.total_tvl, 4) + ' ' + escTxt(tokenSymbol) + '</strong></div>';
+  if (detail.volume_bucket_label) {
+    meta += '<span style="opacity:.85">Volume bucket: ' + escTxt(detail.volume_bucket_label) + '</span>';
+  }
+  document.getElementById('tvl-detail-meta').innerHTML = meta;
+  var rows = '';
+  for (var i = 0; i < detail.pools.length; i++) {
+    var p = detail.pools[i];
+    var share = (p.share_pct == null) ? '-' : Number(p.share_pct).toFixed(2) + '%';
+    rows += '<tr>'
+      + '<td>' + identifierHtml(p.address) + '</td>'
+      + '<td>' + escTxt(p.protocol) + '</td>'
+      + '<td>' + fmtNum(p.tvl, 4) + '</td>'
+      + '<td>' + share + '</td>'
+      + '<td>' + fmtUsd(p.price_usd, 4) + '</td>'
+      + '<td>' + fmtNum(p.volume_token, 4) + '</td>'
+      + '<td>' + fmtUsd(p.volume_usd, 2) + '</td>'
+      + '</tr>';
+  }
+  document.getElementById('tvl-detail-body').innerHTML = rows;
+  panel.style.display = '';
+  panel.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+function closeTvlDetails(){
+  var panel = document.getElementById('tvl-details');
+  if (panel) panel.style.display = 'none';
+}
+
+(function(){
+  function tc(id,cfg){ new Chart(document.getElementById(id),cfg); }
+
+  tc('c1',{
+    type:'doughnut',
+    data:{
+      labels:['Queried pool/custody rows with positive balance','Queried non-pool rows with positive balance'],
+      datasets:[{data:[1,0],backgroundColor:['#3b82f6','#64748b'],borderWidth:0}]
+    },
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:'#94a3b8',padding:12,font:{size:12}}}}}
+  });
+
+  tc('c2',{
+    type:'doughnut',
+    data:{
+      labels:['Main measured target-token-equivalent pool','Other measured pools'],
+      datasets:[{data:[100.0,0],backgroundColor:['#f59e0b','#64748b'],borderColor:'#1e293b',borderWidth:2}]
+    },
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:'#94a3b8',padding:12,font:{size:12}}}}}
+  });
+
+  tc('c3',{
+    type:'bar',
+    data:{
+      labels:topChartHolders.map(function(d){return displayLabelFor(d.address);}),
+      datasets:[{label:'Balance',data:topChartHolders.map(function(d){return d.balance_decimal;}),backgroundColor:'#3b82f6',borderRadius:4}]
+    },
+    options:{
+      responsive:true,
+      maintainAspectRatio:false,
+      plugins:{
+        legend:{display:false},
+        tooltip:{callbacks:{
+          title:function(items){
+            var row = items && items.length ? topChartHolders[items[0].dataIndex] : null;
+            return row && row.address ? row.address : '-';
+          },
+          label:function(ctx){
+            var row = topChartHolders[ctx.dataIndex] || {};
+            var balance = Number(row.balance_decimal || 0).toLocaleString(undefined,{maximumFractionDigits:6});
+            return 'Balance: ' + balance + ' ' + tokenSymbol;
+          },
+          footer:function(){return 'Click bar to copy full address';}
+        }}
+      },
+      onHover:function(event,elements){
+        if (event && event.native && event.native.target) {
+          event.native.target.style.cursor = elements && elements.length ? 'pointer' : 'default';
+        }
+      },
+      onClick:function(event,elements){
+        if (!elements || !elements.length) return;
+        var row = topChartHolders[elements[0].index];
+        if (row && row.address) copyIdentifierValue(event.native || event, row.address);
+      },
+      scales:{y:{beginAtZero:true,ticks:{color:'#64748b'},grid:{color:'#1e293b'}},x:{ticks:{color:'#64748b'},grid:{display:false}}}
+    }
+  });
+  if (document.getElementById('c7') && poolReserveRows && poolReserveRows.length) {
+    tc('c7',{
+      type:'pie',
+      data:{
+        labels:poolReserveRows.map(function(d){
+          return d.pool_label || shortIdentifier(d.address);
+        }),
+        datasets:[{
+          label:'Observed token reserve',
+          data:poolReserveRows.map(function(d){return Number(d.balance_decimal || 0);}),
+          backgroundColor:poolReserveRows.map(function(_,i){return chartSeriesColors[i % chartSeriesColors.length];}),
+          borderColor:'#1e293b',
+          borderWidth:1,
+          hoverOffset:6
+        }]
+      },
+      options:{
+        responsive:true,
+        maintainAspectRatio:false,
+        plugins:{
+          legend:{
+            position:'bottom',
+            labels:{color:'#94a3b8',padding:8,boxWidth:10,font:{size:10}}
+          },
+          tooltip:{callbacks:{
+            title:function(items){
+              var row = items && items.length ? poolReserveRows[items[0].dataIndex] : null;
+              return row && row.address ? row.address : '-';
+            },
+            label:function(ctx){
+              var row = poolReserveRows[ctx.dataIndex] || {};
+              var total = poolReserveRows.reduce(function(sum,d){return sum + Number(d.balance_decimal || 0);},0);
+              var value = Number(row.balance_decimal || 0);
+              var share = total > 0 ? value / total * 100 : 0;
+              return (row.pool_label || 'Reserve') + ': '
+                + value.toLocaleString(undefined,{maximumFractionDigits:4}) + ' ' + tokenSymbol
+                + ' (' + share.toFixed(2) + '%)';
+            },
+            footer:function(){return 'Click slice to copy address';}
+          }}
+        },
+        onHover:function(event,elements){
+          if (event && event.native && event.native.target) {
+            event.native.target.style.cursor = elements && elements.length ? 'pointer' : 'default';
+          }
+        },
+        onClick:function(event,elements){
+          if (!elements || !elements.length) return;
+          var row = poolReserveRows[elements[0].index];
+          if (row && row.address) copyIdentifierValue(event.native || event, row.address);
+        }
+      }
+    });
+  }
+  tc('c5',{"type": "line", "data": {"labels": ["08-31 14:00", "08-31 15:00", "08-31 16:00", "08-31 17:00", "08-31 18:00", "08-31 19:00", "08-31 20:00", "08-31 21:00", "08-31 22:00", "08-31 23:00", "09-01 00:00", "09-01 01:00", "09-01 02:00", "09-01 03:00", "09-01 04:00", "09-01 05:00", "09-01 06:00"], "datasets": [{"label": "uniswap v3 \u00b7 WETH/CRV", "data": [0.00012593003378517643, 0.0001264167269609052, 0.00012646920154735667, 0.00012675975022063708, 0.0001273287559320475, 0.00012928175552211492, 0.00013484001296999154, 0.00013624827035735152, 0.00013721715265485425, 0.00013651348913057616, 0.00013722645654248297, 0.00014214804071376475, 0.0001433064540796805, 0.0001451392471923495, 0.00014441925525156027, 0.00014337756915099658, 0.0001415120867631394], "borderColor": "#f59e0b", "backgroundColor": "#f59e0b33", "borderWidth": 1.5, "borderDash": [], "pointRadius": 0, "fill": false, "spanGaps": true, "tension": 0.2}]}, "options": {"responsive": true, "maintainAspectRatio": false, "interaction": {"intersect": false, "mode": "index"}, "plugins": {"legend": {"labels": {"color": "#94a3b8"}, "position": "top"}}, "scales": {"y": {"beginAtZero": true, "ticks": {"color": "#64748b"}, "grid": {"color": "#1e293b"}}, "x": {"ticks": {"color": "#64748b", "maxRotation": 45}, "grid": {"display": false}}}}});
+  tc('c6',{"type": "bar", "data": {"labels": ["08-31 14:00", "08-31 15:00", "08-31 16:00", "08-31 17:00", "08-31 18:00", "08-31 19:00", "08-31 20:00", "08-31 21:00", "08-31 22:00", "08-31 23:00", "09-01 00:00", "09-01 01:00", "09-01 02:00", "09-01 03:00", "09-01 04:00", "09-01 05:00", "09-01 06:00"], "datasets": [{"label": "uniswap v3 \u00b7 WETH/CRV", "data": [37594.96669928502, 58470.921855280736, 11947.460705178402, 3151.5338672519697, 36320.26146623224, 51477.078383965, 79863.52112139382, 9904.440870191427, 4458.833393051668, 6829.621002516466, 10635.693404881726, 17054.76478347888, 12936.511148307969, 10112.422835688792, 8852.064945943866, 8593.391563587878, 10464.840772849439], "backgroundColor": "#f59e0b", "borderColor": "#f59e0b", "borderWidth": 1, "stack": "volume"}]}, "options": {"responsive": true, "maintainAspectRatio": false, "plugins": {"legend": {"labels": {"color": "#94a3b8"}, "position": "top"}}, "scales": {"x": {"stacked": true, "ticks": {"color": "#64748b", "maxRotation": 45}, "grid": {"display": false}}, "y": {"stacked": true, "beginAtZero": true, "ticks": {"color": "#64748b"}, "grid": {"color": "#1e293b"}}}}});
+  tc('c4',{"type": "line", "data": {"labels": ["08-31 14:00", "08-31 15:00", "08-31 16:00", "08-31 17:00", "08-31 18:00", "08-31 19:00", "08-31 20:00", "08-31 21:00", "08-31 22:00", "08-31 23:00", "09-01 00:00", "09-01 01:00", "09-01 02:00", "09-01 03:00", "09-01 04:00", "09-01 05:00", "09-01 06:00"], "datasets": [{"label": "Total (CRV)", "data": [918955.1461355559, 905547.4722603213, 912798.9855789073, 909649.766955393, 894571.3624026995, 871738.0355202303, 825080.4625361747, 822791.4822236997, 822422.1948959291, 952329.9322855027, 950839.5880774613, 940355.3905726908, 939634.2742441052, 935809.1369607194, 935646.875384928, 937970.8318617224, 941784.2639858532], "borderColor": "#3b82f6", "backgroundColor": "rgba(59,130,246,0.08)", "fill": true, "tension": 0.25, "pointRadius": 0}, {"label": "uniswap v3 \u00b7 WETH/CRV", "data": [918955.1461355559, 905547.4722603213, 912798.9855789073, 909649.766955393, 894571.3624026995, 871738.0355202303, 825080.4625361747, 822791.4822236997, 822422.1948959291, 952329.9322855027, 950839.5880774613, 940355.3905726908, 939634.2742441052, 935809.1369607194, 935646.875384928, 937970.8318617224, 941784.2639858532], "borderColor": "#f59e0b", "backgroundColor": "#f59e0b33", "borderWidth": 1.5, "borderDash": [], "fill": false, "tension": 0.2, "pointRadius": 0, "spanGaps": true}]}, "options": {"onClick":function(evt,els,chart){var active=chart.getElementsAtEventForMode(evt,'index',{intersect:false},true);if(active&&active.length){renderTvlDetails(active[0].index);}},"responsive": true, "maintainAspectRatio": false, "interaction": {"intersect": false, "mode": "index"}, "plugins": {"legend": {"labels": {"color": "#94a3b8"}, "position": "top"}}, "scales": {"y": {"beginAtZero": true, "ticks": {"color": "#64748b"}, "grid": {"color": "#1e293b"}}, "x": {"ticks": {"color": "#64748b", "maxRotation": 45}, "grid": {"display": false}}}}});
+  tc('c8',{"type": "bar", "data": {"labels": ["08-31 23:00"], "datasets": [{"label": "Gross added (CRV)", "data": [129998.94206845755], "backgroundColor": "rgba(34,197,94,0.65)", "borderColor": "#22c55e", "borderWidth": 1}, {"label": "Gross removed (CRV)", "data": [-0.0], "backgroundColor": "rgba(244,63,94,0.65)", "borderColor": "#f43f5e", "borderWidth": 1}, {"type": "line", "label": "Net LP flow (CRV)", "data": [129998.94206845755], "borderColor": "#60a5fa", "backgroundColor": "#60a5fa", "borderWidth": 2, "pointRadius": 2, "tension": 0.2}]}, "options": {"responsive": true, "maintainAspectRatio": false, "interaction": {"intersect": false, "mode": "index"}, "plugins": {"legend": {"labels": {"color": "#94a3b8"}, "position": "top"}}, "scales": {"x": {"ticks": {"color": "#64748b", "maxRotation": 45}, "grid": {"display": false}}, "y": {"ticks": {"color": "#64748b"}, "grid": {"color": "#1e293b"}}}}});
+})();
+
+function togglePortfolio(addr) {
+  var row = document.getElementById('portfolio-' + addr);
+  if (!row) return;
+  var holderRow = row.previousElementSibling;
+  var icon = holderRow ? holderRow.querySelector('.expand-icon') : null;
+  var open = row.style.display !== 'none';
+  if (open) {
+    row.style.display = 'none';
+    if (icon) icon.textContent = '+';
+    return;
+  }
+  row.style.display = '';
+  if (icon) icon.textContent = '-';
+  var inner = row.querySelector('.portfolio-inner');
+  if (!inner) return;
+  var key = (addr || '').toLowerCase();
+  var positions = (portfolioData && portfolioData[key]) || [];
+  if (!positions.length) {
+    inner.innerHTML = '<div style="color:#64748b;padding:8px 0">No LP positions with share &gt; 0 for this address in the analysis window.</div>';
+    return;
+  }
+  var html = '<table class="portfolio-table"><thead><tr>'
+    + '<th>Protocol</th><th>Pool</th><th>Share %</th><th>Liquidity</th><th>Token0</th><th>Token1</th><th>Ticks</th>'
+    + '</tr></thead><tbody>';
+  for (var i = 0; i < positions.length; i++) {
+    var p = positions[i];
+    var pool = (p.pool || '');
+    var ticks = (p.tick_lower != null && p.tick_upper != null)
+      ? (p.tick_lower + ' / ' + p.tick_upper) : '-';
+    var proto = ((p.protocol || '') + ' ' + (p.version || '')).trim() || '-';
+    html += '<tr>'
+      + '<td>' + proto + '</td>'
+      + '<td>' + identifierHtml(pool) + '</td>'
+      + '<td>' + (p.share_pct != null ? p.share_pct : '-') + '</td>'
+      + '<td>' + (p.liquidity || '-') + '</td>'
+      + '<td>' + (p.token0_amount || '-') + '</td>'
+      + '<td>' + (p.token1_amount || '-') + '</td>'
+      + '<td>' + ticks + '</td>'
+      + '</tr>';
+  }
+  html += '</tbody></table>';
+  inner.innerHTML = html;
+}
+
+</script>
+</body>
+</html>

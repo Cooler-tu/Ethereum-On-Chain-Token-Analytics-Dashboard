@@ -14,6 +14,7 @@
 - TURBO 30 日案例完成了池级储备、成交量、价格、LP gross/net flow 和异常交易证据检查。
 - FTT、CEL、GALA 已完成冻结窗口、稳健性检验和跨案例统一校正。
 - 导师审阅用的 `notebooks/liquidity_analysis_visual_review.ipynb` 已执行并保存 5 张图表输出，同时提交了精简作图数据；它用于展示原始点、趋势和不确定性，补足只看相关性数字的不足。
+- 公开币种首页现只保留 7 个有核心时间序列的案例。CRV 已用主导的 Uniswap V3 CRV/WETH 池补跑 5,000 区块并生成 17 个小时价格/成交量/储备桶；OM 已补跑事件前 10,000 区块并生成 35 个成交量桶。CREDI、NCR 和单区块 SPX 占位页暂不发布。
 - 跨案例结果没有发现可迁移的独立价格预测变量。Transfer 净流、净 LP 流、累计 LP 活动和目标库存集中度不再作为独立崩盘预测器。
 - LOW / MEDIUM / HIGH Risk Index 仅用于启发式筛查，不是崩盘概率或经过大样本校准的预测模型。
 - Dashboard 的高风险歧义文案已完成修正和人工验收；GitHub Actions 已配置为在 push / pull request 时运行回归测试，Pages 只在测试通过后构建和部署，首次远端测试、构建与部署已全部成功。当前工作方向是研究总结、输出存储策略和交付收口。八案例事件面板、Position Manager 全量追踪、深层钱包归属、多链和实时监控均暂缓。

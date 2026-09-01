@@ -1,0 +1,15 @@
+{
+  "chain_id": 1,
+  "address": "0x3593D125a4f7849a1B059E64F4517A86Dd60c95d",
+  "symbol": "OM",
+  "name": "MANTRA DAO",
+  "decimals": 18,
+  "decimals_source": "onchain",
+  "is_contract": true,
+  "proxy_address": null,
+  "implementation_address": null,
+  "behavior_flags": [
+    "minting"
+  ],
+  "total_supply": 888888888000000000000000000
+}

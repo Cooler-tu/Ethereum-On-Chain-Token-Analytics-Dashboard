@@ -1,0 +1,242 @@
+{
+  "pool_concentration": {
+    "total_tvl": 757369163894524246648358,
+    "main_pool": "0xe46935aE80E05cdEbD4a4008B6ccaA36d2845370",
+    "main_pool_tvl": 745062041422752002569922,
+    "main_pool_share": 0.98375,
+    "num_active_pools": 5,
+    "per_pool_tvl": {
+      "0xe46935aE80E05cdEbD4a4008B6ccaA36d2845370": 745062041422752002569922,
+      "0x8646047a7Ea7fef0836a81e797FFAb816c308C72": 12289792910893866149290,
+      "0x9C289f2B496D7756f15378Fab71B5206d7Ea45d5": 17329556589436860816,
+      "0x97e0fD7e397BFD81f209ed08e63E2cF89288ABBD": 4285995243932,
+      "0x65c3C7cB15473f6F86c7528D52237E5eA7B28DA6": 2945824398
+    },
+    "source": "onchain",
+    "snapshot_block": 22261846
+  },
+  "lp_concentration": {
+    "top_lp_share": 0,
+    "top_n_share": 0,
+    "num_lps": 0
+  },
+  "withdrawal_severity": {
+    "num_withdrawals": 3,
+    "attributed_withdrawals": 1,
+    "quantified_withdrawals": 3,
+    "liquidity_delta_only_withdrawals": 0,
+    "unmapped_withdrawals": 0,
+    "total_removed_token0": 694152179030343775673,
+    "legacy_total_removed_token0": 694152179030343775673,
+    "total_removed_target_raw": 691494844108411486651,
+    "total_removed_target_decimal": 691.49484411,
+    "total_removed_usd": null,
+    "pre_event_tvl": 757369163894524246648358,
+    "withdrawal_severity": 0.000913,
+    "per_pool_removals": [
+      {
+        "pool_address": "0x8646047a7Ea7fef0836a81e797FFAb816c308C72",
+        "protocol": "uniswap",
+        "version": "v3",
+        "num_withdrawals": 1,
+        "removed_target_raw": 691494844108411486651,
+        "removed_target_decimal": 691.49484411,
+        "removed_usd": null,
+        "pool_tvl_raw": 12289792910893866149290,
+        "pool_tvl_share": 0.05626578
+      }
+    ],
+    "normalization_note": "Removed target-token amount is normalized to the pool side holding the target token (no token0 + token1 double counting). USD prefers event amount_usd, then stablecoin quote, then target amount x pool price_usd at or before the event block. Quantified zero is kept as zero; V4 ModifyLiquidity rows without token amounts are classified as liquidity_delta_only rather than treated as zero.",
+    "withdrawal_events": [
+      {
+        "block_number": 22256282,
+        "block": 22256282,
+        "ts": 1744501895,
+        "pool": "0x8646047a7Ea7fef0836a81e797FFAb816c308C72",
+        "pool_address": "0x8646047a7Ea7fef0836a81e797FFAb816c308C72",
+        "actor": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "amount0": "0",
+        "amount1": "0",
+        "token0_amount": "0",
+        "token1_amount": "0",
+        "liquidity_delta": "-0",
+        "pool_label": "uniswap v3",
+        "protocol": "uniswap",
+        "version": "v3",
+        "removed_target_raw": 0,
+        "removed_target_decimal": 0.0,
+        "removed_usd": null,
+        "pool_tvl_share": null,
+        "usd_source": "",
+        "event_count": 1,
+        "aggregation_scope": "",
+        "amounts_available": true,
+        "quantification_status": "quantified"
+      },
+      {
+        "block_number": 22255043,
+        "block": 22255043,
+        "ts": 1744486979,
+        "pool": "0x8646047a7Ea7fef0836a81e797FFAb816c308C72",
+        "pool_address": "0x8646047a7Ea7fef0836a81e797FFAb816c308C72",
+        "amount0": "691494844108411486651",
+        "amount1": "2657334921932289022",
+        "token0_amount": "691494844108411486651",
+        "token1_amount": "2657334921932289022",
+        "liquidity_delta": "-42866460054282602343",
+        "actor": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "pool_label": "uniswap v3",
+        "protocol": "uniswap",
+        "version": "v3",
+        "removed_target_raw": 691494844108411486651,
+        "removed_target_decimal": 691.49484411,
+        "removed_usd": null,
+        "pool_tvl_raw": 12289792910893866149290,
+        "pool_tvl_share": 0.05626578,
+        "usd_source": "",
+        "event_count": 1,
+        "aggregation_scope": "",
+        "amounts_available": true,
+        "quantification_status": "quantified"
+      },
+      {
+        "block_number": 22254997,
+        "block": 22254997,
+        "ts": 1744486427,
+        "pool": "0x8646047a7Ea7fef0836a81e797FFAb816c308C72",
+        "pool_address": "0x8646047a7Ea7fef0836a81e797FFAb816c308C72",
+        "actor": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "amount0": "0",
+        "amount1": "0",
+        "token0_amount": "0",
+        "token1_amount": "0",
+        "liquidity_delta": "-0",
+        "pool_label": "uniswap v3",
+        "protocol": "uniswap",
+        "version": "v3",
+        "removed_target_raw": 0,
+        "removed_target_decimal": 0.0,
+        "removed_usd": null,
+        "pool_tvl_share": null,
+        "usd_source": "",
+        "event_count": 1,
+        "aggregation_scope": "",
+        "amounts_available": true,
+        "quantification_status": "quantified"
+      }
+    ]
+  },
+  "volume": {
+    "total_volume_in_token": 150835.609601,
+    "main_volume_pool": "0xe46935ae80e05cdebd4a4008b6ccaa36d2845370",
+    "main_volume_share": 0.974584,
+    "volume_by_pool": {
+      "0xe46935ae80e05cdebd4a4008b6ccaa36d2845370": {
+        "protocol": "uniswap",
+        "version": "v2",
+        "volume_in_token": 147001.988889,
+        "volume_usd": null,
+        "share": 0.974584,
+        "quote_symbol": "WETH"
+      },
+      "0x8646047a7ea7fef0836a81e797ffab816c308c72": {
+        "protocol": "uniswap",
+        "version": "v3",
+        "volume_in_token": 3824.956469,
+        "volume_usd": null,
+        "share": 0.025358,
+        "quote_symbol": "WETH"
+      },
+      "0x9c289f2b496d7756f15378fab71b5206d7ea45d5": {
+        "protocol": "uniswap",
+        "version": "v3",
+        "volume_in_token": 8.664244,
+        "volume_usd": null,
+        "share": 5.7e-05,
+        "quote_symbol": "WETH"
+      }
+    },
+    "volume_timeline": [],
+    "bucket_seconds": 3600,
+    "ambiguous_events": 0,
+    "note": "Legacy Dune events without token addresses are inferred by decimal magnitude; same-decimals quote pools are skipped.",
+    "chart_span": "day",
+    "bucket": "hour",
+    "source": "local_swaps",
+    "artifact_format": "both",
+    "artifacts": {
+      "volume_timeline": {
+        "name": "volume_timeline",
+        "format": "both",
+        "rows": 55,
+        "paths": {
+          "json": "output-om-event-10k/volume_timeline.json",
+          "parquet": "output-om-event-10k/tables/volume_timeline.parquet"
+        }
+      }
+    }
+  },
+  "wallet_activity": {
+    "selection_mode": "adaptive_percentile",
+    "adaptive_percentile": 0.99,
+    "adaptive_percentile_label": "P99",
+    "threshold_modes": {
+      "trade": "percentile",
+      "mover": "percentile",
+      "activity": "percentile",
+      "volume": "percentile"
+    },
+    "large_trade_threshold_usd": 0.0,
+    "mover_net_usd_threshold": 0.0,
+    "activity_trade_threshold": 0,
+    "volume_ratio": 0.0,
+    "total_swap_volume_usd": 0.0,
+    "ratio_threshold_usd": 0.0,
+    "num_large_trade_wallets": 0,
+    "num_large_mover_wallets": 0,
+    "num_high_activity_wallets": 0,
+    "num_notable_wallets": 0,
+    "wallets_considered": 0,
+    "swaps_without_usd": 789,
+    "wallets": [],
+    "note": "USD per swap prefers Dune amount_usd, then stablecoin quote, then target amount x pool price_usd at or before the swap block. By default, Trade, Mover, Volume, and Activity use within-window percentile cutoffs; explicit arguments retain fixed thresholds."
+  },
+  "tvl_timeline_length": 67,
+  "analysis_series_length": 101,
+  "tvl_timeline": [],
+  "tvl_timeline_source": "rpc_target_balance_local_price",
+  "chart_span": "day",
+  "chart_bucket": "hour",
+  "chart_bucket_seconds": 3600,
+  "artifact_format": "both",
+  "artifacts": {
+    "tvl_timeline": {
+      "name": "tvl_timeline",
+      "format": "both",
+      "rows": 67,
+      "paths": {
+        "json": "output-om-event-10k/tvl_timeline.json",
+        "parquet": "output-om-event-10k/tables/tvl_timeline.parquet"
+      }
+    },
+    "volume_timeline": {
+      "name": "volume_timeline",
+      "format": "both",
+      "rows": 55,
+      "paths": {
+        "json": "output-om-event-10k/volume_timeline.json",
+        "parquet": "output-om-event-10k/tables/volume_timeline.parquet"
+      }
+    },
+    "analysis_series": {
+      "name": "analysis_series",
+      "format": "parquet",
+      "rows": 101,
+      "paths": {
+        "parquet": "output-om-event-10k/tables/analysis_series.parquet",
+        "csv_preview": "output-om-event-10k/analysis_series_preview.csv",
+        "summary_md": "output-om-event-10k/analysis_series_summary.md"
+      }
+    }
+  }
+}

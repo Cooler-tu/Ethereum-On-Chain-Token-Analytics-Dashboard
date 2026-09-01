@@ -1,0 +1,20 @@
+[
+  {
+    "block_number": 25878694,
+    "block_timestamp": 1788220679,
+    "transaction_hash": "0x3d614605186bcd3acc68a306db4deaf9ef0355173a531ebee90bf295f90c38e4",
+    "log_index": 261,
+    "protocol": "uniswap",
+    "version": "v3",
+    "pool_address": "0x919Fa96e88d67499339577Fa202345436bcDaf79",
+    "event_type": "LIQUIDITY_ADD",
+    "actor": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+    "recipient": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+    "token0_amount": "17800000000000000000",
+    "token1_amount": "129998942068457541293058",
+    "liquidity_delta": "1521177559924726290913",
+    "source_event": "Mint",
+    "verified": true,
+    "nft_token_id": null
+  }
+]

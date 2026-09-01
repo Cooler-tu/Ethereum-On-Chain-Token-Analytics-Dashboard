@@ -27,6 +27,8 @@ End-to-end **Ethereum mainnet** tool for token liquidity / crash analysis: disco
 
 | Token | Window | Pools | Holders | Risk | Date | Dir |
 |-------|--------|-------|---------|------|------|-----|
+| CRV chart refresh | 25875738–25880738 | 1 dominant CRV/WETH V3 pool | Pool-scoped Transfers; holder ranking skipped | 0.1971 LOW (short-window heuristic) | 2026-09-01 | `output-crv-univ3-5000-25880738/` |
+| OM event preview | 22251846–22261846 | 7 OM pools (V2/V3) | Pool-scoped Transfers; holder ranking skipped | 0.3346 LOW (DEX-only heuristic) | 2026-09-01 | `output-om-event-10k/` |
 | GALA incident/control | 19698731–20127891 (two frozen 30d windows) | 2 GALA/WETH (V2/V3) | Pool-scoped Transfers; holder ranking skipped | Research: 0/3 inventory hypotheses confirmed; hand-selected line closed | 2026-08-29 | `output-gala-control-30d/` + `output-gala-event-30d/` |
 | CEL crash/control | 14580784–14953505 (two frozen 30d windows) | 2 CEL/WETH (V2/V3) | Pool-scoped Transfers; holder ranking skipped | Research: 0/3 original hypotheses confirmed; inverse LP-flow anomaly replicated | 2026-08-27 | `output-cel-control-30d/` + `output-cel-crash-30d/` |
 | FTT crash/control | 15503619–15926371 (two frozen 30d windows) | 3 FTT/WETH (V2/V3) | Pool-scoped Transfers; holder ranking skipped | Research: 0/3 primary hypotheses confirmed | 2026-08-24 | `output-ftt-control-30d/` + `output-ftt-crash-30d/` |
@@ -38,6 +40,7 @@ End-to-end **Ethereum mainnet** tool for token liquidity / crash analysis: disco
 
 ### Recent Findings (crash/control research)
 
+- Public-dashboard completeness was tightened to seven evidence-bearing cases. A fresh 5,000-block CRV/WETH V3 run produced 532 swaps, 533 pool Transfers, and 17 hourly price/volume/reserve buckets; its WETH/CRV price range is 0.0001259–0.0001451. An OM event-preview run produced 789 swaps, 791 pool Transfers, 6 liquidity events, and 35 volume buckets before the frozen incident boundary. Placeholder CREDI/NCR and one-block SPX pages were removed from the landing page instead of being presented as completed analyses.
 - The executed advisor-review notebook `notebooks/liquidity_analysis_visual_review.ipynb` saves five figures and their outputs directly in GitHub: uPEG price/reserve paths, TURBO gross-versus-net LP accounting, FTT/CEL/GALA confidence intervals, raw hourly scatter plots, and the GALA inventory test. Its compact CSV inputs are included under `notebooks/data/`, so reviewers can inspect the observations behind the correlations without downloading the large local event tables.
 - A plain-language Chinese research narrative now documents the complete sequence from the original correlation/lead-lag idea through uPEG and TURBO validation, FTT/CEL crash-control tests, transaction forensics, GALA prospective validation, and the final cross-case decision. It explains the data, rationale, results, interpretation limits, and reason for each pivot in `research-notes/data-analysis-research-summary-zh.md`.
 - A uniform FTT/CEL/GALA ledger applied the same hourly predictors and future 24-hour outcomes to six windows, then corrected all 18 tests together. No standalone variable transports across the three incident-preceding windows. FTT net LP flow remains significant (`ρ=-0.2979`, global `q=0.0216`), but CEL weakens to `q=0.1056` and GALA reverses to `ρ=+0.0527`; gross LP activity keeps a positive sign but is insignificant in all three. Transfer net, net LP flow, gross LP activity, and target-inventory concentration are retired as standalone price predictors. An eight-plus-case incident panel was considered as a possible follow-up, but it is now deferred: the current priority is documentation, dashboard acceptance, and reproducible delivery rather than collecting more cases without a stronger mechanism. Evidence: `research-notes/cross-case-evidence-synthesis.md`.
@@ -307,6 +310,8 @@ See `SUPPORTED_PROTOCOLS.md` for contract addresses and notes.
 
 | Token | 窗口 | 池子 | 持有者 | 风险 | 日期 | 目录 |
 |-------|------|------|--------|------|------|------|
+| CRV 图表补全 | 25875738–25880738 | 1 个占主导的 CRV/WETH V3 池 | 仅池级 Transfer；跳过 holder 排名 | 0.1971 低（短窗口启发式） | 2026-09-01 | `output-crv-univ3-5000-25880738/` |
+| OM 事件预览 | 22251846–22261846 | 7 个 OM 池（V2/V3） | 仅池级 Transfer；跳过 holder 排名 | 0.3346 低（仅 DEX 启发式） | 2026-09-01 | `output-om-event-10k/` |
 | GALA 事件/对照 | 19698731–20127891（两个冻结的 30 天窗口） | 2 个 GALA/WETH（V2/V3） | 仅池级 Transfer；跳过 holder 排名 | 研究：0/3 库存假设确认；人工挑选案例线关闭 | 2026-08-29 | `output-gala-control-30d/` + `output-gala-event-30d/` |
 | CEL 崩盘/对照 | 14580784–14953505（两个冻结的 30 天窗口） | 2 个 CEL/WETH（V2/V3） | 仅池级 Transfer；跳过 holder 排名 | 研究：0/3 原假设确认；反向 LP 流异常复现 | 2026-08-27 | `output-cel-control-30d/` + `output-cel-crash-30d/` |
 | FTT 崩盘/对照 | 15503619–15926371（两个冻结的 30 天窗口） | 3 个 FTT/WETH（V2/V3） | 仅池级 Transfer；跳过 holder 排名 | 研究：0/3 主要假设确认 | 2026-08-24 | `output-ftt-control-30d/` + `output-ftt-crash-30d/` |
@@ -318,6 +323,7 @@ See `SUPPORTED_PROTOCOLS.md` for contract addresses and notes.
 
 ### 近期发现（崩盘/对照研究）
 
+- 公开看板首页收紧为 7 个真正有核心数据的案例。新跑的 CRV/WETH V3 5,000 区块窗口包含 532 条 Swap、533 条池相关 Transfer 和 17 个小时价格/成交量/储备桶，WETH/CRV 价格范围为 0.0001259–0.0001451；OM 事件预览包含 789 条 Swap、791 条池相关 Transfer、6 条流动性事件和 35 个成交量桶。CREDI、NCR 和单区块 SPX 暂从首页移除，避免把占位或极短演示页面误当成完整分析。
 - 新增已执行并保存图表输出的导师审阅 Notebook：`notebooks/liquidity_analysis_visual_review.ipynb`。其中直接展示 uPEG 价格/库存曲线、TURBO 累计撤出与净流对账、FTT/CEL/GALA 结果范围、小时原始散点和 GALA 库存检验；精简后的作图数据保存在 `notebooks/data/`，在 GitHub 打开即可看图，不必先下载本地大型事件表。
 - 新增中文白话总报告 `research-notes/data-analysis-research-summary-zh.md`，按真实顺序整理了最初的相关性与时间平移想法、uPEG/TURBO 数据核验、FTT/CEL 崩盘对照、交易级拆解、GALA 前瞻验证和最终跨案例决策。每一阶段都说明使用的数据、为什么这样做、得到什么结果、解释边界以及为什么转向下一步。
 - 统一的 FTT/CEL/GALA 证据账本对六个窗口使用相同的小时指标和未来 24 小时结果，并将 18 项检验整体校正。三个事前窗口中没有可迁移的独立变量：FTT 净 LP 流仍显著（`ρ=-0.2979`，全局 `q=0.0216`），CEL 降为 `q=0.1056`，GALA 更反转为 `ρ=+0.0527`；累计 LP 活动虽均为正，但三个案例都不显著。因此池 Transfer 净流、净 LP 流、累计 LP 活动与目标库存集中度均退出独立价格预测器名单。八个以上案例的事件面板曾被列为候选后续，但现已暂缓；当前优先进行文档校准、看板验收和可复现交付，不在缺乏更强机制时继续扩充案例。证据见 `research-notes/cross-case-evidence-synthesis.md`。

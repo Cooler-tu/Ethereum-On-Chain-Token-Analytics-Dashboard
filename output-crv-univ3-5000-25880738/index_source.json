@@ -1,0 +1,59 @@
+{
+  "source": "rpc",
+  "from_block": 25875738,
+  "to_block": 25880738,
+  "token": "0xD533a949740bb3306d119CC777fa900bA034cd52",
+  "artifact_format": "both",
+  "position_manager_indexing": "skipped",
+  "position_identity_coverage": "unavailable",
+  "token_transfer_scope": "selected_pool_endpoints",
+  "artifacts": {
+    "swaps": {
+      "name": "swaps",
+      "format": "both",
+      "rows": 532,
+      "paths": {
+        "json": "output-crv-univ3-5000-25880738/swaps.json",
+        "parquet": "output-crv-univ3-5000-25880738/tables/swaps.parquet"
+      }
+    },
+    "liquidity_events": {
+      "name": "liquidity_events",
+      "format": "both",
+      "rows": 1,
+      "paths": {
+        "json": "output-crv-univ3-5000-25880738/liquidity_events.json",
+        "parquet": "output-crv-univ3-5000-25880738/tables/liquidity_events.parquet"
+      }
+    },
+    "transfers": {
+      "name": "transfers",
+      "format": "both",
+      "rows": 533,
+      "paths": {
+        "json": "output-crv-univ3-5000-25880738/transfers.json",
+        "parquet": "output-crv-univ3-5000-25880738/tables/transfers.parquet"
+      }
+    },
+    "position_events": {
+      "name": "position_events",
+      "format": "both",
+      "rows": 0,
+      "paths": {
+        "json": "output-crv-univ3-5000-25880738/position_events.json",
+        "parquet": "output-crv-univ3-5000-25880738/tables/position_events.parquet"
+      }
+    }
+  },
+  "counts": {
+    "swaps": 532,
+    "liquidity_events": 1,
+    "transfers": 533,
+    "position_events": 0
+  },
+  "notes": [
+    "V3/V4 Position Manager event history was intentionally skipped.",
+    "Pool-level Swap/Mint/Burn/Collect coverage is retained; an empty position-event table does not mean zero LP activity.",
+    "Target-token Transfer indexing was limited to selected pool/custody endpoints; unrelated wallet-to-wallet Transfers are not included."
+  ]
+}

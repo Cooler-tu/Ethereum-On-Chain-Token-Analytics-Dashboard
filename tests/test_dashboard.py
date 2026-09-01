@@ -178,6 +178,8 @@ class IdentifierUxTest(unittest.TestCase):
         self.assertIn("@media print", template)
         self.assertIn(".chart-grid{grid-template-columns:1fr}", template)
         self.assertGreaterEqual(template.count('class="grid chart-grid"'), 2)
+        self.assertGreaterEqual(template.count("radial-chart"), 5)
+        self.assertIn("aspect-ratio:1/1", template)
         self.assertIn("max-height:none!important", template)
         self.assertIn("const dashboardCharts = []", script)
         self.assertIn("function printDashboard", script)

@@ -118,6 +118,8 @@ body.print-preparing .chart-box{height:220px}
 body.print-preparing .chart-box-sm{height:170px}
 body.print-preparing .pool-reserve-mini{height:160px}
 body.print-preparing .chart-grid{grid-template-columns:1fr}
+body.print-preparing .chart-box-sm.radial-chart{width:min(340px,100%);height:auto;aspect-ratio:1/1;margin-inline:auto}
+body.print-preparing .pool-reserve-mini.radial-chart{width:min(300px,100%);height:auto;aspect-ratio:1/1;margin-inline:auto}
 @media(max-width:640px){.grid{grid-template-columns:1fr}.nav-bar{flex-direction:column;gap:10px;align-items:flex-start}.nav-links a{margin-left:0;margin-right:14px}.print-button{margin-left:0}.stat-value{font-size:24px}}
 @page{size:A4 portrait;margin:10mm}
 @media print{
@@ -141,6 +143,8 @@ body.print-preparing .chart-grid{grid-template-columns:1fr}
   .chart-box{height:220px!important}
   .chart-box-sm{height:170px!important}
   .pool-reserve-mini{height:160px!important}
+  .chart-box-sm.radial-chart{width:min(340px,100%)!important;height:auto!important;aspect-ratio:1/1;margin-inline:auto}
+  .pool-reserve-mini.radial-chart{width:min(300px,100%)!important;height:auto!important;aspect-ratio:1/1;margin-inline:auto}
   canvas{max-width:100%!important}
   .pools-layout{grid-template-columns:1fr}
   .pool-reserve-side{background:#fff;break-inside:avoid-page;page-break-inside:avoid}
@@ -220,12 +224,12 @@ body.print-preparing .chart-grid{grid-template-columns:1fr}
     <div class="card">
       <h2>Covered Positive-Balance Rows by Address Role</h2>
       <p style="font-size:11px;color:var(--text-dim);margin:-8px 0 8px">38 positive balances among 76 queried non-pool addresses · overall balance coverage 80 / 1,134 addresses (7.1%) · not the token's total holder count</p>
-      <div class="chart-box-sm"><canvas id="c1"></canvas></div>
+      <div class="chart-box-sm radial-chart"><canvas id="c1"></canvas></div>
     </div>
     <div class="card">
       <h2>Measured Target-Token-Equivalent Pool Concentration</h2>
       <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 8px;line-height:1.5"><span class="coverage-inline">Partial coverage · 3 of 14 verified pools measured (21.4%)</span><br>Main measured target-token-equivalent pool: <span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775" aria-label="Copy full identifier 0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v3 · uPEG/WETH</button><a class="identifier-link" href="https://etherscan.io/address/0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span> (99.41%) · Main volume pool: <span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0x94af294207a2c592c08a39c82a7df42a18613d986eeb520b7164fe9ccd66a000" aria-label="Copy full identifier 0x94af294207a2c592c08a39c82a7df42a18613d986eeb520b7164fe9ccd66a000" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v4 · 0x000000...0000/uPEG</button></span> (52.48%)</p>
-      <div class="chart-box-sm"><canvas id="c2"></canvas></div>
+      <div class="chart-box-sm radial-chart"><canvas id="c2"></canvas></div>
     </div>
     <div class="card">
       <h2>Top 10 Queried Non-Pool Balances</h2>
@@ -296,7 +300,7 @@ body.print-preparing .chart-grid{grid-template-columns:1fr}
 <tr><td><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0x597235f24354d6508e778666fe95feb432eeb341766df2937f2dfc124299a47e" aria-label="Copy full identifier 0x597235f24354d6508e778666fe95feb432eeb341766df2937f2dfc124299a47e" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uniswap v4 · uPEG/USDT</button></span></td><td>uniswap v4</td><td><span class="token-pair"><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0x44b28991B167582F18BA0259e0173176ca125505" aria-label="Copy full identifier 0x44b28991B167582F18BA0259e0173176ca125505" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">uPEG</button><a class="identifier-link" href="https://etherscan.io/address/0x44b28991B167582F18BA0259e0173176ca125505" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0x44b28991B167582F18BA0259e0173176ca125505 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span><span class="pair-sep">/</span><span class="identifier-wrap"><button type="button" class="identifier-copy addr" data-identifier="0xdAC17F958D2ee523a2206206994597C13D831ec7" aria-label="Copy full identifier 0xdAC17F958D2ee523a2206206994597C13D831ec7" onmouseenter="showIdentifierTooltip(this)" onmouseleave="hideIdentifierTooltip()" onfocus="showIdentifierTooltip(this)" onblur="hideIdentifierTooltip()" onclick="copyIdentifier(event,this)">USDT</button><a class="identifier-link" href="https://etherscan.io/address/0xdAC17F958D2ee523a2206206994597C13D831ec7" target="_blank" rel="noopener noreferrer" title="Open in Etherscan" aria-label="Open 0xdAC17F958D2ee523a2206206994597C13D831ec7 in Etherscan" onclick="event.stopPropagation()">&#8599;</a></span></span></td><td>869.3932 uPEG (96.86%) <small class="muted">shared custody</small></td><td><span class="not-measured" title="Not measured: per-pool V4 liquidity is unavailable because V4 Pool IDs share the PoolManager custody contract.">Not measured</span></td><td>0.0000 uPEG</td><td><span class="not-measured" title="Not measured: per-pool V4 liquidity is unavailable because V4 Pool IDs share the PoolManager custody contract.">Not measured</span></td><td>0.00%</td><td>No</td></tr></tbody></table></div>
 <aside class="pool-reserve-side">
         <div class="pool-reserve-side-title">Observed target-token reserve share</div>
-        <div class="pool-reserve-mini"><canvas id="c7"></canvas></div>
+        <div class="pool-reserve-mini radial-chart"><canvas id="c7"></canvas></div>
         <p class="pool-reserve-side-note">Observed target-token reserve mix across verified pools (same values as the Reserve column).</p>
       </aside>
       </div>

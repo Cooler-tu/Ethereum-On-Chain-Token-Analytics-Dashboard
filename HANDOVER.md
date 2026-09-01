@@ -1,6 +1,6 @@
 # 项目工作交接（HandOver）
 
-> 状态更新时间：2026-08-30
+> 状态更新时间：2026-09-01
 >
 > 本轮文档修正前的主分支基线：`c4503ce`，当时 `main` 与 `origin/main` 同步
 >
@@ -13,6 +13,7 @@
 - 核心分析流水线、Uniswap V1–V4、Curve、Balancer V2、Dashboard、Parquet 分析表和本地 Studio 已可运行。
 - TURBO 30 日案例完成了池级储备、成交量、价格、LP gross/net flow 和异常交易证据检查。
 - FTT、CEL、GALA 已完成冻结窗口、稳健性检验和跨案例统一校正。
+- 导师审阅用的 `notebooks/liquidity_analysis_visual_review.ipynb` 已执行并保存 5 张图表输出，同时提交了精简作图数据；它用于展示原始点、趋势和不确定性，补足只看相关性数字的不足。
 - 跨案例结果没有发现可迁移的独立价格预测变量。Transfer 净流、净 LP 流、累计 LP 活动和目标库存集中度不再作为独立崩盘预测器。
 - LOW / MEDIUM / HIGH Risk Index 仅用于启发式筛查，不是崩盘概率或经过大样本校准的预测模型。
 - Dashboard 的高风险歧义文案已完成修正和人工验收；GitHub Actions 已配置为在 push / pull request 时运行回归测试，Pages 只在测试通过后构建和部署，首次远端测试、构建与部署已全部成功。当前工作方向是研究总结、输出存储策略和交付收口。八案例事件面板、Position Manager 全量追踪、深层钱包归属、多链和实时监控均暂缓。
@@ -24,6 +25,8 @@
 最终跨案例证据：`research-notes/cross-case-evidence-synthesis.md` 和 `output-cross-case-synthesis/summary.md`。
 
 完整中文白话研究过程：`research-notes/data-analysis-research-summary-zh.md`。
+
+可直接查看的图表与保存结果：`notebooks/liquidity_analysis_visual_review.ipynb`。
 
 ## 1. 这段时间完成了什么
 
@@ -225,8 +228,8 @@ export DUNE_API_KEY="YOUR_DUNE_API_KEY"
 
 ## 6. 下一步建议（按优先级）
 
-1. **收口输出存储策略**：Git 保留摘要、报告和展示文件，大型原始事件表继续留在本地或外部存储。
-2. **人工审阅研究总报告**：检查 `research-notes/data-analysis-research-summary-zh.md` 的表达是否适合最终读者。
+1. **导师人工审阅**：一起检查 `research-notes/data-analysis-research-summary-zh.md` 和 `notebooks/liquidity_analysis_visual_review.ipynb`，先根据反馈改展示，不急着增加案例。
+2. **收口输出存储策略**：Git 保留摘要、报告、精简作图数据和展示文件，大型原始事件表继续留在本地或外部存储。
 3. **暂缓低价值扩展**：不继续选择第四个手工相关性案例；八案例事件面板、Position Manager 全量追踪、beneficial owner、多链和实时告警只在出现新机制或明确外部需求时恢复。
 
 ## 7. Git 交接状态

@@ -176,6 +176,8 @@ class IdentifierUxTest(unittest.TestCase):
         self.assertIn('id="print-dashboard"', template)
         self.assertIn("Print / Save PDF", template)
         self.assertIn("@media print", template)
+        self.assertIn(".chart-grid{grid-template-columns:1fr}", template)
+        self.assertGreaterEqual(template.count('class="grid chart-grid"'), 2)
         self.assertIn("max-height:none!important", template)
         self.assertIn("const dashboardCharts = []", script)
         self.assertIn("function printDashboard", script)
@@ -183,6 +185,7 @@ class IdentifierUxTest(unittest.TestCase):
         self.assertIn("beforeprint", script)
         self.assertIn("afterprint", script)
         self.assertIn("dashboardCharts.push(chart)", script)
+        self.assertIn("Resize even", script)
 
     def test_top_holder_chart_reveals_and_copies_full_address(self):
         dashboard._load_templates()

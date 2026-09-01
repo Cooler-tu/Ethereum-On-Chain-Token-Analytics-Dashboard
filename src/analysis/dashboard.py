@@ -208,12 +208,15 @@ function resizeDashboardCharts(){
   });
 }
 function prepareDashboardPrint(){
-  if (printPrepared) return;
-  printPrepared = true;
-  hideIdentifierTooltip();
-  var toast = document.getElementById('copy-toast');
-  if (toast) toast.classList.remove('copy-toast-visible');
-  document.body.classList.add('print-preparing');
+  if (!printPrepared) {
+    printPrepared = true;
+    hideIdentifierTooltip();
+    var toast = document.getElementById('copy-toast');
+    if (toast) toast.classList.remove('copy-toast-visible');
+    document.body.classList.add('print-preparing');
+  }
+  // beforeprint fires after the browser switches to print media. Resize even
+  // when the button already prepared the page so canvases use the final width.
   resizeDashboardCharts();
 }
 function restoreDashboardAfterPrint(){
@@ -521,6 +524,7 @@ tr:hover td{background:rgba(59,130,246,0.04)}
 body.print-preparing .chart-box{height:220px}
 body.print-preparing .chart-box-sm{height:170px}
 body.print-preparing .pool-reserve-mini{height:160px}
+body.print-preparing .chart-grid{grid-template-columns:1fr}
 @media(max-width:640px){.grid{grid-template-columns:1fr}.nav-bar{flex-direction:column;gap:10px;align-items:flex-start}.nav-links a{margin-left:0;margin-right:14px}.print-button{margin-left:0}.stat-value{font-size:24px}}
 @page{size:A4 portrait;margin:10mm}
 @media print{
@@ -536,6 +540,8 @@ body.print-preparing .pool-reserve-mini{height:160px}
   .info-bar{gap:6px 16px;margin-bottom:10px;padding:8px 10px;background:#fff}
   .coverage-note,.empty-note{margin-bottom:8px;padding:7px 9px;background:#fff}
   .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:8px}
+  .chart-grid{grid-template-columns:1fr}
+  .chart-grid>.card{grid-column:1/-1}
   .card{padding:10px;background:#fff;box-shadow:none;break-inside:avoid-page;page-break-inside:avoid}
   .card h2{margin-bottom:8px;font-size:9pt}
   .stat-value{font-size:18pt}
@@ -617,7 +623,7 @@ body.print-preparing .pool-reserve-mini{height:160px}
     </div>
   </div>
 
-  <div class="grid">
+  <div class="grid chart-grid">
     <div class="card">
       <h2>Covered Positive-Balance Rows by Address Role</h2>
       <p style="font-size:11px;color:var(--text-dim);margin:-8px 0 8px">{holder_coverage_note}</p>
@@ -635,7 +641,7 @@ body.print-preparing .pool-reserve-mini{height:160px}
     </div>
   </div>
 
-  <div class="grid">
+  <div class="grid chart-grid">
     <div class="card">
       <h2>{price_heading}</h2>
       <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 10px">{price_note}</p>

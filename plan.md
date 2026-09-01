@@ -65,7 +65,7 @@
 - **Side-effect-free public site build** (2026-08-30) — changed `scripts/publish_site.py` to render dashboards directly into `site/` while treating historical `output-*` artifacts as read-only inputs. Added two regression tests and verified all 10 published cases leave source JSON and dashboards byte-for-byte unchanged; full suite is 151 passed, 1 skipped.
 - **Advisor-facing visual research notebook** (2026-09-01) — added `notebooks/liquidity_analysis_visual_review.ipynb` with embedded outputs and compact saved chart data. Five figures expose the raw time series, TURBO gross-versus-net accounting, FTT/CEL/GALA uncertainty, original scatter points, and GALA inventory validation so conclusions can be reviewed beyond standalone correlation coefficients.
 - **Published-dashboard data completeness refresh** (2026-09-01) — replaced the stale CRV Curve multi-coin demo with a fresh dominant CRV/WETH V3 5,000-block run (532 swaps, 17 hourly buckets), added an OM pre-incident 10,000-block preview (789 swaps, 35 volume buckets), and reduced the landing page from 10 cards to 7 evidence-bearing cases by withholding incomplete CREDI/NCR and one-block SPX placeholders.
-- **Dashboard print / PDF export** (2026-09-01) — added a shared `Print / Save PDF` action to every generated dashboard, with an A4 light print layout, uncropped tables, print-safe Chart.js resizing, restored interactive sizing after print, and regression coverage.
+- **Dashboard print / PDF export** (2026-09-01) — added a shared `Print / Save PDF` action to every generated dashboard, with an A4 light print layout, full-width single-row chart cards, uncropped tables, print-safe Chart.js resizing, restored interactive sizing after print, and regression coverage.
 
 ---
 

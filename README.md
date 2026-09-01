@@ -79,7 +79,7 @@ python3 -m src.cli dashboard --output-dir output-turbo-30d-25580851
 - Hover DEX badge for `LP` vs `Swap`. `—` = no DEX link in this window (e.g. P2P only).
 - Dashboard identifiers stay compact in tables; hover or keyboard focus reveals the full value, click copies it, and valid mainnet addresses include an Etherscan link. The Top Holders chart also reveals the full address/balance on hover and copies the address on bar click. V4 bytes32 pool IDs remain copyable without a misleading address link.
 - Dashboard holder cards now separate transfer-observed addresses from covered, positive-balance non-pool holders and disclose balance-query coverage. TVL captions follow `tvl_timeline_source`, so event reconstruction is no longer presented as a balance snapshot.
-- Every generated dashboard includes **Print / Save PDF** in the top navigation. Printing uses an A4-friendly light layout, expands scroll-limited tables, hides transient controls, and resizes Chart.js canvases before restoring the interactive screen layout.
+- Every generated dashboard includes **Print / Save PDF** in the top navigation. Printing uses an A4-friendly light layout, stacks chart cards at full-page width, expands scroll-limited tables, hides transient controls, and resizes Chart.js canvases before restoring the interactive screen layout.
 - Notable Wallets use within-window P99 cutoffs for max single trade, absolute net flow, cumulative volume, and swap activity instead of universal `$10k / 50 swaps` defaults. Existing outputs can refresh this metric locally without Dune/RPC calls.
 - Pool timeline series use a larger dark-theme palette plus dash patterns. All Verified Pools shows token symbols in the pair column, an Observed Token Reserve column, and a small reserve-share pie beside the table; Uniswap V4 may show a shared PoolManager balance rather than per-poolId reserves.
 - Pool-liquidity shares disclose their denominator and measurement coverage. The current uPEG end-block estimate covers 3 of 14 verified pools; unmeasured V4 Pool IDs show `Not measured` rather than a misleading zero, and percentages are explicitly limited to measured pools.
@@ -363,7 +363,7 @@ python3 -m src.cli dashboard --output-dir output-turbo-30d-25580851
 - **点开一行**只看 LP 仓位，不等于 DEX 标签；悬停标签可见 `LP` / `Swap`。`—` = 本窗口无 DEX 关联（如纯转账）。
 - 看板中的地址和 Pool ID 保持短格式；悬浮或键盘聚焦可查看全文，点击即可复制。Top Holders 图表悬浮柱子会显示完整地址与余额，点击柱子复制地址。合法主网地址提供 Etherscan 跳转，V4 bytes32 poolId 只提供查看与复制，避免错误跳转。
 - 看板将“窗口内出现过的地址”与“余额已覆盖且为正的非池 Holder”分开统计，并公开余额查询覆盖率；TVL 文案按 `tvl_timeline_source` 动态显示，不再把事件累计重建误写成余额快照。
-- 每个生成后的看板顶部都有 **Print / Save PDF** 按钮。点击后可以直接打印或在系统打印窗口选择“存储为 PDF”；打印版会切换为适合 A4 的白底布局、展开原本需要滚动的表格、隐藏临时交互控件，并在打印前后自动调整和恢复图表尺寸。
+- 每个生成后的看板顶部都有 **Print / Save PDF** 按钮。点击后可以直接打印或在系统打印窗口选择“存储为 PDF”；打印版会切换为适合 A4 的白底布局，让每张图单独占一整行，展开原本需要滚动的表格、隐藏临时交互控件，并在打印前后自动调整和恢复图表尺寸。
 - 撤池表区分“已量化金额”“只有 liquidity delta 信号”和“无法映射”三种证据。V4 `ModifyLiquidity` 未提供 token amount 时显示 `Token amount not returned`，依赖金额的列显示 `Cannot calculate`，不再误写成 `0.0000`；真正测得的 0 仍保留为 0。
 
 ```bash

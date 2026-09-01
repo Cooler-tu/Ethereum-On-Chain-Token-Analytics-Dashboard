@@ -13,6 +13,7 @@
 - 核心分析流水线、Uniswap V1–V4、Curve、Balancer V2、Dashboard、Parquet 分析表和本地 Studio 已可运行。
 - TURBO 30 日案例完成了池级储备、成交量、价格、LP gross/net flow 和异常交易证据检查。
 - FTT、CEL、GALA 已完成冻结窗口、稳健性检验和跨案例统一校正。
+- 所有生成后的币种看板顶部现有 `Print / Save PDF`：使用浏览器原生打印/保存 PDF，打印版为 A4 白底、完整展开滚动表格，并在打印前后调整和恢复 Chart.js 图表尺寸。
 - 跨案例结果没有发现可迁移的独立价格预测变量。Transfer 净流、净 LP 流、累计 LP 活动和目标库存集中度不再作为独立崩盘预测器。
 - LOW / MEDIUM / HIGH Risk Index 仅用于启发式筛查，不是崩盘概率或经过大样本校准的预测模型。
 - Dashboard 的高风险歧义文案已完成修正和人工验收；GitHub Actions 已配置为在 push / pull request 时运行回归测试，Pages 只在测试通过后构建和部署。当前工作方向是输出存储策略和交付收口。八案例事件面板、Position Manager 全量追踪、深层钱包归属、多链和实时监控均暂缓。

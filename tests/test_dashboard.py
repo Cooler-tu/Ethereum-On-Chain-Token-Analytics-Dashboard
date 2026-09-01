@@ -168,6 +168,22 @@ class IdentifierUxTest(unittest.TestCase):
         self.assertIn("fallbackCopyIdentifier", script)
         self.assertIn("identifierHtml(p.address)", script)
 
+    def test_dashboard_supports_print_and_save_pdf(self):
+        dashboard._load_templates()
+        script = dashboard._JS_TEMPLATE or ""
+        template = dashboard._HTML_TEMPLATE or ""
+
+        self.assertIn('id="print-dashboard"', template)
+        self.assertIn("Print / Save PDF", template)
+        self.assertIn("@media print", template)
+        self.assertIn("max-height:none!important", template)
+        self.assertIn("const dashboardCharts = []", script)
+        self.assertIn("function printDashboard", script)
+        self.assertIn("window.print()", script)
+        self.assertIn("beforeprint", script)
+        self.assertIn("afterprint", script)
+        self.assertIn("dashboardCharts.push(chart)", script)
+
     def test_top_holder_chart_reveals_and_copies_full_address(self):
         dashboard._load_templates()
         script = dashboard._JS_TEMPLATE or ""

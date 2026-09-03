@@ -66,24 +66,29 @@
 - **Advisor-facing visual research notebook** (2026-09-01) — added `notebooks/liquidity_analysis_visual_review.ipynb` with embedded outputs and compact saved chart data. Five figures expose the raw time series, TURBO gross-versus-net accounting, FTT/CEL/GALA uncertainty, original scatter points, and GALA inventory validation so conclusions can be reviewed beyond standalone correlation coefficients.
 - **Published-dashboard data completeness refresh** (2026-09-01) — replaced the stale CRV Curve multi-coin demo with a fresh dominant CRV/WETH V3 5,000-block run (532 swaps, 17 hourly buckets), added an OM pre-incident 10,000-block preview (789 swaps, 35 volume buckets), and reduced the landing page from 10 cards to 7 evidence-bearing cases by withholding incomplete CREDI/NCR and one-block SPX placeholders.
 - **Dashboard print / PDF export** (2026-09-01) — added a shared `Print / Save PDF` action to every generated dashboard, with an A4 light print layout, full-width single-row chart cards, square centered doughnut/pie canvases, uncropped tables, print-safe Chart.js resizing, restored interactive sizing after print, and regression coverage.
+- **LP-whale withdrawal study design** (2026-09-02) — froze the plain-language first-pass methodology in `research-notes/lp-whale-withdrawal-study-design-zh.md`: pool-relative active-liquidity shares, material withdrawal ratios, adaptive campaign grouping, real-time plus pool-relative market-time windows, recent-data limits, sensitivity checks, and anti-misleading display rules.
+- **TURBO LP-whale 90-day feasibility notebook** (2026-09-02) — executed `notebooks/turbo_lp_whale_feasibility.ipynb` over blocks `25241305–25886879`, recovered 451 pre-Burn NFT states, identified one EOA behind 446/447 main-gate events, and showed that almost all were followed by new-NFT reconstruction rather than independent permanent exits. Saved four embedded figures and compact CSVs under `notebooks/data/turbo_lp_whale/`; interpretation and user-owned decision points are recorded in `research-notes/turbo-lp-whale-feasibility-results-zh.md`.
 
 ---
 
 ## 🎯 Current
 
-- **Advisor review package** — manually review the concise Chinese narrative together with the executed visual notebook; settle the artifact publication policy after feedback. Do not collect additional incidents without a stronger mechanism or explicit external requirement.
+- **TURBO LP-whale feasibility review** — inspect the executed notebook and decide whether to continue as a dominant-automation case, restrict the next phase to non-rebuilt exits, or switch/add a token with multiple independent LP whales. No decision tree or expansion runs before user review.
 
 ---
 
 ## 📋 Backlog (ordered by priority)
 
-1. **Advisor review feedback** — confirm whether the saved notebook figures and plain-language conclusions are sufficient for the final submission; revise presentation before adding analyses.
-2. **Artifact publication policy** — keep compact summaries/reports/site files in Git while large canonical event tables remain local or external.
-3. **Incident registry and event-study panel (deferred)** — resume only with a stronger joint-response mechanism or an explicit research requirement; keep the frozen eight-case gate and pre-registration rules if resumed.
-4. **Directional flow full-window expansion (deferred)** — resume only if a broader event panel shows signed-flow value beyond mechanical reconciliation.
-5. **Dashboard pool identity / custody cleanup (deferred beyond acceptance fixes)** — redesign deeper V4 identity/custody views only when evidence requires it.
-6. **Deep holder unwrap (deferred)** — no wallet/router attribution until a broad effect merits mechanism tracing.
-7. **Multi-chain / real-time monitoring (deferred)** — add more chains only after Ethereum evidence and product demand justify it.
+1. **User decision on TURBO scope** — decide whether the next notebook treats TURBO as an automated dominant-LP case, filters for non-rebuilt exits, or changes/adds a token with several independent whales.
+2. **Collect and post-withdrawal path trace (conditional)** — only after user approval, trace principal/fee collection and possible sale paths for the retained events; do not treat new-NFT rebalancing as exit.
+3. **Cross-token comparable LP-whale notebook (conditional)** — reuse the same `S/E/R`, adaptive campaign, real-time, and pool-relative market-time definitions after the next token is selected.
+4. **Advisor review feedback** — keep the existing visual notebook and concise Chinese narrative available for submission revisions without mixing the old correlation study into the new LP-whale findings.
+5. **Artifact publication policy** — keep compact summaries/reports/site files in Git while large canonical event tables remain local or external.
+6. **Incident registry and event-study panel (deferred)** — resume only with a stronger joint-response mechanism or an explicit research requirement; keep the frozen eight-case gate and pre-registration rules if resumed.
+7. **Directional flow full-window expansion (deferred)** — resume only if a broader event panel shows signed-flow value beyond mechanical reconciliation.
+8. **Dashboard pool identity / custody cleanup (deferred beyond acceptance fixes)** — redesign deeper V4 identity/custody views only when evidence requires it.
+9. **Deep holder unwrap (deferred)** — no wallet/router attribution until a broad effect merits mechanism tracing.
+10. **Multi-chain / real-time monitoring (deferred)** — add more chains only after Ethereum evidence and product demand justify it.
 
 ---
 

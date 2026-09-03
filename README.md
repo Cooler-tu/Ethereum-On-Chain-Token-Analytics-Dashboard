@@ -27,6 +27,7 @@ End-to-end **Ethereum mainnet** tool for token liquidity / crash analysis: disco
 
 | Token | Window | Pools | Holders | Risk | Date | Dir |
 |-------|--------|-------|---------|------|------|-----|
+| TURBO LP-whale feasibility | 25241305–25886879 (latest frozen 90d) | 1 dominant TURBO/WETH V3 pool | 2 observed owners in main gate; 446/447 events from one EOA | Research: repeated new-NFT rebalancing, not independent exits | 2026-09-02 | `notebooks/turbo_lp_whale_feasibility.ipynb` |
 | CRV chart refresh | 25875738–25880738 | 1 dominant CRV/WETH V3 pool | Pool-scoped Transfers; holder ranking skipped | 0.1971 LOW (short-window heuristic) | 2026-09-01 | `output-crv-univ3-5000-25880738/` |
 | OM event preview | 22251846–22261846 | 7 OM pools (V2/V3) | Pool-scoped Transfers; holder ranking skipped | 0.3346 LOW (DEX-only heuristic) | 2026-09-01 | `output-om-event-10k/` |
 | GALA incident/control | 19698731–20127891 (two frozen 30d windows) | 2 GALA/WETH (V2/V3) | Pool-scoped Transfers; holder ranking skipped | Research: 0/3 inventory hypotheses confirmed; hand-selected line closed | 2026-08-29 | `output-gala-control-30d/` + `output-gala-event-30d/` |
@@ -53,6 +54,9 @@ End-to-end **Ethereum mainnet** tool for token liquidity / crash analysis: disco
 
 ### Recent Findings (TURBO)
 
+- The executed 90-day LP-whale notebook traces 3,879 Swaps, 455 Mints, and 460 Burns in the dominant TURBO/WETH V3 pool. Exact same-transaction amount matching recovers NFT tokenIds for 453/455 Mints and 451/460 Burns; 451 pre-withdrawal historical states are available.
+- The conservative `S_nft >= 5%`, `E >= 1%` gate yields 447 events, but 446 belong to one EOA. Its active NFT usually controls about 98.27% of current in-range pool liquidity, is fully removed, and is followed by a new-NFT Mint by the same controller: 381 within one hour, 445 within 24 hours, and 446 within seven days. The median wait is about eight minutes; 387 re-adds reuse the same tick range.
+- Withdrawals occur near the middle of the LP range (median normalized location 0.4975), with only about 0.45% inside either outer 10% edge. This looks more like repeated position recreation than a set of independent whale exits, but the trigger is not classified yet. Dual-time market outcomes are descriptive only because events overlap heavily and the sample trend is downward. Review: `research-notes/turbo-lp-whale-feasibility-results-zh.md`.
 - The 30-day pool-level run covers blocks `25580851–25796850`, 5 verified pools, 1,040 swaps, 640 pool liquidity events, and 10,395 transfers. Position Manager history was intentionally skipped, so LP NFT identity and LP concentration remain unavailable rather than zero.
 - The main TURBO/WETH V3 pool holds 98.28% of measured target-token reserves and contributes 98.71% of measured TURBO volume. These are measured target-reserve/volume shares, not full USD-liquidity market shares.
 - Across measured LP events, 212 additions supplied 1,864.46M TURBO and 214 removals withdrew 1,865.73M TURBO, for a net LP flow of only `-1.2675M TURBO`. Gross removals therefore overstate permanent exit because capital can be removed and re-added.
@@ -311,6 +315,7 @@ See `SUPPORTED_PROTOCOLS.md` for contract addresses and notes.
 
 | Token | 窗口 | 池子 | 持有者 | 风险 | 日期 | 目录 |
 |-------|------|------|--------|------|------|------|
+| TURBO LP 大户可行性 | 25241305–25886879（冻结的近期 90 天） | 1 个占主导的 TURBO/WETH V3 池 | 主门槛中 2 个观测所有者；446/447 次来自一个 EOA | 研究：反复用新 NFT 重建，不是独立退出 | 2026-09-02 | `notebooks/turbo_lp_whale_feasibility.ipynb` |
 | CRV 图表补全 | 25875738–25880738 | 1 个占主导的 CRV/WETH V3 池 | 仅池级 Transfer；跳过 holder 排名 | 0.1971 低（短窗口启发式） | 2026-09-01 | `output-crv-univ3-5000-25880738/` |
 | OM 事件预览 | 22251846–22261846 | 7 个 OM 池（V2/V3） | 仅池级 Transfer；跳过 holder 排名 | 0.3346 低（仅 DEX 启发式） | 2026-09-01 | `output-om-event-10k/` |
 | GALA 事件/对照 | 19698731–20127891（两个冻结的 30 天窗口） | 2 个 GALA/WETH（V2/V3） | 仅池级 Transfer；跳过 holder 排名 | 研究：0/3 库存假设确认；人工挑选案例线关闭 | 2026-08-29 | `output-gala-control-30d/` + `output-gala-event-30d/` |
@@ -337,6 +342,9 @@ See `SUPPORTED_PROTOCOLS.md` for contract addresses and notes.
 
 ### 近期发现（TURBO）
 
+- 已执行的 90 天 LP 大户 Notebook 覆盖主导 TURBO/WETH V3 池 3,879 次 Swap、455 次 Mint、460 次 Burn。通过同一交易、同方向、金额精确一致的匹配，恢复 453/455 次 Mint 和 451/460 次 Burn 的 NFT tokenId，并成功读取 451 个撤资前历史状态。
+- 保守门槛 `S_nft >= 5%`、`E >= 1%` 得到 447 个事件，但 446 个来自同一个 EOA。其活跃 NFT 通常控制当时约 98.27% 的区间内有效流动性，随后被全部撤出，再由同一控制者使用新 NFT 重建：381 次在 1 小时内、445 次在 24 小时内、446 次在 7 天内；中位等待时间约 8 分钟，387 次重用了相同 tick 区间。
+- 撤资发生位置接近 LP 区间中部（标准化位置中位数 0.4975），只有约 0.45% 位于上下边缘 10% 区域。当前证据更像反复重建仓位，而不是一组相互独立的大户退出，但尚未替研究负责人判断具体触发机制。双时间尺度市场结果只作描述，因为事件高度重叠且样本期总体下行。复核见 `research-notes/turbo-lp-whale-feasibility-results-zh.md`。
 - 30 天池级扫描覆盖区块 `25580851–25796850`，包含 5 个已验证池、1,040 笔 Swap、640 条池级流动性事件和 10,395 条 Transfer。此次主动跳过 Position Manager，因此 LP NFT 身份和 LP 集中度应视为未采集，而不是零。
 - TURBO/WETH V3 主池占已测目标代币储备的 98.28%，贡献已测 TURBO 成交量的 98.71%。这些是目标代币储备和成交量占比，不是完整 USD 流动性市场份额。
 - 已量化 LP 事件中，212 次添加共加入 1,864.46M TURBO，214 次移除共撤出 1,865.73M TURBO，但净 LP 流量只有 `-1.2675M TURBO`。资金可以撤出后重新加入，因此累计移除明显高估永久退出规模。

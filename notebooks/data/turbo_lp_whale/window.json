@@ -1,0 +1,11 @@
+{
+  "token": "0xA35923162C49cF95e6BF26623385eb431ad920D3",
+  "pool": "0x7baecE5d47f1BC5E1953FBE0E9931D54DAB6D810",
+  "position_manager": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+  "from_block": 25241305,
+  "to_block": 25886879,
+  "from_utc": "2026-06-04T03:20:59+00:00",
+  "to_utc": "2026-09-02T03:20:59+00:00",
+  "window_days": 90,
+  "stable_confirmations": 64
+}

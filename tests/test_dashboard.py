@@ -17,6 +17,7 @@ from src.analysis.dashboard import (
     _pool_liquidity_presentation,
     _price_chart_presentation,
     _rank_non_pool_holders,
+    _table_withdrawal_addresses,
     _table_withdrawal_summary,
     _table_withdrawals,
     _table_pool_ident,
@@ -387,6 +388,15 @@ class DashboardMetricSemanticsTest(unittest.TestCase):
                         "quantification_status": "quantified",
                         "removed_target_decimal": 0.0,
                     },
+                    {
+                        "block_number": 99,
+                        "pool_address": "0x" + "22" * 20,
+                        "protocol": "uniswap",
+                        "version": "v3",
+                        "event_count": 1,
+                        "quantification_status": "quantified",
+                        "removed_target_decimal": 1.5,
+                    },
                 ],
             }
         }
@@ -396,8 +406,10 @@ class DashboardMetricSemanticsTest(unittest.TestCase):
 
         self.assertIn("Token amount not returned", rendered)
         self.assertIn("Cannot calculate", rendered)
-        self.assertIn("-779,119,453,124,748", rendered)
-        self.assertIn("0.0000 TST", rendered)
+        self.assertNotIn("-779,119,453,124,748", rendered)
+        self.assertNotIn("Raw Liquidity Change", rendered)
+        self.assertNotIn("0.0000 TST", rendered)
+        self.assertIn("1.5000 TST", rendered)
         self.assertIn("uniswap v4", rendered)
         self.assertIn("6 removal actions detected", note)
         self.assertIn("Amount known: 1 · Amount missing: 5", note)
@@ -420,9 +432,31 @@ class DashboardMetricSemanticsTest(unittest.TestCase):
 
         rendered = _table_withdrawal_summary(metrics, "TST")
 
-        self.assertIn("Cumulative Removed / Reference Pool Estimate", rendered)
-        self.assertIn("1417.29%", rendered)
+        self.assertNotIn("Cumulative Removed / From-block Estimate", rendered)
+        self.assertNotIn("100.00%", rendered)
         self.assertNotIn("% Pool TVL", rendered)
+        self.assertIn("Removed (TST)", rendered)
+
+    def test_withdrawal_address_table_ranks_actors(self):
+        metrics = {
+            "withdrawal_severity": {
+                "unattributed_withdrawals": 2,
+                "unattributed_removed_target_decimal": 1.5,
+                "per_address_removals": [{
+                    "address": "0x" + "11" * 20,
+                    "num_withdrawals": 4,
+                    "removed_target_decimal": 12.5,
+                    "removed_usd": 100.0,
+                    "from_block_tvl_share": 0.25,
+                    "versions": ["v4"],
+                }]
+            }
+        }
+        rendered = _table_withdrawal_addresses(metrics, "TST")
+        self.assertNotIn("Removed / From-block Estimate", rendered)
+        self.assertNotIn("25.00%", rendered)
+        self.assertIn("12.5000 TST", rendered)
+        self.assertIn("2 quantified removals have no address", rendered)
 
     def test_non_pool_holder_ranking_is_positive_descending_and_limited(self):
         rows = [
@@ -501,7 +535,8 @@ class DashboardMetricSemanticsTest(unittest.TestCase):
             generator_source,
         )
         self.assertIn("Liquidity Removal Activity (Cumulative, Not Permanent Exit)", template)
-        self.assertIn("Removed / Reference Pool Estimate", template)
+        self.assertNotIn("Removed / From-block Estimate", template)
+        self.assertIn("Top Addresses by Cumulative Removal", template)
         self.assertNotIn("% Pool TVL", template)
 
     def test_notable_wallet_table_uses_adaptive_labels_and_volume_share(self):

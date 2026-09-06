@@ -1,0 +1,3159 @@
+Resolved 'uPEG' → 0x44b28991B167582F18BA0259e0173176ca125505 (uPEG) via dexscreener
+Other candidates (use --pick N):
+  [0] uPEG (Unipeg)  0x44b28991B167582F18BA0259e0173176ca125505  liq=$1,528,298
+  [1] uPEG (Unipeg)  0x2370fD37C55cBd0006Cb0C52C213411a547c4C6c  liq=$661,523
+  [2] PNKSTR (PunkStrategy)  0xc50673EDb3A7b94E8CAD8a7d4E0cD68864E33eDF  liq=$483
+  [3] UNIBOT (Unibot)  0xf819d9Cb1c2A819Fd991781A822dE3ca8607c3C9  liq=$3
+  [4] SUSHI (Sushi v4)  0xc0F8F4C953916Ad2774E6b51610DE85F2f2b80C0  liq=$2
+[1/12] Profiling token ...
+  Symbol: uPEG, Decimals: 18 (onchain)
+  time: [1/12] Profile token done in 1.8s
+[2/12] Discovering pools ...
+  Dune: querying pools + pools_v4 in parallel (cached under output-upeg-may-2026/dune_cache) ...
+  [cache hit] pools_v4 (16 rows)
+  Dune: cache hit
+  [cache hit] pools (2 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (14 rows)
+  Dune: cache hit
+  [cache hit] pools (2 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (9 rows)
+  Dune: cache hit
+  [cache hit] pools (2 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (14 rows)
+  Dune: cache hit
+  [cache hit] pools (2 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (11 rows)
+  Dune: cache hit
+  [cache hit] pools (2 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (15 rows)
+  Dune: cache hit
+  [cache hit] pools (2 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (10 rows)
+  Dune: cache hit
+  [cache hit] pools (2 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (14 rows)
+  Dune: cache hit
+  [cache hit] pools (2 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (14 rows)
+  Dune: cache hit
+  [cache hit] pools (2 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (14 rows)
+  Dune: cache hit
+  [cache hit] pools (2 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (13 rows)
+  Dune: cache hit
+  [cache hit] pools (2 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (14 rows)
+  Dune: cache hit
+  [cache hit] pools (2 rows)
+  Dune: cache hit
+  [cache hit] pools (2 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (13 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (14 rows)
+  Dune: cache hit
+  [cache hit] pools (2 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (16 rows)
+  Dune: cache hit
+  [cache hit] pools (2 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (18 rows)
+  Dune: cache hit
+  [cache hit] pools (2 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (17 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (16 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (16 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (17 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (13 rows)
+  Dune: cache hit
+  [cache hit] pools (2 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (16 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (15 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (14 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (9 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (11 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (11 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (10 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (9 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (13 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (13 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (15 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (15 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (14 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (14 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (10 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (12 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (13 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (8 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (9 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (10 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (9 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (6 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (9 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (8 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (6 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (8 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (10 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (8 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools (2 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (6 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (9 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (9 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (10 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (7 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (8 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (8 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (7 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (8 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (8 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (9 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (8 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (8 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (7 rows)
+  Dune: cache hit
+  [cache hit] pools (2 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (7 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (7 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (7 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (7 rows)
+  Dune: cache hit
+  [cache hit] pools (2 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (7 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (7 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (11 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (9 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (9 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (9 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (8 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (6 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (10 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (7 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (10 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (8 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (10 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (8 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (6 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (10 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (9 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (9 rows)
+  Dune: cache hit
+  [cache hit] pools (2 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (9 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (8 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (8 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (9 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (8 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (10 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (10 rows)
+  Dune: cache hit
+  [cache hit] pools (5 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (9 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (11 rows)
+  Dune: cache hit
+  [cache hit] pools (5 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (9 rows)
+  Dune: cache hit
+  [cache hit] pools (5 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (9 rows)
+  Dune: cache hit
+  [cache hit] pools (5 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (6 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (9 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (10 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (6 rows)
+  Dune: cache hit
+  [cache hit] pools (3 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (10 rows)
+  Dune: cache hit
+  [cache hit] pools (5 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (10 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (9 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (6 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (8 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (10 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (10 rows)
+  Dune: cache hit
+  [cache hit] pools (5 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (10 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (11 rows)
+  Dune: cache hit
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (11 rows)
+  Dune: cache hit
+  [cache hit] pools (5 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (11 rows)
+  Dune: cache hit
+  [cache hit] pools_v4 (6 rows)
+  Dune: cache hit
+  [dune] pools_v4: 1139 rows across chunked window
+  [cache hit] pools (4 rows)
+  Dune: cache hit
+  [dune] pools: 364 rows across chunked window
+  Dune: 364 row(s) → 252 mapped pool(s)
+  Dune V4: 70 poolId(s); discovery queries done in 222.7s
+  RPC discovery: skipped (rpc_mode=off)
+  Found 76 candidate(s)
+  time: [2/12] Discover pools done in 3m 42.7s — 76 candidate(s)
+[3/12] Verifying pools ...
+  OK 0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775
+  OK 0x21ff5cf76f562c6fb3871b59133a9e214ebc0078
+  OK 0x84a69fcd071d5c36ef9ca3a31b1ff3aefb314230
+  OK 0x1f7f95f5d7b53df049d3215ba657b00591b2a117
+  OK 0x7059a9f16dd2405aef3dd4f70a89127ce577a890
+  OK 0x38f0ddc5e8c7dc5cc820bdb0204850e7743fe661
+  OK 0x94af294207a2c592c08a39c82a7df42a18613d986eeb520b7164fe9ccd66a000
+  OK 0xc28dd8d8f8d1eaca22fb881602122aed85002e1cc2e8b14c9cfa18bffeb54433
+  OK 0x2a1c3953050d960207992c60878c7371cfab656c2e55c61d10c2a8693559cd21
+  OK 0xb7c869a2daedbdb2dcc5957d42c7e1385da91298483036bd517b82f81d1acfce
+  OK 0x370004836a5867fef3de3a94b5abd10081c5558c86a7e53f0cde312139a6fac1
+  OK 0x988d0e049acb602555383fb8742432daa8d9928e8dc8e9d2b7d25766932d5002
+  OK 0x98690b7a207b0b1b1bc275be7f4442a69c4624478b19c38dc2ecdd270cac737c
+  OK 0xa28b1e4224e9096d88da48b9a884b77dde28b3434490738964d81f4b8683373f
+  OK 0x18aeda83c51876cab01f5896839c9863d7fb30ca024e4479cc4984e7d835ec7a
+  OK 0xb9fb10f0e0bd7f4def1802826e9c8ab0b19ac1b8312569a8b5fc6574088f0c04
+  OK 0xb012158ed2a12fa4d54d6078fd19dc2ff2b8b479f039fb430639e7b8b3fa401b
+  OK 0x2b19b55ee60ebf4bddda01f9b59f4e11987e74db3d2831837289918efe983a9e
+  OK 0x3013c855e97b2861b67fc8ec4508dd8b53fda4279a2a7befe3aba68595c392bc
+  OK 0x9c97f57d2ec2f439955e227fbefc3c959156153c076aadb7bc4d7522a415e155
+  OK 0x42567436737c72a63d500e0eb7e966c18fdfbf8e79eca8e71159db655f9a6a4c
+  OK 0x3bf9b5634cc2d0656a96e1eee87c66b9d112e6b84fd6c01c7c30ce9518607f74
+  OK 0x8c491203056268a09b4e7dd44412264d549098ff91bf517987f8d77835060d1a
+  OK 0xd3bf4d2291bdc3898f5e41dcbd0e75e136ff7876c6e082bbbde78af40b4c2956
+  OK 0xe15f9f3f3240058b21ad4419f9d3e0804ee4b71ca51b77e8ea119836ba82ccab
+  OK 0x26e8261cc6818e69e7926023caac645ffbce078c293ffa53503a3f7a965a4585
+  OK 0x66a7c996260db9c004543c1c89590cda18a5da4d46d7c55b539a3e3451e472bf
+  OK 0x294e13af91517ae55dce220995256ce91354c706e149c42ece7b2e832c6aff50
+  OK 0x5c6fd7f61ee184fdad2806fd545999deb652d93f8860b5b9612bd0363dc83c1b
+  OK 0x671b836ddc053ac124488ddbb6df9dca252d2f371dbeabbeb8014330b28b9cbc
+  OK 0x259d3ac6dc6d22ac5aebdba55ba32bf3bcc5dd62b954d4873b2cd562259850ee
+  OK 0xf270c08ef034d21c6876fafe98d3eb52bacbecf079b5ad7e7726fac440a92765
+  OK 0xa871c0036ce8c1924b270d0959b53c9dbee487daf838e8b18d461a920dc920ea
+  OK 0x84c001afaadf5a6274c193f407fb46bf506bd2bba26adf445449db0fa82cae6b
+  OK 0x164b050a0bf1cf6ab681b816079c8189c3f5c85cda7c56018b190c4773378b98
+  OK 0xe7e394a49ecc14872b8c9d46c08a3f3f11f260a7551cca4f603756990bc35a85
+  OK 0x107f141b19cfd7af731a703879804f76faf149306401e20b79e7658628ba5068
+  OK 0x5b79ce32645ec46aaa51307802960b489f0fd56b08040150c8c993d554935ce8
+  OK 0x94bf9aab89d34e08f4d44a2943891fa62588e8d8f1f41a573a2feea93ca2229c
+  OK 0x068b37a47765f2e31627c393a6c2d98b02074513d3d21b6cae83c3ebed4e683a
+  OK 0x92769929ecff6d161308b015e7670b328804fcfed576456c2cae9767fbb9adba
+  OK 0x441bab9a4fcd0b66c468f5c95da009df2afb4c643fe5896d6f1bdbe0e7587efc
+  OK 0x544d66103b8d3e6c255af7c28ba9966d316185082d2c875cefc7422672a8b319
+  OK 0xc8937427429afbceb80f241231f8379a7887477b658c4bbcae75feedc9817ea4
+  OK 0x764cae8c179a641f7243730f38ab8a9d67bd03bac7bb621d88c94681e0287851
+  OK 0x119cc2add902dda084da03214a3235885483912cd0ec4fe3be976d94c48fe8e1
+  OK 0xc6cea77726a4cfb835390801451b9abe851e4050a9fa8a0e2eea339f880af3b4
+  OK 0x8877375e74d6fbdc8a9eb13965e700978706f84c03eb3d77a268404fb5b905eb
+  OK 0x59d5a83844df52e9495e6c885b9c07130e13f28d02347a33755eb5c72b1498d3
+  OK 0xa944c7cf77b6888f13b6fa3748e12dc7d57334237144d6df017bbaf7c9bb7a1d
+  OK 0x7a56c469e9727bbb01e0f42055803949e23609b2d632b0431c92f558a4e96e4b
+  OK 0xd470e7683562410bf7c285d397b406cf95c4bb1fe76d9f62c28c6dc219627060
+  OK 0x5615ef19f5d58bf6978c08015b7b5aa77f0621a00836e346c9cf06c9a6d28194
+  OK 0xe1dfa27c22e8a4911ce89c59c71fe0cbf837546f23dc2c49d3113fb1a8241483
+  OK 0x56eae85a7de857bdc12f98393a3b0491aaaf401189a179cc709ceba3b5dd1f50
+  OK 0xae5bae18a16bd7a28c1b03f24a0ac2f388fcad823e15eaffe31f8b463f404fbd
+  OK 0xab5f53b6bc7e9ca014489e1c1595517fa4d94b4872ffb023206de0899069a365
+  OK 0x47ef2bd048f889c7091404560b06be10e1031c5541ecc20cd255a85c0ff6809c
+  OK 0x544996a0f41bce0871fa4485d4f8835a65d7d0d7a99f5d72eb0957e6772e9685
+  OK 0x706d677bba3b0a0ddff09678269e43c060c9b7263fd702f50e1f6f6b0466bd32
+  OK 0x597235f24354d6508e778666fe95feb432eeb341766df2937f2dfc124299a47e
+  OK 0x9eb7d0531440d7520f3b5dde36bf0053be8497c99f323ea953dd86bcdebee490
+  OK 0xaacaafb47e412e1a8a15a698906690acac58cbc187199b3cda7d8cbe7a3e0100
+  OK 0x6fe1e0edb697f1e215c3cdcbbd8f9a4564e489458300d2b3c4b3720a9dd8d1fa
+  OK 0x64e37a74f16260bf7e129738c97555bee0ffc8031309f701deafbbc26d70a950
+  OK 0x5f7e34c11e013d3e4705ba97a0aada2af1310f4bb355451f08e3317a332e790a
+  OK 0xc3a40cd218b9be0669384c7f9f3390ba1489b2d72ac9102135eeb12991a95e69
+  OK 0x00c70fc4efec0f8cef6330825bdff9dd1fd07face3826ee7bfe3ba46266263de
+  OK 0x3e14a5d55b76b4ad9b698809721e11dce6c48e53c8e65a40f68b493cfdad002e
+  OK 0x1235a283238d61b99e68a912095405df4d7e4ec8756e6877c0fe6e035aed389e
+  OK 0x27aa4d6cc3ffe76b1cffc1a421788bba00091d96daac5e6c0e7127348a3733b3
+  OK 0x3384eed0895713f29074d59bd375d099f0f54756d12390a76c3eb5352b6ad684
+  OK 0xf1797ebb2fea5a6f9a834bd95a3da9119b9f93cd57261352f2763f1fba0ff639
+  OK 0x952155ca1ffb8832cf9546fea165ac01c70eec983f8d637ba156e55c58a8fa23
+  OK 0x6fc16e0c34e21b9656257d6af773bd31e4b7b176331bfb8abde0f65d04d5d472
+  OK 0x20f992d417c418925bad4d8cd8915b663c1816fc727550c72fb131b861dbde28
+  76 verified / 76 total
+  time: [3/12] Verify pools done in 4m 13.8s — 76 verified
+[4/12] Analyzing holdings (leaderboard before LP) ...
+  [dune] holders [24996368-25218797] …
+  [holdings] holders (daily_updates) skipped (Dune SQL execution QUERY_STATE_FAILED: credits/payment unavailable: {"execution_id":"01M1G92KVHQ2HFWQ04KSBWFQPN","query_id":0,"is_execution_finished":true,"state":"QUERY_STATE_FAILED","submitted_at":"2026-09-02T05:22:10.930382Z","expires_at":"2026-12-01T05:22:11.214133Z","execution_cost_credits":0,"error":{"type":"FAILED_TYPE_EXECUTION_FAILED","message":"delta_prod.balances_ethereum.daily_updates does not exist or it is private [Execution ID: 01M1G92KVHQ2HFWQ04KSBWFQPN]"}}); trying holders_from_transfers
+  [cache hit] holders_from_transfers (15718 rows)
+  [dune] balances …
+  [holdings] Dune balances skipped (Dune SQL execution QUERY_STATE_FAILED: credits/payment unavailable: {"execution_id":"01M1G92N6ZZMXVWRYHH8M58MAN","query_id":0,"is_execution_finished":true,"state":"QUERY_STATE_FAILED","submitted_at":"2026-09-02T05:22:12.320195Z","expires_at":"2026-12-01T05:22:12.457119Z","execution_cost_credits":0,"error":{"type":"FAILED_TYPE_EXECUTION_FAILED","message":"delta_prod.balances_ethereum.latest does not exist or it is private [Execution ID: 01M1G92N6ZZMXVWRYHH8M58MAN]"}}); will use RPC balanceOf
+  [holdings] RPC balance budget: 7 pool + 73 non-pool (of 7 pool / 15711 non-pool missing)
+  source=dune, balances=dune+rpc
+  15711 ranked holders; LP will only check top 100
+  time: [4/12] Holdings done in 5m 14.1s
+[5/12] Analyzing positions (leaderboard owners only) ...
+  V3/V4 LP snapshot via Dune; filter to ranked holder addresses
+  [cache hit] positions_uniswap_v3_snapshot (0 rows)
+  [positions] Dune V3 snapshot: 0 open NFT(s)
+  [positions] Dune V3 empty — falling back to RPC
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (107 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (83 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (41 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (41 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (60 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (71 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (25 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (34 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (46 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (31 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (49 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (18 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (7 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (9 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (21 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (12 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (18 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (4 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (11 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (8 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (12 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (2 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (9 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (10 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (3 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (9 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (7 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (7 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (5 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (2 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (1 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (3 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (2 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (5 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (2 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (1 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (1 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (1 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (3 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (1 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (1 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (1 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (3 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (1 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (2 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (6 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (2 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (2 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (1 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (1 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (1 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (1 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (1 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (2 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (3 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (2 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (6 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (1 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (1 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (2 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (1 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (2 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (2 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (1 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (2 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (1 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (2 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (1 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (1 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (3 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (1 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (2 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (1 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (1 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (1 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (1 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (1 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (1 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (2 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (2 rows)
+  [cache hit] liquidity_uniswap_v3_npm_token_ids (0 rows)
+  [dune] liquidity_uniswap_v3_npm_token_ids: 851 rows across chunked window
+  [positions] Dune Mint→NPM tokenIds: 851 candidate(s)
+  [cache hit] positions_uniswap_v4_liquidity (133 rows)
+  [cache hit] positions_nft_owners (129 rows)
+  [positions] Dune V4: 130 open salt(s), 129 owner(s)
+  [positions] leaderboard filter: 157 → 0 (100 allowlisted)
+  0 position(s), 0 unique holder(s)
+  note: none of the ranked holders have open LP at to_block (or Dune snapshot empty)
+  time: [5/12] Positions done in 8m 27.0s
+[6/12] Indexing events (chunk-level resume enabled; Ctrl+C is safe) ...
+  Progress: output-upeg-may-2026/indexer_cache + event_indexer_checkpoint.json
+  Indexing via Dune (source=auto) ...
+  Dune index: swaps + pool/block liquidity aggregates + ERC20 Transfer (cache output-upeg-may-2026/dune_cache/index_24996368_25218797) ...
+  Dune: fetching 11 independent query job(s) in parallel ...
+  [cache hit] swaps (5699 rows)
+  [cache hit] liquidity_uniswap_v2_mint (0 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (381 rows)
+  [cache hit] liquidity_uniswap_v3_burn (140 rows)
+  [cache hit] liquidity_uniswap_v3_mint (134 rows)
+  [cache hit] swaps (3438 rows)
+  [cache hit] liquidity_uniswap_v2_mint (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (91 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (334 rows)
+  [cache hit] liquidity_uniswap_v3_burn (95 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (145 rows)
+  [cache hit] liquidity_uniswap_v3_mint (51 rows)
+  [cache hit] swaps (2103 rows)
+  [cache hit] liquidity_uniswap_v2_mint (0 rows)
+  [cache hit] liquidity_uniswap_v3_burn (54 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (189 rows)
+  [cache hit] liquidity_uniswap_v3_mint (45 rows)
+  [cache hit] swaps (2179 rows)
+  [cache hit] liquidity_uniswap_v3_burn (48 rows)
+  [cache hit] liquidity_uniswap_v2_mint (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (238 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (73 rows)
+  [cache hit] liquidity_uniswap_v2_mint (0 rows)
+  [cache hit] swaps (2953 rows)
+  [cache hit] liquidity_uniswap_v3_burn (72 rows)
+  [cache hit] liquidity_uniswap_v4_modify (344 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (99 rows)
+  [cache hit] liquidity_uniswap_v2_mint (0 rows)
+  [cache hit] swaps (5434 rows)
+  [cache hit] liquidity_uniswap_v3_burn (117 rows)
+  [cache hit] liquidity_uniswap_v4_modify (272 rows)
+  [cache hit] liquidity_uniswap_v3_mint (46 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v2_mint (0 rows)
+  [cache hit] liquidity_uniswap_v3_burn (44 rows)
+  [cache hit] swaps (9128 rows)
+  [cache hit] liquidity_uniswap_v4_modify (212 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (57 rows)
+  [cache hit] liquidity_uniswap_v2_mint (0 rows)
+  [cache hit] liquidity_uniswap_v3_burn (71 rows)
+  [cache hit] swaps (4830 rows)
+  [cache hit] liquidity_uniswap_v4_modify (225 rows)
+  [cache hit] liquidity_uniswap_v3_mint (72 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v2_mint (0 rows)
+  [cache hit] liquidity_uniswap_v3_burn (86 rows)
+  [cache hit] swaps (6331 rows)
+  [cache hit] liquidity_uniswap_v4_modify (202 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (53 rows)
+  [cache hit] liquidity_uniswap_v2_mint (0 rows)
+  [cache hit] liquidity_uniswap_v3_burn (78 rows)
+  [dune] swaps [25014368-25016367] …
+  [cache hit] liquidity_uniswap_v4_modify (178 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (76 rows)
+  [cache hit] liquidity_uniswap_v2_mint (0 rows)
+  [cache hit] liquidity_uniswap_v3_burn (83 rows)
+  [waiting] swaps [25014368-25016367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (83 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (40 rows)
+  [cache hit] liquidity_uniswap_v2_mint (0 rows)
+  [cache hit] liquidity_uniswap_v3_burn (52 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (89 rows)
+  [cache hit] liquidity_uniswap_v3_mint (26 rows)
+  [cache hit] liquidity_uniswap_v2_mint (0 rows)
+  [cache hit] liquidity_uniswap_v3_burn (46 rows)
+  [cache save] swaps [25014368-25016367] (6595 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (57 rows)
+  [cache hit] liquidity_uniswap_v3_mint (14 rows)
+  [cache hit] liquidity_uniswap_v2_mint (0 rows)
+  [cache hit] liquidity_uniswap_v3_burn (27 rows)
+  [dune] swaps [25016368-25018367] …
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (42 rows)
+  [cache hit] liquidity_uniswap_v3_mint (31 rows)
+  [cache hit] liquidity_uniswap_v2_mint (0 rows)
+  [cache hit] liquidity_uniswap_v3_burn (36 rows)
+  [waiting] swaps [25016368-25018367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v3_mint (20 rows)
+  [cache hit] liquidity_uniswap_v4_modify (49 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v2_mint (0 rows)
+  [cache hit] liquidity_uniswap_v3_burn (25 rows)
+  [cache hit] liquidity_uniswap_v4_modify (89 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (29 rows)
+  [cache hit] liquidity_uniswap_v2_mint (1 rows)
+  [cache hit] liquidity_uniswap_v3_burn (40 rows)
+  [cache hit] liquidity_uniswap_v4_modify (16 rows)
+  [cache hit] liquidity_uniswap_v3_mint (13 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v2_mint (0 rows)
+  [cache hit] liquidity_uniswap_v3_burn (10 rows)
+  [cache hit] liquidity_uniswap_v4_modify (37 rows)
+  [cache hit] liquidity_uniswap_v3_mint (15 rows)
+  [cache hit] liquidity_uniswap_v2_burn (1 rows)
+  [cache hit] liquidity_uniswap_v2_mint (0 rows)
+  [cache hit] liquidity_uniswap_v3_burn (24 rows)
+  [cache hit] liquidity_uniswap_v4_modify (50 rows)
+  [cache hit] liquidity_uniswap_v2_burn (1 rows)
+  [cache hit] liquidity_uniswap_v3_mint (9 rows)
+  [cache hit] liquidity_uniswap_v2_mint (1 rows)
+  [cache hit] liquidity_uniswap_v3_burn (30 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (17 rows)
+  [cache hit] liquidity_uniswap_v3_mint (20 rows)
+  [cache hit] liquidity_uniswap_v2_mint (0 rows)
+  [cache hit] liquidity_uniswap_v3_burn (24 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (28 rows)
+  [cache hit] liquidity_uniswap_v3_mint (4 rows)
+  [cache hit] liquidity_uniswap_v2_mint (0 rows)
+  [cache hit] liquidity_uniswap_v3_burn (13 rows)
+  [cache save] swaps [25016368-25018367] (4649 rows)
+  [cache hit] liquidity_uniswap_v4_modify (58 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (18 rows)
+  [cache hit] liquidity_uniswap_v2_mint (0 rows)
+  [cache hit] liquidity_uniswap_v3_burn (20 rows)
+  [dune] swaps [25018368-25020367] …
+  [cache hit] liquidity_uniswap_v4_modify (32 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (14 rows)
+  [cache hit] liquidity_uniswap_v2_mint (0 rows)
+  [cache hit] liquidity_uniswap_v3_burn (25 rows)
+  [waiting] swaps [25018368-25020367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (19 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v2_mint (1 rows)
+  [cache hit] liquidity_uniswap_v3_mint (5 rows)
+  [cache hit] liquidity_uniswap_v3_burn (15 rows)
+  [cache hit] liquidity_uniswap_v4_modify (44 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v2_mint (1 rows)
+  [cache hit] liquidity_uniswap_v3_mint (15 rows)
+  [cache hit] liquidity_uniswap_v3_burn (24 rows)
+  [cache hit] liquidity_uniswap_v4_modify (23 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v2_mint (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (14 rows)
+  [cache hit] liquidity_uniswap_v3_burn (22 rows)
+  [cache hit] liquidity_uniswap_v4_modify (20 rows)
+  [cache hit] liquidity_uniswap_v2_mint (0 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (10 rows)
+  [dune] liquidity_uniswap_v3_burn [25050368-25052367] …
+  [waiting] liquidity_uniswap_v3_burn [25050368-25052367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (29 rows)
+  [cache hit] liquidity_uniswap_v2_mint (0 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (15 rows)
+  [cache save] swaps [25018368-25020367] (3075 rows)
+  [cache hit] liquidity_uniswap_v4_modify (27 rows)
+  [cache hit] liquidity_uniswap_v2_mint (0 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (6 rows)
+  [dune] swaps [25020368-25022367] …
+  [cache save] liquidity_uniswap_v3_burn [25050368-25052367] (10 rows)
+  [waiting] swaps [25020368-25022367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (55 rows)
+  [dune] liquidity_uniswap_v2_mint [25056368-25058367] …
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (9 rows)
+  [dune] liquidity_uniswap_v3_burn [25052368-25054367] …
+  [waiting] liquidity_uniswap_v2_mint [25056368-25058367] state=QUERY_STATE_PENDING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (40 rows)
+  [cache hit] liquidity_uniswap_v3_mint (5 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [waiting] liquidity_uniswap_v3_burn [25052368-25054367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (34 rows)
+  [cache hit] liquidity_uniswap_v3_mint (5 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache save] swaps [25020368-25022367] (2103 rows)
+  [cache save] liquidity_uniswap_v3_burn [25052368-25054367] (17 rows)
+  [cache hit] liquidity_uniswap_v4_modify (28 rows)
+  [cache hit] liquidity_uniswap_v3_mint (11 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache save] liquidity_uniswap_v2_mint [25056368-25058367] (1 rows)
+  [dune] swaps [25022368-25024367] …
+  [dune] liquidity_uniswap_v3_burn [25054368-25056367] …
+  [cache hit] liquidity_uniswap_v4_modify (27 rows)
+  [cache hit] liquidity_uniswap_v3_mint (3 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [waiting] swaps [25022368-25024367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_mint [25058368-25060367] …
+  [waiting] liquidity_uniswap_v3_burn [25054368-25056367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (21 rows)
+  [cache hit] liquidity_uniswap_v3_mint (1 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [waiting] liquidity_uniswap_v2_mint [25058368-25060367] state=QUERY_STATE_PENDING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (33 rows)
+  [cache hit] liquidity_uniswap_v3_mint (3 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache save] liquidity_uniswap_v3_burn [25054368-25056367] (10 rows)
+  [cache hit] liquidity_uniswap_v4_modify (24 rows)
+  [cache hit] liquidity_uniswap_v3_mint (2 rows)
+  [cache hit] liquidity_uniswap_v2_burn (1 rows)
+  [cache save] liquidity_uniswap_v2_mint [25058368-25060367] (0 rows)
+  [cache save] swaps [25022368-25024367] (3021 rows)
+  [dune] liquidity_uniswap_v3_burn [25056368-25058367] …
+  [cache hit] liquidity_uniswap_v3_mint (5 rows)
+  [cache hit] liquidity_uniswap_v4_modify (7 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [dune] liquidity_uniswap_v2_mint [25060368-25062367] …
+  [waiting] liquidity_uniswap_v3_burn [25056368-25058367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] swaps [25024368-25026367] …
+  [cache hit] liquidity_uniswap_v3_mint (1 rows)
+  [cache hit] liquidity_uniswap_v4_modify (36 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [waiting] swaps [25024368-25026367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_mint [25060368-25062367] state=QUERY_STATE_PENDING poll=1/240
+  [cache save] liquidity_uniswap_v3_burn [25056368-25058367] (18 rows)
+  [cache hit] liquidity_uniswap_v3_mint (11 rows)
+  [cache hit] liquidity_uniswap_v4_modify (22 rows)
+  [cache hit] liquidity_uniswap_v2_burn (1 rows)
+  [dune] liquidity_uniswap_v3_burn [25058368-25060367] …
+  [cache hit] liquidity_uniswap_v3_mint (1 rows)
+  [cache hit] liquidity_uniswap_v4_modify (16 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache save] liquidity_uniswap_v2_mint [25060368-25062367] (0 rows)
+  [waiting] liquidity_uniswap_v3_burn [25058368-25060367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v3_mint (6 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (16 rows)
+  [dune] liquidity_uniswap_v2_mint [25062368-25064367] …
+  [cache save] swaps [25024368-25026367] (2291 rows)
+  [cache hit] liquidity_uniswap_v3_mint (2 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (21 rows)
+  [waiting] liquidity_uniswap_v2_mint [25062368-25064367] state=QUERY_STATE_PENDING poll=1/240
+  [cache save] liquidity_uniswap_v3_burn [25058368-25060367] (9 rows)
+  [dune] swaps [25026368-25028367] …
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (3 rows)
+  [cache hit] liquidity_uniswap_v4_modify (34 rows)
+  [dune] liquidity_uniswap_v3_burn [25060368-25062367] …
+  [waiting] swaps [25026368-25028367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_mint [25062368-25064367] (1 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (8 rows)
+  [cache hit] liquidity_uniswap_v3_mint (9 rows)
+  [waiting] liquidity_uniswap_v3_burn [25060368-25062367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_mint [25064368-25066367] …
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (1 rows)
+  [cache hit] liquidity_uniswap_v4_modify (14 rows)
+  [waiting] liquidity_uniswap_v2_mint [25064368-25066367] state=QUERY_STATE_PENDING poll=1/240
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (3 rows)
+  [cache hit] liquidity_uniswap_v4_modify (26 rows)
+  [cache save] swaps [25026368-25028367] (2045 rows)
+  [cache save] liquidity_uniswap_v2_mint [25064368-25066367] (0 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (1 rows)
+  [cache hit] liquidity_uniswap_v4_modify (15 rows)
+  [cache save] liquidity_uniswap_v3_burn [25060368-25062367] (9 rows)
+  [dune] swaps [25028368-25030367] …
+  [dune] liquidity_uniswap_v2_mint [25066368-25068367] …
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (2 rows)
+  [cache hit] liquidity_uniswap_v3_mint (3 rows)
+  [dune] liquidity_uniswap_v3_burn [25062368-25064367] …
+  [waiting] swaps [25028368-25030367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_mint [25066368-25068367] state=QUERY_STATE_PENDING poll=1/240
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (15 rows)
+  [cache hit] liquidity_uniswap_v3_mint (1 rows)
+  [waiting] liquidity_uniswap_v3_burn [25062368-25064367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (6 rows)
+  [cache hit] liquidity_uniswap_v3_mint (1 rows)
+  [cache save] liquidity_uniswap_v2_mint [25066368-25068367] (0 rows)
+  [cache save] liquidity_uniswap_v3_burn [25062368-25064367] (14 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (13 rows)
+  [cache hit] liquidity_uniswap_v3_mint (4 rows)
+  [dune] liquidity_uniswap_v2_mint [25068368-25070367] …
+  [dune] liquidity_uniswap_v3_burn [25064368-25066367] …
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (1 rows)
+  [dune] liquidity_uniswap_v4_modify [25102368-25104367] …
+  [waiting] liquidity_uniswap_v2_mint [25068368-25070367] state=QUERY_STATE_PENDING poll=1/240
+  [waiting] liquidity_uniswap_v3_burn [25064368-25066367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25102368-25104367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v3_mint (5 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache save] swaps [25028368-25030367] (3138 rows)
+  [cache save] liquidity_uniswap_v2_mint [25068368-25070367] (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (3 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [cache save] liquidity_uniswap_v3_burn [25064368-25066367] (5 rows)
+  [cache save] liquidity_uniswap_v4_modify [25102368-25104367] (7 rows)
+  [dune] swaps [25030368-25032367] …
+  [dune] liquidity_uniswap_v2_mint [25070368-25072367] …
+  [cache hit] liquidity_uniswap_v3_mint (9 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [dune] liquidity_uniswap_v3_burn [25066368-25068367] …
+  [dune] liquidity_uniswap_v4_modify [25104368-25106367] …
+  [waiting] swaps [25030368-25032367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_mint [25070368-25072367] state=QUERY_STATE_PENDING poll=1/240
+  [cache hit] liquidity_uniswap_v3_mint (0 rows)
+  [cache hit] liquidity_uniswap_v2_burn (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25104368-25106367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v3_burn [25066368-25068367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v3_mint (2 rows)
+  [dune] liquidity_uniswap_v2_burn [25112368-25114367] …
+  [cache save] liquidity_uniswap_v2_mint [25070368-25072367] (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (6 rows)
+  [dune] liquidity_uniswap_v2_mint [25072368-25074367] …
+  [cache save] liquidity_uniswap_v3_burn [25066368-25068367] (1 rows)
+  [waiting] liquidity_uniswap_v2_burn [25112368-25114367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] swaps [25030368-25032367] (1638 rows)
+  [cache hit] liquidity_uniswap_v3_mint (4 rows)
+  [waiting] liquidity_uniswap_v2_mint [25072368-25074367] state=QUERY_STATE_PENDING poll=1/240
+  [dune] liquidity_uniswap_v3_burn [25068368-25070367] …
+  [cache save] liquidity_uniswap_v4_modify [25104368-25106367] (21 rows)
+  [dune] swaps [25032368-25034367] …
+  [cache hit] liquidity_uniswap_v3_mint (2 rows)
+  [waiting] liquidity_uniswap_v3_burn [25068368-25070367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_burn [25112368-25114367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25106368-25108367] …
+  [waiting] swaps [25032368-25034367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_mint [25072368-25074367] (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (1 rows)
+  [waiting] liquidity_uniswap_v4_modify [25106368-25108367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_burn [25114368-25116367] …
+  [dune] liquidity_uniswap_v2_mint [25074368-25076367] …
+  [cache save] liquidity_uniswap_v3_burn [25068368-25070367] (3 rows)
+  [cache hit] liquidity_uniswap_v3_mint (5 rows)
+  [waiting] liquidity_uniswap_v2_burn [25114368-25116367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_mint [25074368-25076367] state=QUERY_STATE_PENDING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25106368-25108367] (11 rows)
+  [dune] liquidity_uniswap_v3_burn [25070368-25072367] …
+  [cache hit] liquidity_uniswap_v3_mint (1 rows)
+  [cache save] swaps [25032368-25034367] (2107 rows)
+  [waiting] liquidity_uniswap_v3_burn [25070368-25072367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_burn [25114368-25116367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25108368-25110367] …
+  [cache save] liquidity_uniswap_v2_mint [25074368-25076367] (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (3 rows)
+  [dune] swaps [25034368-25036367] …
+  [waiting] liquidity_uniswap_v4_modify [25108368-25110367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_burn [25116368-25118367] …
+  [dune] liquidity_uniswap_v2_mint [25076368-25078367] …
+  [cache hit] liquidity_uniswap_v3_mint (2 rows)
+  [waiting] swaps [25034368-25036367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v3_burn [25070368-25072367] (8 rows)
+  [waiting] liquidity_uniswap_v2_burn [25116368-25118367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_mint [25076368-25078367] state=QUERY_STATE_PENDING poll=1/240
+  [cache hit] liquidity_uniswap_v3_mint (4 rows)
+  [cache save] liquidity_uniswap_v4_modify [25108368-25110367] (15 rows)
+  [dune] liquidity_uniswap_v3_burn [25072368-25074367] …
+  [waiting] liquidity_uniswap_v3_burn [25072368-25074367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v3_mint (0 rows)
+  [cache save] liquidity_uniswap_v2_burn [25116368-25118367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25110368-25112367] …
+  [cache save] liquidity_uniswap_v2_mint [25076368-25078367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25110368-25112367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v3_mint (9 rows)
+  [dune] liquidity_uniswap_v2_burn [25118368-25120367] …
+  [dune] liquidity_uniswap_v2_mint [25078368-25080367] …
+  [cache save] liquidity_uniswap_v3_burn [25072368-25074367] (4 rows)
+  [waiting] liquidity_uniswap_v2_burn [25118368-25120367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_mint [25078368-25080367] state=QUERY_STATE_PENDING poll=1/240
+  [cache hit] liquidity_uniswap_v3_mint (5 rows)
+  [cache save] swaps [25034368-25036367] (2825 rows)
+  [cache save] liquidity_uniswap_v4_modify [25110368-25112367] (18 rows)
+  [dune] liquidity_uniswap_v3_burn [25074368-25076367] …
+  [cache hit] liquidity_uniswap_v3_mint (6 rows)
+  [dune] swaps [25036368-25038367] …
+  [waiting] liquidity_uniswap_v3_burn [25074368-25076367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25112368-25114367] …
+  [cache save] liquidity_uniswap_v2_burn [25118368-25120367] (0 rows)
+  [cache save] liquidity_uniswap_v2_mint [25078368-25080367] (0 rows)
+  [waiting] swaps [25036368-25038367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v3_mint (1 rows)
+  [waiting] liquidity_uniswap_v4_modify [25112368-25114367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_burn [25120368-25122367] …
+  [dune] liquidity_uniswap_v2_mint [25080368-25082367] …
+  [cache save] liquidity_uniswap_v3_burn [25074368-25076367] (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (2 rows)
+  [waiting] liquidity_uniswap_v2_mint [25080368-25082367] state=QUERY_STATE_PENDING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25112368-25114367] (19 rows)
+  [dune] liquidity_uniswap_v3_burn [25076368-25078367] …
+  [cache hit] liquidity_uniswap_v3_mint (0 rows)
+  [waiting] liquidity_uniswap_v2_burn [25120368-25122367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v3_burn [25076368-25078367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] swaps [25036368-25038367] (1382 rows)
+  [dune] liquidity_uniswap_v4_modify [25114368-25116367] …
+  [cache save] liquidity_uniswap_v2_mint [25080368-25082367] (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25114368-25116367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] swaps [25038368-25040367] …
+  [dune] liquidity_uniswap_v2_mint [25082368-25084367] …
+  [cache save] liquidity_uniswap_v2_burn [25120368-25122367] (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (0 rows)
+  [cache save] liquidity_uniswap_v3_burn [25076368-25078367] (7 rows)
+  [waiting] swaps [25038368-25040367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_mint [25082368-25084367] state=QUERY_STATE_PENDING poll=1/240
+  [dune] liquidity_uniswap_v2_burn [25122368-25124367] …
+  [cache hit] liquidity_uniswap_v3_mint (7 rows)
+  [dune] liquidity_uniswap_v3_burn [25078368-25080367] …
+  [cache save] liquidity_uniswap_v4_modify [25114368-25116367] (21 rows)
+  [waiting] liquidity_uniswap_v2_burn [25122368-25124367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v3_mint (2 rows)
+  [waiting] liquidity_uniswap_v3_burn [25078368-25080367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_mint [25082368-25084367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25116368-25118367] …
+  [cache hit] liquidity_uniswap_v3_mint (2 rows)
+  [waiting] liquidity_uniswap_v4_modify [25116368-25118367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_mint [25084368-25086367] …
+  [cache save] liquidity_uniswap_v2_burn [25122368-25124367] (0 rows)
+  [cache save] liquidity_uniswap_v3_burn [25078368-25080367] (4 rows)
+  [cache hit] liquidity_uniswap_v3_mint (5 rows)
+  [waiting] liquidity_uniswap_v2_mint [25084368-25086367] state=QUERY_STATE_PENDING poll=1/240  Dune: liquidity_uniswap_v3_mint done
+
+  [dune] liquidity_uniswap_v2_burn [25124368-25126367] …
+  [dune] liquidity_uniswap_v3_burn [25080368-25082367] …
+  [cache save] liquidity_uniswap_v4_modify [25116368-25118367] (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (5 rows)
+  [waiting] liquidity_uniswap_v3_burn [25080368-25082367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_mint [25084368-25086367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25118368-25120367] …
+  [cache hit] liquidity_uniswap_v3_mint (3 rows)
+  [waiting] liquidity_uniswap_v2_burn [25124368-25126367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25118368-25120367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_mint [25086368-25088367] …
+  [cache hit] liquidity_uniswap_v3_mint (13 rows)
+  [cache save] liquidity_uniswap_v3_burn [25080368-25082367] (6 rows)
+  [cache save] swaps [25038368-25040367] (1547 rows)
+  [waiting] liquidity_uniswap_v2_mint [25086368-25088367] state=QUERY_STATE_PENDING poll=1/240
+  [cache save] liquidity_uniswap_v2_burn [25124368-25126367] (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (2 rows)
+  [dune] liquidity_uniswap_v3_burn [25082368-25084367] …
+  [cache save] liquidity_uniswap_v4_modify [25118368-25120367] (15 rows)
+  [dune] swaps [25040368-25042367] …
+  [dune] liquidity_uniswap_v2_burn [25126368-25128367] …
+  [cache hit] liquidity_uniswap_v3_mint (5 rows)
+  [waiting] liquidity_uniswap_v3_burn [25082368-25084367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] swaps [25040368-25042367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_mint [25086368-25088367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25120368-25122367] …
+  [waiting] liquidity_uniswap_v2_burn [25126368-25128367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v3_mint (2 rows)
+  [dune] liquidity_uniswap_v2_mint [25088368-25090367] …
+  [waiting] liquidity_uniswap_v4_modify [25120368-25122367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v3_burn [25082368-25084367] (5 rows)
+  [waiting] liquidity_uniswap_v2_mint [25088368-25090367] state=QUERY_STATE_PENDING poll=1/240
+  [cache hit] liquidity_uniswap_v3_mint (0 rows)
+  [cache save] liquidity_uniswap_v2_burn [25126368-25128367] (0 rows)
+  [dune] liquidity_uniswap_v3_burn [25084368-25086367] …
+  [cache hit] liquidity_uniswap_v3_mint (3 rows)
+  [cache save] liquidity_uniswap_v4_modify [25120368-25122367] (7 rows)
+  [dune] liquidity_uniswap_v2_burn [25128368-25130367] …
+  [cache save] liquidity_uniswap_v2_mint [25088368-25090367] (0 rows)
+  [waiting] liquidity_uniswap_v2_burn [25128368-25130367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v3_mint (3 rows)
+  [dune] liquidity_uniswap_v4_modify [25122368-25124367] …
+  [waiting] liquidity_uniswap_v3_burn [25084368-25086367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_mint [25090368-25092367] …
+  [waiting] liquidity_uniswap_v4_modify [25122368-25124367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v3_mint (12 rows)
+  [cache save] liquidity_uniswap_v2_burn [25128368-25130367] (0 rows)
+  [waiting] liquidity_uniswap_v2_mint [25090368-25092367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v3_burn [25084368-25086367] (3 rows)
+  [cache hit] liquidity_uniswap_v3_mint (9 rows)
+  [cache save] liquidity_uniswap_v4_modify [25122368-25124367] (8 rows)
+  [dune] liquidity_uniswap_v2_burn [25130368-25132367] …
+  [dune] liquidity_uniswap_v3_burn [25086368-25088367] …
+  [cache hit] liquidity_uniswap_v3_mint (5 rows)
+  [dune] liquidity_uniswap_v4_modify [25124368-25126367] …
+  [cache save] liquidity_uniswap_v2_mint [25090368-25092367] (0 rows)
+  [waiting] liquidity_uniswap_v3_burn [25086368-25088367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_burn [25130368-25132367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v3_mint (5 rows)
+  [waiting] liquidity_uniswap_v4_modify [25124368-25126367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_mint [25092368-25094367] …
+  [cache hit] liquidity_uniswap_v3_mint (19 rows)
+  [cache save] liquidity_uniswap_v3_burn [25086368-25088367] (8 rows)
+  [cache save] liquidity_uniswap_v2_burn [25130368-25132367] (0 rows)
+  [waiting] liquidity_uniswap_v2_mint [25092368-25094367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25124368-25126367] (5 rows)
+  [cache hit] liquidity_uniswap_v3_mint (5 rows)
+  [dune] liquidity_uniswap_v3_burn [25088368-25090367] …
+  [dune] liquidity_uniswap_v2_burn [25132368-25134367] …
+  [dune] liquidity_uniswap_v4_modify [25126368-25128367] …
+  [cache hit] liquidity_uniswap_v3_mint (3 rows)
+  [waiting] liquidity_uniswap_v3_burn [25088368-25090367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] swaps [25040368-25042367] (2988 rows)
+  [waiting] liquidity_uniswap_v2_burn [25132368-25134367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25126368-25128367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v3_mint (16 rows)
+  [cache save] liquidity_uniswap_v2_mint [25092368-25094367] (0 rows)
+  [cache save] liquidity_uniswap_v3_burn [25088368-25090367] (1 rows)
+  [dune] swaps [25042368-25044367] …
+  [cache hit] liquidity_uniswap_v3_mint (4 rows)
+  [dune] liquidity_uniswap_v2_mint [25094368-25096367] …
+  [dune] liquidity_uniswap_v3_burn [25090368-25092367] …
+  [cache save] liquidity_uniswap_v2_burn [25132368-25134367] (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25126368-25128367] (6 rows)
+  [waiting] swaps [25042368-25044367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v3_mint (1 rows)
+  [waiting] liquidity_uniswap_v2_mint [25094368-25096367] state=QUERY_STATE_PENDING poll=1/240
+  [dune] liquidity_uniswap_v2_burn [25134368-25136367] …
+  [dune] liquidity_uniswap_v4_modify [25128368-25130367] …
+  [waiting] liquidity_uniswap_v3_burn [25090368-25092367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v3_mint (4 rows)
+  [waiting] liquidity_uniswap_v4_modify [25128368-25130367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_mint [25094368-25096367] (0 rows)
+  [waiting] liquidity_uniswap_v2_burn [25134368-25136367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v3_mint (6 rows)
+  [cache save] swaps [25042368-25044367] (3251 rows)
+  [cache save] liquidity_uniswap_v3_burn [25090368-25092367] (10 rows)
+  [dune] liquidity_uniswap_v2_mint [25096368-25098367] …
+  [cache hit] liquidity_uniswap_v3_mint (6 rows)
+  [cache save] liquidity_uniswap_v4_modify [25128368-25130367] (12 rows)
+  [dune] swaps [25044368-25046367] …
+  [dune] liquidity_uniswap_v3_burn [25092368-25094367] …
+  [cache save] liquidity_uniswap_v2_burn [25134368-25136367] (0 rows)
+  [waiting] liquidity_uniswap_v2_mint [25096368-25098367] state=QUERY_STATE_PENDING poll=1/240
+  [cache hit] liquidity_uniswap_v3_mint (2 rows)
+  [dune] liquidity_uniswap_v4_modify [25130368-25132367] …
+  [waiting] swaps [25044368-25046367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v3_burn [25092368-25094367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_burn [25136368-25138367] …
+  [cache hit] liquidity_uniswap_v3_mint (9 rows)
+  [waiting] liquidity_uniswap_v4_modify [25130368-25132367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_mint [25096368-25098367] (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (6 rows)
+  [cache save] liquidity_uniswap_v3_burn [25092368-25094367] (0 rows)
+  [waiting] liquidity_uniswap_v2_burn [25136368-25138367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_mint [25098368-25100367] …
+  [cache save] liquidity_uniswap_v4_modify [25130368-25132367] (11 rows)
+  [cache save] swaps [25044368-25046367] (1270 rows)
+  [waiting] liquidity_uniswap_v2_mint [25098368-25100367] state=QUERY_STATE_PENDING poll=1/240
+  [cache hit] liquidity_uniswap_v3_mint (6 rows)
+  [dune] liquidity_uniswap_v3_burn [25094368-25096367] …
+  [dune] liquidity_uniswap_v4_modify [25132368-25134367] …
+  [dune] swaps [25046368-25048367] …
+  [waiting] liquidity_uniswap_v3_burn [25094368-25096367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v3_mint (4 rows)
+  [cache save] liquidity_uniswap_v2_burn [25136368-25138367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25132368-25134367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] swaps [25046368-25048367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_mint [25098368-25100367] (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (7 rows)
+  [dune] liquidity_uniswap_v2_burn [25138368-25140367] …
+  [cache save] liquidity_uniswap_v3_burn [25094368-25096367] (2 rows)
+  [dune] liquidity_uniswap_v2_mint [25100368-25102367] …
+  [cache hit] liquidity_uniswap_v3_mint (3 rows)
+  [waiting] liquidity_uniswap_v2_burn [25138368-25140367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v3_burn [25096368-25098367] …
+  [cache save] liquidity_uniswap_v4_modify [25132368-25134367] (6 rows)
+  [waiting] liquidity_uniswap_v2_mint [25100368-25102367] state=QUERY_STATE_PENDING poll=1/240
+  [cache hit] liquidity_uniswap_v3_mint (12 rows)
+  [waiting] liquidity_uniswap_v3_burn [25096368-25098367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25134368-25136367] …
+  [cache save] liquidity_uniswap_v2_burn [25138368-25140367] (0 rows)
+  [cache hit] liquidity_uniswap_v3_mint (0 rows)
+  [dune] liquidity_uniswap_v3_mint: 1473 rows across chunked window
+  [cache hit] liquidity_uniswap_v4_modify (18 rows)
+  [cache save] swaps [25046368-25048367] (2430 rows)
+  [cache save] liquidity_uniswap_v2_mint [25100368-25102367] (0 rows)
+  [dune] liquidity_uniswap_v2_burn [25140368-25142367] …
+  [cache hit] liquidity_uniswap_v4_modify (6 rows)
+  [cache save] liquidity_uniswap_v3_burn [25096368-25098367] (3 rows)
+  [dune] swaps [25048368-25050367] …
+  [waiting] liquidity_uniswap_v4_modify [25134368-25136367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_mint [25102368-25104367] …
+  [waiting] liquidity_uniswap_v2_burn [25140368-25142367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (4 rows)
+  [dune] liquidity_uniswap_v3_burn [25098368-25100367] …
+  [waiting] liquidity_uniswap_v2_mint [25102368-25104367] state=QUERY_STATE_PENDING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (4 rows)
+  [waiting] liquidity_uniswap_v3_burn [25098368-25100367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25134368-25136367] (60 rows)
+  [cache save] liquidity_uniswap_v2_burn [25140368-25142367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (4 rows)
+  [cache save] liquidity_uniswap_v2_mint [25102368-25104367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25136368-25138367] …
+  [cache save] swaps [25048368-25050367] (1640 rows)
+  [dune] liquidity_uniswap_v2_burn [25142368-25144367] …
+  [cache hit] liquidity_uniswap_v4_modify (3 rows)
+  [cache save] liquidity_uniswap_v3_burn [25098368-25100367] (5 rows)
+  [dune] liquidity_uniswap_v2_mint [25104368-25106367] …
+  [waiting] liquidity_uniswap_v4_modify [25136368-25138367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] swaps [25050368-25052367] …
+  [waiting] liquidity_uniswap_v2_burn [25142368-25144367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_mint [25104368-25106367] state=QUERY_STATE_PENDING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [dune] liquidity_uniswap_v3_burn [25100368-25102367] …
+  [waiting] liquidity_uniswap_v3_burn [25100368-25102367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (3 rows)
+  [cache save] liquidity_uniswap_v4_modify [25136368-25138367] (18 rows)
+  [cache save] liquidity_uniswap_v2_burn [25142368-25144367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (1 rows)
+  [dune] liquidity_uniswap_v4_modify [25138368-25140367] …
+  [dune] liquidity_uniswap_v2_burn [25144368-25146367] …
+  [cache save] liquidity_uniswap_v2_mint [25104368-25106367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (6 rows)
+  [cache save] liquidity_uniswap_v3_burn [25100368-25102367] (3 rows)
+  [dune] liquidity_uniswap_v2_mint [25106368-25108367] …
+  [cache save] liquidity_uniswap_v4_modify [25138368-25140367] (1 rows)
+  [cache hit] liquidity_uniswap_v4_modify (8 rows)
+  [dune] liquidity_uniswap_v3_burn [25102368-25104367] …
+  [cache save] liquidity_uniswap_v2_burn [25144368-25146367] (0 rows)
+  [cache save] swaps [25050368-25052367] (1181 rows)
+  [waiting] liquidity_uniswap_v2_mint [25106368-25108367] state=QUERY_STATE_PENDING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25140368-25142367] …
+  [cache hit] liquidity_uniswap_v4_modify (1 rows)
+  [waiting] liquidity_uniswap_v3_burn [25102368-25104367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_burn [25146368-25148367] …
+  [dune] swaps [25052368-25054367] …
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] liquidity_uniswap_v2_mint [25106368-25108367] (0 rows)
+  [cache save] liquidity_uniswap_v3_burn [25102368-25104367] (3 rows)
+  [cache save] liquidity_uniswap_v4_modify [25140368-25142367] (16 rows)
+  [waiting] liquidity_uniswap_v2_burn [25146368-25148367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [waiting] swaps [25052368-25054367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_mint [25108368-25110367] …
+  [dune] liquidity_uniswap_v3_burn [25104368-25106367] …
+  [dune] liquidity_uniswap_v4_modify [25142368-25144367] …
+  [cache hit] liquidity_uniswap_v4_modify (1 rows)
+  [waiting] liquidity_uniswap_v2_mint [25108368-25110367] state=QUERY_STATE_PENDING poll=1/240
+  [waiting] liquidity_uniswap_v3_burn [25104368-25106367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25142368-25144367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_burn [25146368-25148367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] swaps [25052368-25054367] (831 rows)
+  [cache save] liquidity_uniswap_v2_mint [25108368-25110367] (0 rows)
+  [dune] liquidity_uniswap_v2_burn [25148368-25150367] …
+  [cache save] liquidity_uniswap_v3_burn [25104368-25106367] (5 rows)
+  [cache hit] liquidity_uniswap_v4_modify (2 rows)
+  [cache save] liquidity_uniswap_v4_modify [25142368-25144367] (15 rows)
+  [dune] swaps [25054368-25056367] …
+  [waiting] liquidity_uniswap_v2_burn [25148368-25150367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_mint [25110368-25112367] …
+  [dune] liquidity_uniswap_v3_burn [25106368-25108367] …
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25144368-25146367] …
+  [waiting] liquidity_uniswap_v2_mint [25110368-25112367] state=QUERY_STATE_PENDING poll=1/240
+  [waiting] swaps [25054368-25056367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v3_burn [25106368-25108367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25144368-25146367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] liquidity_uniswap_v2_burn [25148368-25150367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [dune] liquidity_uniswap_v2_burn [25150368-25152367] …
+  [cache save] liquidity_uniswap_v2_mint [25110368-25112367] (0 rows)
+  [cache save] liquidity_uniswap_v3_burn [25106368-25108367] (4 rows)
+  [cache save] liquidity_uniswap_v4_modify [25144368-25146367] (4 rows)
+  [cache save] swaps [25054368-25056367] (1618 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [dune] liquidity_uniswap_v2_mint [25112368-25114367] …
+  [dune] liquidity_uniswap_v3_burn [25108368-25110367] …
+  [dune] liquidity_uniswap_v4_modify [25146368-25148367] …
+  [dune] swaps [25056368-25058367] …
+  [waiting] liquidity_uniswap_v2_mint [25112368-25114367] state=QUERY_STATE_PENDING poll=1/240
+  [cache save] liquidity_uniswap_v2_burn [25150368-25152367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25146368-25148367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v3_burn [25108368-25110367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] swaps [25056368-25058367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_burn [25152368-25154367] …
+  [cache hit] liquidity_uniswap_v4_modify (4 rows)
+  [cache save] liquidity_uniswap_v2_mint [25112368-25114367] (0 rows)
+  [waiting] liquidity_uniswap_v2_burn [25152368-25154367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25146368-25148367] (5 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] liquidity_uniswap_v3_burn [25108368-25110367] (8 rows)
+  [dune] liquidity_uniswap_v2_mint [25114368-25116367] …
+  [dune] liquidity_uniswap_v4_modify [25148368-25150367] …
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] swaps [25056368-25058367] (1969 rows)
+  [dune] liquidity_uniswap_v3_burn [25110368-25112367] …
+  [cache save] liquidity_uniswap_v2_burn [25152368-25154367] (0 rows)
+  [waiting] liquidity_uniswap_v2_mint [25114368-25116367] state=QUERY_STATE_PENDING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (1 rows)
+  [dune] swaps [25058368-25060367] …
+  [waiting] liquidity_uniswap_v4_modify [25148368-25150367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_burn [25154368-25156367] …
+  [waiting] liquidity_uniswap_v3_burn [25110368-25112367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] swaps [25058368-25060367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] liquidity_uniswap_v2_mint [25114368-25116367] (0 rows)
+  [cache save] liquidity_uniswap_v2_burn [25154368-25156367] (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25148368-25150367] (4 rows)
+  [cache hit] liquidity_uniswap_v4_modify (2 rows)
+  [dune] liquidity_uniswap_v2_mint [25116368-25118367] …
+  [cache save] liquidity_uniswap_v3_burn [25110368-25112367] (1 rows)
+  [dune] liquidity_uniswap_v2_burn [25156368-25158367] …
+  [dune] liquidity_uniswap_v4_modify [25150368-25152367] …
+  [cache hit] liquidity_uniswap_v4_modify (1 rows)
+  [dune] liquidity_uniswap_v3_burn [25112368-25114367] …
+  [waiting] liquidity_uniswap_v2_mint [25116368-25118367] state=QUERY_STATE_PENDING poll=1/240
+  [waiting] liquidity_uniswap_v2_burn [25156368-25158367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (1 rows)
+  [waiting] liquidity_uniswap_v4_modify [25150368-25152367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v3_burn [25112368-25114367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] swaps [25058368-25060367] (2154 rows)
+  [cache save] liquidity_uniswap_v2_burn [25156368-25158367] (0 rows)
+  [cache save] liquidity_uniswap_v2_mint [25116368-25118367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (2 rows)
+  [dune] swaps [25060368-25062367] …
+  [dune] liquidity_uniswap_v2_burn [25158368-25160367] …
+  [cache save] liquidity_uniswap_v4_modify [25150368-25152367] (6 rows)
+  [dune] liquidity_uniswap_v2_mint [25118368-25120367] …
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] liquidity_uniswap_v3_burn [25112368-25114367] (4 rows)
+  [waiting] swaps [25060368-25062367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_burn [25158368-25160367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_mint [25118368-25120367] state=QUERY_STATE_PENDING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25152368-25154367] …
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [dune] liquidity_uniswap_v3_burn [25114368-25116367] …
+  [waiting] liquidity_uniswap_v3_burn [25114368-25116367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] liquidity_uniswap_v2_burn [25158368-25160367] (0 rows)
+  [cache save] liquidity_uniswap_v2_mint [25118368-25120367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25152368-25154367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_burn [25160368-25162367] …
+  [cache save] liquidity_uniswap_v3_burn [25114368-25116367] (5 rows)
+  [cache save] swaps [25060368-25062367] (2341 rows)
+  [dune] liquidity_uniswap_v2_mint [25120368-25122367] …
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [waiting] liquidity_uniswap_v2_burn [25160368-25162367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v3_burn [25116368-25118367] …
+  [dune] swaps [25062368-25064367] …
+  [waiting] liquidity_uniswap_v2_mint [25120368-25122367] state=QUERY_STATE_PENDING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25152368-25154367] (4 rows)
+  [waiting] swaps [25062368-25064367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v3_burn [25116368-25118367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_burn [25160368-25162367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25154368-25156367] …
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25154368-25156367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_burn [25162368-25164367] …
+  [cache save] swaps [25062368-25064367] (1308 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [waiting] liquidity_uniswap_v2_burn [25162368-25164367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v3_burn [25116368-25118367] (4 rows)
+  [dune] swaps [25064368-25066367] …
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25154368-25156367] (26 rows)
+  [dune] liquidity_uniswap_v3_burn [25118368-25120367] …
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] liquidity_uniswap_v2_burn [25162368-25164367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25156368-25158367] …
+  [waiting] liquidity_uniswap_v3_burn [25118368-25120367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [waiting] swaps [25064368-25066367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_burn [25164368-25166367] …
+  [waiting] liquidity_uniswap_v4_modify [25156368-25158367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] liquidity_uniswap_v3_burn [25118368-25120367] (5 rows)
+  [waiting] liquidity_uniswap_v2_burn [25164368-25166367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] swaps [25064368-25066367] (1304 rows)
+  [dune] liquidity_uniswap_v3_burn [25120368-25122367] …
+  [cache save] liquidity_uniswap_v4_modify [25156368-25158367] (8 rows)
+  [waiting] liquidity_uniswap_v3_burn [25120368-25122367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_burn [25164368-25166367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [dune] swaps [25066368-25068367] …
+  [dune] liquidity_uniswap_v4_modify [25158368-25160367] …
+  [dune] liquidity_uniswap_v2_burn [25166368-25168367] …
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [waiting] swaps [25066368-25068367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v3_burn [25120368-25122367] (1 rows)
+  [waiting] liquidity_uniswap_v4_modify [25158368-25160367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_burn [25166368-25168367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [dune] liquidity_uniswap_v3_burn [25122368-25124367] …
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] liquidity_uniswap_v2_burn [25166368-25168367] (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25158368-25160367] (11 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [dune] liquidity_uniswap_v2_burn [25168368-25170367] …
+  [cache save] liquidity_uniswap_v2_mint [25120368-25122367] (0 rows)
+  [cache save] swaps [25066368-25068367] (498 rows)
+  [dune] liquidity_uniswap_v4_modify [25160368-25162367] …
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [waiting] liquidity_uniswap_v2_burn [25168368-25170367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v3_burn [25122368-25124367] (3 rows)
+  [dune] liquidity_uniswap_v2_mint [25122368-25124367] …
+  [dune] swaps [25068368-25070367] …
+  [waiting] liquidity_uniswap_v4_modify [25160368-25162367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [dune] liquidity_uniswap_v3_burn [25124368-25126367] …
+  [waiting] swaps [25068368-25070367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_burn [25168368-25170367] (0 rows)
+  [waiting] liquidity_uniswap_v2_mint [25122368-25124367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v3_burn [25124368-25126367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [dune] liquidity_uniswap_v2_burn [25170368-25172367] …
+  [cache save] liquidity_uniswap_v4_modify [25160368-25162367] (18 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [waiting] liquidity_uniswap_v2_burn [25170368-25172367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v3_burn [25124368-25126367] (2 rows)
+  [dune] liquidity_uniswap_v4_modify [25162368-25164367] …
+  [cache save] swaps [25068368-25070367] (1071 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [dune] liquidity_uniswap_v3_burn [25126368-25128367] …
+  [waiting] liquidity_uniswap_v4_modify [25162368-25164367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] swaps [25070368-25072367] …
+  [cache save] liquidity_uniswap_v2_burn [25170368-25172367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] liquidity_uniswap_v2_mint [25122368-25124367] (0 rows)
+  [waiting] swaps [25070368-25072367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v3_burn [25126368-25128367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_burn [25172368-25174367] …
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [dune] liquidity_uniswap_v2_mint [25124368-25126367] …
+  [cache save] liquidity_uniswap_v4_modify [25162368-25164367] (20 rows)
+  [waiting] liquidity_uniswap_v2_burn [25172368-25174367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [waiting] liquidity_uniswap_v2_mint [25124368-25126367] state=QUERY_STATE_PENDING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25164368-25166367] …
+  [cache save] liquidity_uniswap_v3_burn [25126368-25128367] (5 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25164368-25166367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v3_burn [25128368-25130367] …
+  [cache save] liquidity_uniswap_v2_burn [25172368-25174367] (0 rows)
+  [cache save] swaps [25070368-25072367] (1527 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [waiting] liquidity_uniswap_v3_burn [25128368-25130367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_burn [25174368-25176367] …
+  [dune] swaps [25072368-25074367] …
+  [cache save] liquidity_uniswap_v2_mint [25124368-25126367] (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25164368-25166367] (6 rows)
+  [dune] liquidity_uniswap_v4_modify [25114368-25116367] …
+  [waiting] liquidity_uniswap_v2_burn [25174368-25176367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] swaps [25072368-25074367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_mint [25126368-25128367] …
+  [dune] liquidity_uniswap_v4_modify [25166368-25168367] …
+  [waiting] liquidity_uniswap_v4_modify [25114368-25116367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v3_burn [25128368-25130367] (4 rows)
+  [waiting] liquidity_uniswap_v2_mint [25126368-25128367] state=QUERY_STATE_PENDING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25166368-25168367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v3_burn [25130368-25132367] …
+  [cache save] liquidity_uniswap_v2_burn [25174368-25176367] (0 rows)
+  [cache save] swaps [25072368-25074367] (674 rows)
+  [cache save] liquidity_uniswap_v4_modify [25114368-25116367] (0 rows)
+  [waiting] liquidity_uniswap_v3_burn [25130368-25132367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_burn [25176368-25178367] …
+  [cache save] liquidity_uniswap_v2_mint [25126368-25128367] (0 rows)
+  [dune] swaps [25074368-25076367] …
+  [cache save] liquidity_uniswap_v4_modify [25166368-25168367] (1 rows)
+  [dune] liquidity_uniswap_v4_modify [25116368-25118367] …
+  [waiting] liquidity_uniswap_v2_burn [25176368-25178367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_mint [25128368-25130367] …
+  [cache save] liquidity_uniswap_v3_burn [25130368-25132367] (6 rows)
+  [dune] liquidity_uniswap_v4_modify [25168368-25170367] …
+  [waiting] swaps [25074368-25076367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25116368-25118367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_mint [25128368-25130367] state=QUERY_STATE_PENDING poll=1/240
+  [cache save] liquidity_uniswap_v2_burn [25176368-25178367] (0 rows)
+  [dune] liquidity_uniswap_v3_burn [25132368-25134367] …
+  [waiting] liquidity_uniswap_v3_burn [25132368-25134367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25168368-25170367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_burn [25178368-25180367] …
+  [cache save] liquidity_uniswap_v4_modify [25116368-25118367] (0 rows)
+  [cache save] liquidity_uniswap_v2_mint [25128368-25130367] (0 rows)
+  [cache save] swaps [25074368-25076367] (777 rows)
+  [waiting] liquidity_uniswap_v2_burn [25178368-25180367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25118368-25120367] …
+  [dune] liquidity_uniswap_v2_mint [25130368-25132367] …
+  [cache save] liquidity_uniswap_v3_burn [25132368-25134367] (5 rows)
+  [cache save] liquidity_uniswap_v4_modify [25168368-25170367] (8 rows)
+  [dune] swaps [25076368-25078367] …
+  [waiting] liquidity_uniswap_v2_mint [25130368-25132367] state=QUERY_STATE_PENDING poll=1/240
+  [dune] liquidity_uniswap_v3_burn [25134368-25136367] …
+  [cache save] liquidity_uniswap_v4_modify [25118368-25120367] (0 rows)
+  [cache save] liquidity_uniswap_v2_burn [25178368-25180367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25170368-25172367] …
+  [waiting] liquidity_uniswap_v3_burn [25134368-25136367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25170368-25172367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25120368-25122367] …
+  [dune] liquidity_uniswap_v2_burn [25180368-25182367] …
+  [cache save] liquidity_uniswap_v2_mint [25130368-25132367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25120368-25122367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_mint [25132368-25134367] …
+  [waiting] liquidity_uniswap_v2_burn [25180368-25182367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v3_burn [25134368-25136367] (22 rows)
+  [cache save] liquidity_uniswap_v4_modify [25170368-25172367] (2 rows)
+  [waiting] liquidity_uniswap_v2_mint [25132368-25134367] state=QUERY_STATE_PENDING poll=1/240
+  [dune] liquidity_uniswap_v3_burn [25136368-25138367] …
+  [cache save] liquidity_uniswap_v4_modify [25120368-25122367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25172368-25174367] …
+  [cache save] swaps [25076368-25078367] (1150 rows)
+  [cache save] liquidity_uniswap_v2_burn [25180368-25182367] (0 rows)
+  [waiting] liquidity_uniswap_v3_burn [25136368-25138367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25172368-25174367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25122368-25124367] …
+  [dune] swaps [25078368-25080367] …
+  [cache save] liquidity_uniswap_v2_mint [25132368-25134367] (0 rows)
+  [dune] liquidity_uniswap_v2_burn [25182368-25184367] …
+  [waiting] liquidity_uniswap_v4_modify [25122368-25124367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_burn [25182368-25184367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_mint [25134368-25136367] …
+  [cache save] liquidity_uniswap_v3_burn [25136368-25138367] (10 rows)
+  [cache save] liquidity_uniswap_v4_modify [25172368-25174367] (24 rows)
+  [waiting] liquidity_uniswap_v2_mint [25134368-25136367] state=QUERY_STATE_PENDING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25122368-25124367] (0 rows)
+  [dune] liquidity_uniswap_v3_burn [25138368-25140367] …
+  [dune] liquidity_uniswap_v4_modify [25174368-25176367] …
+  [waiting] liquidity_uniswap_v4_modify [25174368-25176367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_burn [25182368-25184367] (0 rows)
+  [waiting] liquidity_uniswap_v3_burn [25138368-25140367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25124368-25126367] …
+  [cache save] swaps [25078368-25080367] (989 rows)
+  [cache save] liquidity_uniswap_v2_mint [25134368-25136367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25124368-25126367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_burn [25184368-25186367] …
+  [dune] swaps [25080368-25082367] …
+  [cache save] liquidity_uniswap_v3_burn [25138368-25140367] (10 rows)
+  [dune] liquidity_uniswap_v2_mint [25136368-25138367] …
+  [cache save] liquidity_uniswap_v4_modify [25174368-25176367] (5 rows)
+  [waiting] liquidity_uniswap_v2_burn [25184368-25186367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] swaps [25080368-25082367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_mint [25136368-25138367] state=QUERY_STATE_PENDING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25124368-25126367] (0 rows)
+  [dune] liquidity_uniswap_v3_burn [25140368-25142367] …
+  [dune] liquidity_uniswap_v4_modify [25176368-25178367] …
+  [cache save] liquidity_uniswap_v2_burn [25184368-25186367] (0 rows)
+  [waiting] liquidity_uniswap_v3_burn [25140368-25142367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25126368-25128367] …
+  [waiting] liquidity_uniswap_v4_modify [25176368-25178367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25126368-25128367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_mint [25136368-25138367] (0 rows)
+  [dune] liquidity_uniswap_v2_burn [25186368-25188367] …
+  [cache save] swaps [25080368-25082367] (615 rows)
+  [cache save] liquidity_uniswap_v3_burn [25140368-25142367] (5 rows)
+  [cache save] liquidity_uniswap_v4_modify [25176368-25178367] (16 rows)
+  [waiting] liquidity_uniswap_v2_burn [25186368-25188367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_mint [25138368-25140367] …
+  [dune] swaps [25082368-25084367] …
+  [cache save] liquidity_uniswap_v4_modify [25126368-25128367] (0 rows)
+  [dune] liquidity_uniswap_v3_burn [25142368-25144367] …
+  [waiting] liquidity_uniswap_v2_mint [25138368-25140367] state=QUERY_STATE_PENDING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25178368-25180367] …
+  [waiting] liquidity_uniswap_v3_burn [25142368-25144367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_burn [25186368-25188367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25128368-25130367] …
+  [waiting] liquidity_uniswap_v4_modify [25178368-25180367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25128368-25130367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_burn [25188368-25190367] …
+  [cache save] liquidity_uniswap_v3_burn [25142368-25144367] (8 rows)
+  [cache save] liquidity_uniswap_v4_modify [25178368-25180367] (13 rows)
+  [waiting] liquidity_uniswap_v2_burn [25188368-25190367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] swaps [25082368-25084367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25128368-25130367] (0 rows)
+  [dune] liquidity_uniswap_v3_burn [25144368-25146367] …
+  [dune] liquidity_uniswap_v4_modify [25180368-25182367] …
+  [cache save] liquidity_uniswap_v2_burn [25188368-25190367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25130368-25132367] …
+  [waiting] liquidity_uniswap_v4_modify [25180368-25182367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v3_burn [25144368-25146367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25130368-25132367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_burn [25190368-25192367] …
+  [cache save] swaps [25082368-25084367] (1020 rows)
+  [cache save] liquidity_uniswap_v4_modify [25180368-25182367] (0 rows)
+  [cache save] liquidity_uniswap_v3_burn [25144368-25146367] (1 rows)
+  [waiting] liquidity_uniswap_v2_burn [25190368-25192367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_mint [25138368-25140367] (0 rows)
+  [dune] swaps [25084368-25086367] …
+  [cache save] liquidity_uniswap_v4_modify [25130368-25132367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25182368-25184367] …
+  [dune] liquidity_uniswap_v3_burn [25146368-25148367] …
+  [dune] liquidity_uniswap_v2_mint [25140368-25142367] …
+  [cache save] liquidity_uniswap_v2_burn [25190368-25192367] (0 rows)
+  [waiting] swaps [25084368-25086367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25132368-25134367] …
+  [waiting] liquidity_uniswap_v3_burn [25146368-25148367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25182368-25184367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_mint [25140368-25142367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25132368-25134367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_burn [25192368-25194367] …
+  [cache save] liquidity_uniswap_v3_burn [25146368-25148367] (1 rows)
+  [waiting] liquidity_uniswap_v2_burn [25192368-25194367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_mint [25140368-25142367] (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25182368-25184367] (11 rows)
+  [cache save] swaps [25084368-25086367] (838 rows)
+  [cache save] liquidity_uniswap_v4_modify [25132368-25134367] (0 rows)
+  [dune] liquidity_uniswap_v3_burn [25148368-25150367] …
+  [dune] liquidity_uniswap_v2_mint [25142368-25144367] …
+  [cache save] liquidity_uniswap_v2_burn [25192368-25194367] (0 rows)
+  [waiting] liquidity_uniswap_v3_burn [25148368-25150367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25184368-25186367] …
+  [dune] swaps [25086368-25088367] …
+  [dune] liquidity_uniswap_v4_modify [25134368-25136367] …
+  [waiting] liquidity_uniswap_v2_mint [25142368-25144367] state=QUERY_STATE_PENDING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25184368-25186367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] swaps [25086368-25088367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_burn [25194368-25196367] …
+  [waiting] liquidity_uniswap_v4_modify [25134368-25136367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v3_burn [25148368-25150367] (1 rows)
+  [waiting] liquidity_uniswap_v2_burn [25194368-25196367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_mint [25142368-25144367] (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25184368-25186367] (16 rows)
+  [dune] liquidity_uniswap_v3_burn [25150368-25152367] …
+  [cache save] swaps [25086368-25088367] (392 rows)
+  [cache save] liquidity_uniswap_v4_modify [25134368-25136367] (0 rows)
+  [dune] liquidity_uniswap_v2_mint [25144368-25146367] …
+  [cache save] liquidity_uniswap_v2_burn [25194368-25196367] (0 rows)
+  [waiting] liquidity_uniswap_v3_burn [25150368-25152367] state=QUERY_STATE_EXECUTING poll=1/240  Dune: liquidity_uniswap_v2_burn done
+
+  [dune] liquidity_uniswap_v4_modify [25186368-25188367] …
+  [dune] swaps [25088368-25090367] …
+  [dune] liquidity_uniswap_v4_modify [25136368-25138367] …
+  [waiting] liquidity_uniswap_v2_mint [25144368-25146367] state=QUERY_STATE_PENDING poll=1/240
+  [dune] liquidity_uniswap_v2_burn [25196368-25198367] …
+  [waiting] liquidity_uniswap_v4_modify [25186368-25188367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] swaps [25088368-25090367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25136368-25138367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_burn [25196368-25198367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v3_burn [25150368-25152367] (8 rows)
+  [cache save] liquidity_uniswap_v2_mint [25144368-25146367] (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25186368-25188367] (13 rows)
+  [dune] liquidity_uniswap_v3_burn [25152368-25154367] …
+  [cache save] liquidity_uniswap_v2_burn [25196368-25198367] (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25136368-25138367] (0 rows)
+  [dune] liquidity_uniswap_v2_mint [25146368-25148367] …
+  [cache save] swaps [25088368-25090367] (527 rows)
+  [dune] liquidity_uniswap_v4_modify [25188368-25190367] …
+  [waiting] liquidity_uniswap_v3_burn [25152368-25154367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_burn [25198368-25200367] …
+  [dune] liquidity_uniswap_v4_modify [25138368-25140367] …
+  [waiting] liquidity_uniswap_v4_modify [25188368-25190367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] swaps [25090368-25092367] …
+  [waiting] liquidity_uniswap_v2_burn [25198368-25200367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25138368-25140367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v3_burn [25152368-25154367] (9 rows)
+  [waiting] liquidity_uniswap_v2_mint [25146368-25148367] state=QUERY_STATE_PENDING poll=1/240
+  [waiting] swaps [25090368-25092367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25188368-25190367] (4 rows)
+  [dune] liquidity_uniswap_v3_burn [25154368-25156367] …
+  [cache save] liquidity_uniswap_v2_burn [25198368-25200367] (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25138368-25140367] (0 rows)
+  [waiting] liquidity_uniswap_v3_burn [25154368-25156367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_mint [25146368-25148367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25190368-25192367] …
+  [dune] liquidity_uniswap_v2_burn [25200368-25202367] …
+  [dune] liquidity_uniswap_v4_modify [25140368-25142367] …
+  [waiting] liquidity_uniswap_v4_modify [25190368-25192367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] swaps [25090368-25092367] (822 rows)
+  [dune] liquidity_uniswap_v2_mint [25148368-25150367] …
+  [waiting] liquidity_uniswap_v2_burn [25200368-25202367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v3_burn [25154368-25156367] (6 rows)
+  [dune] swaps [25092368-25094367] …
+  [waiting] liquidity_uniswap_v4_modify [25140368-25142367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_mint [25148368-25150367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25190368-25192367] (6 rows)
+  [dune] liquidity_uniswap_v3_burn [25156368-25158367] …
+  [waiting] swaps [25092368-25094367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_burn [25200368-25202367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25192368-25194367] …
+  [waiting] liquidity_uniswap_v3_burn [25156368-25158367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25140368-25142367] (0 rows)
+  [dune] liquidity_uniswap_v2_burn [25202368-25204367] …
+  [waiting] liquidity_uniswap_v4_modify [25192368-25194367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25142368-25144367] …
+  [cache save] liquidity_uniswap_v2_mint [25148368-25150367] (0 rows)
+  [cache save] swaps [25092368-25094367] (821 rows)
+  [waiting] liquidity_uniswap_v2_burn [25202368-25204367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25142368-25144367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_mint [25150368-25152367] …
+  [dune] swaps [25094368-25096367] …
+  [waiting] liquidity_uniswap_v2_mint [25150368-25152367] state=QUERY_STATE_PENDING poll=1/240
+  [waiting] swaps [25094368-25096367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v3_burn [25156368-25158367] (7 rows)
+  [cache save] liquidity_uniswap_v4_modify [25192368-25194367] (5 rows)
+  [cache save] liquidity_uniswap_v4_modify [25142368-25144367] (0 rows)
+  [cache save] liquidity_uniswap_v2_burn [25202368-25204367] (0 rows)
+  [dune] liquidity_uniswap_v3_burn [25158368-25160367] …
+  [dune] liquidity_uniswap_v4_modify [25194368-25196367] …
+  [cache save] liquidity_uniswap_v2_mint [25150368-25152367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25144368-25146367] …
+  [dune] liquidity_uniswap_v2_burn [25204368-25206367] …
+  [waiting] liquidity_uniswap_v3_burn [25158368-25160367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] swaps [25094368-25096367] (469 rows)
+  [waiting] liquidity_uniswap_v4_modify [25194368-25196367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_mint [25152368-25154367] …
+  [waiting] liquidity_uniswap_v2_burn [25204368-25206367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25144368-25146367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] swaps [25096368-25098367] …
+  [waiting] liquidity_uniswap_v2_mint [25152368-25154367] state=QUERY_STATE_PENDING poll=1/240
+  [cache save] liquidity_uniswap_v3_burn [25158368-25160367] (6 rows)
+  [cache save] liquidity_uniswap_v4_modify [25194368-25196367] (2 rows)
+  [cache save] liquidity_uniswap_v2_burn [25204368-25206367] (0 rows)
+  [waiting] swaps [25096368-25098367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v3_burn [25160368-25162367] …
+  [dune] liquidity_uniswap_v4_modify [25196368-25198367] …
+  [cache save] liquidity_uniswap_v4_modify [25144368-25146367] (0 rows)
+  [cache save] liquidity_uniswap_v2_mint [25152368-25154367] (0 rows)
+  [dune] liquidity_uniswap_v2_burn [25206368-25208367] …
+  [waiting] liquidity_uniswap_v3_burn [25160368-25162367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25196368-25198367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25146368-25148367] …
+  [dune] liquidity_uniswap_v2_mint [25154368-25156367] …
+  [waiting] liquidity_uniswap_v2_burn [25206368-25208367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25146368-25148367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_mint [25154368-25156367] state=QUERY_STATE_PENDING poll=1/240
+  [cache save] swaps [25096368-25098367] (508 rows)
+  [cache save] liquidity_uniswap_v4_modify [25196368-25198367] (6 rows)
+  [cache save] liquidity_uniswap_v3_burn [25160368-25162367] (2 rows)
+  [cache save] liquidity_uniswap_v2_burn [25206368-25208367] (0 rows)
+  [dune] swaps [25098368-25100367] …
+  [dune] liquidity_uniswap_v4_modify [25198368-25200367] …
+  [dune] liquidity_uniswap_v3_burn [25162368-25164367] …
+  [cache save] liquidity_uniswap_v4_modify [25146368-25148367] (0 rows)
+  [cache save] liquidity_uniswap_v2_mint [25154368-25156367] (0 rows)
+  [waiting] swaps [25098368-25100367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_burn [25208368-25210367] …
+  [waiting] liquidity_uniswap_v4_modify [25198368-25200367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v3_burn [25162368-25164367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25148368-25150367] …
+  [dune] liquidity_uniswap_v2_mint [25156368-25158367] …
+  [waiting] liquidity_uniswap_v2_burn [25208368-25210367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_mint [25156368-25158367] state=QUERY_STATE_PENDING poll=1/240  Dune: liquidity_uniswap_v4_modify[0] done
+
+  [waiting] liquidity_uniswap_v4_modify [25148368-25150367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v3_burn [25162368-25164367] (4 rows)
+  [cache save] liquidity_uniswap_v4_modify [25198368-25200367] (10 rows)
+  [cache save] swaps [25098368-25100367] (745 rows)
+  [cache save] liquidity_uniswap_v2_burn [25208368-25210367] (0 rows)
+  [dune] liquidity_uniswap_v3_burn [25164368-25166367] …
+  [dune] liquidity_uniswap_v4_modify [25200368-25202367] …
+  [cache save] liquidity_uniswap_v2_mint [25156368-25158367] (0 rows)
+  [dune] swaps [25100368-25102367] …
+  [cache save] liquidity_uniswap_v4_modify [25148368-25150367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25200368-25202367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_burn [25210368-25212367] …
+  [waiting] liquidity_uniswap_v3_burn [25164368-25166367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_mint [25158368-25160367] …
+  [waiting] swaps [25100368-25102367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_burn [25210368-25212367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25150368-25152367] …
+  [waiting] liquidity_uniswap_v2_mint [25158368-25160367] state=QUERY_STATE_PENDING poll=1/240
+  [cache save] liquidity_uniswap_v3_burn [25164368-25166367] (3 rows)
+  [cache save] liquidity_uniswap_v4_modify [25200368-25202367] (3 rows)
+  [waiting] liquidity_uniswap_v4_modify [25150368-25152367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_burn [25210368-25212367] (0 rows)
+  [dune] liquidity_uniswap_v3_burn [25166368-25168367] …
+  [dune] liquidity_uniswap_v4_modify [25202368-25204367] …
+  [cache save] swaps [25100368-25102367] (1111 rows)
+  [waiting] liquidity_uniswap_v3_burn [25166368-25168367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25150368-25152367] (0 rows)
+  [dune] liquidity_uniswap_v2_burn [25212368-25214367] …
+  [waiting] liquidity_uniswap_v4_modify [25202368-25204367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_mint [25158368-25160367] (0 rows)
+  [waiting] liquidity_uniswap_v2_burn [25212368-25214367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] swaps [25102368-25104367] …
+  [dune] liquidity_uniswap_v4_modify [25152368-25154367] …
+  [dune] liquidity_uniswap_v2_mint [25160368-25162367] …
+  [cache save] liquidity_uniswap_v3_burn [25166368-25168367] (3 rows)
+  [cache save] liquidity_uniswap_v4_modify [25202368-25204367] (0 rows)
+  [waiting] swaps [25102368-25104367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25152368-25154367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_mint [25160368-25162367] state=QUERY_STATE_PENDING poll=1/240
+  [dune] liquidity_uniswap_v3_burn [25168368-25170367] …
+  [dune] liquidity_uniswap_v4_modify [25204368-25206367] …
+  [cache save] liquidity_uniswap_v2_burn [25212368-25214367] (0 rows)
+  [waiting] liquidity_uniswap_v3_burn [25168368-25170367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25152368-25154367] (0 rows)
+  [cache save] swaps [25102368-25104367] (394 rows)
+  [dune] liquidity_uniswap_v2_burn [25214368-25216367] …
+  [cache save] liquidity_uniswap_v2_mint [25160368-25162367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25154368-25156367] …
+  [waiting] liquidity_uniswap_v4_modify [25204368-25206367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] swaps [25104368-25106367] …
+  [dune] liquidity_uniswap_v2_mint [25162368-25164367] …
+  [waiting] liquidity_uniswap_v2_burn [25214368-25216367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v3_burn [25168368-25170367] (3 rows)
+  [waiting] liquidity_uniswap_v4_modify [25154368-25156367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] swaps [25104368-25106367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_mint [25162368-25164367] state=QUERY_STATE_PENDING poll=1/240
+  [dune] liquidity_uniswap_v3_burn [25170368-25172367] …
+  [cache save] liquidity_uniswap_v4_modify [25204368-25206367] (11 rows)
+  [cache save] liquidity_uniswap_v2_burn [25214368-25216367] (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25154368-25156367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25206368-25208367] …
+  [cache save] liquidity_uniswap_v2_mint [25162368-25164367] (0 rows)
+  [waiting] liquidity_uniswap_v3_burn [25170368-25172367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_burn [25216368-25218367] …
+  [dune] liquidity_uniswap_v4_modify [25156368-25158367] …
+  [waiting] liquidity_uniswap_v4_modify [25206368-25208367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] swaps [25104368-25106367] (974 rows)
+  [dune] liquidity_uniswap_v2_mint [25164368-25166367] …
+  [waiting] liquidity_uniswap_v2_burn [25216368-25218367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25156368-25158367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v3_burn [25170368-25172367] (2 rows)
+  [dune] swaps [25106368-25108367] …
+  [cache save] liquidity_uniswap_v4_modify [25206368-25208367] (13 rows)
+  [cache save] liquidity_uniswap_v2_burn [25216368-25218367] (0 rows)
+  [dune] liquidity_uniswap_v3_burn [25172368-25174367] …
+  [waiting] swaps [25106368-25108367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25156368-25158367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25208368-25210367] …
+  [waiting] liquidity_uniswap_v2_mint [25164368-25166367] state=QUERY_STATE_PENDING poll=1/240
+  [dune] liquidity_uniswap_v2_burn [25218368-25218797] …
+  [dune] liquidity_uniswap_v4_modify [25158368-25160367] …
+  [waiting] liquidity_uniswap_v3_burn [25172368-25174367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_burn [25218368-25218797] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25208368-25210367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25158368-25160367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_mint [25164368-25166367] (0 rows)
+  [cache save] swaps [25106368-25108367] (672 rows)
+  [cache save] liquidity_uniswap_v2_burn [25218368-25218797] (0 rows)
+  [dune] liquidity_uniswap_v2_burn: 4 rows across chunked window
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [dune] liquidity_uniswap_v2_mint [25166368-25168367] …
+  [dune] swaps [25108368-25110367] …
+  [cache save] liquidity_uniswap_v4_modify [25208368-25210367] (1 rows)
+  [cache save] liquidity_uniswap_v3_burn [25172368-25174367] (11 rows)
+  [cache save] liquidity_uniswap_v4_modify [25158368-25160367] (0 rows)
+  [waiting] swaps [25108368-25110367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (9 rows)
+  [waiting] liquidity_uniswap_v2_mint [25166368-25168367] state=QUERY_STATE_PENDING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25210368-25212367] …
+  [dune] liquidity_uniswap_v3_burn [25174368-25176367] …
+  [dune] liquidity_uniswap_v4_modify [25160368-25162367] …
+  [cache hit] liquidity_uniswap_v4_modify (3 rows)
+  [waiting] liquidity_uniswap_v4_modify [25210368-25212367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25160368-25162367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v3_burn [25174368-25176367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_mint [25166368-25168367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (10 rows)
+  [cache save] swaps [25108368-25110367] (476 rows)
+  [dune] liquidity_uniswap_v2_mint [25168368-25170367] …
+  [cache hit] liquidity_uniswap_v4_modify (1 rows)
+  [dune] swaps [25110368-25112367] …
+  [cache save] liquidity_uniswap_v4_modify [25210368-25212367] (2 rows)
+  [cache save] liquidity_uniswap_v4_modify [25160368-25162367] (0 rows)
+  [cache save] liquidity_uniswap_v3_burn [25174368-25176367] (2 rows)
+  [waiting] swaps [25110368-25112367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (1 rows)
+  [dune] liquidity_uniswap_v4_modify [25212368-25214367] …
+  [dune] liquidity_uniswap_v4_modify [25162368-25164367] …
+  [dune] liquidity_uniswap_v3_burn [25176368-25178367] …
+  [waiting] liquidity_uniswap_v4_modify [25212368-25214367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (1 rows)
+  [waiting] liquidity_uniswap_v3_burn [25176368-25178367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25162368-25164367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25212368-25214367] (21 rows)
+  [cache save] swaps [25110368-25112367] (716 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] liquidity_uniswap_v3_burn [25176368-25178367] (6 rows)
+  [cache save] liquidity_uniswap_v4_modify [25162368-25164367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25214368-25216367] …
+  [dune] swaps [25112368-25114367] …
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [dune] liquidity_uniswap_v3_burn [25178368-25180367] …
+  [dune] liquidity_uniswap_v4_modify [25164368-25166367] …
+  [waiting] liquidity_uniswap_v2_mint [25168368-25170367] state=QUERY_STATE_PENDING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25214368-25216367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] swaps [25112368-25114367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v3_burn [25178368-25180367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25164368-25166367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] liquidity_uniswap_v2_mint [25168368-25170367] (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25214368-25216367] (6 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] swaps [25112368-25114367] (624 rows)
+  [cache save] liquidity_uniswap_v4_modify [25164368-25166367] (0 rows)
+  [dune] liquidity_uniswap_v2_mint [25170368-25172367] …
+  [dune] liquidity_uniswap_v4_modify [25216368-25218367] …
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] liquidity_uniswap_v3_burn [25178368-25180367] (13 rows)
+  [dune] swaps [25114368-25116367] …
+  [dune] liquidity_uniswap_v4_modify [25166368-25168367] …
+  [waiting] liquidity_uniswap_v2_mint [25170368-25172367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25216368-25218367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v3_burn [25180368-25182367] …
+  [waiting] liquidity_uniswap_v4_modify [25166368-25168367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] swaps [25114368-25116367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v3_burn [25180368-25182367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] liquidity_uniswap_v2_mint [25170368-25172367] (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25216368-25218367] (6 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25166368-25168367] (0 rows)
+  [cache save] liquidity_uniswap_v3_burn [25180368-25182367] (5 rows)
+  [dune] liquidity_uniswap_v2_mint [25172368-25174367] …
+  [dune] liquidity_uniswap_v4_modify [25218368-25218797] …
+  [cache save] swaps [25114368-25116367] (1070 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25168368-25170367] …
+  [dune] liquidity_uniswap_v3_burn [25182368-25184367] …
+  [waiting] liquidity_uniswap_v2_mint [25172368-25174367] state=QUERY_STATE_PENDING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25218368-25218797] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] swaps [25116368-25118367] …
+  [waiting] liquidity_uniswap_v4_modify [25168368-25170367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [waiting] liquidity_uniswap_v3_burn [25182368-25184367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] swaps [25116368-25118367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] liquidity_uniswap_v2_mint [25172368-25174367] (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25218368-25218797] (0 rows)
+  [dune] liquidity_uniswap_v4_modify: 4651 rows across chunked window
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25168368-25170367] (0 rows)
+  [cache save] liquidity_uniswap_v3_burn [25182368-25184367] (9 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [dune] liquidity_uniswap_v2_mint [25174368-25176367] …
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25170368-25172367] …
+  [cache save] swaps [25116368-25118367] (451 rows)
+  [dune] liquidity_uniswap_v3_burn [25184368-25186367] …
+  [waiting] liquidity_uniswap_v2_mint [25174368-25176367] state=QUERY_STATE_PENDING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25170368-25172367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] swaps [25118368-25120367] …
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (2 rows)
+  [cache save] liquidity_uniswap_v2_mint [25174368-25176367] (0 rows)
+  [waiting] swaps [25118368-25120367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25170368-25172367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (42 rows)
+  [waiting] liquidity_uniswap_v3_burn [25184368-25186367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_mint [25176368-25178367] …
+  [dune] liquidity_uniswap_v4_modify [25172368-25174367] …
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (72 rows)
+  [waiting] liquidity_uniswap_v2_mint [25176368-25178367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25172368-25174367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v3_burn [25184368-25186367] (17 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] swaps [25118368-25120367] (700 rows)
+  [cache hit] liquidity_uniswap_v4_modify (67 rows)
+  [dune] liquidity_uniswap_v3_burn [25186368-25188367] …
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [dune] swaps [25120368-25122367] …
+  [cache save] liquidity_uniswap_v2_mint [25176368-25178367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (44 rows)
+  [cache save] liquidity_uniswap_v4_modify [25172368-25174367] (0 rows)
+  [waiting] swaps [25120368-25122367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [waiting] liquidity_uniswap_v3_burn [25186368-25188367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_mint [25178368-25180367] …
+  [cache hit] liquidity_uniswap_v4_modify (81 rows)
+  [dune] liquidity_uniswap_v4_modify [25174368-25176367] …
+  [waiting] liquidity_uniswap_v2_mint [25178368-25180367] state=QUERY_STATE_PENDING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (128 rows)
+  [waiting] liquidity_uniswap_v4_modify [25174368-25176367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v3_burn [25186368-25188367] (6 rows)
+  [cache save] swaps [25120368-25122367] (395 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (76 rows)
+  [dune] liquidity_uniswap_v3_burn [25188368-25190367] …
+  [dune] swaps [25122368-25124367] …
+  [cache save] liquidity_uniswap_v2_mint [25178368-25180367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25054368-25056367] …
+  [cache save] liquidity_uniswap_v4_modify [25174368-25176367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (61 rows)
+  [cache save] liquidity_uniswap_v3_burn [25188368-25190367] (3 rows)
+  [dune] liquidity_uniswap_v2_mint [25180368-25182367] …
+  [dune] liquidity_uniswap_v4_modify [25176368-25178367] …
+  [cache save] liquidity_uniswap_v4_modify [25054368-25056367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (46 rows)
+  [cache save] swaps [25122368-25124367] (326 rows)
+  [dune] liquidity_uniswap_v3_burn [25190368-25192367] …
+  [waiting] liquidity_uniswap_v4_modify [25176368-25178367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_mint [25180368-25182367] state=QUERY_STATE_PENDING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25056368-25058367] …
+  [cache hit] liquidity_uniswap_v4_modify (26 rows)
+  [dune] swaps [25124368-25126367] …
+  [waiting] liquidity_uniswap_v4_modify [25056368-25058367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v3_burn [25190368-25192367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (21 rows)
+  [cache save] liquidity_uniswap_v2_mint [25180368-25182367] (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25176368-25178367] (0 rows)
+  [waiting] swaps [25124368-25126367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (82 rows)
+  [dune] liquidity_uniswap_v2_mint [25182368-25184367] …
+  [dune] liquidity_uniswap_v4_modify [25178368-25180367] …
+  [cache save] liquidity_uniswap_v4_modify [25056368-25058367] (0 rows)
+  [cache save] liquidity_uniswap_v3_burn [25190368-25192367] (18 rows)
+  [cache hit] liquidity_uniswap_v4_modify (107 rows)
+  [cache save] swaps [25124368-25126367] (295 rows)
+  [waiting] liquidity_uniswap_v2_mint [25182368-25184367] state=QUERY_STATE_PENDING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25058368-25060367] …
+  [dune] liquidity_uniswap_v3_burn [25192368-25194367] …
+  [cache hit] liquidity_uniswap_v4_modify (24 rows)
+  [dune] swaps [25126368-25128367] …
+  [waiting] liquidity_uniswap_v4_modify [25058368-25060367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v3_burn [25192368-25194367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25178368-25180367] (0 rows)
+  [waiting] swaps [25126368-25128367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_mint [25182368-25184367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (19 rows)
+  [dune] liquidity_uniswap_v4_modify [25180368-25182367] …
+  [cache save] liquidity_uniswap_v4_modify [25058368-25060367] (0 rows)
+  [cache save] liquidity_uniswap_v3_burn [25192368-25194367] (4 rows)
+  [dune] liquidity_uniswap_v2_mint [25184368-25186367] …
+  [cache hit] liquidity_uniswap_v4_modify (52 rows)
+  [waiting] liquidity_uniswap_v4_modify [25180368-25182367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] swaps [25126368-25128367] (425 rows)
+  [waiting] liquidity_uniswap_v2_mint [25184368-25186367] state=QUERY_STATE_PENDING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25060368-25062367] …
+  [dune] liquidity_uniswap_v3_burn [25194368-25196367] …
+  [cache hit] liquidity_uniswap_v4_modify (40 rows)
+  [dune] swaps [25128368-25130367] …
+  [waiting] liquidity_uniswap_v4_modify [25060368-25062367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v3_burn [25194368-25196367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (52 rows)
+  [cache save] liquidity_uniswap_v4_modify [25180368-25182367] (0 rows)
+  [waiting] swaps [25128368-25130367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (60 rows)
+  [dune] liquidity_uniswap_v4_modify [25182368-25184367] …
+  [cache save] liquidity_uniswap_v3_burn [25194368-25196367] (1 rows)
+  [cache save] liquidity_uniswap_v4_modify [25060368-25062367] (0 rows)
+  [cache save] liquidity_uniswap_v2_mint [25184368-25186367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25182368-25184367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (35 rows)
+  [dune] liquidity_uniswap_v3_burn [25196368-25198367] …
+  [dune] liquidity_uniswap_v4_modify [25062368-25064367] …
+  [cache save] swaps [25128368-25130367] (477 rows)
+  [dune] liquidity_uniswap_v2_mint [25186368-25188367] …
+  [cache hit] liquidity_uniswap_v4_modify (26 rows)
+  [waiting] liquidity_uniswap_v3_burn [25196368-25198367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25182368-25184367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25062368-25064367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_mint [25186368-25188367] state=QUERY_STATE_PENDING poll=1/240
+  [dune] swaps [25130368-25132367] …
+  [cache hit] liquidity_uniswap_v4_modify (40 rows)
+  [dune] liquidity_uniswap_v4_modify [25184368-25186367] …
+  [waiting] swaps [25130368-25132367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v3_burn [25196368-25198367] (4 rows)
+  [cache save] liquidity_uniswap_v4_modify [25062368-25064367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (45 rows)
+  [cache save] liquidity_uniswap_v2_mint [25186368-25188367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25184368-25186367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v3_burn [25198368-25200367] …
+  [dune] liquidity_uniswap_v4_modify [25064368-25066367] …
+  [cache hit] liquidity_uniswap_v4_modify (13 rows)
+  [dune] liquidity_uniswap_v2_mint [25188368-25190367] …
+  [cache save] swaps [25130368-25132367] (471 rows)
+  [waiting] liquidity_uniswap_v4_modify [25064368-25066367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25184368-25186367] (0 rows)
+  [waiting] liquidity_uniswap_v2_mint [25188368-25190367] state=QUERY_STATE_PENDING poll=1/240
+  [waiting] liquidity_uniswap_v3_burn [25198368-25200367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (14 rows)
+  [dune] swaps [25132368-25134367] …
+  [dune] liquidity_uniswap_v4_modify [25186368-25188367] …
+  [cache hit] liquidity_uniswap_v4_modify (53 rows)
+  [waiting] swaps [25132368-25134367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25064368-25066367] (0 rows)
+  [cache save] liquidity_uniswap_v2_mint [25188368-25190367] (0 rows)
+  [cache save] liquidity_uniswap_v3_burn [25198368-25200367] (9 rows)
+  [waiting] liquidity_uniswap_v4_modify [25186368-25188367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (54 rows)
+  [dune] liquidity_uniswap_v4_modify [25066368-25068367] …
+  [dune] liquidity_uniswap_v2_mint [25190368-25192367] …
+  [dune] liquidity_uniswap_v3_burn [25200368-25202367] …
+  [cache hit] liquidity_uniswap_v4_modify (61 rows)
+  [waiting] liquidity_uniswap_v4_modify [25066368-25068367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_mint [25190368-25192367] state=QUERY_STATE_PENDING poll=1/240
+  [waiting] liquidity_uniswap_v3_burn [25200368-25202367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25186368-25188367] (0 rows)
+  [cache save] swaps [25132368-25134367] (854 rows)
+  [cache hit] liquidity_uniswap_v4_modify (39 rows)
+  [dune] liquidity_uniswap_v4_modify [25188368-25190367] …
+  [cache save] liquidity_uniswap_v4_modify [25066368-25068367] (0 rows)
+  [cache save] liquidity_uniswap_v2_mint [25190368-25192367] (0 rows)
+  [dune] swaps [25134368-25136367] …
+  [cache save] liquidity_uniswap_v3_burn [25200368-25202367] (10 rows)
+  [cache hit] liquidity_uniswap_v4_modify (26 rows)
+  [waiting] liquidity_uniswap_v4_modify [25188368-25190367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] swaps [25134368-25136367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25068368-25070367] …
+  [dune] liquidity_uniswap_v2_mint [25192368-25194367] …
+  [dune] liquidity_uniswap_v3_burn [25202368-25204367] …
+  [cache hit] liquidity_uniswap_v4_modify (36 rows)
+  [waiting] liquidity_uniswap_v4_modify [25068368-25070367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_mint [25192368-25194367] state=QUERY_STATE_PENDING poll=1/240  Dune: liquidity_uniswap_v3_burn done
+
+  [cache save] liquidity_uniswap_v4_modify [25188368-25190367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (18 rows)
+  [waiting] liquidity_uniswap_v3_burn [25202368-25204367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25190368-25192367] …
+  [cache hit] liquidity_uniswap_v4_modify (27 rows)
+  [cache save] liquidity_uniswap_v4_modify [25068368-25070367] (0 rows)
+  [cache save] liquidity_uniswap_v2_mint [25192368-25194367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25190368-25192367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (33 rows)
+  [dune] liquidity_uniswap_v4_modify [25070368-25072367] …
+  [dune] liquidity_uniswap_v2_mint [25194368-25196367] …
+  [cache save] liquidity_uniswap_v3_burn [25202368-25204367] (2 rows)
+  [waiting] liquidity_uniswap_v4_modify [25070368-25072367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_mint [25194368-25196367] state=QUERY_STATE_PENDING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (23 rows)
+  [cache save] liquidity_uniswap_v4_modify [25190368-25192367] (0 rows)
+  [dune] liquidity_uniswap_v3_burn [25204368-25206367] …
+  [cache hit] liquidity_uniswap_v4_modify (10 rows)
+  [cache save] swaps [25134368-25136367] (4256 rows)
+  [waiting] liquidity_uniswap_v3_burn [25204368-25206367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25192368-25194367] …
+  [cache save] liquidity_uniswap_v4_modify [25070368-25072367] (0 rows)
+  [cache save] liquidity_uniswap_v2_mint [25194368-25196367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25192368-25194367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (22 rows)
+  [dune] swaps [25136368-25138367] …
+  [dune] liquidity_uniswap_v4_modify [25072368-25074367] …
+  [dune] liquidity_uniswap_v2_mint [25196368-25198367] …
+  [cache save] liquidity_uniswap_v3_burn [25204368-25206367] (8 rows)
+  [waiting] swaps [25136368-25138367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (21 rows)
+  [waiting] liquidity_uniswap_v4_modify [25072368-25074367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_mint [25196368-25198367] state=QUERY_STATE_PENDING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25192368-25194367] (0 rows)
+  [dune] liquidity_uniswap_v3_burn [25206368-25208367] …
+  [cache hit] liquidity_uniswap_v4_modify (29 rows)
+  [waiting] liquidity_uniswap_v3_burn [25206368-25208367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25194368-25196367] …
+  [cache save] liquidity_uniswap_v4_modify [25072368-25074367] (0 rows)
+  [cache save] liquidity_uniswap_v2_mint [25196368-25198367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (40 rows)
+  [waiting] liquidity_uniswap_v4_modify [25194368-25196367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] swaps [25136368-25138367] (1026 rows)
+  [dune] liquidity_uniswap_v4_modify [25074368-25076367] …
+  [dune] liquidity_uniswap_v2_mint [25198368-25200367] …
+  [cache hit] liquidity_uniswap_v4_modify (39 rows)
+  [cache save] liquidity_uniswap_v3_burn [25206368-25208367] (5 rows)
+  [dune] swaps [25138368-25140367] …
+  [waiting] liquidity_uniswap_v4_modify [25074368-25076367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_mint [25198368-25200367] state=QUERY_STATE_PENDING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25194368-25196367] (0 rows)
+  [waiting] swaps [25138368-25140367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (13 rows)
+  [dune] liquidity_uniswap_v3_burn [25208368-25210367] …
+  [dune] liquidity_uniswap_v4_modify [25196368-25198367] …
+  [waiting] liquidity_uniswap_v3_burn [25208368-25210367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25074368-25076367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (5 rows)
+  [cache save] liquidity_uniswap_v2_mint [25198368-25200367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25196368-25198367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25076368-25078367] …
+  [cache hit] liquidity_uniswap_v4_modify (18 rows)
+  [dune] liquidity_uniswap_v2_mint [25200368-25202367] …
+  [cache save] swaps [25138368-25140367] (769 rows)
+  [cache save] liquidity_uniswap_v3_burn [25208368-25210367] (5 rows)
+  [waiting] liquidity_uniswap_v2_mint [25200368-25202367] state=QUERY_STATE_PENDING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (19 rows)
+  [dune] swaps [25140368-25142367] …
+  [waiting] liquidity_uniswap_v4_modify [25076368-25078367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v3_burn [25210368-25212367] …
+  [cache save] liquidity_uniswap_v4_modify [25196368-25198367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (15 rows)
+  [waiting] liquidity_uniswap_v3_burn [25210368-25212367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_mint [25200368-25202367] (0 rows)
+  [waiting] swaps [25140368-25142367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25198368-25200367] …
+  [cache save] liquidity_uniswap_v4_modify [25076368-25078367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (14 rows)
+  [waiting] liquidity_uniswap_v4_modify [25198368-25200367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_mint [25202368-25204367] …
+  [cache save] liquidity_uniswap_v3_burn [25210368-25212367] (4 rows)
+  [dune] liquidity_uniswap_v4_modify [25078368-25080367] …
+  [cache hit] liquidity_uniswap_v4_modify (23 rows)
+  [waiting] liquidity_uniswap_v2_mint [25202368-25204367] state=QUERY_STATE_PENDING poll=1/240
+  [cache save] swaps [25140368-25142367] (1150 rows)
+  [dune] liquidity_uniswap_v3_burn [25212368-25214367] …
+  [waiting] liquidity_uniswap_v4_modify [25078368-25080367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25198368-25200367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (37 rows)
+  [dune] swaps [25142368-25144367] …
+  [waiting] liquidity_uniswap_v3_burn [25212368-25214367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_mint [25202368-25204367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25200368-25202367] …
+  [cache hit] liquidity_uniswap_v4_modify (16 rows)
+  [cache save] liquidity_uniswap_v4_modify [25078368-25080367] (0 rows)
+  [waiting] swaps [25142368-25144367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25200368-25202367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_mint [25204368-25206367] …
+  [cache hit] liquidity_uniswap_v4_modify (23 rows)
+  [cache save] liquidity_uniswap_v3_burn [25212368-25214367] (9 rows)
+  [dune] liquidity_uniswap_v4_modify [25080368-25082367] …
+  [waiting] liquidity_uniswap_v2_mint [25204368-25206367] state=QUERY_STATE_PENDING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (15 rows)
+  [cache save] liquidity_uniswap_v4_modify [25200368-25202367] (0 rows)
+  [dune] liquidity_uniswap_v3_burn [25214368-25216367] …
+  [waiting] liquidity_uniswap_v4_modify [25080368-25082367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] swaps [25142368-25144367] (509 rows)
+  [waiting] liquidity_uniswap_v3_burn [25214368-25216367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (23 rows)
+  [dune] liquidity_uniswap_v4_modify [25202368-25204367] …
+  [cache save] liquidity_uniswap_v2_mint [25204368-25206367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25202368-25204367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] swaps [25144368-25146367] …
+  [cache save] liquidity_uniswap_v4_modify [25080368-25082367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (28 rows)
+  [dune] liquidity_uniswap_v2_mint [25206368-25208367] …
+  [waiting] swaps [25144368-25146367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25082368-25084367] …
+  [waiting] liquidity_uniswap_v2_mint [25206368-25208367] state=QUERY_STATE_PENDING poll=1/240  Dune: liquidity_uniswap_v2_mint done
+  Dune: liquidity_uniswap_v4_modify[8] done
+  Dune: liquidity_uniswap_v4_modify[24] done
+
+  [cache save] liquidity_uniswap_v3_burn [25214368-25216367] (7 rows)
+  [cache hit] liquidity_uniswap_v4_modify (14 rows)
+  [cache save] liquidity_uniswap_v4_modify [25202368-25204367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25082368-25084367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v3_burn [25216368-25218367] …
+  [cache hit] liquidity_uniswap_v4_modify (34 rows)
+  [dune] liquidity_uniswap_v4_modify [25204368-25206367] …
+  [cache save] swaps [25144368-25146367] (309 rows)
+  [cache hit] liquidity_uniswap_v4_modify (12 rows)
+  [waiting] liquidity_uniswap_v4_modify [25204368-25206367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25082368-25084367] (0 rows)
+  [waiting] liquidity_uniswap_v3_burn [25216368-25218367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] swaps [25146368-25148367] …
+  [cache save] liquidity_uniswap_v2_mint [25206368-25208367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (10 rows)
+  [dune] liquidity_uniswap_v4_modify [25084368-25086367] …
+  [waiting] swaps [25146368-25148367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25204368-25206367] (0 rows)
+  [dune] liquidity_uniswap_v2_mint [25208368-25210367] …
+  [waiting] liquidity_uniswap_v4_modify [25084368-25086367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (4 rows)
+  [cache save] liquidity_uniswap_v3_burn [25216368-25218367] (9 rows)
+  [waiting] liquidity_uniswap_v2_mint [25208368-25210367] state=QUERY_STATE_PENDING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25206368-25208367] …
+  [cache save] swaps [25146368-25148367] (472 rows)
+  [cache hit] liquidity_uniswap_v4_modify (11 rows)
+  [waiting] liquidity_uniswap_v4_modify [25206368-25208367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v3_burn [25218368-25218797] …
+  [cache save] liquidity_uniswap_v4_modify [25084368-25086367] (0 rows)
+  [dune] swaps [25148368-25150367] …
+  [cache hit] liquidity_uniswap_v4_modify (25 rows)
+  [waiting] liquidity_uniswap_v3_burn [25218368-25218797] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v2_mint [25208368-25210367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25086368-25088367] …
+  [waiting] swaps [25148368-25150367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25206368-25208367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (10 rows)
+  [dune] liquidity_uniswap_v2_mint [25210368-25212367] …
+  [waiting] liquidity_uniswap_v4_modify [25086368-25088367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v3_burn [25218368-25218797] (0 rows)
+  [dune] liquidity_uniswap_v3_burn: 1829 rows across chunked window
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25208368-25210367] …
+  [waiting] liquidity_uniswap_v2_mint [25210368-25212367] state=QUERY_STATE_PENDING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (16 rows)
+  [cache save] swaps [25148368-25150367] (526 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25208368-25210367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25086368-25088367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (9 rows)
+  [dune] swaps [25150368-25152367] …
+  [cache save] liquidity_uniswap_v2_mint [25210368-25212367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25088368-25090367] …
+  [cache hit] liquidity_uniswap_v4_modify (31 rows)
+  [cache save] liquidity_uniswap_v4_modify [25208368-25210367] (0 rows)
+  [waiting] swaps [25150368-25152367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25088368-25090367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v2_mint [25212368-25214367] …
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (98 rows)
+  [dune] liquidity_uniswap_v4_modify [25210368-25212367] …
+  [waiting] liquidity_uniswap_v2_mint [25212368-25214367] state=QUERY_STATE_PENDING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25210368-25212367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25088368-25090367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (23 rows)
+  [cache hit] liquidity_uniswap_v4_modify (12 rows)
+  [cache save] swaps [25150368-25152367] (963 rows)
+  [dune] liquidity_uniswap_v4_modify [25090368-25092367] …
+  [cache save] liquidity_uniswap_v2_mint [25212368-25214367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (16 rows)
+  [cache save] liquidity_uniswap_v4_modify [25210368-25212367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25090368-25092367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (1 rows)
+  [dune] swaps [25152368-25154367] …
+  [dune] liquidity_uniswap_v2_mint [25214368-25216367] …
+  [cache hit] liquidity_uniswap_v4_modify (35 rows)
+  [dune] liquidity_uniswap_v4_modify [25212368-25214367] …
+  [waiting] swaps [25152368-25154367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (9 rows)
+  [cache hit] liquidity_uniswap_v4_modify (18 rows)
+  [waiting] liquidity_uniswap_v4_modify [25212368-25214367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25090368-25092367] (0 rows)
+  [waiting] liquidity_uniswap_v2_mint [25214368-25216367] state=QUERY_STATE_PENDING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (8 rows)
+  [dune] liquidity_uniswap_v4_modify [25092368-25094367] …
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] swaps [25152368-25154367] (539 rows)
+  [cache save] liquidity_uniswap_v4_modify [25212368-25214367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (13 rows)
+  [cache save] liquidity_uniswap_v2_mint [25214368-25216367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25092368-25094367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (1 rows)
+  [dune] swaps [25154368-25156367] …
+  [dune] liquidity_uniswap_v4_modify [25214368-25216367] …
+  [cache hit] liquidity_uniswap_v4_modify (8 rows)
+  [dune] liquidity_uniswap_v2_mint [25216368-25218367] …
+  [waiting] swaps [25154368-25156367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25214368-25216367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v2_mint [25216368-25218367] state=QUERY_STATE_PENDING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25092368-25094367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (34 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25094368-25096367] …
+  [cache hit] liquidity_uniswap_v4_modify (5 rows)
+  [cache save] liquidity_uniswap_v4_modify [25214368-25216367] (0 rows)
+  [cache save] liquidity_uniswap_v2_mint [25216368-25218367] (3 rows)
+  [waiting] liquidity_uniswap_v4_modify [25094368-25096367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (51 rows)
+  [dune] liquidity_uniswap_v4_modify [25216368-25218367] …
+  [dune] liquidity_uniswap_v2_mint [25218368-25218797] …
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25216368-25218367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (35 rows)
+  [cache save] liquidity_uniswap_v4_modify [25094368-25096367] (0 rows)
+  [waiting] liquidity_uniswap_v2_mint [25218368-25218797] state=QUERY_STATE_PENDING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] swaps [25154368-25156367] (1795 rows)
+  [cache hit] liquidity_uniswap_v4_modify (27 rows)
+  [dune] liquidity_uniswap_v4_modify [25096368-25098367] …
+  [cache save] liquidity_uniswap_v4_modify [25216368-25218367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] liquidity_uniswap_v2_mint [25218368-25218797] (0 rows)
+  [dune] liquidity_uniswap_v2_mint: 9 rows across chunked window
+  [cache hit] transfers (8620 rows)
+  [dune] swaps [25156368-25158367] …
+  [cache hit] liquidity_uniswap_v4_modify (49 rows)
+  [waiting] liquidity_uniswap_v4_modify [25096368-25098367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25218368-25218797] …
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache hit] transfers (5739 rows)
+  [waiting] swaps [25156368-25158367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (7 rows)
+  [waiting] liquidity_uniswap_v4_modify [25218368-25218797] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25096368-25098367] (0 rows)
+  [cache hit] transfers (3253 rows)
+  [cache hit] liquidity_uniswap_v4_modify (9 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25098368-25100367] …
+  [cache save] liquidity_uniswap_v4_modify [25218368-25218797] (0 rows)
+  [dune] liquidity_uniswap_v4_modify: 72 rows across chunked window
+  [cache save] swaps [25156368-25158367] (721 rows)
+  [cache hit] transfers (3434 rows)
+  [cache hit] liquidity_uniswap_v4_modify (4 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25098368-25100367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] swaps [25158368-25160367] …
+  [cache hit] transfers (4693 rows)
+  [cache hit] liquidity_uniswap_v4_modify (10 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache hit] transfers (8722 rows)
+  [cache hit] liquidity_uniswap_v4_modify (25 rows)
+  [cache save] liquidity_uniswap_v4_modify [25098368-25100367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache hit] transfers (12647 rows)
+  [cache hit] liquidity_uniswap_v4_modify (47 rows)
+  [cache save] swaps [25158368-25160367] (553 rows)
+  [dune] liquidity_uniswap_v4_modify [25100368-25102367] …
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache hit] transfers (7497 rows)
+  [cache hit] liquidity_uniswap_v4_modify (12 rows)
+  [dune] swaps [25160368-25162367] …
+  [waiting] liquidity_uniswap_v4_modify [25100368-25102367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [waiting] swaps [25160368-25162367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (9812 rows)
+  [cache hit] liquidity_uniswap_v4_modify (32 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25100368-25102367] (0 rows)
+  [cache hit] transfers (9342 rows)
+  [cache hit] liquidity_uniswap_v4_modify (47 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25102368-25104367] …
+  [cache save] swaps [25160368-25162367] (1180 rows)
+  [cache hit] transfers (7301 rows)
+  [cache hit] liquidity_uniswap_v4_modify (11 rows)
+  [waiting] liquidity_uniswap_v4_modify [25102368-25104367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [dune] swaps [25162368-25164367] …
+  [cache hit] transfers (4838 rows)
+  [cache hit] liquidity_uniswap_v4_modify (46 rows)
+  [waiting] swaps [25162368-25164367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache hit] transfers (3145 rows)
+  [cache hit] liquidity_uniswap_v4_modify (30 rows)
+  [cache save] liquidity_uniswap_v4_modify [25102368-25104367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache hit] transfers (4211 rows)
+  [cache hit] liquidity_uniswap_v4_modify (28 rows)
+  [dune] liquidity_uniswap_v4_modify [25104368-25106367] …
+  [cache save] swaps [25162368-25164367] (586 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache hit] transfers (3090 rows)
+  [cache hit] liquidity_uniswap_v4_modify (7 rows)
+  [waiting] liquidity_uniswap_v4_modify [25104368-25106367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] swaps [25164368-25166367] …
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache hit] transfers (2878 rows)
+  [cache hit] liquidity_uniswap_v4_modify (22 rows)
+  [waiting] swaps [25164368-25166367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25104368-25106367] (0 rows)
+  [cache hit] transfers (4871 rows)
+  [cache hit] liquidity_uniswap_v4_modify (13 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25106368-25108367] …
+  [cache save] swaps [25164368-25166367] (499 rows)
+  [cache hit] transfers (2486 rows)
+  [cache hit] liquidity_uniswap_v4_modify (2 rows)
+  [waiting] liquidity_uniswap_v4_modify [25106368-25108367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [dune] swaps [25166368-25168367] …
+  [cache hit] transfers (3096 rows)
+  [cache hit] liquidity_uniswap_v4_modify (21 rows)
+  [waiting] swaps [25166368-25168367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache hit] transfers (4127 rows)
+  [cache hit] liquidity_uniswap_v4_modify (20 rows)
+  [cache save] liquidity_uniswap_v4_modify [25106368-25108367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache hit] transfers (2114 rows)
+  [cache hit] liquidity_uniswap_v4_modify (2 rows)
+  [dune] liquidity_uniswap_v4_modify [25108368-25110367] …
+  [cache save] swaps [25166368-25168367] (573 rows)
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25108368-25110367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (2129 rows)
+  [cache hit] liquidity_uniswap_v4_modify (2 rows)
+  [dune] swaps [25168368-25170367] …
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache hit] transfers (4165 rows)
+  [cache hit] liquidity_uniswap_v4_modify (18 rows)
+  [waiting] swaps [25168368-25170367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25108368-25110367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (5 rows)
+  [cache hit] transfers (4686 rows)
+  [dune] liquidity_uniswap_v4_modify [25076368-25078367] …
+  [dune] liquidity_uniswap_v4_modify [25110368-25112367] …
+  [cache save] swaps [25168368-25170367] (538 rows)
+  [cache hit] liquidity_uniswap_v4_modify (8 rows)
+  [cache hit] transfers (1773 rows)
+  [waiting] liquidity_uniswap_v4_modify [25076368-25078367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25110368-25112367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] swaps [25170368-25172367] …
+  [cache hit] liquidity_uniswap_v4_modify (9 rows)
+  [cache hit] transfers (3388 rows)
+  [waiting] swaps [25170368-25172367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (26 rows)
+  [cache hit] transfers (2346 rows)
+  [cache save] liquidity_uniswap_v4_modify [25076368-25078367] (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25110368-25112367] (0 rows)
+  [cache hit] liquidity_uniswap_v4_modify (23 rows)
+  [cache hit] transfers (1780 rows)
+  [dune] liquidity_uniswap_v4_modify [25078368-25080367] …
+  [dune] liquidity_uniswap_v4_modify [25112368-25114367] …
+  [cache save] swaps [25170368-25172367] (454 rows)
+  [waiting] liquidity_uniswap_v4_modify [25078368-25080367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] liquidity_uniswap_v4_modify (8 rows)
+  [cache hit] transfers (1223 rows)
+  [waiting] liquidity_uniswap_v4_modify [25112368-25114367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] swaps [25172368-25174367] …
+  [cache hit] liquidity_uniswap_v4_modify (1 rows)
+  [dune] liquidity_uniswap_v4_modify: 3146 rows across chunked window
+  [cache hit] transfers (2228 rows)
+  [waiting] swaps [25172368-25174367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25078368-25080367] (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25112368-25114367] (0 rows)
+  [cache hit] transfers (2636 rows)
+  [dune] liquidity_uniswap_v4_modify [25080368-25082367] …
+  [dune] liquidity_uniswap_v4_modify [25114368-25116367] …
+  [waiting] liquidity_uniswap_v4_modify [25080368-25082367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (3006 rows)
+  [cache save] swaps [25172368-25174367] (1305 rows)
+  [waiting] liquidity_uniswap_v4_modify [25114368-25116367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (2987 rows)
+  [dune] swaps [25174368-25176367] …
+  [cache save] liquidity_uniswap_v4_modify [25080368-25082367] (0 rows)
+  [waiting] swaps [25174368-25176367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (1863 rows)
+  [cache save] liquidity_uniswap_v4_modify [25114368-25116367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25082368-25084367] …
+  [cache hit] transfers (1994 rows)
+  [dune] liquidity_uniswap_v4_modify [25116368-25118367] …
+  [waiting] liquidity_uniswap_v4_modify [25082368-25084367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] swaps [25174368-25176367] (499 rows)
+  [waiting] liquidity_uniswap_v4_modify [25116368-25118367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (727 rows)
+  [dune] swaps [25176368-25178367] …
+  [cache save] liquidity_uniswap_v4_modify [25082368-25084367] (0 rows)
+  [cache hit] transfers (1577 rows)
+  [cache save] liquidity_uniswap_v4_modify [25116368-25118367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25084368-25086367] …
+  [cache hit] transfers (2069 rows)
+  [dune] liquidity_uniswap_v4_modify [25118368-25120367] …
+  [waiting] liquidity_uniswap_v4_modify [25084368-25086367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] swaps [25176368-25178367] (1627 rows)
+  [cache hit] transfers (984 rows)
+  [dune] swaps [25178368-25180367] …
+  [cache hit] transfers (1203 rows)
+  [waiting] liquidity_uniswap_v4_modify [25118368-25120367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25084368-25086367] (0 rows)
+  [waiting] swaps [25178368-25180367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (1691 rows)
+  [dune] liquidity_uniswap_v4_modify [25086368-25088367] …
+  [cache save] liquidity_uniswap_v4_modify [25118368-25120367] (0 rows)
+  [cache hit] transfers (1473 rows)
+  [dune] liquidity_uniswap_v4_modify [25120368-25122367] …
+  [waiting] liquidity_uniswap_v4_modify [25086368-25088367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (937 rows)
+  [waiting] liquidity_uniswap_v4_modify [25120368-25122367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (1421 rows)
+  [cache save] liquidity_uniswap_v4_modify [25086368-25088367] (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25120368-25122367] (0 rows)
+  [cache hit] transfers (1269 rows)
+  [dune] liquidity_uniswap_v4_modify [25088368-25090367] …
+  [cache save] swaps [25178368-25180367] (1950 rows)
+  [dune] liquidity_uniswap_v4_modify [25122368-25124367] …
+  [cache hit] transfers (639 rows)
+  [waiting] liquidity_uniswap_v4_modify [25088368-25090367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] swaps [25180368-25182367] …
+  [waiting] liquidity_uniswap_v4_modify [25122368-25124367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (773 rows)
+  [waiting] swaps [25180368-25182367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (1267 rows)
+  [cache save] liquidity_uniswap_v4_modify [25088368-25090367] (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25122368-25124367] (0 rows)
+  [cache hit] transfers (1341 rows)
+  [dune] liquidity_uniswap_v4_modify [25090368-25092367] …
+  [dune] liquidity_uniswap_v4_modify [25124368-25126367] …
+  [cache save] swaps [25180368-25182367] (715 rows)
+  [waiting] liquidity_uniswap_v4_modify [25090368-25092367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (744 rows)
+  [waiting] liquidity_uniswap_v4_modify [25124368-25126367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] swaps [25182368-25184367] …
+  [cache hit] transfers (781 rows)
+  [waiting] swaps [25182368-25184367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25090368-25092367] (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25124368-25126367] (0 rows)
+  [cache hit] transfers (1057 rows)
+  [dune] liquidity_uniswap_v4_modify [25092368-25094367] …
+  [dune] liquidity_uniswap_v4_modify [25126368-25128367] …
+  [cache hit] transfers (1637 rows)
+  [waiting] liquidity_uniswap_v4_modify [25092368-25094367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25126368-25128367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] swaps [25182368-25184367] (1819 rows)
+  [cache hit] transfers (583 rows)
+  [cache save] liquidity_uniswap_v4_modify [25092368-25094367] (0 rows)
+  [dune] swaps [25184368-25186367] …
+  [cache hit] transfers (1651 rows)
+  [cache save] liquidity_uniswap_v4_modify [25126368-25128367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25094368-25096367] …
+  [waiting] swaps [25184368-25186367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (1011 rows)
+  [dune] liquidity_uniswap_v4_modify [25128368-25130367] …
+  [waiting] liquidity_uniswap_v4_modify [25094368-25096367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25128368-25130367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (779 rows)
+  [cache save] liquidity_uniswap_v4_modify [25094368-25096367] (0 rows)
+  [cache hit] transfers (1335 rows)
+  [cache save] swaps [25184368-25186367] (1586 rows)
+  [cache save] liquidity_uniswap_v4_modify [25128368-25130367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25096368-25098367] …
+  [cache hit] transfers (1368 rows)
+  [dune] swaps [25186368-25188367] …
+  [dune] liquidity_uniswap_v4_modify [25130368-25132367] …
+  [waiting] liquidity_uniswap_v4_modify [25096368-25098367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (2100 rows)
+  [waiting] swaps [25186368-25188367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25130368-25132367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (718 rows)
+  [cache save] liquidity_uniswap_v4_modify [25096368-25098367] (0 rows)
+  [cache hit] transfers (1142 rows)
+  [cache save] liquidity_uniswap_v4_modify [25130368-25132367] (0 rows)
+  [cache save] swaps [25186368-25188367] (1146 rows)
+  [dune] liquidity_uniswap_v4_modify [25098368-25100367] …
+  [cache hit] transfers (944 rows)
+  [dune] liquidity_uniswap_v4_modify [25132368-25134367] …
+  [waiting] liquidity_uniswap_v4_modify [25098368-25100367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] swaps [25188368-25190367] …
+  [cache hit] transfers (616 rows)
+  [waiting] liquidity_uniswap_v4_modify [25132368-25134367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] swaps [25188368-25190367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25098368-25100367] (0 rows)
+  [cache hit] transfers (545 rows)
+  [cache save] liquidity_uniswap_v4_modify [25132368-25134367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25100368-25102367] …
+  [cache hit] transfers (824 rows)
+  [cache save] swaps [25188368-25190367] (576 rows)
+  [dune] liquidity_uniswap_v4_modify [25134368-25136367] …
+  [waiting] liquidity_uniswap_v4_modify [25100368-25102367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (928 rows)
+  [dune] swaps [25190368-25192367] …
+  [cache hit] transfers (739 rows)
+  [cache save] liquidity_uniswap_v4_modify [25100368-25102367] (0 rows)
+  [waiting] swaps [25190368-25192367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (1350 rows)
+  [waiting] liquidity_uniswap_v4_modify [25134368-25136367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25102368-25104367] …
+  [cache hit] transfers (6092 rows)
+  [waiting] liquidity_uniswap_v4_modify [25102368-25104367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25134368-25136367] (0 rows)
+  [cache hit] transfers (1606 rows)
+  [cache save] swaps [25190368-25192367] (1325 rows)  Dune: transfers done
+  Dune: swaps done
+
+  [dune] liquidity_uniswap_v4_modify [25136368-25138367] …
+  [cache save] liquidity_uniswap_v4_modify [25102368-25104367] (0 rows)
+  [cache hit] transfers (1220 rows)
+  [dune] swaps [25192368-25194367] …
+  [waiting] liquidity_uniswap_v4_modify [25136368-25138367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25104368-25106367] …
+  [cache hit] transfers (1993 rows)
+  [waiting] swaps [25192368-25194367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25104368-25106367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (1034 rows)
+  [cache save] liquidity_uniswap_v4_modify [25136368-25138367] (0 rows)
+  [cache hit] transfers (541 rows)
+  [cache save] liquidity_uniswap_v4_modify [25104368-25106367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25138368-25140367] …
+  [cache save] swaps [25192368-25194367] (1059 rows)
+  [waiting] liquidity_uniswap_v4_modify [25138368-25140367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (821 rows)
+  [dune] liquidity_uniswap_v4_modify [25106368-25108367] …
+  [dune] swaps [25194368-25196367] …
+  [waiting] liquidity_uniswap_v4_modify [25106368-25108367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (1014 rows)
+  [waiting] swaps [25194368-25196367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25138368-25140367] (0 rows)
+  [cache hit] transfers (1447 rows)
+  [cache save] liquidity_uniswap_v4_modify [25106368-25108367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25140368-25142367] …
+  [cache hit] transfers (815 rows)
+  [waiting] liquidity_uniswap_v4_modify [25140368-25142367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] swaps [25194368-25196367] (373 rows)
+  [dune] liquidity_uniswap_v4_modify [25108368-25110367] …
+  [cache hit] transfers (2703 rows)
+  [waiting] liquidity_uniswap_v4_modify [25108368-25110367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] swaps [25196368-25198367] …
+  [cache save] liquidity_uniswap_v4_modify [25140368-25142367] (0 rows)
+  [cache hit] transfers (1296 rows)
+  [waiting] swaps [25196368-25198367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25108368-25110367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25142368-25144367] …
+  [cache hit] transfers (963 rows)
+  [dune] liquidity_uniswap_v4_modify [25110368-25112367] …
+  [waiting] liquidity_uniswap_v4_modify [25142368-25144367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (1696 rows)
+  [cache save] swaps [25196368-25198367] (680 rows)
+  [waiting] liquidity_uniswap_v4_modify [25110368-25112367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (973 rows)
+  [dune] swaps [25198368-25200367] …
+  [cache save] liquidity_uniswap_v4_modify [25142368-25144367] (0 rows)
+  [cache hit] transfers (891 rows)
+  [waiting] swaps [25198368-25200367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25144368-25146367] …
+  [cache save] liquidity_uniswap_v4_modify [25110368-25112367] (0 rows)
+  [cache hit] transfers (857 rows)
+  [waiting] liquidity_uniswap_v4_modify [25144368-25146367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25112368-25114367] …
+  [cache hit] transfers (749 rows)
+  [cache save] swaps [25198368-25200367] (689 rows)
+  [waiting] liquidity_uniswap_v4_modify [25112368-25114367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25144368-25146367] (0 rows)
+  [cache hit] transfers (809 rows)
+  [dune] swaps [25200368-25202367] …
+  [dune] liquidity_uniswap_v4_modify [25146368-25148367] …
+  [waiting] swaps [25200368-25202367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (1927 rows)
+  [cache save] liquidity_uniswap_v4_modify [25112368-25114367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25146368-25148367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (788 rows)
+  [dune] liquidity_uniswap_v4_modify [25114368-25116367] …
+  [cache save] swaps [25200368-25202367] (525 rows)
+  [cache hit] transfers (2477 rows)
+  [cache save] liquidity_uniswap_v4_modify [25146368-25148367] (0 rows)
+  [dune] swaps [25202368-25204367] …
+  [cache hit] transfers (2875 rows)
+  [dune] liquidity_uniswap_v4_modify [25148368-25150367] …
+  [waiting] swaps [25202368-25204367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (1036 rows)
+  [waiting] liquidity_uniswap_v4_modify [25148368-25150367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (2586 rows)
+  [waiting] liquidity_uniswap_v4_modify [25114368-25116367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] swaps [25202368-25204367] (339 rows)
+  [cache save] liquidity_uniswap_v4_modify [25148368-25150367] (0 rows)
+  [cache hit] transfers (2636 rows)
+  [dune] swaps [25204368-25206367] …
+  [dune] liquidity_uniswap_v4_modify [25150368-25152367] …
+  [cache hit] transfers (1714 rows)
+  [cache save] liquidity_uniswap_v4_modify [25114368-25116367] (0 rows)
+  [waiting] swaps [25204368-25206367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25150368-25152367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (842 rows)
+  [dune] liquidity_uniswap_v4_modify [25116368-25118367] …
+  [waiting] liquidity_uniswap_v4_modify [25116368-25118367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (2102 rows)
+  [cache save] liquidity_uniswap_v4_modify [25150368-25152367] (0 rows)
+  [cache save] swaps [25204368-25206367] (866 rows)
+  [cache hit] transfers (1631 rows)
+  [dune] liquidity_uniswap_v4_modify [25152368-25154367] …
+  [cache save] liquidity_uniswap_v4_modify [25116368-25118367] (0 rows)
+  [dune] swaps [25206368-25208367] …
+  [cache hit] transfers (579 rows)
+  [waiting] liquidity_uniswap_v4_modify [25152368-25154367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25118368-25120367] …
+  [waiting] swaps [25206368-25208367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (1015 rows)
+  [waiting] liquidity_uniswap_v4_modify [25118368-25120367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25152368-25154367] (0 rows)
+  [cache hit] transfers (1082 rows)
+  [dune] liquidity_uniswap_v4_modify [25154368-25156367] …
+  [cache save] liquidity_uniswap_v4_modify [25118368-25120367] (0 rows)
+  [cache hit] transfers (888 rows)
+  [cache save] swaps [25206368-25208367] (890 rows)
+  [dune] liquidity_uniswap_v4_modify [25120368-25122367] …
+  [cache hit] transfers (425 rows)
+  [waiting] liquidity_uniswap_v4_modify [25154368-25156367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] swaps [25208368-25210367] …
+  [waiting] liquidity_uniswap_v4_modify [25120368-25122367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (1345 rows)
+  [waiting] swaps [25208368-25210367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25154368-25156367] (0 rows)
+  [cache hit] transfers (1367 rows)
+  [cache save] liquidity_uniswap_v4_modify [25120368-25122367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25156368-25158367] …
+  [cache hit] transfers (969 rows)
+  [cache save] swaps [25208368-25210367] (695 rows)
+  [dune] liquidity_uniswap_v4_modify [25122368-25124367] …
+  [waiting] liquidity_uniswap_v4_modify [25156368-25158367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (843 rows)
+  [dune] swaps [25210368-25212367] …
+  [waiting] liquidity_uniswap_v4_modify [25122368-25124367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] swaps [25210368-25212367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (2472 rows)
+  [cache save] liquidity_uniswap_v4_modify [25156368-25158367] (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25122368-25124367] (0 rows)
+  [cache hit] transfers (1204 rows)
+  [dune] liquidity_uniswap_v4_modify [25158368-25160367] …
+  [dune] liquidity_uniswap_v4_modify [25124368-25126367] …
+  [cache hit] transfers (1284 rows)
+  [waiting] liquidity_uniswap_v4_modify [25158368-25160367] state=QUERY_STATE_EXECUTING poll=1/240  Dune: liquidity_uniswap_v4_modify[16] done
+
+  [cache save] swaps [25210368-25212367] (621 rows)
+  [waiting] liquidity_uniswap_v4_modify [25124368-25126367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache hit] transfers (260 rows)
+  [dune] transfers: 252210 rows across chunked window
+  [dune] swaps [25212368-25214367] …
+  [cache save] liquidity_uniswap_v4_modify [25158368-25160367] (0 rows)
+  [waiting] swaps [25212368-25214367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25124368-25126367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25160368-25162367] …
+  [dune] liquidity_uniswap_v4_modify [25126368-25128367] …
+  [waiting] liquidity_uniswap_v4_modify [25160368-25162367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25126368-25128367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25160368-25162367] (0 rows)
+  [cache save] swaps [25212368-25214367] (1868 rows)
+  [cache save] liquidity_uniswap_v4_modify [25126368-25128367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25162368-25164367] …
+  [dune] swaps [25214368-25216367] …
+  [dune] liquidity_uniswap_v4_modify [25128368-25130367] …
+  [waiting] swaps [25214368-25216367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25162368-25164367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25128368-25130367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25164368-25166367] …
+  [waiting] liquidity_uniswap_v4_modify [25164368-25166367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] swaps [25214368-25216367] (847 rows)
+  [cache save] liquidity_uniswap_v4_modify [25128368-25130367] (0 rows)
+  [dune] swaps [25216368-25218367] …
+  [dune] liquidity_uniswap_v4_modify [25130368-25132367] …
+  [cache save] liquidity_uniswap_v4_modify [25164368-25166367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25130368-25132367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] swaps [25216368-25218367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25166368-25168367] …
+  [waiting] liquidity_uniswap_v4_modify [25166368-25168367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25130368-25132367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25132368-25134367] …
+  [cache save] liquidity_uniswap_v4_modify [25166368-25168367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25132368-25134367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] swaps [25216368-25218367] (875 rows)
+  [dune] liquidity_uniswap_v4_modify [25168368-25170367] …
+  [waiting] liquidity_uniswap_v4_modify [25168368-25170367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25132368-25134367] (0 rows)
+  [dune] swaps [25218368-25218797] …
+  [dune] liquidity_uniswap_v4_modify [25134368-25136367] …
+  [cache save] liquidity_uniswap_v4_modify [25168368-25170367] (0 rows)
+  [cache save] swaps [25218368-25218797] (200 rows)
+  [dune] swaps: 167163 rows across chunked window
+  [waiting] liquidity_uniswap_v4_modify [25134368-25136367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25170368-25172367] …
+  [waiting] liquidity_uniswap_v4_modify [25170368-25172367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25134368-25136367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25136368-25138367] …
+  [cache save] liquidity_uniswap_v4_modify [25170368-25172367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25136368-25138367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25172368-25174367] …
+  [cache save] liquidity_uniswap_v4_modify [25136368-25138367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25172368-25174367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25138368-25140367] …
+  [cache save] liquidity_uniswap_v4_modify [25172368-25174367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25138368-25140367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25174368-25176367] …
+  [cache save] liquidity_uniswap_v4_modify [25138368-25140367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25174368-25176367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25140368-25142367] …
+  [cache save] liquidity_uniswap_v4_modify [25174368-25176367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25176368-25178367] …
+  [waiting] liquidity_uniswap_v4_modify [25176368-25178367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25140368-25142367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25176368-25178367] (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25140368-25142367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25178368-25180367] …
+  [dune] liquidity_uniswap_v4_modify [25142368-25144367] …
+  [waiting] liquidity_uniswap_v4_modify [25178368-25180367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25178368-25180367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25142368-25144367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25180368-25182367] …
+  [cache save] liquidity_uniswap_v4_modify [25142368-25144367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25180368-25182367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25144368-25146367] …
+  [cache save] liquidity_uniswap_v4_modify [25180368-25182367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25144368-25146367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25182368-25184367] …
+  [cache save] liquidity_uniswap_v4_modify [25144368-25146367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25182368-25184367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25146368-25148367] …
+  [waiting] liquidity_uniswap_v4_modify [25146368-25148367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25182368-25184367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25184368-25186367] …
+  [cache save] liquidity_uniswap_v4_modify [25146368-25148367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25184368-25186367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25148368-25150367] …
+  [cache save] liquidity_uniswap_v4_modify [25184368-25186367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25148368-25150367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25186368-25188367] …
+  [cache save] liquidity_uniswap_v4_modify [25148368-25150367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25186368-25188367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25150368-25152367] …
+  [waiting] liquidity_uniswap_v4_modify [25150368-25152367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25186368-25188367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25188368-25190367] …
+  [cache save] liquidity_uniswap_v4_modify [25150368-25152367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25188368-25190367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25152368-25154367] …
+  [waiting] liquidity_uniswap_v4_modify [25152368-25154367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25188368-25190367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25190368-25192367] …
+  [cache save] liquidity_uniswap_v4_modify [25152368-25154367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25190368-25192367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25154368-25156367] …
+  [waiting] liquidity_uniswap_v4_modify [25154368-25156367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25190368-25192367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25192368-25194367] …
+  [cache save] liquidity_uniswap_v4_modify [25154368-25156367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25192368-25194367] state=QUERY_STATE_EXECUTING poll=1/240  Dune: liquidity_uniswap_v4_modify[32] done
+  Dune: 167163 swap(s)
+  Dune: 11232 liquidity event(s)
+  Dune: 252210 transfer(s)
+  Dune indexing done: 167163 swaps, 11232 liquidity, 252210 transfers
+
+  [dune] liquidity_uniswap_v4_modify [25156368-25158367] …
+  [waiting] liquidity_uniswap_v4_modify [25156368-25158367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25192368-25194367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25194368-25196367] …
+  [cache save] liquidity_uniswap_v4_modify [25156368-25158367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25194368-25196367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25158368-25160367] …
+  [waiting] liquidity_uniswap_v4_modify [25158368-25160367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25194368-25196367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25196368-25198367] …
+  [cache save] liquidity_uniswap_v4_modify [25158368-25160367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25196368-25198367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25160368-25162367] …
+  [waiting] liquidity_uniswap_v4_modify [25160368-25162367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25196368-25198367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25198368-25200367] …
+  [cache save] liquidity_uniswap_v4_modify [25160368-25162367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25198368-25200367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25162368-25164367] …
+  [cache save] liquidity_uniswap_v4_modify [25198368-25200367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25162368-25164367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25200368-25202367] …
+  [cache save] liquidity_uniswap_v4_modify [25162368-25164367] (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25200368-25202367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25164368-25166367] …
+  [dune] liquidity_uniswap_v4_modify [25202368-25204367] …
+  [waiting] liquidity_uniswap_v4_modify [25164368-25166367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25202368-25204367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25164368-25166367] (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25202368-25204367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25166368-25168367] …
+  [dune] liquidity_uniswap_v4_modify [25204368-25206367] …
+  [waiting] liquidity_uniswap_v4_modify [25166368-25168367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25204368-25206367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25166368-25168367] (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25204368-25206367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25168368-25170367] …
+  [dune] liquidity_uniswap_v4_modify [25206368-25208367] …
+  [waiting] liquidity_uniswap_v4_modify [25168368-25170367] state=QUERY_STATE_EXECUTING poll=1/240
+  [waiting] liquidity_uniswap_v4_modify [25206368-25208367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25168368-25170367] (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25206368-25208367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25170368-25172367] …
+  [waiting] liquidity_uniswap_v4_modify [25170368-25172367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25208368-25210367] …
+  [waiting] liquidity_uniswap_v4_modify [25208368-25210367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25170368-25172367] (0 rows)
+  [cache save] liquidity_uniswap_v4_modify [25208368-25210367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25172368-25174367] …
+  [waiting] liquidity_uniswap_v4_modify [25172368-25174367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25210368-25212367] …
+  [waiting] liquidity_uniswap_v4_modify [25210368-25212367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25172368-25174367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25174368-25176367] …
+  [waiting] liquidity_uniswap_v4_modify [25174368-25176367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25210368-25212367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25212368-25214367] …
+  [cache save] liquidity_uniswap_v4_modify [25174368-25176367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25212368-25214367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25176368-25178367] …
+  [cache save] liquidity_uniswap_v4_modify [25212368-25214367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25176368-25178367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25214368-25216367] …
+  [cache save] liquidity_uniswap_v4_modify [25176368-25178367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25214368-25216367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25178368-25180367] …
+  [cache save] liquidity_uniswap_v4_modify [25214368-25216367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25178368-25180367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25216368-25218367] …
+  [waiting] liquidity_uniswap_v4_modify [25216368-25218367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25178368-25180367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25180368-25182367] …
+  [cache save] liquidity_uniswap_v4_modify [25216368-25218367] (0 rows)
+  [waiting] liquidity_uniswap_v4_modify [25180368-25182367] state=QUERY_STATE_EXECUTING poll=1/240
+  [dune] liquidity_uniswap_v4_modify [25218368-25218797] …
+  [waiting] liquidity_uniswap_v4_modify [25218368-25218797] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25180368-25182367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25182368-25184367] …
+  [cache save] liquidity_uniswap_v4_modify [25218368-25218797] (0 rows)
+  [dune] liquidity_uniswap_v4_modify: 25 rows across chunked window
+  [waiting] liquidity_uniswap_v4_modify [25182368-25184367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25182368-25184367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25184368-25186367] …
+  [waiting] liquidity_uniswap_v4_modify [25184368-25186367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25184368-25186367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25186368-25188367] …
+  [cache save] liquidity_uniswap_v4_modify [25186368-25188367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25188368-25190367] …
+  [waiting] liquidity_uniswap_v4_modify [25188368-25190367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25188368-25190367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25190368-25192367] …
+  [waiting] liquidity_uniswap_v4_modify [25190368-25192367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25190368-25192367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25192368-25194367] …
+  [waiting] liquidity_uniswap_v4_modify [25192368-25194367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25192368-25194367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25194368-25196367] …
+  [waiting] liquidity_uniswap_v4_modify [25194368-25196367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25194368-25196367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25196368-25198367] …
+  [waiting] liquidity_uniswap_v4_modify [25196368-25198367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25196368-25198367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25198368-25200367] …
+  [waiting] liquidity_uniswap_v4_modify [25198368-25200367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25198368-25200367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25200368-25202367] …
+  [waiting] liquidity_uniswap_v4_modify [25200368-25202367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25200368-25202367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25202368-25204367] …
+  [waiting] liquidity_uniswap_v4_modify [25202368-25204367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25202368-25204367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25204368-25206367] …
+  [waiting] liquidity_uniswap_v4_modify [25204368-25206367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25204368-25206367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25206368-25208367] …
+  [waiting] liquidity_uniswap_v4_modify [25206368-25208367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25206368-25208367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25208368-25210367] …
+  [waiting] liquidity_uniswap_v4_modify [25208368-25210367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25208368-25210367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25210368-25212367] …
+  [waiting] liquidity_uniswap_v4_modify [25210368-25212367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25210368-25212367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25212368-25214367] …
+  [waiting] liquidity_uniswap_v4_modify [25212368-25214367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25212368-25214367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25214368-25216367] …
+  [waiting] liquidity_uniswap_v4_modify [25214368-25216367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25214368-25216367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25216368-25218367] …
+  [waiting] liquidity_uniswap_v4_modify [25216368-25218367] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25216368-25218367] (0 rows)
+  [dune] liquidity_uniswap_v4_modify [25218368-25218797] …
+  [waiting] liquidity_uniswap_v4_modify [25218368-25218797] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] liquidity_uniswap_v4_modify [25218368-25218797] (0 rows)
+  [dune] liquidity_uniswap_v4_modify: 23 rows across chunked window
+  167163 swaps, 11232 liquidity events, 252210 transfers
+  time: [6/12] Index events done in 21m 11.0s — 167163 swaps / 11232 liq / 252210 xfer
+[7/12] Labeling addresses ...
+  Deployer: 0x02eD43292C6be3F49f2B287C499C77560E426E83
+  41 label(s) assigned
+  time: [7/12] Labels done in 20.9s
+[8/12] Calculating metrics ...
+  [dune] pool_balance_timeline [24996368-25218797] …
+  [waiting] pool_balance_timeline [24996368-25218797] state=QUERY_STATE_EXECUTING poll=1/240
+  [metrics] Dune snapshot TVL failed (Dune SQL execution QUERY_STATE_FAILED: credits/payment unavailable: {"execution_id":"01M1GB3752NRY47QWZ5TC7G1X9","query_id":0,"is_execution_finished":true,"state":"QUERY_STATE_FAILED","submitted_at":"2026-09-02T05:57:27.842763Z","expires_at":"2026-12-01T05:57:29.022793Z","execution_started_at":"2026-09-02T05:57:27.845763154Z","execution_ended_at":"2026-09-02T05:57:29.022788923Z","execution_cost_credits":0,"error":{"type":"FAILED_TYPE_EXECUTION_FAILED","message":"line 12:6: Schema 'balances' does not exist at line 12, position 6. The tables or views you are tryin); trying historical RPC balances
+  [metrics] volume + price from indexed swaps (skip extra dex.trades queries)
+  TVL timeline: 90 points (rpc_target_balance_local_price); chart_span=month (day)
+  Main pool share: 63.42%
+  time: [8/12] Metrics done in 29.1s
+[9/12] Building timeline ...
+  430605 total events in timeline
+  time: [9/12] Timeline done in 5.6s
+[10/12] Computing risk score ...
+  Risk score: 0.4619 (MEDIUM)
+  time: [10/12] Risk done in 0.0s
+[11/12] Generating report ...
+  report.md written
+  time: [11/12] Report done in 0.0s
+  Refreshing holdings with indexed transfers ...
+  [dune] balances …
+  [holdings] Dune balance fill skipped: Dune SQL execution QUERY_STATE_FAILED: credits/payment unavailable: {"execution_id":"01M1GB6CBWB2JCCJAC2MGGMR2Z","query_id":0,"is_execution_finished":true,"state":"QUERY_STATE_FAILED","submitted_at":"2026-09-02T05:59:11.484748Z","expires_at":"2026-12-01T05:59:11.578441Z","execution_cost_credits":0,"error":{"type":"FAILED_TYPE_EXECUTION_FAILED","message":"delta_prod.balances_ethereum.latest does not exist or it is private [Execution ID: 01M1GB6CBWB2JCCJAC2MGGMR2Z]"}}
+  [holdings] RPC balance budget: 7 pool + 73 non-pool (of 7 pool / 15711 non-pool missing)
+  Holdings ready: 15718 unique, 18 EOA
+[12/12] Generating dashboard ...
+  /Users/apple/Desktop/work/工作/Quant/project1/On-Chain-Token-Crash-Liquidity-Analysis/output-upeg-may-2026/dashboard.html
+  time: [12/12] Dashboard done in 20.3s
+
+=== Analysis Complete ===
+Chain ID: 1  Token: 0x44b28991B167582F18BA0259e0173176ca125505
+Risk Score: 0.4619 / 1.00 (MEDIUM)
+Dashboard: /Users/apple/Desktop/work/工作/Quant/project1/On-Chain-Token-Crash-Liquidity-Analysis/output-upeg-may-2026/dashboard.html
+Output directory: /Users/apple/Desktop/work/工作/Quant/project1/On-Chain-Token-Crash-Liquidity-Analysis/output-upeg-may-2026
+
+=== Timing ===
+  [1/12] Profile token           1.8s  (  0.1%)
+  [2/12] Discover pools      3m 42.7s  (  7.2%)
+  [3/12] Verify pools        4m 13.8s  (  8.2%)
+  [4/12] Holdings            5m 14.1s  ( 10.2%)
+  [5/12] Positions           8m 27.0s  ( 16.4%)
+  [6/12] Index events       21m 11.0s  ( 41.2%)
+  [7/12] Labels                 20.9s  (  0.7%)
+  [8/12] Metrics                29.1s  (  0.9%)
+  [9/12] Timeline                5.6s  (  0.2%)
+  [10/12] Risk                   0.0s  (  0.0%)
+  [11/12] Report                 0.0s  (  0.0%)
+  [12/12] Dashboard             20.3s  (  0.7%)
+  TOTAL                     51m 28.2s
+Timing saved: /Users/apple/Desktop/work/工作/Quant/project1/On-Chain-Token-Crash-Liquidity-Analysis/output-upeg-may-2026/timing.json

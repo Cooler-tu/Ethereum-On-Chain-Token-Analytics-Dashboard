@@ -22,7 +22,7 @@ from ..data.artifacts import (
     read_table,
 )
 from ..models import VerifiedPool
-from .metrics import calculate_withdrawal_severity
+from .metrics import calculate_withdrawal_severity, from_block_tvl_by_pool
 
 _HTML_TEMPLATE: str | None = None
 _JS_TEMPLATE: str | None = None
@@ -702,10 +702,13 @@ body.print-preparing .pool-reserve-mini.radial-chart{width:min(300px,100%);heigh
   <div class="grid">
     <div class="card fw">
       <h2>Liquidity Removal Activity (Cumulative, Not Permanent Exit)</h2>
-      <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 12px">Read this table in two layers: a negative raw liquidity change confirms a removal action; calculating removed {symbol}, USD value, and the ratio to a reference pool estimate additionally requires token amounts. The ratio uses a fixed reference estimate rather than event-time TVL, can exceed 100%, and must not be read as the percentage of capital that permanently left. Missing token amounts are never converted to zero.</p>
+      <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 12px">Pool and event tables show measured {symbol} and estimated USD removed in this window. Removals that returned only the other token (0 {symbol}) are omitted. Later adds can make a large total without meaning the pool was emptied at the open. Missing token amounts are never converted to zero.</p>
 {withdrawal_quantification_note}
 {table_withdrawal_summary}
-      <div class="scroll"><table><thead><tr><th>Block</th><th>Pool</th><th>Events</th><th>Actor / Scope</th><th>Raw Liquidity Change</th><th>Removed ({symbol})</th><th>Est. USD</th><th>Removed / Reference Pool Estimate</th><th>Protocol</th></tr></thead><tbody>{table_withdrawals}</tbody></table></div>
+      <div class="scroll"><table><thead><tr><th>Block</th><th>Pool</th><th>Events</th><th>Actor / Scope</th><th>Removed ({symbol})</th><th>Est. USD</th><th>Protocol</th></tr></thead><tbody>{table_withdrawals}</tbody></table></div>
+      <h2 style="margin-top:22px">Top Addresses by Cumulative Removal</h2>
+      <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 12px">Ranked by measured {symbol} removed in this window, not by share of starting inventory or pool size. Later adds can make a large total without meaning the address exited a small opening position. V3 burns use the NFT owner when DecreaseLiquidity has a tokenId; leftover contract actors (MEV/vaults) use the transaction signer. V4 Position Manager senders are replaced by the NFT owner when salt maps to a tokenId.</p>
+{table_withdrawal_addresses}
     </div>
   </div>
 
@@ -812,6 +815,7 @@ def generate_dashboard(
     top_holders = _rank_non_pool_holders(holdings_data, limit=20)
     pool_holders = [h for h in holdings_data if h.get("is_pool")]
     tvl_data = metrics.get("tvl_timeline", [])
+    tvl_source_rows = list(tvl_data or [])
     pool_conc = metrics.get("pool_concentration", {})
     volume_metrics = metrics.get("volume", {})
 
@@ -844,6 +848,16 @@ def generate_dashboard(
     decimals = token_profile.get("decimals", 18)
     decimals_source = token_profile.get("decimals_source", "unknown")
     total_supply = token_profile.get("total_supply_decimal", 0) or 0
+    from_block = holdings.get("from_block") or 0
+    to_block = holdings.get("to_block") or holdings.get("balance_block") or 0
+    if not from_block or not to_block:
+        timeline_meta = _load_json(out / "incident_timeline.json", {})
+        from_block = from_block or timeline_meta.get("from_block") or 0
+        to_block = to_block or timeline_meta.get("to_block") or 0
+    if not from_block:
+        index_meta = _load_json(out / "index_source.json", {})
+        from_block = index_meta.get("from_block") or from_block
+        to_block = to_block or index_meta.get("to_block") or 0
     metrics = _refresh_withdrawal_metrics(
         metrics,
         liq_data,
@@ -851,7 +865,8 @@ def generate_dashboard(
         token_addr,
         decimals,
         pool_conc,
-        tvl_data,
+        tvl_source_rows,
+        from_block=int(from_block or 0),
     )
     holdings_count = holdings.get("holdings_count", 0)
     total_addresses = holdings.get("total_unique_addresses", 0)
@@ -884,12 +899,6 @@ def generate_dashboard(
         )
     balance_source_label = _humanize_source(holdings.get("balance_source") or "unknown")
     query_time = holdings.get("query_time_human", "")
-    from_block = holdings.get("from_block") or 0
-    to_block = holdings.get("to_block") or holdings.get("balance_block") or 0
-    if not from_block or not to_block:
-        timeline_meta = _load_json(out / "incident_timeline.json", {})
-        from_block = from_block or timeline_meta.get("from_block") or 0
-        to_block = to_block or timeline_meta.get("to_block") or 0
     if from_block and to_block:
         block_window = "{:,} → {:,}".format(int(from_block), int(to_block))
     elif to_block:
@@ -1001,6 +1010,9 @@ def generate_dashboard(
         address_labels=address_labels,
     )
     table_withdrawal_summary = _table_withdrawal_summary(
+        metrics, symbol, chain_id=chain_id, address_labels=address_labels
+    )
+    table_withdrawal_addresses = _table_withdrawal_addresses(
         metrics, symbol, chain_id=chain_id, address_labels=address_labels
     )
     table_large = _table_large_wallets(
@@ -1282,6 +1294,7 @@ def generate_dashboard(
         "table_movers": table_movers or "",
         "table_withdrawals": table_withdrawals or "",
         "table_withdrawal_summary": table_withdrawal_summary or "",
+        "table_withdrawal_addresses": table_withdrawal_addresses or "",
         "withdrawal_quantification_note": withdrawal_quantification_note,
         "pool_section": pool_section,
         "js_script": js_script,
@@ -1559,7 +1572,9 @@ def _liquidity_flow_note(rows: list[dict[str, Any]], symbol: str) -> str:
         '<div class="coverage-note"><strong>Measured LP-event flow</strong>'
         "{:,} adds · {:,} removals · gross added {} · gross removed {} · "
         "net {}{} {}. Amount coverage: {:,} known actions, {:,} missing. "
-        "Gross totals may count capital that is removed and re-added.</div>"
+        "V4 amounts prefer PoolManager callerDelta (principal + fees); "
+        "tick math is only the fallback. Gross totals may count capital that "
+        "is removed and re-added.</div>"
     ).format(
         add_actions,
         remove_actions,
@@ -2207,6 +2222,7 @@ def _build_volume_chart_config(
             labels.append("0")
 
     datasets = []
+    pool_meta = (volume_metrics or {}).get("volume_by_pool", {}) or {}
     for i, pa in enumerate(pool_ids):
         color = _CHART_SERIES_COLORS[i % len(_CHART_SERIES_COLORS)]
         data = []
@@ -2215,7 +2231,7 @@ def _build_volume_chart_config(
                 bucket.get("pools", {}).get(pa, {}).get("volume_in_token", 0)
             )
         datasets.append({
-            "label": _address_display_label(pa, address_labels),
+            "label": _volume_series_label(pa, pool_meta.get(pa) or {}, address_labels),
             "data": data,
             "backgroundColor": color,
             "borderColor": color,
@@ -2255,6 +2271,26 @@ def _short_pool_label(addr: str) -> str:
     if len(addr) <= 14:
         return addr
     return addr[:8] + "..." + addr[-4:]
+
+
+def _volume_series_label(
+    series_id: Any,
+    series_meta: Optional[dict[str, Any]] = None,
+    address_labels: Optional[dict[str, str]] = None,
+) -> str:
+    """Human label for a volume stack series, including pair-level V4 buckets."""
+    meta = series_meta or {}
+    raw = str(series_id or "")
+    if meta.get("attribution") == "pair" or raw.lower().startswith("pair:"):
+        quote = str(meta.get("quote_symbol") or "").strip()
+        if not quote or quote == "???":
+            quote_addr = raw.split(":", 1)[1] if ":" in raw else raw
+            quote = _short_pool_label(quote_addr)
+        proto = "{} {}".format(
+            meta.get("protocol") or "", meta.get("version") or ""
+        ).strip() or "DEX"
+        return "{} {} (multiple pools)".format(proto, quote)
+    return _address_display_label(raw, address_labels)
 
 
 def _address_display_label(
@@ -2758,6 +2794,7 @@ def _refresh_withdrawal_metrics(
     token_decimals: int,
     pool_concentration: dict,
     timeline: list[dict],
+    from_block: int = 0,
 ) -> dict:
     """Reapply current withdrawal semantics to old Parquet/JSON output locally."""
     removals = [
@@ -2767,43 +2804,21 @@ def _refresh_withdrawal_metrics(
     if not removals or not verified_pools or not target_token:
         return metrics
 
-    # Preserve the incident/window scope recorded in the existing metrics.  Old
-    # output can otherwise contain canonical rows beyond the selected incident.
-    old_events = (
-        metrics.get("withdrawal_severity", {}).get("withdrawal_events", []) or []
-    )
-    scope_keys = {
-        (
-            int(row.get("block_number", row.get("block", 0)) or 0),
-            str(row.get("pool", row.get("pool_address", "")) or "").lower(),
-        )
-        for row in old_events
-    }
-    if scope_keys:
-        scoped = [
-            row for row in removals
-            if (
-                int(row.get("block_number") or 0),
-                str(row.get("pool_address") or "").lower(),
-            ) in scope_keys
-        ]
-        if scoped:
-            removals = scoped
-
     allowed = set(VerifiedPool.__dataclass_fields__)
     pool_models = [
         VerifiedPool(**{key: value for key, value in row.items() if key in allowed})
         for row in verified_pools
         if row.get("verified", True)
     ]
+    start_tvl = from_block_tvl_by_pool(timeline, from_block)
     refreshed = calculate_withdrawal_severity(
         removals,
-        pre_event_tvl=int(pool_concentration.get("total_tvl") or 0),
+        pre_event_tvl=int(sum(start_tvl.values()) or pool_concentration.get("total_tvl") or 0),
         incident_block=0,
         verified_pools=pool_models,
         target_token=target_token,
         token_decimals=token_decimals,
-        tvl_by_pool=pool_concentration.get("per_pool_tvl") or {},
+        tvl_by_pool=start_tvl,
         timeline=timeline,
     )
     result = dict(metrics)
@@ -2823,9 +2838,9 @@ def _withdrawal_quantification_note(metrics: dict) -> str:
         "Amount known: {:,} · Amount missing: {:,} · Pool mapping failed: {:,}."
     ).format(quantified, delta_only, unmapped)
     explanation = (
-        "For the {:,} missing-amount actions, the V4 query returned a negative "
-        "raw liquidity change but no token0/token1 amounts. Removed token, USD, "
-        "and TVL share therefore cannot be calculated. This is missing data—not "
+        "For the {:,} missing-amount actions, a removal was detected but the "
+        "query did not return token0/token1 amounts. Removed token and USD "
+        "therefore cannot be calculated. This is missing data—not "
         "a zero withdrawal.".format(delta_only)
         if delta_only else
         "Every detected action in this window includes token amounts."
@@ -2843,14 +2858,17 @@ def _table_withdrawal_summary(
     address_labels: Optional[dict[str, str]] = None,
 ) -> str:
     """Render a per-pool withdrawal summary table."""
-    rows = metrics.get("withdrawal_severity", {}).get("per_pool_removals", []) or []
+    rows = [
+        row
+        for row in (metrics.get("withdrawal_severity", {}).get("per_pool_removals", []) or [])
+        if float(row.get("removed_target_decimal") or 0) > 0
+    ]
     if not rows:
         return ""
     table_rows = []
     for r in rows:
         table_rows.append(
             "<tr>"
-            "<td>{}</td>"
             "<td>{}</td>"
             "<td>{}</td>"
             "<td>{}</td>"
@@ -2865,14 +2883,12 @@ def _table_withdrawal_summary(
                 int(r.get("num_withdrawals") or 0),
                 _fmt_bal(float(r.get("removed_target_decimal") or 0), symbol),
                 _fmt_usd(r.get("removed_usd")),
-                _fmt_pct(r.get("pool_tvl_share")),
                 ("{} {}".format(r.get("protocol", ""), r.get("version", ""))).strip() or "-",
             )
         )
     return (
         '<div class="scroll"><table><thead><tr><th>Pool</th><th>Events</th>'
         "<th>Removed ({})</th><th>Est. USD</th>"
-        "<th>Cumulative Removed / Reference Pool Estimate</th>"
         "<th>Protocol</th></tr></thead><tbody>{}</tbody></table></div>"
     ).format(symbol, "\n".join(table_rows))
 
@@ -2886,9 +2902,23 @@ def _table_withdrawals(
     address_labels: Optional[dict[str, str]] = None,
 ) -> str:
     events = metrics.get("withdrawal_severity", {}).get("withdrawal_events", []) or []
+    visible = []
+    for event in events:
+        status = str(event.get("quantification_status") or "").lower()
+        removed = event.get("removed_target_decimal")
+        if status not in {"quantified", "liquidity_delta_only", "unmapped"}:
+            status = "quantified" if removed is not None else "unmapped"
+        if status == "quantified":
+            try:
+                if float(removed or 0) <= 0:
+                    continue
+            except (TypeError, ValueError):
+                continue
+        visible.append(event)
+    events = visible
     if not events:
         return (
-            '<tr><td colspan="9" style="text-align:center;padding:24px;color:#64748b">'
+            '<tr><td colspan="7" style="text-align:center;padding:24px;color:#64748b">'
             "No liquidity removal events in this window.</td></tr>"
         )
     events = events[:top_n]
@@ -2912,15 +2942,12 @@ def _table_withdrawals(
             )
         if status == "quantified":
             usd_html = _fmt_usd(e.get("removed_usd"))
-            share_html = _fmt_pct(e.get("pool_tvl_share"))
         else:
-            unavailable = (
+            usd_html = (
                 '<span class="cannot-calculate" '
                 'title="A token amount is required for this calculation">'
                 "Cannot calculate</span>"
             )
-            usd_html = unavailable
-            share_html = unavailable
         actor = e.get("actor", "")
         actor_or_scope = (
             "Pool/block aggregate"
@@ -2929,18 +2956,8 @@ def _table_withdrawals(
                 actor, chain_id=chain_id, address_labels=address_labels
             )
         )
-        delta_raw = str(e.get("liquidity_delta") or "0")
-        try:
-            delta_display = "{:,}".format(int(delta_raw))
-        except (TypeError, ValueError):
-            delta_display = html.escape(delta_raw) or "-"
-        delta_html = '<span title="{}">{}</span>'.format(
-            html.escape(delta_raw, quote=True), delta_display
-        )
         rows.append(
             "<tr>"
-            "<td>{}</td>"
-            "<td>{}</td>"
             "<td>{}</td>"
             "<td>{}</td>"
             "<td>{}</td>"
@@ -2957,14 +2974,73 @@ def _table_withdrawals(
                 ),
                 int(e.get("event_count") or 1),
                 actor_or_scope,
-                delta_html,
                 removed_html,
                 usd_html,
-                share_html,
                 ("{} {}".format(e.get("protocol", ""), e.get("version", ""))).strip() or "-",
             )
         )
     return "\n".join(rows)
+
+
+def _table_withdrawal_addresses(
+    metrics: dict,
+    symbol: str,
+    top_n: int = 20,
+    chain_id: int = 1,
+    address_labels: Optional[dict[str, str]] = None,
+) -> str:
+    severity = metrics.get("withdrawal_severity", {}) or {}
+    rows = [
+        row
+        for row in (severity.get("per_address_removals") or [])
+        if float(row.get("removed_target_decimal") or 0) > 0
+    ]
+    if not rows:
+        return (
+            '<div class="coverage-note">No attributed withdrawal addresses in this '
+            "window. V2/V3 burns may still be pool/block aggregates without an actor."
+            "</div>"
+        )
+    table_rows = []
+    for r in rows[: max(1, int(top_n))]:
+        versions = r.get("versions") or []
+        if isinstance(versions, str):
+            version_text = versions
+        else:
+            version_text = " ".join(str(v) for v in versions) or "-"
+        table_rows.append(
+            "<tr>"
+            "<td>{}</td>"
+            "<td>{}</td>"
+            "<td>{}</td>"
+            "<td>{}</td>"
+            "<td>{}</td>"
+            "</tr>".format(
+                _labeled_identifier_html(
+                    r.get("address", ""),
+                    chain_id=chain_id,
+                    address_labels=address_labels,
+                ),
+                int(r.get("num_withdrawals") or 0),
+                _fmt_bal(float(r.get("removed_target_decimal") or 0), symbol),
+                _fmt_usd(r.get("removed_usd")),
+                version_text,
+            )
+        )
+    unattr_n = int(severity.get("unattributed_withdrawals") or 0)
+    unattr_amt = float(severity.get("unattributed_removed_target_decimal") or 0)
+    note = ""
+    if unattr_n:
+        note = (
+            '<div class="coverage-note">{:,} quantified removals have no address '
+            "({}). They are omitted from this ranking.</div>"
+        ).format(unattr_n, _fmt_bal(unattr_amt, symbol))
+    return (
+        "{}<div class=\"scroll\"><table><thead><tr>"
+        "<th>Address</th><th>Events</th><th>Removed ({})</th><th>Est. USD</th>"
+        "<th>Version</th>"
+        "</tr></thead><tbody>{}</tbody></table></div>"
+    ).format(note, symbol, "\n".join(table_rows))
 
 
 def _table_top_holders(
@@ -3472,7 +3548,12 @@ def _build_address_display_labels(
     verified_pools: Optional[list] = None,
 ) -> dict[str, str]:
     """Map token + pool addresses to human labels (symbols / pair names)."""
-    labels: dict[str, str] = {}
+    labels: dict[str, str] = {
+        "0xc36442b4a4522e871399cd717abdd847ab11fe88": "Uniswap V3 Position Manager",
+        "0xbd216513d74c8cf14cf4747e6aaa6420ff64ee9e": "Uniswap V4 Position Manager",
+        "0x1f2f10d1c40777ae1da742455c65828ff36df387": "Jared 2.0 MEV bot",
+        "0xae2fc483527b8ef99eb5d9b44875f005ba1fae13": "jaredfromsubway.eth",
+    }
     symbols = dict(token_symbols or {})
     for addr, sym in symbols.items():
         if addr and sym:

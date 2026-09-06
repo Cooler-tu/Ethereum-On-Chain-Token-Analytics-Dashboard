@@ -354,20 +354,22 @@ GROUP BY evt_block_number, contract_address
 
 
 -- === name: liquidity_uniswap_v2_burn ===
+-- Row-level Burn; ``to`` is the token recipient (often the withdrawing wallet).
 SELECT
   evt_block_number AS block_number,
-  CAST(MAX(evt_block_time) AS varchar) AS block_time,
-  '' AS transaction_hash,
-  0 AS log_index,
+  CAST(evt_block_time AS varchar) AS block_time,
+  CAST(evt_tx_hash AS varchar) AS transaction_hash,
+  evt_index AS log_index,
   CAST(contract_address AS varchar) AS pool_address,
-  CAST(SUM(CAST(amount0 AS DECIMAL(38, 0))) AS varchar) AS token0_amount,
-  CAST(SUM(CAST(amount1 AS DECIMAL(38, 0))) AS varchar) AS token1_amount,
-  COUNT(*) AS event_count,
-  'pool_block' AS aggregation_scope
+  CAST("to" AS varchar) AS actor,
+  CAST(amount0 AS varchar) AS token0_amount,
+  CAST(amount1 AS varchar) AS token1_amount,
+  1 AS event_count,
+  'row' AS aggregation_scope
 FROM uniswap_v2_ethereum.Pair_evt_Burn
 WHERE evt_block_number BETWEEN {{from_block}} AND {{to_block}}
   AND contract_address IN ({{pool_list}})
-GROUP BY evt_block_number, contract_address
+ORDER BY evt_block_number, evt_index
 
 
 -- === name: liquidity_uniswap_v3_mint ===
@@ -388,41 +390,114 @@ GROUP BY evt_block_number, contract_address
 
 
 -- === name: liquidity_uniswap_v3_burn ===
+-- Row-level Burn. Prefer same-tx NPM Collect.recipient (the user);
+-- fall back to Burn.owner (often the Position Manager).
 SELECT
-  evt_block_number AS block_number,
-  CAST(MAX(evt_block_time) AS varchar) AS block_time,
-  '' AS transaction_hash,
-  0 AS log_index,
-  CAST(contract_address AS varchar) AS pool_address,
-  CAST(SUM(CAST(amount0 AS DECIMAL(38, 0))) AS varchar) AS token0_amount,
-  CAST(SUM(CAST(amount1 AS DECIMAL(38, 0))) AS varchar) AS token1_amount,
-  COUNT(*) AS event_count,
-  'pool_block' AS aggregation_scope
-FROM uniswap_v3_ethereum.Pair_evt_Burn
-WHERE evt_block_number BETWEEN {{from_block}} AND {{to_block}}
-  AND contract_address IN ({{pool_list}})
-GROUP BY evt_block_number, contract_address
+  e.evt_block_number AS block_number,
+  CAST(e.evt_block_time AS varchar) AS block_time,
+  CAST(e.evt_tx_hash AS varchar) AS transaction_hash,
+  e.evt_index AS log_index,
+  CAST(e.contract_address AS varchar) AS pool_address,
+  CAST(
+    COALESCE(
+      MAX(CAST(c.recipient AS varchar)),
+      CAST(e.owner AS varchar)
+    ) AS varchar
+  ) AS actor,
+  CAST(e.amount0 AS varchar) AS token0_amount,
+  CAST(e.amount1 AS varchar) AS token1_amount,
+  CAST(e.amount AS varchar) AS liquidity_delta,
+  e.tickLower AS tick_lower,
+  e.tickUpper AS tick_upper,
+  1 AS event_count,
+  'row' AS aggregation_scope
+FROM uniswap_v3_ethereum.Pair_evt_Burn AS e
+LEFT JOIN uniswap_v3_ethereum.NonfungiblePositionManager_evt_Collect AS c
+  ON c.evt_tx_hash = e.evt_tx_hash
+ AND c.evt_block_number = e.evt_block_number
+WHERE e.evt_block_number BETWEEN {{from_block}} AND {{to_block}}
+  AND e.contract_address IN ({{pool_list}})
+GROUP BY
+  e.evt_block_number,
+  e.evt_block_time,
+  e.evt_tx_hash,
+  e.evt_index,
+  e.contract_address,
+  e.owner,
+  e.amount0,
+  e.amount1,
+  e.amount,
+  e.tickLower,
+  e.tickUpper
+ORDER BY e.evt_block_number, e.evt_index
 
 
 -- === name: liquidity_uniswap_v4_modify ===
--- Pool/block/sign aggregate: positive and negative deltas stay separate.
+-- Row-level ModifyLiquidity plus call return deltas.
+-- callerDelta = principal + fees + hook deltas; feesAccrued is fees only.
+SELECT
+  e.evt_block_number AS block_number,
+  CAST(e.evt_block_time AS varchar) AS block_time,
+  CAST(e.evt_tx_hash AS varchar) AS transaction_hash,
+  e.evt_index AS log_index,
+  CAST(e.id AS varchar) AS pool_id,
+  CAST(e.sender AS varchar) AS actor,
+  e.tickLower AS tick_lower,
+  e.tickUpper AS tick_upper,
+  CAST(e.liquidityDelta AS varchar) AS liquidity_delta,
+  CAST(e.salt AS varchar) AS salt,
+  CAST(c.output_callerDelta AS varchar) AS caller_delta,
+  CAST(c.output_feesAccrued AS varchar) AS fees_accrued,
+  1 AS event_count,
+  'row' AS aggregation_scope
+FROM uniswap_v4_ethereum.PoolManager_evt_ModifyLiquidity AS e
+LEFT JOIN uniswap_v4_ethereum.PoolManager_call_modifyLiquidity AS c
+  ON c.call_success = true
+ AND c.call_block_number = e.evt_block_number
+ AND c.call_tx_hash = e.evt_tx_hash
+ AND json_extract_scalar(CAST(c.params AS varchar), '$.tickLower')
+     = CAST(e.tickLower AS varchar)
+ AND json_extract_scalar(CAST(c.params AS varchar), '$.tickUpper')
+     = CAST(e.tickUpper AS varchar)
+ AND json_extract_scalar(CAST(c.params AS varchar), '$.liquidityDelta')
+     = CAST(e.liquidityDelta AS varchar)
+ AND lower(json_extract_scalar(CAST(c.params AS varchar), '$.salt'))
+     = lower(CAST(e.salt AS varchar))
+WHERE e.evt_block_number BETWEEN {{from_block}} AND {{to_block}}
+  AND e.id IN ({{pool_id_list}})
+ORDER BY e.evt_block_number, e.evt_index
+
+
+-- === name: v4_sqrt_price_by_block ===
+-- Last Swap sqrtPriceX96 per pool per block (for V4 LP amount math).
 SELECT
   evt_block_number AS block_number,
-  CAST(MAX(evt_block_time) AS varchar) AS block_time,
-  '' AS transaction_hash,
-  0 AS log_index,
   CAST(id AS varchar) AS pool_id,
-  CAST(SUM(CAST(liquidityDelta AS DECIMAL(38, 0))) AS varchar) AS liquidity_delta,
-  COUNT(*) AS event_count,
-  'pool_block' AS aggregation_scope
-FROM uniswap_v4_ethereum.PoolManager_evt_ModifyLiquidity
-WHERE evt_block_number BETWEEN {{from_block}} AND {{to_block}}
-  AND id IN ({{pool_id_list}})
-GROUP BY
-  evt_block_number,
-  id,
-  CASE WHEN liquidityDelta < 0 THEN -1 ELSE 1 END
-ORDER BY evt_block_number, id
+  CAST(sqrtPriceX96 AS varchar) AS sqrt_price_x96
+FROM (
+  SELECT
+    id,
+    evt_block_number,
+    sqrtPriceX96,
+    ROW_NUMBER() OVER (
+      PARTITION BY id, evt_block_number
+      ORDER BY evt_index DESC
+    ) AS rn
+  FROM uniswap_v4_ethereum.PoolManager_evt_Swap
+  WHERE evt_block_number BETWEEN {{from_block}} AND {{to_block}}
+    AND id IN ({{pool_id_list}})
+) t
+WHERE rn = 1
+
+
+-- === name: v4_sqrt_price_init ===
+-- Pool creation price; used when a modify has no earlier swap in-window.
+SELECT
+  evt_block_number AS block_number,
+  CAST(id AS varchar) AS pool_id,
+  CAST(sqrtPriceX96 AS varchar) AS sqrt_price_x96
+FROM uniswap_v4_ethereum.PoolManager_evt_Initialize
+WHERE id IN ({{pool_id_list}})
 
 
 -- === name: liquidity_uniswap_v3_npm_token_ids ===
@@ -579,6 +654,83 @@ GROUP BY 1, 2
 HAVING SUM(CAST(liquidityDelta AS decimal(38, 0))) > 0
 
 
+-- === name: v3_npm_burn_token_ids ===
+-- Pair Burn -> NPM DecreaseLiquidity tokenId (same tx / amounts, row-aligned).
+WITH burns AS (
+  SELECT
+    e.evt_tx_hash,
+    e.evt_block_number,
+    e.evt_index,
+    e.contract_address,
+    CAST(e.amount AS DECIMAL(38, 0)) AS liq,
+    CAST(e.amount0 AS DECIMAL(38, 0)) AS amt0,
+    CAST(e.amount1 AS DECIMAL(38, 0)) AS amt1,
+    ROW_NUMBER() OVER (
+      PARTITION BY
+        e.evt_tx_hash,
+        CAST(e.amount AS DECIMAL(38, 0)),
+        CAST(e.amount0 AS DECIMAL(38, 0)),
+        CAST(e.amount1 AS DECIMAL(38, 0))
+      ORDER BY e.evt_index
+    ) AS rn
+  FROM uniswap_v3_ethereum.Pair_evt_Burn AS e
+  WHERE e.evt_block_number BETWEEN {{from_block}} AND {{to_block}}
+    AND e.contract_address IN ({{pool_list}})
+),
+decr AS (
+  SELECT
+    d.evt_tx_hash,
+    d.evt_block_number,
+    d.tokenId,
+    CAST(d.liquidity AS DECIMAL(38, 0)) AS liq,
+    CAST(d.amount0 AS DECIMAL(38, 0)) AS amt0,
+    CAST(d.amount1 AS DECIMAL(38, 0)) AS amt1,
+    ROW_NUMBER() OVER (
+      PARTITION BY
+        d.evt_tx_hash,
+        CAST(d.liquidity AS DECIMAL(38, 0)),
+        CAST(d.amount0 AS DECIMAL(38, 0)),
+        CAST(d.amount1 AS DECIMAL(38, 0))
+      ORDER BY d.evt_index
+    ) AS rn
+  FROM uniswap_v3_ethereum.NonfungiblePositionManager_evt_DecreaseLiquidity AS d
+  INNER JOIN (
+    SELECT DISTINCT evt_tx_hash, evt_block_number
+    FROM burns
+  ) b
+    ON d.evt_tx_hash = b.evt_tx_hash
+   AND d.evt_block_number = b.evt_block_number
+)
+SELECT
+  CAST(b.evt_tx_hash AS varchar) AS transaction_hash,
+  b.evt_block_number AS block_number,
+  b.evt_index AS log_index,
+  CAST(b.contract_address AS varchar) AS pool_address,
+  CAST(d.tokenId AS varchar) AS nft_token_id
+FROM burns AS b
+INNER JOIN decr AS d
+  ON d.evt_tx_hash = b.evt_tx_hash
+ AND d.evt_block_number = b.evt_block_number
+ AND d.liq = b.liq
+ AND d.amt0 = b.amt0
+ AND d.amt1 = b.amt1
+ AND d.rn = b.rn
+
+
+-- === name: v4_pm_nft_transfers ===
+-- ERC-721 transfers for V4 Position Manager tokenIds (salt == tokenId).
+SELECT
+  CAST(tokenId AS varchar) AS nft_token_id,
+  CAST("to" AS varchar) AS owner,
+  CAST(evt_tx_hash AS varchar) AS transaction_hash,
+  evt_block_number AS block_number,
+  evt_index AS log_index
+FROM erc721_ethereum.evt_Transfer
+WHERE contract_address = {{npm}}
+  AND evt_block_number <= {{to_block}}
+  AND tokenId IN ({{token_id_list}})
+
+
 -- === name: positions_nft_owners ===
 -- FALLBACK staged path (with base + liquidity).
 SELECT
@@ -619,3 +771,5 @@ FROM (
     AND evt_block_number <= {{to_block}}
 ) t
 WHERE rn = 1
+
+

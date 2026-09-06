@@ -1,0 +1,3057 @@
+Resolved 'UPEG' → 0x2b63d89d5c0F77A39dF68CdF5729909A9BBadA38 (UPEG) via dexscreener
+Other candidates (use --pick N):
+  [0] UPEG (Unipeg)  0x2b63d89d5c0F77A39dF68CdF5729909A9BBadA38  liq=$37,237,880
+  [1] UPEG (Unipeg)  0xe9518fbA211457Adb99D78932c188AbD4d19Bc6F  liq=$34,352,948
+  [2] uPEG (Unipeg)  0xE82891794Dea0513b4e04df88DB4ae8784e37FFf  liq=$13,267,766
+  [3] uPEG (Unipeg)  0xA0AA3d6eBa5914a77C9E9E23AAA1CaE7136364bd  liq=$2,249,632
+  [4] uPEG (Unipeg)  0x04Ab81BB856ae6E9c2Fb404F863F0302fEC11C8f  liq=$1,830,034
+  [5] uPEG (Unipeg)  0x44b28991B167582F18BA0259e0173176ca125505  liq=$1,598,869
+  [6] PNKSTR (PunkStrategy)  0xc50673EDb3A7b94E8CAD8a7d4E0cD68864E33eDF  liq=$549
+[1/12] Profiling token ...
+  Symbol: UPEG, Decimals: 18 (onchain)
+  time: [1/12] Profile token done in 6.1s
+[2/12] Discovering pools ...
+  Dune: querying pools + pools_v4 in parallel (cached under output-upeg-may-2026/dune_cache) ...
+  [dune] pools [24996368-24998367] …
+  [dune] pools_v4 [24996368-24998367] …
+  Dune: waiting for query (2s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (5s, QUERY_STATE_COMPLETED)
+  [cache save] pools [24996368-24998367] (0 rows)
+  Dune: waiting for query (8s, QUERY_STATE_EXECUTING)
+  [dune] pools [24998368-25000367] …
+  Dune: waiting for query (11s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [24996368-24998367] (0 rows)
+  Dune: waiting for query (11s, QUERY_STATE_COMPLETED)
+  [cache save] pools [24998368-25000367] (0 rows)
+  [dune] pools_v4 [24998368-25000367] …
+  [dune] pools [25000368-25002367] …
+  Dune: waiting for query (15s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (15s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (18s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25000368-25002367] (0 rows)
+  [dune] pools [25002368-25004367] …
+  [cache save] pools_v4 [24998368-25000367] (0 rows)
+  Dune: waiting for query (22s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25000368-25002367] …
+  Dune: waiting for query (26s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (27s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25002368-25004367] (0 rows)
+  [dune] pools [25004368-25006367] …
+  Dune: waiting for query (31s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (35s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (37s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25004368-25006367] (0 rows)
+  Dune: waiting for query (38s, QUERY_STATE_EXECUTING)
+  [dune] pools [25006368-25008367] …
+  Dune: waiting for query (41s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25000368-25002367] (0 rows)
+  Dune: waiting for query (42s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25002368-25004367] …
+  Dune: waiting for query (44s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25006368-25008367] (0 rows)
+  [dune] pools [25008368-25010367] …
+  Dune: waiting for query (48s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (49s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (52s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25008368-25010367] (0 rows)
+  [cache save] pools_v4 [25002368-25004367] (0 rows)
+  [dune] pools [25010368-25012367] …
+  [dune] pools_v4 [25004368-25006367] …
+  Dune: waiting for query (56s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (57s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (59s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25010368-25012367] (0 rows)
+  [cache save] pools_v4 [25004368-25006367] (0 rows)
+  [dune] pools [25012368-25014367] …
+  [dune] pools_v4 [25006368-25008367] …
+  Dune: waiting for query (63s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (65s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (66s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25012368-25014367] (0 rows)
+  [dune] pools [25014368-25016367] …
+  [cache save] pools_v4 [25006368-25008367] (0 rows)
+  Dune: waiting for query (71s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25008368-25010367] …
+  Dune: waiting for query (74s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25014368-25016367] (0 rows)
+  Dune: waiting for query (75s, QUERY_STATE_EXECUTING)
+  [dune] pools [25016368-25018367] …
+  Dune: waiting for query (80s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25016368-25018367] (0 rows)
+  [cache save] pools_v4 [25008368-25010367] (0 rows)
+  [dune] pools [25018368-25020367] …
+  [dune] pools_v4 [25010368-25012367] …
+  Dune: waiting for query (85s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (87s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (88s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25018368-25020367] (0 rows)
+  Dune: waiting for query (90s, QUERY_STATE_EXECUTING)
+  [dune] pools [25020368-25022367] …
+  Dune: waiting for query (92s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (93s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25010368-25012367] (0 rows)
+  [dune] pools_v4 [25012368-25014367] …
+  [cache save] pools [25020368-25022367] (0 rows)
+  Dune: waiting for query (97s, QUERY_STATE_EXECUTING)
+  [dune] pools [25022368-25024367] …
+  Dune: waiting for query (100s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (103s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25012368-25014367] (0 rows)
+  [cache save] pools [25022368-25024367] (0 rows)
+  [dune] pools_v4 [25014368-25016367] …
+  [dune] pools [25024368-25026367] …
+  Dune: waiting for query (107s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (107s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (110s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25024368-25026367] (0 rows)
+  [dune] pools [25026368-25028367] …
+  [cache save] pools_v4 [25014368-25016367] (0 rows)
+  [dune] pools_v4 [25016368-25018367] …
+  Dune: waiting for query (116s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (117s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (119s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25026368-25028367] (0 rows)
+  Dune: waiting for query (120s, QUERY_STATE_EXECUTING)
+  [dune] pools [25028368-25030367] …
+  Dune: waiting for query (123s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25016368-25018367] (0 rows)
+  Dune: waiting for query (124s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25018368-25020367] …
+  Dune: waiting for query (127s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (129s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25028368-25030367] (0 rows)
+  [cache save] pools_v4 [25018368-25020367] (0 rows)
+  [dune] pools [25030368-25032367] …
+  [dune] pools_v4 [25020368-25022367] …
+  Dune: waiting for query (133s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (134s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (136s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25030368-25032367] (0 rows)
+  [cache save] pools_v4 [25020368-25022367] (0 rows)
+  [dune] pools [25032368-25034367] …
+  [dune] pools_v4 [25022368-25024367] …
+  Dune: waiting for query (141s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (143s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (144s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25032368-25034367] (0 rows)
+  Dune: waiting for query (146s, QUERY_STATE_EXECUTING)
+  [dune] pools [25034368-25036367] …
+  Dune: waiting for query (148s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25034368-25036367] (0 rows)
+  [cache save] pools_v4 [25022368-25024367] (0 rows)
+  [dune] pools [25036368-25038367] …
+  [dune] pools_v4 [25024368-25026367] …
+  Dune: waiting for query (153s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (154s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (156s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25036368-25038367] (0 rows)
+  Dune: waiting for query (157s, QUERY_STATE_EXECUTING)
+  [dune] pools [25038368-25040367] …
+  Dune: waiting for query (160s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25024368-25026367] (0 rows)
+  Dune: waiting for query (161s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25026368-25028367] …
+  Dune: waiting for query (164s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25038368-25040367] (0 rows)
+  Dune: waiting for query (166s, QUERY_STATE_EXECUTING)
+  [dune] pools [25040368-25042367] …
+  Dune: waiting for query (168s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (170s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25040368-25042367] (0 rows)
+  [dune] pools [25042368-25044367] …
+  [cache save] pools_v4 [25026368-25028367] (0 rows)
+  Dune: waiting for query (176s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25028368-25030367] …
+  Dune: waiting for query (178s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (178s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25042368-25044367] (0 rows)
+  [dune] pools [25044368-25046367] …
+  Dune: waiting for query (181s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (184s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (184s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25028368-25030367] (0 rows)
+  [dune] pools_v4 [25030368-25032367] …
+  [cache save] pools [25044368-25046367] (0 rows)
+  [dune] pools [25046368-25048367] …
+  Dune: waiting for query (190s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (192s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (195s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25046368-25048367] (0 rows)
+  [cache save] pools_v4 [25030368-25032367] (0 rows)
+  [dune] pools [25048368-25050367] …
+  [dune] pools_v4 [25032368-25034367] …
+  Dune: waiting for query (201s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (201s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25048368-25050367] (0 rows)
+  [dune] pools [25050368-25052367] …
+  Dune: waiting for query (207s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (207s, QUERY_STATE_EXECUTING)
+  [cache save] pools_v4 [25032368-25034367] (0 rows)
+  [dune] pools_v4 [25034368-25036367] …
+  Dune: waiting for query (210s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25050368-25052367] (0 rows)
+  Dune: waiting for query (211s, QUERY_STATE_EXECUTING)
+  [dune] pools [25052368-25054367] …
+  Dune: waiting for query (214s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (217s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25034368-25036367] (0 rows)
+  [cache save] pools [25052368-25054367] (0 rows)
+  [dune] pools_v4 [25036368-25038367] …
+  [dune] pools [25054368-25056367] …
+  Dune: waiting for query (222s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (222s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (225s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25054368-25056367] (0 rows)
+  Dune: waiting for query (226s, QUERY_STATE_EXECUTING)
+  [dune] pools [25056368-25058367] …
+  Dune: waiting for query (228s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (229s, QUERY_STATE_EXECUTING)
+  [cache save] pools_v4 [25036368-25038367] (0 rows)
+  [dune] pools_v4 [25038368-25040367] …
+  Dune: waiting for query (232s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25056368-25058367] (0 rows)
+  Dune: waiting for query (233s, QUERY_STATE_EXECUTING)
+  [dune] pools [25058368-25060367] …
+  Dune: waiting for query (237s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (239s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25038368-25040367] (0 rows)
+  [cache save] pools [25058368-25060367] (0 rows)
+  [dune] pools_v4 [25040368-25042367] …
+  [dune] pools [25060368-25062367] …
+  Dune: waiting for query (244s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (247s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25060368-25062367] (0 rows)
+  [cache save] pools_v4 [25040368-25042367] (0 rows)
+  [dune] pools [25062368-25064367] …
+  Dune: waiting for query (252s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25042368-25044367] …
+  Dune: waiting for query (255s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (255s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25062368-25064367] (0 rows)
+  [dune] pools [25064368-25066367] …
+  Dune: waiting for query (258s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25042368-25044367] (0 rows)
+  Dune: waiting for query (260s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25044368-25046367] …
+  Dune: waiting for query (263s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (264s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25064368-25066367] (0 rows)
+  [dune] pools [25066368-25068367] …
+  Dune: waiting for query (266s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25044368-25046367] (0 rows)
+  Dune: waiting for query (268s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25046368-25048367] …
+  Dune: waiting for query (271s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (271s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25066368-25068367] (0 rows)
+  [cache save] pools_v4 [25046368-25048367] (0 rows)
+  [dune] pools [25068368-25070367] …
+  [dune] pools_v4 [25048368-25050367] …
+  Dune: waiting for query (276s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (278s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (279s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25068368-25070367] (0 rows)
+  Dune: waiting for query (281s, QUERY_STATE_EXECUTING)
+  [dune] pools [25070368-25072367] …
+  Dune: waiting for query (283s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (283s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25048368-25050367] (0 rows)
+  [dune] pools_v4 [25050368-25052367] …
+  [cache save] pools [25070368-25072367] (0 rows)
+  [dune] pools [25072368-25074367] …
+  Dune: waiting for query (290s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (291s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (294s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25072368-25074367] (0 rows)
+  [dune] pools [25074368-25076367] …
+  [cache save] pools_v4 [25050368-25052367] (0 rows)
+  [dune] pools_v4 [25052368-25054367] …
+  Dune: waiting for query (299s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (300s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (301s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25074368-25076367] (0 rows)
+  Dune: waiting for query (303s, QUERY_STATE_EXECUTING)
+  [dune] pools [25076368-25078367] …
+  Dune: waiting for query (306s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (306s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25052368-25054367] (0 rows)
+  [dune] pools_v4 [25054368-25056367] …
+  [cache save] pools [25076368-25078367] (0 rows)
+  Dune: waiting for query (310s, QUERY_STATE_EXECUTING)
+  [dune] pools [25078368-25080367] …
+  Dune: waiting for query (313s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (313s, QUERY_STATE_EXECUTING)
+  [cache save] pools_v4 [25054368-25056367] (0 rows)
+  [dune] pools_v4 [25056368-25058367] …
+  Dune: waiting for query (316s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25078368-25080367] (0 rows)
+  Dune: waiting for query (317s, QUERY_STATE_EXECUTING)
+  [dune] pools [25080368-25082367] …
+  Dune: waiting for query (320s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (321s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25056368-25058367] (0 rows)
+  [dune] pools_v4 [25058368-25060367] …
+  [cache save] pools [25080368-25082367] (0 rows)
+  [dune] pools [25082368-25084367] …
+  Dune: waiting for query (326s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (327s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (328s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25058368-25060367] (0 rows)
+  [dune] pools_v4 [25060368-25062367] …
+  [cache save] pools [25082368-25084367] (0 rows)
+  Dune: waiting for query (333s, QUERY_STATE_EXECUTING)
+  [dune] pools [25084368-25086367] …
+  Dune: waiting for query (335s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (336s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25084368-25086367] (0 rows)
+  [dune] pools [25086368-25088367] …
+  Dune: waiting for query (339s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25060368-25062367] (0 rows)
+  Dune: waiting for query (340s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25062368-25064367] …
+  Dune: waiting for query (343s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25086368-25088367] (0 rows)
+  Dune: waiting for query (344s, QUERY_STATE_EXECUTING)
+  [dune] pools [25088368-25090367] …
+  Dune: waiting for query (347s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25062368-25064367] (0 rows)
+  Dune: waiting for query (347s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25064368-25066367] …
+  Dune: waiting for query (350s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25088368-25090367] (0 rows)
+  Dune: waiting for query (352s, QUERY_STATE_EXECUTING)
+  [dune] pools [25090368-25092367] …
+  Dune: waiting for query (354s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25064368-25066367] (0 rows)
+  Dune: waiting for query (355s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25066368-25068367] …
+  Dune: waiting for query (358s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25090368-25092367] (0 rows)
+  Dune: waiting for query (359s, QUERY_STATE_EXECUTING)
+  [dune] pools [25092368-25094367] …
+  Dune: waiting for query (363s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (363s, QUERY_STATE_EXECUTING)
+  [cache save] pools_v4 [25066368-25068367] (0 rows)
+  [dune] pools_v4 [25068368-25070367] …
+  Dune: waiting for query (366s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25092368-25094367] (0 rows)
+  Dune: waiting for query (367s, QUERY_STATE_EXECUTING)
+  [dune] pools [25094368-25096367] …
+  Dune: waiting for query (371s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (373s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25068368-25070367] (0 rows)
+  [cache save] pools [25094368-25096367] (0 rows)
+  [dune] pools_v4 [25070368-25072367] …
+  [dune] pools [25096368-25098367] …
+  Dune: waiting for query (378s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (378s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (380s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25070368-25072367] (0 rows)
+  [cache save] pools [25096368-25098367] (0 rows)
+  [dune] pools_v4 [25072368-25074367] …
+  [dune] pools [25098368-25100367] …
+  Dune: waiting for query (385s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (385s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (388s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25072368-25074367] (0 rows)
+  [cache save] pools [25098368-25100367] (0 rows)
+  [dune] pools_v4 [25074368-25076367] …
+  [dune] pools [25100368-25102367] …
+  Dune: waiting for query (393s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (394s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (396s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25100368-25102367] (0 rows)
+  Dune: waiting for query (397s, QUERY_STATE_EXECUTING)
+  [dune] pools [25102368-25104367] …
+  Dune: waiting for query (400s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25074368-25076367] (0 rows)
+  [dune] pools_v4 [25076368-25078367] …
+  Dune: waiting for query (403s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (405s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (407s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25102368-25104367] (0 rows)
+  Dune: waiting for query (408s, QUERY_STATE_EXECUTING)
+  [dune] pools [25104368-25106367] …
+  Dune: waiting for query (410s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25076368-25078367] (0 rows)
+  Dune: waiting for query (412s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25078368-25080367] …
+  Dune: waiting for query (415s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (415s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25104368-25106367] (0 rows)
+  [dune] pools [25106368-25108367] …
+  Dune: waiting for query (420s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (421s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25078368-25080367] (0 rows)
+  [dune] pools_v4 [25080368-25082367] …
+  [cache save] pools [25106368-25108367] (0 rows)
+  [dune] pools [25108368-25110367] …
+  Dune: waiting for query (426s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (428s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (428s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25108368-25110367] (0 rows)
+  [dune] pools [25110368-25112367] …
+  Dune: waiting for query (431s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25080368-25082367] (0 rows)
+  Dune: waiting for query (432s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25082368-25084367] …
+  Dune: waiting for query (435s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25110368-25112367] (0 rows)
+  Dune: waiting for query (436s, QUERY_STATE_EXECUTING)
+  [dune] pools [25112368-25114367] …
+  Dune: waiting for query (440s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (442s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25082368-25084367] (0 rows)
+  [cache save] pools [25112368-25114367] (0 rows)
+  [dune] pools_v4 [25084368-25086367] …
+  [dune] pools [25114368-25116367] …
+  Dune: waiting for query (446s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (447s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25114368-25116367] (0 rows)
+  Dune: waiting for query (449s, QUERY_STATE_EXECUTING)
+  [dune] pools [25116368-25118367] …
+  Dune: waiting for query (452s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25116368-25118367] (0 rows)
+  [cache save] pools_v4 [25084368-25086367] (0 rows)
+  [dune] pools [25118368-25120367] …
+  [dune] pools_v4 [25086368-25088367] …
+  Dune: waiting for query (456s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (456s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (459s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25086368-25088367] (0 rows)
+  [cache save] pools [25118368-25120367] (0 rows)
+  [dune] pools_v4 [25088368-25090367] …
+  [dune] pools [25120368-25122367] …
+  Dune: waiting for query (464s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (464s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (467s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (467s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25120368-25122367] (0 rows)
+  [dune] pools [25122368-25124367] …
+  Dune: waiting for query (470s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25088368-25090367] (0 rows)
+  Dune: waiting for query (472s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25090368-25092367] …
+  Dune: waiting for query (475s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (475s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25122368-25124367] (0 rows)
+  [dune] pools [25124368-25126367] …
+  Dune: waiting for query (480s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (482s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25090368-25092367] (0 rows)
+  [cache save] pools [25124368-25126367] (0 rows)
+  [dune] pools_v4 [25092368-25094367] …
+  [dune] pools [25126368-25128367] …
+  Dune: waiting for query (487s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (487s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (490s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25126368-25128367] (0 rows)
+  [cache save] pools_v4 [25092368-25094367] (0 rows)
+  [dune] pools [25128368-25130367] …
+  [dune] pools_v4 [25094368-25096367] …
+  Dune: waiting for query (494s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (494s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (497s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25128368-25130367] (0 rows)
+  [cache save] pools_v4 [25094368-25096367] (0 rows)
+  [dune] pools [25130368-25132367] …
+  [dune] pools_v4 [25096368-25098367] …
+  Dune: waiting for query (501s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (502s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (504s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25130368-25132367] (0 rows)
+  Dune: waiting for query (505s, QUERY_STATE_EXECUTING)
+  [dune] pools [25132368-25134367] …
+  Dune: waiting for query (508s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (508s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25132368-25134367] (0 rows)
+  [cache save] pools_v4 [25096368-25098367] (0 rows)
+  [dune] pools [25134368-25136367] …
+  [dune] pools_v4 [25098368-25100367] …
+  Dune: waiting for query (512s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (512s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (515s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25098368-25100367] (0 rows)
+  [cache save] pools [25134368-25136367] (0 rows)
+  [dune] pools_v4 [25100368-25102367] …
+  [dune] pools [25136368-25138367] …
+  Dune: waiting for query (519s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (519s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (522s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25136368-25138367] (0 rows)
+  [cache save] pools_v4 [25100368-25102367] (0 rows)
+  [dune] pools [25138368-25140367] …
+  [dune] pools_v4 [25102368-25104367] …
+  Dune: waiting for query (526s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (527s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (529s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25138368-25140367] (0 rows)
+  Dune: waiting for query (530s, QUERY_STATE_EXECUTING)
+  [dune] pools [25140368-25142367] …
+  Dune: waiting for query (533s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25102368-25104367] (0 rows)
+  Dune: waiting for query (533s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25104368-25106367] …
+  Dune: waiting for query (536s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25140368-25142367] (0 rows)
+  Dune: waiting for query (538s, QUERY_STATE_EXECUTING)
+  [dune] pools [25142368-25144367] …
+  Dune: waiting for query (541s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (543s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25104368-25106367] (0 rows)
+  [cache save] pools [25142368-25144367] (0 rows)
+  [dune] pools_v4 [25106368-25108367] …
+  [dune] pools [25144368-25146367] …
+  Dune: waiting for query (548s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (550s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (553s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25144368-25146367] (0 rows)
+  [cache save] pools_v4 [25106368-25108367] (0 rows)
+  [dune] pools [25146368-25148367] …
+  [dune] pools_v4 [25108368-25110367] …
+  Dune: waiting for query (558s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (558s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (561s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25146368-25148367] (0 rows)
+  Dune: waiting for query (561s, QUERY_STATE_EXECUTING)
+  [dune] pools [25148368-25150367] …
+  Dune: waiting for query (564s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25108368-25110367] (0 rows)
+  Dune: waiting for query (565s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25148368-25150367] (0 rows)
+  [dune] pools_v4 [25110368-25112367] …
+  [dune] pools [25150368-25152367] …
+  Dune: waiting for query (568s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (570s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (572s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25150368-25152367] (0 rows)
+  [dune] pools [25152368-25154367] …
+  [cache save] pools_v4 [25110368-25112367] (0 rows)
+  Dune: waiting for query (577s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25112368-25114367] …
+  Dune: waiting for query (579s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (580s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25152368-25154367] (0 rows)
+  [dune] pools [25154368-25156367] …
+  [cache save] pools_v4 [25112368-25114367] (0 rows)
+  Dune: waiting for query (584s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25114368-25116367] …
+  Dune: waiting for query (587s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (587s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25154368-25156367] (0 rows)
+  [dune] pools [25156368-25158367] …
+  Dune: waiting for query (590s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25114368-25116367] (0 rows)
+  Dune: waiting for query (591s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25116368-25118367] …
+  Dune: waiting for query (594s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25156368-25158367] (0 rows)
+  Dune: waiting for query (594s, QUERY_STATE_EXECUTING)
+  [dune] pools [25158368-25160367] …
+  Dune: waiting for query (598s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (600s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25116368-25118367] (0 rows)
+  [cache save] pools [25158368-25160367] (0 rows)
+  [dune] pools_v4 [25118368-25120367] …
+  [dune] pools [25160368-25162367] …
+  Dune: waiting for query (605s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (606s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (608s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25118368-25120367] (0 rows)
+  [cache save] pools [25160368-25162367] (0 rows)
+  [dune] pools_v4 [25120368-25122367] …
+  [dune] pools [25162368-25164367] …
+  Dune: waiting for query (612s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (613s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (616s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25162368-25164367] (0 rows)
+  [dune] pools [25164368-25166367] …
+  [cache save] pools_v4 [25120368-25122367] (0 rows)
+  Dune: waiting for query (620s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25122368-25124367] …
+  Dune: waiting for query (623s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (623s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25164368-25166367] (0 rows)
+  Dune: waiting for query (625s, QUERY_STATE_EXECUTING)
+  [dune] pools [25166368-25168367] …
+  Dune: waiting for query (628s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (628s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25122368-25124367] (0 rows)
+  [dune] pools_v4 [25124368-25126367] …
+  [cache save] pools [25166368-25168367] (0 rows)
+  [dune] pools [25168368-25170367] …
+  Dune: waiting for query (634s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (635s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (637s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25124368-25126367] (0 rows)
+  [cache save] pools [25168368-25170367] (0 rows)
+  [dune] pools_v4 [25126368-25128367] …
+  [dune] pools [25170368-25172367] …
+  Dune: waiting for query (642s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (642s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (645s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25170368-25172367] (0 rows)
+  [cache save] pools_v4 [25126368-25128367] (0 rows)
+  [dune] pools [25172368-25174367] …
+  [dune] pools_v4 [25128368-25130367] …
+  Dune: waiting for query (649s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (650s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (653s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25172368-25174367] (0 rows)
+  [dune] pools [25174368-25176367] …
+  [cache save] pools_v4 [25128368-25130367] (0 rows)
+  [dune] pools_v4 [25130368-25132367] …
+  Dune: waiting for query (659s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (660s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (662s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (663s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25174368-25176367] (0 rows)
+  [dune] pools [25176368-25178367] …
+  Dune: waiting for query (666s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25130368-25132367] (0 rows)
+  [dune] pools_v4 [25132368-25134367] …
+  Dune: waiting for query (669s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25176368-25178367] (0 rows)
+  Dune: waiting for query (670s, QUERY_STATE_EXECUTING)
+  [dune] pools [25178368-25180367] …
+  Dune: waiting for query (673s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25132368-25134367] (0 rows)
+  Dune: waiting for query (673s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25134368-25136367] …
+  Dune: waiting for query (676s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25178368-25180367] (0 rows)
+  Dune: waiting for query (677s, QUERY_STATE_EXECUTING)
+  [dune] pools [25180368-25182367] …
+  Dune: waiting for query (680s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25134368-25136367] (0 rows)
+  [dune] pools_v4 [25136368-25138367] …
+  Dune: waiting for query (683s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25180368-25182367] (0 rows)
+  Dune: waiting for query (684s, QUERY_STATE_EXECUTING)
+  [dune] pools [25182368-25184367] …
+  Dune: waiting for query (687s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (690s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25136368-25138367] (0 rows)
+  [cache save] pools [25182368-25184367] (0 rows)
+  [dune] pools_v4 [25138368-25140367] …
+  [dune] pools [25184368-25186367] …
+  Dune: waiting for query (694s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (694s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (697s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (698s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25184368-25186367] (0 rows)
+  [dune] pools [25186368-25188367] …
+  Dune: waiting for query (700s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25138368-25140367] (0 rows)
+  [dune] pools_v4 [25140368-25142367] …
+  Dune: waiting for query (703s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25186368-25188367] (0 rows)
+  Dune: waiting for query (705s, QUERY_STATE_EXECUTING)
+  [dune] pools [25188368-25190367] …
+  Dune: waiting for query (708s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25188368-25190367] (0 rows)
+  [dune] pools [25190368-25192367] …
+  [cache save] pools_v4 [25140368-25142367] (0 rows)
+  Dune: waiting for query (712s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25142368-25144367] …
+  Dune: waiting for query (715s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25190368-25192367] (0 rows)
+  Dune: waiting for query (716s, QUERY_STATE_EXECUTING)
+  [dune] pools [25192368-25194367] …
+  Dune: waiting for query (719s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25142368-25144367] (0 rows)
+  Dune: waiting for query (721s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25192368-25194367] (0 rows)
+  [dune] pools_v4 [25144368-25146367] …
+  [dune] pools [25194368-25196367] …
+  Dune: waiting for query (723s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (725s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (728s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25194368-25196367] (0 rows)
+  [dune] pools [25196368-25198367] …
+  [cache save] pools_v4 [25144368-25146367] (0 rows)
+  Dune: waiting for query (732s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25146368-25148367] …
+  Dune: waiting for query (735s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (735s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25196368-25198367] (0 rows)
+  Dune: waiting for query (738s, QUERY_STATE_EXECUTING)
+  [dune] pools [25198368-25200367] …
+  Dune: waiting for query (740s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (741s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25146368-25148367] (0 rows)
+  [dune] pools_v4 [25148368-25150367] …
+  [cache save] pools [25198368-25200367] (0 rows)
+  Dune: waiting for query (746s, QUERY_STATE_EXECUTING)
+  [dune] pools [25200368-25202367] …
+  Dune: waiting for query (749s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (755s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (758s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (761s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25200368-25202367] (0 rows)
+  Dune: waiting for query (764s, QUERY_STATE_COMPLETED)
+  [dune] pools [25202368-25204367] …
+  [cache save] pools_v4 [25148368-25150367] (0 rows)
+  [dune] pools_v4 [25150368-25152367] …
+  Dune: waiting for query (766s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (769s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (769s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25202368-25204367] (0 rows)
+  [dune] pools [25204368-25206367] …
+  Dune: waiting for query (773s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (775s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25150368-25152367] (0 rows)
+  [cache save] pools [25204368-25206367] (0 rows)
+  [dune] pools_v4 [25152368-25154367] …
+  [dune] pools [25206368-25208367] …
+  Dune: waiting for query (781s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (781s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (784s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (784s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25206368-25208367] (0 rows)
+  [dune] pools [25208368-25210367] …
+  Dune: waiting for query (787s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25152368-25154367] (0 rows)
+  Dune: waiting for query (789s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25154368-25156367] …
+  Dune: waiting for query (791s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (792s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25208368-25210367] (0 rows)
+  Dune: waiting for query (794s, QUERY_STATE_EXECUTING)
+  [dune] pools [25210368-25212367] …
+  Dune: waiting for query (796s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (797s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25154368-25156367] (0 rows)
+  [cache save] pools [25210368-25212367] (0 rows)
+  [dune] pools_v4 [25156368-25158367] …
+  [dune] pools [25212368-25214367] …
+  Dune: waiting for query (801s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (803s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (806s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25212368-25214367] (0 rows)
+  [cache save] pools_v4 [25156368-25158367] (0 rows)
+  [dune] pools [25214368-25216367] …
+  [dune] pools_v4 [25158368-25160367] …
+  Dune: waiting for query (810s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (811s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (813s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25214368-25216367] (0 rows)
+  Dune: waiting for query (815s, QUERY_STATE_EXECUTING)
+  [dune] pools [25216368-25218367] …
+  Dune: waiting for query (818s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (818s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25158368-25160367] (0 rows)
+  [dune] pools_v4 [25160368-25162367] …
+  [cache save] pools [25216368-25218367] (0 rows)
+  Dune: waiting for query (822s, QUERY_STATE_EXECUTING)
+  [dune] pools [25218368-25220367] …
+  Dune: waiting for query (825s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25160368-25162367] (0 rows)
+  Dune: waiting for query (826s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25162368-25164367] …
+  Dune: waiting for query (829s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25218368-25220367] (0 rows)
+  [dune] pools [25220368-25222367] …
+  Dune: waiting for query (832s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (833s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (835s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25162368-25164367] (0 rows)
+  [cache save] pools [25220368-25222367] (0 rows)
+  [dune] pools_v4 [25164368-25166367] …
+  [dune] pools [25222368-25224367] …
+  Dune: waiting for query (839s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (840s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (843s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25222368-25224367] (0 rows)
+  [cache save] pools_v4 [25164368-25166367] (0 rows)
+  [dune] pools [25224368-25226367] …
+  [dune] pools_v4 [25166368-25168367] …
+  Dune: waiting for query (847s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (849s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (850s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25224368-25226367] (0 rows)
+  [cache save] pools_v4 [25166368-25168367] (0 rows)
+  [dune] pools [25226368-25228367] …
+  [dune] pools_v4 [25168368-25170367] …
+  Dune: waiting for query (854s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (856s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (857s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25226368-25228367] (0 rows)
+  Dune: waiting for query (859s, QUERY_STATE_EXECUTING)
+  [dune] pools [25228368-25230367] …
+  Dune: waiting for query (862s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25168368-25170367] (0 rows)
+  Dune: waiting for query (862s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25170368-25172367] …
+  Dune: waiting for query (865s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25228368-25230367] (0 rows)
+  Dune: waiting for query (866s, QUERY_STATE_EXECUTING)
+  [dune] pools [25230368-25232367] …
+  Dune: waiting for query (870s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25230368-25232367] (0 rows)
+  [cache save] pools_v4 [25170368-25172367] (0 rows)
+  [dune] pools [25232368-25234367] …
+  [dune] pools_v4 [25172368-25174367] …
+  Dune: waiting for query (875s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (877s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (879s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25172368-25174367] (0 rows)
+  [cache save] pools [25232368-25234367] (0 rows)
+  [dune] pools_v4 [25174368-25176367] …
+  [dune] pools [25234368-25236367] …
+  Dune: waiting for query (884s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (885s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (888s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25234368-25236367] (0 rows)
+  [dune] pools [25236368-25238367] …
+  [cache save] pools_v4 [25174368-25176367] (0 rows)
+  Dune: waiting for query (893s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25176368-25178367] …
+  Dune: waiting for query (896s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25236368-25238367] (0 rows)
+  Dune: waiting for query (897s, QUERY_STATE_EXECUTING)
+  [dune] pools [25238368-25240367] …
+  Dune: waiting for query (900s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (903s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25238368-25240367] (0 rows)
+  [cache save] pools_v4 [25176368-25178367] (0 rows)
+  [dune] pools [25240368-25242367] …
+  [dune] pools_v4 [25178368-25180367] …
+  Dune: waiting for query (908s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (908s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (911s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25178368-25180367] (0 rows)
+  [cache save] pools [25240368-25242367] (0 rows)
+  [dune] pools_v4 [25180368-25182367] …
+  [dune] pools [25242368-25244367] …
+  Dune: waiting for query (915s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (915s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (917s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (917s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25242368-25244367] (0 rows)
+  [dune] pools [25244368-25246367] …
+  Dune: waiting for query (920s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25180368-25182367] (0 rows)
+  Dune: waiting for query (922s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25182368-25184367] …
+  Dune: waiting for query (925s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (925s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25244368-25246367] (0 rows)
+  [dune] pools [25246368-25248367] …
+  Dune: waiting for query (928s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (929s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (931s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25182368-25184367] (0 rows)
+  [cache save] pools [25246368-25248367] (0 rows)
+  [dune] pools_v4 [25184368-25186367] …
+  [dune] pools [25248368-25250367] …
+  Dune: waiting for query (936s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (938s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (941s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25248368-25250367] (0 rows)
+  [dune] pools [25250368-25252367] …
+  [cache save] pools_v4 [25184368-25186367] (0 rows)
+  [dune] pools_v4 [25186368-25188367] …
+  Dune: waiting for query (947s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (948s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (950s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25250368-25252367] (0 rows)
+  [cache save] pools_v4 [25186368-25188367] (0 rows)
+  [dune] pools [25252368-25254367] …
+  [dune] pools_v4 [25188368-25190367] …
+  Dune: waiting for query (955s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (955s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (958s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25252368-25254367] (0 rows)
+  [dune] pools [25254368-25256367] …
+  [cache save] pools_v4 [25188368-25190367] (0 rows)
+  Dune: waiting for query (962s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25190368-25192367] …
+  Dune: waiting for query (965s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (965s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25254368-25256367] (0 rows)
+  [dune] pools [25256368-25258367] …
+  Dune: waiting for query (969s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (971s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25190368-25192367] (0 rows)
+  [cache save] pools [25256368-25258367] (0 rows)
+  [dune] pools_v4 [25192368-25194367] …
+  [dune] pools [25258368-25260367] …
+  Dune: waiting for query (975s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (976s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (979s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25258368-25260367] (0 rows)
+  [dune] pools [25260368-25262367] …
+  [cache save] pools_v4 [25192368-25194367] (0 rows)
+  [dune] pools_v4 [25194368-25196367] …
+  Dune: waiting for query (985s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (987s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (988s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25260368-25262367] (0 rows)
+  [cache save] pools_v4 [25194368-25196367] (0 rows)
+  [dune] pools [25262368-25264367] …
+  [dune] pools_v4 [25196368-25198367] …
+  Dune: waiting for query (993s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (994s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (996s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25262368-25264367] (0 rows)
+  Dune: waiting for query (997s, QUERY_STATE_EXECUTING)
+  [dune] pools [25264368-25266367] …
+  Dune: waiting for query (1000s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1000s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25196368-25198367] (0 rows)
+  [dune] pools_v4 [25198368-25200367] …
+  [cache save] pools [25264368-25266367] (0 rows)
+  Dune: waiting for query (1005s, QUERY_STATE_EXECUTING)
+  [dune] pools [25266368-25268367] …
+  Dune: waiting for query (1008s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1008s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25198368-25200367] (0 rows)
+  [dune] pools_v4 [25200368-25202367] …
+  [cache save] pools [25266368-25268367] (0 rows)
+  Dune: waiting for query (1012s, QUERY_STATE_EXECUTING)
+  [dune] pools [25268368-25270367] …
+  Dune: waiting for query (1015s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1018s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25200368-25202367] (0 rows)
+  [cache save] pools [25268368-25270367] (0 rows)
+  [dune] pools_v4 [25202368-25204367] …
+  [dune] pools [25270368-25272367] …
+  Dune: waiting for query (1022s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1022s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1025s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25270368-25272367] (0 rows)
+  [cache save] pools_v4 [25202368-25204367] (0 rows)
+  [dune] pools [25272368-25274367] …
+  [dune] pools_v4 [25204368-25206367] …
+  Dune: waiting for query (1030s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1030s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25272368-25274367] (0 rows)
+  [dune] pools [25274368-25276367] …
+  [cache save] pools_v4 [25204368-25206367] (0 rows)
+  Dune: waiting for query (1035s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25206368-25208367] …
+  Dune: waiting for query (1037s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1038s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25274368-25276367] (0 rows)
+  [dune] pools [25276368-25278367] …
+  [cache save] pools_v4 [25206368-25208367] (0 rows)
+  [dune] pools_v4 [25208368-25210367] …
+  Dune: waiting for query (1043s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1045s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1046s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25276368-25278367] (0 rows)
+  [cache save] pools_v4 [25208368-25210367] (0 rows)
+  [dune] pools [25278368-25280367] …
+  [dune] pools_v4 [25210368-25212367] …
+  Dune: waiting for query (1051s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1052s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1054s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25278368-25280367] (0 rows)
+  Dune: waiting for query (1055s, QUERY_STATE_EXECUTING)
+  [dune] pools [25280368-25282367] …
+  Dune: waiting for query (1058s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (1058s, QUERY_STATE_EXECUTING)
+  [cache save] pools_v4 [25210368-25212367] (0 rows)
+  [dune] pools_v4 [25212368-25214367] …
+  Dune: waiting for query (1061s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25280368-25282367] (0 rows)
+  Dune: waiting for query (1063s, QUERY_STATE_EXECUTING)
+  [dune] pools [25282368-25284367] …
+  Dune: waiting for query (1065s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1066s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25212368-25214367] (0 rows)
+  [dune] pools_v4 [25214368-25216367] …
+  [cache save] pools [25282368-25284367] (0 rows)
+  [dune] pools [25284368-25286367] …
+  Dune: waiting for query (1071s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1074s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25284368-25286367] (0 rows)
+  [dune] pools [25286368-25288367] …
+  [cache save] pools_v4 [25214368-25216367] (0 rows)
+  Dune: waiting for query (1078s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25216368-25218367] …
+  Dune: waiting for query (1081s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1081s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25286368-25288367] (0 rows)
+  [dune] pools [25288368-25290367] …
+  Dune: waiting for query (1084s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1086s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1086s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25216368-25218367] (0 rows)
+  [dune] pools_v4 [25218368-25220367] …
+  [cache save] pools [25288368-25290367] (0 rows)
+  Dune: waiting for query (1091s, QUERY_STATE_EXECUTING)
+  [dune] pools [25290368-25292367] …
+  Dune: waiting for query (1095s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25290368-25292367] (0 rows)
+  [cache save] pools_v4 [25218368-25220367] (0 rows)
+  [dune] pools [25292368-25294367] …
+  [dune] pools_v4 [25220368-25222367] …
+  Dune: waiting for query (1100s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1103s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (1103s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25292368-25294367] (0 rows)
+  [dune] pools [25294368-25296367] …
+  Dune: waiting for query (1107s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1110s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25294368-25296367] (0 rows)
+  [dune] pools [25296368-25298367] …
+  [cache save] pools_v4 [25220368-25222367] (0 rows)
+  Dune: waiting for query (1115s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25296368-25298367] (0 rows)
+  [dune] pools_v4 [25222368-25224367] …
+  [dune] pools [25298368-25300367] …
+  Dune: waiting for query (1118s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1120s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1121s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25222368-25224367] (0 rows)
+  [cache save] pools [25298368-25300367] (0 rows)
+  [dune] pools_v4 [25224368-25226367] …
+  [dune] pools [25300368-25302367] …
+  Dune: waiting for query (1126s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1127s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1130s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25300368-25302367] (0 rows)
+  [cache save] pools_v4 [25224368-25226367] (0 rows)
+  [dune] pools [25302368-25304367] …
+  [dune] pools_v4 [25226368-25228367] …
+  Dune: waiting for query (1135s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25302368-25304367] (0 rows)
+  Dune: waiting for query (1136s, QUERY_STATE_EXECUTING)
+  [dune] pools [25304368-25306367] …
+  Dune: waiting for query (1140s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1142s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25304368-25306367] (0 rows)
+  [cache save] pools_v4 [25226368-25228367] (0 rows)
+  [dune] pools [25306368-25308367] …
+  [dune] pools_v4 [25228368-25230367] …
+  Dune: waiting for query (1147s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1147s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25306368-25308367] (0 rows)
+  Dune: waiting for query (1150s, QUERY_STATE_EXECUTING)
+  [dune] pools [25308368-25310367] …
+  Dune: waiting for query (1153s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25228368-25230367] (0 rows)
+  Dune: waiting for query (1154s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25308368-25310367] (0 rows)
+  [dune] pools_v4 [25230368-25232367] …
+  [dune] pools [25310368-25312367] …
+  Dune: waiting for query (1157s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1160s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (1160s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25310368-25312367] (0 rows)
+  [dune] pools [25312368-25314367] …
+  Dune: waiting for query (1163s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25230368-25232367] (0 rows)
+  Dune: waiting for query (1165s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25232368-25234367] …
+  Dune: waiting for query (1168s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (1168s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25312368-25314367] (0 rows)
+  [dune] pools [25314368-25316367] …
+  Dune: waiting for query (1171s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (1172s, QUERY_STATE_EXECUTING)
+  [cache save] pools_v4 [25232368-25234367] (0 rows)
+  [dune] pools_v4 [25234368-25236367] …
+  Dune: waiting for query (1175s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25314368-25316367] (0 rows)
+  Dune: waiting for query (1176s, QUERY_STATE_EXECUTING)
+  [dune] pools [25316368-25318367] …
+  Dune: waiting for query (1179s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25234368-25236367] (0 rows)
+  Dune: waiting for query (1181s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25316368-25318367] (0 rows)
+  [dune] pools_v4 [25236368-25238367] …
+  [dune] pools [25318368-25320367] …
+  Dune: waiting for query (1183s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1187s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1189s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25236368-25238367] (0 rows)
+  [cache save] pools [25318368-25320367] (0 rows)
+  [dune] pools_v4 [25238368-25240367] …
+  [dune] pools [25320368-25322367] …
+  Dune: waiting for query (1195s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1195s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1198s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25238368-25240367] (0 rows)
+  [cache save] pools [25320368-25322367] (0 rows)
+  [dune] pools_v4 [25240368-25242367] …
+  [dune] pools [25322368-25324367] …
+  Dune: waiting for query (1203s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1204s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1206s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25322368-25324367] (0 rows)
+  [cache save] pools_v4 [25240368-25242367] (0 rows)
+  [dune] pools [25324368-25326367] …
+  [dune] pools_v4 [25242368-25244367] …
+  Dune: waiting for query (1211s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1212s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1214s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25324368-25326367] (0 rows)
+  [cache save] pools_v4 [25242368-25244367] (0 rows)
+  [dune] pools [25326368-25328367] …
+  [dune] pools_v4 [25244368-25246367] …
+  Dune: waiting for query (1220s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1220s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1223s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25326368-25328367] (0 rows)
+  [dune] pools [25328368-25330367] …
+  [cache save] pools_v4 [25244368-25246367] (0 rows)
+  Dune: waiting for query (1228s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25246368-25248367] …
+  Dune: waiting for query (1230s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1231s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25328368-25330367] (0 rows)
+  [dune] pools [25330368-25332367] …
+  [cache save] pools_v4 [25246368-25248367] (0 rows)
+  [dune] pools_v4 [25248368-25250367] …
+  Dune: waiting for query (1237s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1238s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25330368-25332367] (0 rows)
+  Dune: waiting for query (1240s, QUERY_STATE_EXECUTING)
+  [dune] pools [25332368-25334367] …
+  Dune: waiting for query (1243s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (1243s, QUERY_STATE_EXECUTING)
+  [cache save] pools_v4 [25248368-25250367] (0 rows)
+  [dune] pools_v4 [25250368-25252367] …
+  Dune: waiting for query (1246s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25332368-25334367] (0 rows)
+  Dune: waiting for query (1247s, QUERY_STATE_EXECUTING)
+  [dune] pools [25334368-25336367] …
+  Dune: waiting for query (1251s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25334368-25336367] (0 rows)
+  [cache save] pools_v4 [25250368-25252367] (0 rows)
+  [dune] pools [25336368-25338367] …
+  [dune] pools_v4 [25252368-25254367] …
+  Dune: waiting for query (1258s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1258s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25336368-25338367] (0 rows)
+  Dune: waiting for query (1261s, QUERY_STATE_EXECUTING)
+  [dune] pools [25338368-25340367] …
+  Dune: waiting for query (1263s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25338368-25340367] (0 rows)
+  [cache save] pools_v4 [25252368-25254367] (0 rows)
+  [dune] pools [25340368-25342367] …
+  [dune] pools_v4 [25254368-25256367] …
+  Dune: waiting for query (1269s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1270s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1271s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25340368-25342367] (0 rows)
+  Dune: waiting for query (1273s, QUERY_STATE_EXECUTING)
+  [dune] pools [25342368-25344367] …
+  Dune: waiting for query (1276s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25254368-25256367] (0 rows)
+  Dune: waiting for query (1276s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25342368-25344367] (0 rows)
+  [dune] pools_v4 [25256368-25258367] …
+  [dune] pools [25344368-25346367] …
+  Dune: waiting for query (1281s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1281s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1284s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25344368-25346367] (0 rows)
+  [dune] pools [25346368-25348367] …
+  [cache save] pools_v4 [25256368-25258367] (0 rows)
+  [dune] pools_v4 [25258368-25260367] …
+  Dune: waiting for query (1291s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25346368-25348367] (0 rows)
+  Dune: waiting for query (1293s, QUERY_STATE_EXECUTING)
+  [dune] pools [25348368-25350367] …
+  Dune: waiting for query (1296s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1296s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25258368-25260367] (0 rows)
+  [dune] pools_v4 [25260368-25262367] …
+  [cache save] pools [25348368-25350367] (0 rows)
+  [dune] pools [25350368-25352367] …
+  Dune: waiting for query (1301s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1303s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1304s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25260368-25262367] (0 rows)
+  [cache save] pools [25350368-25352367] (0 rows)
+  [dune] pools_v4 [25262368-25264367] …
+  [dune] pools [25352368-25354367] …
+  Dune: waiting for query (1309s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1310s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1312s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25262368-25264367] (0 rows)
+  [cache save] pools [25352368-25354367] (0 rows)
+  [dune] pools_v4 [25264368-25266367] …
+  [dune] pools [25354368-25356367] …
+  Dune: waiting for query (1317s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1318s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1320s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25264368-25266367] (0 rows)
+  [cache save] pools [25354368-25356367] (0 rows)
+  [dune] pools_v4 [25266368-25268367] …
+  [dune] pools [25356368-25358367] …
+  Dune: waiting for query (1325s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1326s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25356368-25358367] (0 rows)
+  Dune: waiting for query (1327s, QUERY_STATE_EXECUTING)
+  [dune] pools [25358368-25360367] …
+  Dune: waiting for query (1330s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25266368-25268367] (0 rows)
+  Dune: waiting for query (1332s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25358368-25360367] (0 rows)
+  [dune] pools_v4 [25268368-25270367] …
+  Dune: waiting for query (1335s, QUERY_STATE_EXECUTING)
+  [dune] pools [25360368-25362367] …
+  Dune: waiting for query (1339s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1340s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25268368-25270367] (0 rows)
+  [cache save] pools [25360368-25362367] (0 rows)
+  [dune] pools_v4 [25270368-25272367] …
+  [dune] pools [25362368-25364367] …
+  Dune: waiting for query (1344s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1346s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1349s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25362368-25364367] (0 rows)
+  [cache save] pools_v4 [25270368-25272367] (0 rows)
+  [dune] pools [25364368-25366367] …
+  Dune: waiting for query (1353s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25272368-25274367] …
+  Dune: waiting for query (1356s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25364368-25366367] (0 rows)
+  Dune: waiting for query (1357s, QUERY_STATE_EXECUTING)
+  [dune] pools [25366368-25368367] …
+  Dune: waiting for query (1361s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25366368-25368367] (0 rows)
+  [dune] pools [25368368-25370367] …
+  [cache save] pools_v4 [25272368-25274367] (0 rows)
+  Dune: waiting for query (1366s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25274368-25276367] …
+  Dune: waiting for query (1368s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1369s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25368368-25370367] (0 rows)
+  Dune: waiting for query (1371s, QUERY_STATE_EXECUTING)
+  [dune] pools [25370368-25372367] …
+  Dune: waiting for query (1374s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25274368-25276367] (0 rows)
+  [dune] pools [25370368-25372367]: HTTP ? — retry 1/7 in 2s
+  [dune] pools_v4 [25276368-25278367] …
+  [dune] pools_v4 [25276368-25278367]: HTTP ? — retry 1/7 in 2s
+  Dune: waiting for query (1389s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1393s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25276368-25278367] (0 rows)
+  [dune] pools_v4 [25278368-25280367] …
+  [dune] pools_v4 [25278368-25280367]: HTTP ? — retry 1/7 in 2s
+  Dune: waiting for query (1410s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1416s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25278368-25280367] (0 rows)
+  [dune] pools_v4 [25280368-25282367] …
+  [dune] pools_v4 [25280368-25282367]: HTTP ? — retry 1/7 in 2s
+  Dune: waiting for query (1432s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1434s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1434s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25370368-25372367] (0 rows)
+  [dune] pools [25372368-25374367] …
+  Dune: waiting for query (1437s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1440s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25372368-25374367] (0 rows)
+  [cache save] pools_v4 [25280368-25282367] (0 rows)
+  [dune] pools [25374368-25376367] …
+  [dune] pools_v4 [25282368-25284367] …
+  Dune: waiting for query (1444s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1447s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25374368-25376367] (0 rows)
+  [cache save] pools_v4 [25282368-25284367] (0 rows)
+  [dune] pools [25376368-25378367] …
+  [dune] pools_v4 [25284368-25286367] …
+  Dune: waiting for query (1454s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25376368-25378367] (0 rows)
+  Dune: waiting for query (1455s, QUERY_STATE_EXECUTING)
+  [dune] pools [25378368-25380367] …
+  Dune: waiting for query (1458s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25284368-25286367] (0 rows)
+  Dune: waiting for query (1460s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25378368-25380367] (0 rows)
+  [dune] pools_v4 [25286368-25288367] …
+  [dune] pools [25380368-25382367] …
+  Dune: waiting for query (1463s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1464s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1466s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25380368-25382367] (0 rows)
+  [dune] pools [25382368-25384367] …
+  [cache save] pools_v4 [25286368-25288367] (0 rows)
+  Dune: waiting for query (1470s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25288368-25290367] …
+  Dune: waiting for query (1473s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1473s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25382368-25384367] (0 rows)
+  [dune] pools [25384368-25386367] …
+  Dune: waiting for query (1476s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1478s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25384368-25386367] (0 rows)
+  [dune] pools [25386368-25388367] …
+  [cache save] pools_v4 [25288368-25290367] (0 rows)
+  [dune] pools_v4 [25290368-25292367] …
+  Dune: waiting for query (1484s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (1485s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25386368-25388367] (0 rows)
+  [dune] pools [25388368-25390367] …
+  Dune: waiting for query (1489s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1491s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25388368-25390367] (0 rows)
+  [cache save] pools_v4 [25290368-25292367] (0 rows)
+  [dune] pools [25390368-25392367] …
+  [dune] pools_v4 [25292368-25294367] …
+  Dune: waiting for query (1495s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1495s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1498s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (1498s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25390368-25392367] (0 rows)
+  [dune] pools [25392368-25394367] …
+  Dune: waiting for query (1501s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25292368-25294367] (0 rows)
+  Dune: waiting for query (1502s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25294368-25296367] …
+  Dune: waiting for query (1505s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25392368-25394367] (0 rows)
+  Dune: waiting for query (1506s, QUERY_STATE_EXECUTING)
+  [dune] pools [25394368-25396367] …
+  Dune: waiting for query (1509s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1509s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25294368-25296367] (0 rows)
+  [dune] pools_v4 [25296368-25298367] …
+  [cache save] pools [25394368-25396367] (0 rows)
+  Dune: waiting for query (1513s, QUERY_STATE_EXECUTING)
+  [dune] pools [25396368-25398367] …
+  Dune: waiting for query (1516s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1519s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25296368-25298367] (0 rows)
+  [cache save] pools [25396368-25398367] (0 rows)
+  [dune] pools_v4 [25298368-25300367] …
+  [dune] pools [25398368-25400367] …
+  Dune: waiting for query (1523s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1523s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1526s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25298368-25300367] (0 rows)
+  [cache save] pools [25398368-25400367] (0 rows)
+  [dune] pools_v4 [25300368-25302367] …
+  [dune] pools [25400368-25402367] …
+  Dune: waiting for query (1530s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1531s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25400368-25402367] (0 rows)
+  [cache save] pools_v4 [25300368-25302367] (0 rows)
+  [dune] pools [25402368-25404367] …
+  Dune: waiting for query (1535s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25302368-25304367] …
+  Dune: waiting for query (1538s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1538s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25402368-25404367] (0 rows)
+  [dune] pools [25404368-25406367] …
+  Dune: waiting for query (1541s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1542s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1544s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25302368-25304367] (0 rows)
+  [cache save] pools [25404368-25406367] (0 rows)
+  [dune] pools_v4 [25304368-25306367] …
+  [dune] pools [25406368-25408367] …
+  Dune: waiting for query (1549s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1550s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1553s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25406368-25408367] (0 rows)
+  [dune] pools [25408368-25410367] …
+  [cache save] pools_v4 [25304368-25306367] (0 rows)
+  Dune: waiting for query (1557s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25306368-25308367] …
+  Dune: waiting for query (1561s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (1561s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25408368-25410367] (0 rows)
+  [dune] pools [25410368-25412367] …
+  Dune: waiting for query (1564s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25306368-25308367] (0 rows)
+  Dune: waiting for query (1565s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25308368-25310367] …
+  Dune: waiting for query (1567s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25410368-25412367] (0 rows)
+  Dune: waiting for query (1568s, QUERY_STATE_EXECUTING)
+  [dune] pools [25412368-25414367] …
+  Dune: waiting for query (1571s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25308368-25310367] (0 rows)
+  Dune: waiting for query (1573s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25412368-25414367] (0 rows)
+  [dune] pools_v4 [25310368-25312367] …
+  [dune] pools [25414368-25416367] …
+  Dune: waiting for query (1576s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1577s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1580s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25414368-25416367] (0 rows)
+  [dune] pools [25416368-25418367] …
+  [cache save] pools_v4 [25310368-25312367] (0 rows)
+  Dune: waiting for query (1584s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25312368-25314367] …
+  Dune: waiting for query (1587s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25416368-25418367] (0 rows)
+  Dune: waiting for query (1589s, QUERY_STATE_EXECUTING)
+  [dune] pools [25418368-25420367] …
+  Dune: waiting for query (1594s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1595s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25312368-25314367] (0 rows)
+  [dune] pools_v4 [25314368-25316367] …
+  [cache save] pools [25418368-25420367] (0 rows)
+  Dune: waiting for query (1599s, QUERY_STATE_EXECUTING)
+  [dune] pools [25420368-25422367] …
+  Dune: waiting for query (1602s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1605s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25420368-25422367] (0 rows)
+  [cache save] pools_v4 [25314368-25316367] (0 rows)
+  [dune] pools [25422368-25424367] …
+  [dune] pools_v4 [25316368-25318367] …
+  Dune: waiting for query (1609s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1611s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25422368-25424367] (0 rows)
+  Dune: waiting for query (1612s, QUERY_STATE_EXECUTING)
+  [dune] pools [25424368-25426367] …
+  Dune: waiting for query (1615s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (1616s, QUERY_STATE_EXECUTING)
+  [cache save] pools_v4 [25316368-25318367] (0 rows)
+  [dune] pools_v4 [25318368-25320367] …
+  Dune: waiting for query (1619s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25424368-25426367] (0 rows)
+  Dune: waiting for query (1620s, QUERY_STATE_EXECUTING)
+  [dune] pools [25426368-25428367] …
+  Dune: waiting for query (1623s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (1624s, QUERY_STATE_EXECUTING)
+  [cache save] pools_v4 [25318368-25320367] (0 rows)
+  [dune] pools_v4 [25320368-25322367] …
+  Dune: waiting for query (1627s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25426368-25428367] (0 rows)
+  Dune: waiting for query (1629s, QUERY_STATE_EXECUTING)
+  [dune] pools [25428368-25430367] …
+  Dune: waiting for query (1632s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (1632s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25428368-25430367] (0 rows)
+  [dune] pools [25430368-25432367] …
+  Dune: waiting for query (1635s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25320368-25322367] (0 rows)
+  Dune: waiting for query (1637s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25322368-25324367] …
+  Dune: waiting for query (1640s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25430368-25432367] (0 rows)
+  Dune: waiting for query (1641s, QUERY_STATE_EXECUTING)
+  [dune] pools [25432368-25434367] …
+  Dune: waiting for query (1644s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25322368-25324367] (0 rows)
+  Dune: waiting for query (1646s, QUERY_STATE_COMPLETED)
+  [dune] pools_v4 [25324368-25326367] …
+  [cache save] pools [25432368-25434367] (0 rows)
+  Dune: waiting for query (1648s, QUERY_STATE_EXECUTING)
+  [dune] pools [25434368-25436367] …
+  Dune: waiting for query (1652s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25434368-25436367] (1 rows)
+  [cache save] pools_v4 [25324368-25326367] (0 rows)
+  [dune] pools [25436368-25438367] …
+  [dune] pools_v4 [25326368-25328367] …
+  Dune: waiting for query (1657s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1659s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1660s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25436368-25438367] (0 rows)
+  [dune] pools [25438368-25440367] …
+  [cache save] pools_v4 [25326368-25328367] (0 rows)
+  Dune: waiting for query (1665s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25328368-25330367] …
+  Dune: waiting for query (1668s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (1668s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25438368-25440367] (0 rows)
+  [dune] pools [25440368-25442367] …
+  Dune: waiting for query (1671s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (1672s, QUERY_STATE_EXECUTING)
+  [cache save] pools_v4 [25328368-25330367] (0 rows)
+  [dune] pools_v4 [25330368-25332367] …
+  Dune: waiting for query (1675s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25440368-25442367] (0 rows)
+  Dune: waiting for query (1677s, QUERY_STATE_EXECUTING)
+  [dune] pools [25442368-25444367] …
+  Dune: waiting for query (1679s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25442368-25444367] (0 rows)
+  [cache save] pools_v4 [25330368-25332367] (0 rows)
+  [dune] pools [25444368-25446367] …
+  [dune] pools_v4 [25332368-25334367] …
+  Dune: waiting for query (1683s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1686s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (1686s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25444368-25446367] (0 rows)
+  [dune] pools [25446368-25448367] …
+  Dune: waiting for query (1690s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1693s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25446368-25448367] (0 rows)
+  [cache save] pools_v4 [25332368-25334367] (0 rows)
+  [dune] pools [25448368-25450367] …
+  [dune] pools_v4 [25334368-25336367] …
+  Dune: waiting for query (1697s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1700s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25448368-25450367] (0 rows)
+  Dune: waiting for query (1701s, QUERY_STATE_EXECUTING)
+  [dune] pools [25450368-25452367] …
+  Dune: waiting for query (1704s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1704s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25334368-25336367] (0 rows)
+  [cache save] pools [25450368-25452367] (0 rows)
+  [dune] pools_v4 [25336368-25338367] …
+  [dune] pools [25452368-25454367] …
+  Dune: waiting for query (1709s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1713s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25452368-25454367] (0 rows)
+  [cache save] pools_v4 [25336368-25338367] (0 rows)
+  [dune] pools [25454368-25456367] …
+  [dune] pools_v4 [25338368-25340367] …
+  Dune: waiting for query (1718s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1720s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1721s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25454368-25456367] (0 rows)
+  [cache save] pools_v4 [25338368-25340367] (0 rows)
+  [dune] pools [25456368-25458367] …
+  Dune: waiting for query (1725s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25340368-25342367] …
+  Dune: waiting for query (1728s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25456368-25458367] (0 rows)
+  Dune: waiting for query (1729s, QUERY_STATE_EXECUTING)
+  [dune] pools [25458368-25460367] …
+  Dune: waiting for query (1732s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1735s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25458368-25460367] (0 rows)
+  [dune] pools [25460368-25462367] …
+  [cache save] pools_v4 [25340368-25342367] (0 rows)
+  Dune: waiting for query (1739s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25342368-25344367] …
+  Dune: waiting for query (1742s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25460368-25462367] (0 rows)
+  Dune: waiting for query (1744s, QUERY_STATE_EXECUTING)
+  [dune] pools [25462368-25464367] …
+  Dune: waiting for query (1747s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (1748s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25342368-25344367] (0 rows)
+  [cache save] pools [25462368-25464367] (0 rows)
+  [dune] pools_v4 [25344368-25346367] …
+  [dune] pools [25464368-25466367] …
+  Dune: waiting for query (1752s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1753s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25464368-25466367] (0 rows)
+  Dune: waiting for query (1755s, QUERY_STATE_EXECUTING)
+  [dune] pools [25466368-25468367] …
+  Dune: waiting for query (1758s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1758s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25344368-25346367] (0 rows)
+  [dune] pools_v4 [25346368-25348367] …
+  [cache save] pools [25466368-25468367] (0 rows)
+  Dune: waiting for query (1763s, QUERY_STATE_EXECUTING)
+  [dune] pools [25468368-25470367] …
+  Dune: waiting for query (1765s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1765s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25346368-25348367] (0 rows)
+  [dune] pools_v4 [25348368-25350367] …
+  [cache save] pools [25468368-25470367] (0 rows)
+  [dune] pools [25470368-25472367] …
+  Dune: waiting for query (1771s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1774s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (1775s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25470368-25472367] (0 rows)
+  [dune] pools [25472368-25474367] …
+  Dune: waiting for query (1778s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25348368-25350367] (0 rows)
+  [dune] pools_v4 [25350368-25352367] …
+  Dune: waiting for query (1781s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25472368-25474367] (0 rows)
+  Dune: waiting for query (1782s, QUERY_STATE_EXECUTING)
+  [dune] pools [25474368-25476367] …
+  Dune: waiting for query (1786s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1788s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25474368-25476367] (0 rows)
+  [cache save] pools_v4 [25350368-25352367] (0 rows)
+  [dune] pools [25476368-25478367] …
+  [dune] pools_v4 [25352368-25354367] …
+  Dune: waiting for query (1793s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25476368-25478367] (0 rows)
+  Dune: waiting for query (1794s, QUERY_STATE_EXECUTING)
+  [dune] pools [25478368-25480367] …
+  Dune: waiting for query (1797s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1800s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25352368-25354367] (0 rows)
+  [cache save] pools [25478368-25480367] (0 rows)
+  [dune] pools_v4 [25354368-25356367] …
+  [dune] pools [25480368-25482367] …
+  Dune: waiting for query (1805s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1805s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1808s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25354368-25356367] (0 rows)
+  [cache save] pools [25480368-25482367] (0 rows)
+  [dune] pools_v4 [25356368-25358367] …
+  [dune] pools [25482368-25484367] …
+  Dune: waiting for query (1812s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1812s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1815s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25356368-25358367] (0 rows)
+  [cache save] pools [25482368-25484367] (0 rows)
+  [dune] pools_v4 [25358368-25360367] …
+  [dune] pools [25484368-25486367] …
+  Dune: waiting for query (1820s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1821s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1825s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25484368-25486367] (0 rows)
+  [cache save] pools_v4 [25358368-25360367] (0 rows)
+  [dune] pools [25486368-25488367] …
+  [dune] pools_v4 [25360368-25362367] …
+  Dune: waiting for query (1830s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1831s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1834s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25486368-25488367] (0 rows)
+  [dune] pools [25488368-25490367] …
+  [cache save] pools_v4 [25360368-25362367] (0 rows)
+  [dune] pools_v4 [25362368-25364367] …
+  Dune: waiting for query (1839s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1841s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1842s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25488368-25490367] (0 rows)
+  Dune: waiting for query (1844s, QUERY_STATE_EXECUTING)
+  [dune] pools [25490368-25492367] …
+  Dune: waiting for query (1847s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25362368-25364367] (0 rows)
+  Dune: waiting for query (1847s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25364368-25366367] …
+  Dune: waiting for query (1850s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25490368-25492367] (0 rows)
+  Dune: waiting for query (1851s, QUERY_STATE_EXECUTING)
+  [dune] pools [25492368-25494367] …
+  Dune: waiting for query (1854s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1857s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25492368-25494367] (0 rows)
+  [cache save] pools_v4 [25364368-25366367] (0 rows)
+  [dune] pools [25494368-25496367] …
+  [dune] pools_v4 [25366368-25368367] …
+  Dune: waiting for query (1861s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1863s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1864s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25494368-25496367] (0 rows)
+  Dune: waiting for query (1866s, QUERY_STATE_EXECUTING)
+  [dune] pools [25496368-25498367] …
+  Dune: waiting for query (1869s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25366368-25368367] (0 rows)
+  Dune: waiting for query (1870s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25496368-25498367] (0 rows)
+  [dune] pools_v4 [25368368-25370367] …
+  [dune] pools [25498368-25500367] …
+  Dune: waiting for query (1873s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1875s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1877s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25498368-25500367] (0 rows)
+  Dune: waiting for query (1880s, QUERY_STATE_EXECUTING)
+  [dune] pools [25500368-25502367] …
+  Dune: waiting for query (1883s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25368368-25370367] (0 rows)
+  [dune] pools_v4 [25370368-25372367] …
+  Dune: waiting for query (1885s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25500368-25502367] (0 rows)
+  Dune: waiting for query (1887s, QUERY_STATE_EXECUTING)
+  [dune] pools [25502368-25504367] …
+  Dune: waiting for query (1890s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1893s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25370368-25372367] (0 rows)
+  [cache save] pools [25502368-25504367] (0 rows)
+  [dune] pools_v4 [25372368-25374367] …
+  [dune] pools [25504368-25506367] …
+  Dune: waiting for query (1898s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1898s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1900s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (1901s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25504368-25506367] (0 rows)
+  [dune] pools [25506368-25508367] …
+  Dune: waiting for query (1904s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25372368-25374367] (0 rows)
+  Dune: waiting for query (1906s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25374368-25376367] …
+  Dune: waiting for query (1908s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1909s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25506368-25508367] (0 rows)
+  [dune] pools [25508368-25510367] …
+  Dune: waiting for query (1911s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1913s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1914s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25374368-25376367] (0 rows)
+  [cache save] pools [25508368-25510367] (0 rows)
+  [dune] pools_v4 [25376368-25378367] …
+  [dune] pools [25510368-25512367] …
+  Dune: waiting for query (1918s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1920s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1921s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25376368-25378367] (0 rows)
+  [cache save] pools [25510368-25512367] (0 rows)
+  [dune] pools_v4 [25378368-25380367] …
+  [dune] pools [25512368-25514367] …
+  Dune: waiting for query (1925s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1927s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1930s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25512368-25514367] (0 rows)
+  [cache save] pools_v4 [25378368-25380367] (0 rows)
+  [dune] pools [25514368-25516367] …
+  [dune] pools_v4 [25380368-25382367] …
+  Dune: waiting for query (1934s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1935s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1937s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25514368-25516367] (0 rows)
+  Dune: waiting for query (1938s, QUERY_STATE_EXECUTING)
+  [dune] pools [25516368-25518367] …
+  Dune: waiting for query (1940s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1941s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25380368-25382367] (0 rows)
+  [dune] pools_v4 [25382368-25384367] …
+  [cache save] pools [25516368-25518367] (0 rows)
+  [dune] pools [25518368-25520367] …
+  Dune: waiting for query (1947s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1947s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1950s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25382368-25384367] (0 rows)
+  [cache save] pools [25518368-25520367] (0 rows)
+  [dune] pools_v4 [25384368-25386367] …
+  [dune] pools [25520368-25522367] …
+  Dune: waiting for query (1954s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1955s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1957s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25520368-25522367] (0 rows)
+  Dune: waiting for query (1958s, QUERY_STATE_EXECUTING)
+  [dune] pools [25522368-25524367] …
+  Dune: waiting for query (1962s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (1962s, QUERY_STATE_EXECUTING)
+  [cache save] pools_v4 [25384368-25386367] (0 rows)
+  [dune] pools_v4 [25386368-25388367] …
+  Dune: waiting for query (1965s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25522368-25524367] (0 rows)
+  Dune: waiting for query (1966s, QUERY_STATE_EXECUTING)
+  [dune] pools [25524368-25526367] …
+  Dune: waiting for query (1969s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (1969s, QUERY_STATE_EXECUTING)
+  [cache save] pools_v4 [25386368-25388367] (0 rows)
+  [dune] pools_v4 [25388368-25390367] …
+  Dune: waiting for query (1972s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25524368-25526367] (0 rows)
+  Dune: waiting for query (1974s, QUERY_STATE_EXECUTING)
+  [dune] pools [25526368-25528367] …
+  Dune: waiting for query (1976s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1979s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25526368-25528367] (0 rows)
+  [cache save] pools_v4 [25388368-25390367] (0 rows)
+  [dune] pools [25528368-25530367] …
+  [dune] pools_v4 [25390368-25392367] …
+  Dune: waiting for query (1983s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1985s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1986s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25528368-25530367] (0 rows)
+  Dune: waiting for query (1988s, QUERY_STATE_EXECUTING)
+  [dune] pools [25530368-25532367] …
+  Dune: waiting for query (1990s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (1991s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25390368-25392367] (0 rows)
+  [cache save] pools [25530368-25532367] (0 rows)
+  [dune] pools_v4 [25392368-25394367] …
+  Dune: waiting for query (1995s, QUERY_STATE_EXECUTING)
+  [dune] pools [25532368-25534367] …
+  Dune: waiting for query (1997s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2000s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25532368-25534367] (0 rows)
+  [cache save] pools_v4 [25392368-25394367] (0 rows)
+  [dune] pools [25534368-25536367] …
+  [dune] pools_v4 [25394368-25396367] …
+  Dune: waiting for query (2005s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2005s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2007s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25534368-25536367] (0 rows)
+  [cache save] pools_v4 [25394368-25396367] (0 rows)
+  [dune] pools [25536368-25538367] …
+  [dune] pools_v4 [25396368-25398367] …
+  Dune: waiting for query (2014s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2016s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2017s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25536368-25538367] (0 rows)
+  Dune: waiting for query (2019s, QUERY_STATE_EXECUTING)
+  [dune] pools [25538368-25540367] …
+  Dune: waiting for query (2022s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2022s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25396368-25398367] (0 rows)
+  [dune] pools_v4 [25398368-25400367] …
+  [cache save] pools [25538368-25540367] (0 rows)
+  Dune: waiting for query (2027s, QUERY_STATE_EXECUTING)
+  [dune] pools [25540368-25542367] …
+  Dune: waiting for query (2030s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2033s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25540368-25542367] (0 rows)
+  [cache save] pools_v4 [25398368-25400367] (0 rows)
+  [dune] pools [25542368-25544367] …
+  [dune] pools_v4 [25400368-25402367] …
+  Dune: waiting for query (2037s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2038s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2040s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25542368-25544367] (0 rows)
+  Dune: waiting for query (2041s, QUERY_STATE_EXECUTING)
+  [dune] pools [25544368-25546367] …
+  Dune: waiting for query (2044s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25400368-25402367] (0 rows)
+  Dune: waiting for query (2045s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25544368-25546367] (0 rows)
+  [dune] pools_v4 [25402368-25404367] …
+  [dune] pools [25546368-25548367] …
+  Dune: waiting for query (2048s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2050s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25546368-25548367] (0 rows)
+  Dune: waiting for query (2051s, QUERY_STATE_EXECUTING)
+  [dune] pools [25548368-25550367] …
+  Dune: waiting for query (2054s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25402368-25404367] (0 rows)
+  Dune: waiting for query (2054s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25404368-25406367] …
+  Dune: waiting for query (2057s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25548368-25550367] (0 rows)
+  Dune: waiting for query (2058s, QUERY_STATE_EXECUTING)
+  [dune] pools [25550368-25552367] …
+  Dune: waiting for query (2062s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2064s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25404368-25406367] (0 rows)
+  [cache save] pools [25550368-25552367] (0 rows)
+  [dune] pools_v4 [25406368-25408367] …
+  [dune] pools [25552368-25554367] …
+  Dune: waiting for query (2069s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2070s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25552368-25554367] (0 rows)
+  Dune: waiting for query (2072s, QUERY_STATE_EXECUTING)
+  [dune] pools [25554368-25556367] …
+  Dune: waiting for query (2075s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2075s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25406368-25408367] (0 rows)
+  [dune] pools_v4 [25408368-25410367] …
+  [cache save] pools [25554368-25556367] (0 rows)
+  Dune: waiting for query (2080s, QUERY_STATE_EXECUTING)
+  [dune] pools [25556368-25558367] …
+  Dune: waiting for query (2082s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2083s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25408368-25410367] (0 rows)
+  [dune] pools_v4 [25410368-25412367] …
+  [cache save] pools [25556368-25558367] (0 rows)
+  Dune: waiting for query (2087s, QUERY_STATE_EXECUTING)
+  [dune] pools [25558368-25560367] …
+  Dune: waiting for query (2090s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2093s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25558368-25560367] (0 rows)
+  [cache save] pools_v4 [25410368-25412367] (0 rows)
+  [dune] pools [25560368-25562367] …
+  [dune] pools_v4 [25412368-25414367] …
+  Dune: waiting for query (2098s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2098s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2100s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25560368-25562367] (0 rows)
+  [cache save] pools_v4 [25412368-25414367] (0 rows)
+  [dune] pools [25562368-25564367] …
+  [dune] pools_v4 [25414368-25416367] …
+  Dune: waiting for query (2104s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2106s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2107s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25562368-25564367] (0 rows)
+  [cache save] pools_v4 [25414368-25416367] (0 rows)
+  [dune] pools [25564368-25566367] …
+  Dune: waiting for query (2112s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25416368-25418367] …
+  Dune: waiting for query (2114s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (2115s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25564368-25566367] (0 rows)
+  [dune] pools [25566368-25568367] …
+  Dune: waiting for query (2119s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25566368-25568367] (0 rows)
+  [cache save] pools_v4 [25416368-25418367] (0 rows)
+  [dune] pools [25568368-25570367] …
+  [dune] pools_v4 [25418368-25420367] …
+  Dune: waiting for query (2123s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2126s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25568368-25570367] (0 rows)
+  [dune] pools [25570368-25572367] …
+  Dune: waiting for query (2130s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2132s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2133s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25570368-25572367] (0 rows)
+  Dune: waiting for query (2135s, QUERY_STATE_EXECUTING)
+  [dune] pools [25572368-25574367] …
+  Dune: waiting for query (2137s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2138s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25418368-25420367] (0 rows)
+  [cache save] pools [25572368-25574367] (0 rows)
+  [dune] pools_v4 [25420368-25422367] …
+  [dune] pools [25574368-25576367] …
+  Dune: waiting for query (2142s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2144s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2147s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25574368-25576367] (0 rows)
+  Dune: waiting for query (2148s, QUERY_STATE_EXECUTING)
+  [dune] pools [25576368-25578367] …
+  Dune: waiting for query (2151s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2152s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25420368-25422367] (0 rows)
+  [dune] pools_v4 [25422368-25424367] …
+  [cache save] pools [25576368-25578367] (0 rows)
+  Dune: waiting for query (2156s, QUERY_STATE_EXECUTING)
+  [dune] pools [25578368-25580367] …
+  Dune: waiting for query (2158s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2161s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25578368-25580367] (0 rows)
+  [cache save] pools_v4 [25422368-25424367] (0 rows)
+  [dune] pools [25580368-25582367] …
+  [dune] pools_v4 [25424368-25426367] …
+  Dune: waiting for query (2165s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2165s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2168s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (2168s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25580368-25582367] (0 rows)
+  [dune] pools [25582368-25584367] …
+  Dune: waiting for query (2171s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25424368-25426367] (0 rows)
+  Dune: waiting for query (2172s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25582368-25584367] (0 rows)
+  [dune] pools_v4 [25426368-25428367] …
+  [dune] pools [25584368-25586367] …
+  Dune: waiting for query (2175s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2178s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2178s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25426368-25428367] (0 rows)
+  [dune] pools_v4 [25428368-25430367] …
+  [cache save] pools [25584368-25586367] (0 rows)
+  Dune: waiting for query (2182s, QUERY_STATE_EXECUTING)
+  [dune] pools [25586368-25588367] …
+  Dune: waiting for query (2185s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2185s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25428368-25430367] (0 rows)
+  [dune] pools_v4 [25430368-25432367] …
+  [cache save] pools [25586368-25588367] (0 rows)
+  Dune: waiting for query (2189s, QUERY_STATE_EXECUTING)
+  [dune] pools [25588368-25590367] …
+  Dune: waiting for query (2194s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2195s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25430368-25432367] (0 rows)
+  [dune] pools_v4 [25432368-25434367] …
+  [cache save] pools [25588368-25590367] (0 rows)
+  Dune: waiting for query (2200s, QUERY_STATE_EXECUTING)
+  [dune] pools [25590368-25592367] …
+  Dune: waiting for query (2205s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25590368-25592367] (0 rows)
+  [dune] pools [25592368-25594367] …
+  [cache save] pools_v4 [25432368-25434367] (0 rows)
+  Dune: waiting for query (2210s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25434368-25436367] …
+  Dune: waiting for query (2212s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2213s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25592368-25594367] (0 rows)
+  [dune] pools [25594368-25596367] …
+  Dune: waiting for query (2215s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2218s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2218s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25434368-25436367] (0 rows)
+  [dune] pools_v4 [25436368-25438367] …
+  [cache save] pools [25594368-25596367] (0 rows)
+  [dune] pools [25596368-25598367] …
+  Dune: waiting for query (2224s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2226s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2228s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25436368-25438367] (0 rows)
+  [cache save] pools [25596368-25598367] (0 rows)
+  [dune] pools_v4 [25438368-25440367] …
+  [dune] pools [25598368-25600367] …
+  Dune: waiting for query (2232s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2235s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (2235s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25598368-25600367] (0 rows)
+  [dune] pools [25600368-25602367] …
+  Dune: waiting for query (2238s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25438368-25440367] (0 rows)
+  Dune: waiting for query (2240s, QUERY_STATE_COMPLETED)
+  [dune] pools_v4 [25440368-25442367] …
+  [cache save] pools [25600368-25602367] (0 rows)
+  Dune: waiting for query (2243s, QUERY_STATE_EXECUTING)
+  [dune] pools [25602368-25604367] …
+  Dune: waiting for query (2245s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2246s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25440368-25442367] (0 rows)
+  [cache save] pools [25602368-25604367] (0 rows)
+  [dune] pools_v4 [25442368-25444367] …
+  [dune] pools [25604368-25606367] …
+  Dune: waiting for query (2251s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2253s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2254s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25442368-25444367] (0 rows)
+  [cache save] pools [25604368-25606367] (0 rows)
+  [dune] pools_v4 [25444368-25446367] …
+  [dune] pools [25606368-25608367] …
+  Dune: waiting for query (2259s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2260s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2263s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25606368-25608367] (0 rows)
+  [cache save] pools_v4 [25444368-25446367] (0 rows)
+  [dune] pools [25608368-25610367] …
+  [dune] pools_v4 [25446368-25448367] …
+  Dune: waiting for query (2267s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2268s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2270s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25608368-25610367] (0 rows)
+  [cache save] pools_v4 [25446368-25448367] (0 rows)
+  [dune] pools [25610368-25612367] …
+  [dune] pools_v4 [25448368-25450367] …
+  Dune: waiting for query (2275s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (2276s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25610368-25612367] (0 rows)
+  [dune] pools [25612368-25614367] …
+  Dune: waiting for query (2281s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25612368-25614367] (0 rows)
+  [cache save] pools_v4 [25448368-25450367] (0 rows)
+  [dune] pools [25614368-25616367] …
+  [dune] pools_v4 [25450368-25452367] …
+  Dune: waiting for query (2286s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2287s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2288s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25614368-25616367] (0 rows)
+  Dune: waiting for query (2290s, QUERY_STATE_EXECUTING)
+  [dune] pools [25616368-25618367] …
+  Dune: waiting for query (2293s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2296s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (2296s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25616368-25618367] (0 rows)
+  [dune] pools [25618368-25620367] …
+  Dune: waiting for query (2299s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25450368-25452367] (0 rows)
+  Dune: waiting for query (2300s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25452368-25454367] …
+  Dune: waiting for query (2303s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25618368-25620367] (0 rows)
+  Dune: waiting for query (2304s, QUERY_STATE_EXECUTING)
+  [dune] pools [25620368-25622367] …
+  Dune: waiting for query (2307s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2310s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25452368-25454367] (0 rows)
+  [cache save] pools [25620368-25622367] (0 rows)
+  [dune] pools_v4 [25454368-25456367] …
+  [dune] pools [25622368-25624367] …
+  Dune: waiting for query (2315s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2315s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2319s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25622368-25624367] (0 rows)
+  [dune] pools [25624368-25626367] …
+  Dune: waiting for query (2322s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2323s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2325s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25454368-25456367] (0 rows)
+  [cache save] pools [25624368-25626367] (0 rows)
+  [dune] pools_v4 [25456368-25458367] …
+  [dune] pools [25626368-25628367] …
+  Dune: waiting for query (2330s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2332s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25626368-25628367] (0 rows)
+  Dune: waiting for query (2333s, QUERY_STATE_EXECUTING)
+  [dune] pools [25628368-25630367] …
+  Dune: waiting for query (2336s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25456368-25458367] (0 rows)
+  Dune: waiting for query (2336s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25458368-25460367] …
+  Dune: waiting for query (2339s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25628368-25630367] (0 rows)
+  Dune: waiting for query (2340s, QUERY_STATE_EXECUTING)
+  [dune] pools [25630368-25632367] …
+  Dune: waiting for query (2344s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2346s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25458368-25460367] (0 rows)
+  [cache save] pools [25630368-25632367] (0 rows)
+  [dune] pools_v4 [25460368-25462367] …
+  [dune] pools [25632368-25634367] …
+  Dune: waiting for query (2352s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2352s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2355s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25632368-25634367] (0 rows)
+  Dune: waiting for query (2356s, QUERY_STATE_EXECUTING)
+  [dune] pools [25634368-25636367] …
+  Dune: waiting for query (2359s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25460368-25462367] (0 rows)
+  Dune: waiting for query (2360s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25634368-25636367] (0 rows)
+  [dune] pools_v4 [25462368-25464367] …
+  [dune] pools [25636368-25638367] …
+  Dune: waiting for query (2363s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2366s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (2366s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25636368-25638367] (0 rows)
+  [dune] pools [25638368-25640367] …
+  Dune: waiting for query (2369s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25462368-25464367] (0 rows)
+  Dune: waiting for query (2371s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25464368-25466367] …
+  Dune: waiting for query (2373s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2374s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25638368-25640367] (0 rows)
+  [dune] pools [25640368-25642367] …
+  Dune: waiting for query (2376s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2378s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25640368-25642367] (0 rows)
+  [cache save] pools_v4 [25464368-25466367] (0 rows)
+  [dune] pools [25642368-25644367] …
+  [dune] pools_v4 [25466368-25468367] …
+  Dune: waiting for query (2382s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2383s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2386s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25642368-25644367] (0 rows)
+  Dune: waiting for query (2387s, QUERY_STATE_EXECUTING)
+  [dune] pools [25644368-25646367] …
+  Dune: waiting for query (2390s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (2390s, QUERY_STATE_EXECUTING)
+  [cache save] pools_v4 [25466368-25468367] (0 rows)
+  [dune] pools_v4 [25468368-25470367] …
+  Dune: waiting for query (2393s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25644368-25646367] (0 rows)
+  Dune: waiting for query (2394s, QUERY_STATE_EXECUTING)
+  [dune] pools [25646368-25648367] …
+  Dune: waiting for query (2396s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2399s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25646368-25648367] (0 rows)
+  [cache save] pools_v4 [25468368-25470367] (0 rows)
+  [dune] pools [25648368-25650367] …
+  [dune] pools_v4 [25470368-25472367] …
+  Dune: waiting for query (2404s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2404s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2406s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (2407s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25648368-25650367] (0 rows)
+  [dune] pools [25650368-25652367] …
+  Dune: waiting for query (2410s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25470368-25472367] (0 rows)
+  Dune: waiting for query (2411s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25472368-25474367] …
+  Dune: waiting for query (2414s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25650368-25652367] (0 rows)
+  Dune: waiting for query (2414s, QUERY_STATE_EXECUTING)
+  [dune] pools [25652368-25654367] …
+  Dune: waiting for query (2418s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2421s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25652368-25654367] (0 rows)
+  [cache save] pools_v4 [25472368-25474367] (0 rows)
+  [dune] pools [25654368-25656367] …
+  [dune] pools_v4 [25474368-25476367] …
+  Dune: waiting for query (2425s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2425s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2428s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (2428s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25654368-25656367] (0 rows)
+  [dune] pools [25656368-25658367] …
+  Dune: waiting for query (2431s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25474368-25476367] (0 rows)
+  Dune: waiting for query (2432s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25656368-25658367] (0 rows)
+  [dune] pools_v4 [25476368-25478367] …
+  [dune] pools [25658368-25660367] …
+  Dune: waiting for query (2436s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2437s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25658368-25660367] (0 rows)
+  Dune: waiting for query (2439s, QUERY_STATE_EXECUTING)
+  [dune] pools [25660368-25662367] …
+  Dune: waiting for query (2442s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25476368-25478367] (0 rows)
+  Dune: waiting for query (2443s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25660368-25662367] (0 rows)
+  [dune] pools_v4 [25478368-25480367] …
+  [dune] pools [25662368-25664367] …
+  Dune: waiting for query (2447s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2447s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2450s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25662368-25664367] (0 rows)
+  [dune] pools [25664368-25666367] …
+  [cache save] pools_v4 [25478368-25480367] (0 rows)
+  [dune] pools_v4 [25480368-25482367] …
+  Dune: waiting for query (2455s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2457s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2458s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (2460s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25664368-25666367] (0 rows)
+  [dune] pools [25666368-25668367] …
+  Dune: waiting for query (2463s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25480368-25482367] (0 rows)
+  Dune: waiting for query (2464s, QUERY_STATE_COMPLETED)
+  [dune] pools_v4 [25482368-25484367] …
+  [cache save] pools [25666368-25668367] (0 rows)
+  [dune] pools [25668368-25670367] …
+  Dune: waiting for query (2468s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2469s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25668368-25670367] (0 rows)
+  [cache save] pools_v4 [25482368-25484367] (0 rows)
+  [dune] pools [25670368-25672367] …
+  [dune] pools_v4 [25484368-25486367] …
+  Dune: waiting for query (2474s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2476s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2477s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25670368-25672367] (0 rows)
+  [dune] pools [25672368-25674367] …
+  [cache save] pools_v4 [25484368-25486367] (0 rows)
+  Dune: waiting for query (2482s, QUERY_STATE_COMPLETED)
+  [dune] pools_v4 [25486368-25488367] …
+  [cache save] pools [25672368-25674367] (0 rows)
+  Dune: waiting for query (2484s, QUERY_STATE_EXECUTING)
+  [dune] pools [25674368-25676367] …
+  Dune: waiting for query (2487s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2490s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25486368-25488367] (0 rows)
+  [cache save] pools [25674368-25676367] (0 rows)
+  [dune] pools_v4 [25488368-25490367] …
+  [dune] pools [25676368-25678367] …
+  Dune: waiting for query (2494s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2494s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2497s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25676368-25678367] (0 rows)
+  [dune] pools [25678368-25680367] …
+  [cache save] pools_v4 [25488368-25490367] (0 rows)
+  [dune] pools_v4 [25490368-25492367] …
+  Dune: waiting for query (2503s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25678368-25680367] (0 rows)
+  Dune: waiting for query (2504s, QUERY_STATE_EXECUTING)
+  [dune] pools [25680368-25682367] …
+  Dune: waiting for query (2509s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25680368-25682367] (0 rows)
+  [cache save] pools_v4 [25490368-25492367] (0 rows)
+  [dune] pools [25682368-25684367] …
+  [dune] pools_v4 [25492368-25494367] …
+  Dune: waiting for query (2513s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2515s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2516s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25682368-25684367] (0 rows)
+  Dune: waiting for query (2519s, QUERY_STATE_EXECUTING)
+  [dune] pools [25684368-25686367] …
+  Dune: waiting for query (2522s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (2522s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25492368-25494367] (0 rows)
+  [cache save] pools [25684368-25686367] (0 rows)
+  [dune] pools_v4 [25494368-25496367] …
+  [dune] pools [25686368-25688367] …
+  Dune: waiting for query (2527s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2529s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25686368-25688367] (0 rows)
+  Dune: waiting for query (2530s, QUERY_STATE_EXECUTING)
+  [dune] pools [25688368-25690367] …
+  Dune: waiting for query (2533s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (2533s, QUERY_STATE_EXECUTING)
+  [cache save] pools_v4 [25494368-25496367] (0 rows)
+  [dune] pools_v4 [25496368-25498367] …
+  Dune: waiting for query (2536s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25688368-25690367] (0 rows)
+  Dune: waiting for query (2537s, QUERY_STATE_EXECUTING)
+  [dune] pools [25690368-25692367] …
+  Dune: waiting for query (2540s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2543s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25690368-25692367] (0 rows)
+  [cache save] pools_v4 [25496368-25498367] (0 rows)
+  [dune] pools [25692368-25694367] …
+  [dune] pools_v4 [25498368-25500367] …
+  Dune: waiting for query (2548s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2549s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25692368-25694367] (0 rows)
+  Dune: waiting for query (2551s, QUERY_STATE_EXECUTING)
+  [dune] pools [25694368-25696367] …
+  Dune: waiting for query (2554s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (2554s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25498368-25500367] (0 rows)
+  [cache save] pools [25694368-25696367] (0 rows)
+  [dune] pools_v4 [25500368-25502367] …
+  [dune] pools [25696368-25698367] …
+  Dune: waiting for query (2558s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2558s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2561s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25696368-25698367] (0 rows)
+  [dune] pools [25698368-25700367] …
+  [cache save] pools_v4 [25500368-25502367] (0 rows)
+  [dune] pools_v4 [25502368-25504367] …
+  Dune: waiting for query (2566s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25698368-25700367] (0 rows)
+  Dune: waiting for query (2567s, QUERY_STATE_EXECUTING)
+  [dune] pools [25700368-25702367] …
+  Dune: waiting for query (2571s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2573s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25502368-25504367] (0 rows)
+  [cache save] pools [25700368-25702367] (0 rows)
+  [dune] pools_v4 [25504368-25506367] …
+  [dune] pools [25702368-25704367] …
+  Dune: waiting for query (2578s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2578s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2581s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (2581s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25702368-25704367] (0 rows)
+  [dune] pools [25704368-25706367] …
+  Dune: waiting for query (2584s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25504368-25506367] (0 rows)
+  Dune: waiting for query (2586s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25704368-25706367] (0 rows)
+  [dune] pools_v4 [25506368-25508367] …
+  [dune] pools [25706368-25708367] …
+  Dune: waiting for query (2590s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2590s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2593s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25706368-25708367] (0 rows)
+  [cache save] pools_v4 [25506368-25508367] (0 rows)
+  [dune] pools [25708368-25710367] …
+  [dune] pools_v4 [25508368-25510367] …
+  Dune: waiting for query (2598s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (2598s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25708368-25710367] (0 rows)
+  [dune] pools [25710368-25712367] …
+  Dune: waiting for query (2603s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25710368-25712367] (0 rows)
+  [cache save] pools_v4 [25508368-25510367] (0 rows)
+  [dune] pools [25712368-25714367] …
+  [dune] pools_v4 [25510368-25512367] …
+  Dune: waiting for query (2608s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25712368-25714367] (0 rows)
+  Dune: waiting for query (2609s, QUERY_STATE_EXECUTING)
+  [dune] pools [25714368-25716367] …
+  Dune: waiting for query (2612s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2615s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25714368-25716367] (0 rows)
+  [cache save] pools_v4 [25510368-25512367] (0 rows)
+  [dune] pools [25716368-25718367] …
+  [dune] pools_v4 [25512368-25514367] …
+  Dune: waiting for query (2619s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2620s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2622s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25716368-25718367] (0 rows)
+  Dune: waiting for query (2623s, QUERY_STATE_EXECUTING)
+  [dune] pools [25718368-25720367] …
+  Dune: waiting for query (2627s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (2627s, QUERY_STATE_EXECUTING)
+  [cache save] pools_v4 [25512368-25514367] (0 rows)
+  [dune] pools_v4 [25514368-25516367] …
+  Dune: waiting for query (2630s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25718368-25720367] (0 rows)
+  Dune: waiting for query (2632s, QUERY_STATE_EXECUTING)
+  [dune] pools [25720368-25722367] …
+  Dune: waiting for query (2634s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2637s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25720368-25722367] (0 rows)
+  [dune] pools [25722368-25724367] …
+  [cache save] pools_v4 [25514368-25516367] (0 rows)
+  [dune] pools_v4 [25516368-25518367] …
+  Dune: waiting for query (2643s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25722368-25724367] (0 rows)
+  Dune: waiting for query (2644s, QUERY_STATE_EXECUTING)
+  [dune] pools [25724368-25726367] …
+  Dune: waiting for query (2648s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2650s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25516368-25518367] (0 rows)
+  [cache save] pools [25724368-25726367] (0 rows)
+  [dune] pools_v4 [25518368-25520367] …
+  [dune] pools [25726368-25728367] …
+  Dune: waiting for query (2655s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2655s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2658s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (2659s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25726368-25728367] (0 rows)
+  [dune] pools [25728368-25730367] …
+  Dune: waiting for query (2661s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25518368-25520367] (0 rows)
+  Dune: waiting for query (2662s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25520368-25522367] …
+  Dune: waiting for query (2665s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25728368-25730367] (0 rows)
+  Dune: waiting for query (2666s, QUERY_STATE_EXECUTING)
+  [dune] pools [25730368-25732367] …
+  Dune: waiting for query (2670s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2672s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25520368-25522367] (0 rows)
+  [cache save] pools [25730368-25732367] (0 rows)
+  [dune] pools_v4 [25522368-25524367] …
+  [dune] pools [25732368-25734367] …
+  Dune: waiting for query (2677s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2679s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25732368-25734367] (0 rows)
+  Dune: waiting for query (2680s, QUERY_STATE_EXECUTING)
+  [dune] pools [25734368-25736367] …
+  Dune: waiting for query (2683s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25522368-25524367] (0 rows)
+  Dune: waiting for query (2684s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25734368-25736367] (0 rows)
+  [dune] pools_v4 [25524368-25526367] …
+  [dune] pools [25736368-25738367] …
+  Dune: waiting for query (2688s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2689s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25736368-25738367] (0 rows)
+  Dune: waiting for query (2691s, QUERY_STATE_EXECUTING)
+  [dune] pools [25738368-25740367] …
+  Dune: waiting for query (2694s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25524368-25526367] (0 rows)
+  Dune: waiting for query (2695s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25526368-25528367] …
+  Dune: waiting for query (2698s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25738368-25740367] (0 rows)
+  Dune: waiting for query (2699s, QUERY_STATE_EXECUTING)
+  [dune] pools [25740368-25742367] …
+  Dune: waiting for query (2703s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2706s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25526368-25528367] (0 rows)
+  [cache save] pools [25740368-25742367] (0 rows)
+  [dune] pools_v4 [25528368-25530367] …
+  [dune] pools [25742368-25744367] …
+  Dune: waiting for query (2710s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2712s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25742368-25744367] (0 rows)
+  Dune: waiting for query (2713s, QUERY_STATE_EXECUTING)
+  [dune] pools [25744368-25746367] …
+  Dune: waiting for query (2715s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25528368-25530367] (0 rows)
+  Dune: waiting for query (2716s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25530368-25532367] …
+  Dune: waiting for query (2719s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (2720s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25744368-25746367] (0 rows)
+  [dune] pools [25746368-25748367] …
+  Dune: waiting for query (2723s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2726s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25746368-25748367] (0 rows)
+  [cache save] pools_v4 [25530368-25532367] (0 rows)
+  [dune] pools [25748368-25750367] …
+  [dune] pools_v4 [25532368-25534367] …
+  Dune: waiting for query (2732s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2732s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2736s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25748368-25750367] (0 rows)
+  [cache save] pools_v4 [25532368-25534367] (0 rows)
+  [dune] pools [25750368-25752367] …
+  [dune] pools_v4 [25534368-25536367] …
+  Dune: waiting for query (2742s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2743s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2745s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (2746s, QUERY_STATE_EXECUTING)
+  [dune] pools [25750368-25752367]: HTTP ? — retry 1/7 in 2s
+  [cache save] pools [25750368-25752367] (0 rows)
+  Dune: waiting for query (2749s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25534368-25536367] (0 rows)
+  [dune] pools [25752368-25754367] …
+  [dune] pools_v4 [25536368-25538367] …
+  Dune: waiting for query (2752s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2753s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2755s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25752368-25754367] (0 rows)
+  Dune: waiting for query (2755s, QUERY_STATE_EXECUTING)
+  [dune] pools [25754368-25756367] …
+  Dune: waiting for query (2758s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2761s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (2761s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25754368-25756367] (0 rows)
+  [cache save] pools_v4 [25536368-25538367] (0 rows)
+  [dune] pools [25756368-25758367] …
+  [dune] pools_v4 [25538368-25540367] …
+  Dune: waiting for query (2764s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2764s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2767s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25756368-25758367] (0 rows)
+  [dune] pools [25758368-25760367] …
+  [cache save] pools_v4 [25538368-25540367] (0 rows)
+  Dune: waiting for query (2771s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25540368-25542367] …
+  Dune: waiting for query (2773s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2774s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25758368-25760367] (0 rows)
+  [dune] pools [25760368-25762367] …
+  Dune: waiting for query (2776s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2777s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2779s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25540368-25542367] (0 rows)
+  [cache save] pools [25760368-25762367] (0 rows)
+  [dune] pools_v4 [25542368-25544367] …
+  [dune] pools [25762368-25764367] …
+  Dune: waiting for query (2783s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2784s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2787s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25762368-25764367] (0 rows)
+  [cache save] pools_v4 [25542368-25544367] (0 rows)
+  [dune] pools [25764368-25766367] …
+  Dune: waiting for query (2791s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25544368-25546367] …
+  Dune: waiting for query (2793s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2794s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25764368-25766367] (0 rows)
+  Dune: waiting for query (2796s, QUERY_STATE_EXECUTING)
+  [dune] pools [25766368-25768367] …
+  Dune: waiting for query (2798s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2799s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25544368-25546367] (0 rows)
+  [dune] pools_v4 [25546368-25548367] …
+  [cache save] pools [25766368-25768367] (0 rows)
+  Dune: waiting for query (2803s, QUERY_STATE_EXECUTING)
+  [dune] pools [25768368-25770367] …
+  Dune: waiting for query (2806s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2808s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25768368-25770367] (0 rows)
+  [cache save] pools_v4 [25546368-25548367] (0 rows)
+  [dune] pools [25770368-25772367] …
+  [dune] pools_v4 [25548368-25550367] …
+  Dune: waiting for query (2813s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2813s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2816s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25770368-25772367] (0 rows)
+  [cache save] pools_v4 [25548368-25550367] (0 rows)
+  [dune] pools [25772368-25774367] …
+  [dune] pools_v4 [25550368-25552367] …
+  Dune: waiting for query (2819s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2819s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2822s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25772368-25774367] (0 rows)
+  Dune: waiting for query (2822s, QUERY_STATE_EXECUTING)
+  [dune] pools [25774368-25776367] …
+  Dune: waiting for query (2825s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (2825s, QUERY_STATE_EXECUTING)
+  [cache save] pools_v4 [25550368-25552367] (0 rows)
+  [dune] pools_v4 [25552368-25554367] …
+  Dune: waiting for query (2828s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25774368-25776367] (0 rows)
+  Dune: waiting for query (2828s, QUERY_STATE_EXECUTING)
+  [dune] pools [25776368-25778367] …
+  Dune: waiting for query (2831s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2834s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25776368-25778367] (0 rows)
+  [dune] pools [25778368-25780367] …
+  Dune: waiting for query (2837s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25552368-25554367] (0 rows)
+  Dune: waiting for query (2837s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25554368-25556367] …
+  Dune: waiting for query (2840s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2840s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25778368-25780367] (0 rows)
+  [dune] pools [25780368-25782367] …
+  Dune: waiting for query (2843s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2843s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2845s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25554368-25556367] (0 rows)
+  [cache save] pools [25780368-25782367] (0 rows)
+  [dune] pools_v4 [25556368-25558367] …
+  [dune] pools [25782368-25784367] …
+  Dune: waiting for query (2849s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2849s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2852s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25782368-25784367] (0 rows)
+  [dune] pools [25784368-25786367] …
+  [cache save] pools_v4 [25556368-25558367] (0 rows)
+  Dune: waiting for query (2855s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25558368-25560367] …
+  Dune: waiting for query (2858s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2858s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25784368-25786367] (0 rows)
+  [dune] pools [25786368-25788367] …
+  Dune: waiting for query (2861s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2862s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2864s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25558368-25560367] (0 rows)
+  [cache save] pools [25786368-25788367] (0 rows)
+  [dune] pools_v4 [25560368-25562367] …
+  [dune] pools [25788368-25790367] …
+  Dune: waiting for query (2868s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2868s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2871s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25788368-25790367] (0 rows)
+  [dune] pools [25790368-25792367] …
+  [cache save] pools_v4 [25560368-25562367] (0 rows)
+  Dune: waiting for query (2875s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25562368-25564367] …
+  Dune: waiting for query (2877s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2877s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25790368-25792367] (0 rows)
+  Dune: waiting for query (2880s, QUERY_STATE_EXECUTING)
+  [dune] pools [25792368-25794367] …
+  Dune: waiting for query (2881s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2882s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25562368-25564367] (0 rows)
+  [cache save] pools [25792368-25794367] (0 rows)
+  [dune] pools_v4 [25564368-25566367] …
+  Dune: waiting for query (2886s, QUERY_STATE_EXECUTING)
+  [dune] pools [25794368-25796367] …
+  Dune: waiting for query (2888s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2890s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25794368-25796367] (0 rows)
+  [cache save] pools_v4 [25564368-25566367] (0 rows)
+  [dune] pools [25796368-25798367] …
+  [dune] pools_v4 [25566368-25568367] …
+  Dune: waiting for query (2894s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2894s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2897s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25796368-25798367] (0 rows)
+  Dune: waiting for query (2897s, QUERY_STATE_EXECUTING)
+  [dune] pools [25798368-25800367] …
+  Dune: waiting for query (2900s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (2900s, QUERY_STATE_EXECUTING)
+  [cache save] pools_v4 [25566368-25568367] (0 rows)
+  [dune] pools_v4 [25568368-25570367] …
+  Dune: waiting for query (2903s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25798368-25800367] (0 rows)
+  Dune: waiting for query (2903s, QUERY_STATE_EXECUTING)
+  [dune] pools [25800368-25802367] …
+  Dune: waiting for query (2906s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2909s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25800368-25802367] (0 rows)
+  [cache save] pools_v4 [25568368-25570367] (0 rows)
+  [dune] pools [25802368-25804367] …
+  [dune] pools_v4 [25570368-25572367] …
+  Dune: waiting for query (2912s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2912s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2915s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25802368-25804367] (0 rows)
+  Dune: waiting for query (2915s, QUERY_STATE_EXECUTING)
+  [dune] pools [25804368-25806367] …
+  Dune: waiting for query (2918s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (2918s, QUERY_STATE_EXECUTING)
+  [cache save] pools_v4 [25570368-25572367] (0 rows)
+  [dune] pools_v4 [25572368-25574367] …
+  Dune: waiting for query (2921s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (2921s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25804368-25806367] (0 rows)
+  [dune] pools [25806368-25808367] …
+  Dune: waiting for query (2924s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2927s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25572368-25574367] (0 rows)
+  [cache save] pools [25806368-25808367] (0 rows)
+  [dune] pools_v4 [25574368-25576367] …
+  [dune] pools [25808368-25810367] …
+  Dune: waiting for query (2930s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2930s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2933s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25808368-25810367] (0 rows)
+  [dune] pools [25810368-25812367] …
+  [cache save] pools_v4 [25574368-25576367] (0 rows)
+  Dune: waiting for query (2936s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25576368-25578367] …
+  Dune: waiting for query (2939s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2939s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25810368-25812367] (0 rows)
+  [dune] pools [25812368-25814367] …
+  Dune: waiting for query (2942s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2942s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2945s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25576368-25578367] (0 rows)
+  [cache save] pools [25812368-25814367] (0 rows)
+  [dune] pools_v4 [25578368-25580367] …
+  [dune] pools [25814368-25816367] …
+  Dune: waiting for query (2948s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2949s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2952s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25814368-25816367] (0 rows)
+  [dune] pools [25816368-25818367] …
+  [cache save] pools_v4 [25578368-25580367] (0 rows)
+  Dune: waiting for query (2955s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25580368-25582367] …
+  Dune: waiting for query (2957s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2958s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25816368-25818367] (0 rows)
+  Dune: waiting for query (2960s, QUERY_STATE_EXECUTING)
+  [dune] pools [25818368-25820367] …
+  Dune: waiting for query (2962s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2963s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25580368-25582367] (0 rows)
+  [cache save] pools [25818368-25820367] (0 rows)
+  [dune] pools_v4 [25582368-25584367] …
+  Dune: waiting for query (2966s, QUERY_STATE_EXECUTING)
+  [dune] pools [25820368-25822367] …
+  Dune: waiting for query (2968s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2971s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25820368-25822367] (0 rows)
+  [cache save] pools_v4 [25582368-25584367] (0 rows)
+  [dune] pools [25822368-25824367] …
+  Dune: waiting for query (2974s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25584368-25586367] …
+  Dune: waiting for query (2976s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2977s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25822368-25824367] (0 rows)
+  Dune: waiting for query (2979s, QUERY_STATE_EXECUTING)
+  [dune] pools [25824368-25826367] …
+  Dune: waiting for query (2980s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2981s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25584368-25586367] (0 rows)
+  [dune] pools_v4 [25586368-25588367] …
+  [cache save] pools [25824368-25826367] (0 rows)
+  Dune: waiting for query (2985s, QUERY_STATE_EXECUTING)
+  [dune] pools [25826368-25828367] …
+  Dune: waiting for query (2987s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (2990s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25826368-25828367] (0 rows)
+  Dune: waiting for query (2990s, QUERY_STATE_EXECUTING)
+  [dune] pools [25828368-25830367] …
+  Dune: waiting for query (2993s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (2993s, QUERY_STATE_EXECUTING)
+  [cache save] pools_v4 [25586368-25588367] (0 rows)
+  [dune] pools_v4 [25588368-25590367] …
+  Dune: waiting for query (2996s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25828368-25830367] (0 rows)
+  Dune: waiting for query (2996s, QUERY_STATE_EXECUTING)
+  [dune] pools [25830368-25832367] …
+  Dune: waiting for query (2999s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3002s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25588368-25590367] (0 rows)
+  [cache save] pools [25830368-25832367] (0 rows)
+  [dune] pools_v4 [25590368-25592367] …
+  [dune] pools [25832368-25834367] …
+  Dune: waiting for query (3005s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3006s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3008s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25832368-25834367] (0 rows)
+  [dune] pools [25834368-25836367] …
+  [cache save] pools_v4 [25590368-25592367] (0 rows)
+  Dune: waiting for query (3012s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25592368-25594367] …
+  Dune: waiting for query (3014s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3015s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25834368-25836367] (0 rows)
+  Dune: waiting for query (3017s, QUERY_STATE_EXECUTING)
+  [dune] pools [25836368-25838367] …
+  Dune: waiting for query (3018s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3020s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25592368-25594367] (0 rows)
+  [cache save] pools [25836368-25838367] (0 rows)
+  [dune] pools_v4 [25594368-25596367] …
+  Dune: waiting for query (3023s, QUERY_STATE_EXECUTING)
+  [dune] pools [25838368-25840367] …
+  Dune: waiting for query (3024s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3027s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25838368-25840367] (0 rows)
+  [cache save] pools_v4 [25594368-25596367] (0 rows)
+  [dune] pools [25840368-25842367] …
+  Dune: waiting for query (3031s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25596368-25598367] …
+  Dune: waiting for query (3032s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3034s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25840368-25842367] (0 rows)
+  Dune: waiting for query (3035s, QUERY_STATE_EXECUTING)
+  [dune] pools [25842368-25844367] …
+  Dune: waiting for query (3037s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3038s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25596368-25598367] (0 rows)
+  [dune] pools_v4 [25598368-25600367] …
+  [cache save] pools [25842368-25844367] (0 rows)
+  Dune: waiting for query (3041s, QUERY_STATE_EXECUTING)
+  [dune] pools [25844368-25846367] …
+  Dune: waiting for query (3043s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3046s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25844368-25846367] (0 rows)
+  [cache save] pools_v4 [25598368-25600367] (0 rows)
+  [dune] pools [25846368-25848367] …
+  [dune] pools_v4 [25600368-25602367] …
+  Dune: waiting for query (3050s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3051s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3053s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25846368-25848367] (0 rows)
+  Dune: waiting for query (3054s, QUERY_STATE_EXECUTING)
+  [dune] pools [25848368-25850367] …
+  Dune: waiting for query (3057s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3057s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25600368-25602367] (0 rows)
+  [dune] pools_v4 [25602368-25604367] …
+  [cache save] pools [25848368-25850367] (0 rows)
+  Dune: waiting for query (3060s, QUERY_STATE_EXECUTING)
+  [dune] pools [25850368-25852367] …
+  Dune: waiting for query (3063s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3066s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25602368-25604367] (0 rows)
+  [cache save] pools [25850368-25852367] (0 rows)
+  [dune] pools_v4 [25604368-25606367] …
+  [dune] pools [25852368-25854367] …
+  Dune: waiting for query (3069s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3069s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3072s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25852368-25854367] (0 rows)
+  [dune] pools [25854368-25856367] …
+  [cache save] pools_v4 [25604368-25606367] (0 rows)
+  Dune: waiting for query (3076s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25606368-25608367] …
+  Dune: waiting for query (3078s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3078s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25854368-25856367] (0 rows)
+  [dune] pools [25856368-25858367] …
+  Dune: waiting for query (3081s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3082s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3084s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25606368-25608367] (0 rows)
+  [cache save] pools [25856368-25858367] (0 rows)
+  [dune] pools_v4 [25608368-25610367] …
+  [dune] pools [25858368-25860367] …
+  Dune: waiting for query (3087s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3088s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3091s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25858368-25860367] (0 rows)
+  [cache save] pools_v4 [25608368-25610367] (0 rows)
+  [dune] pools [25860368-25862367] …
+  Dune: waiting for query (3094s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25610368-25612367] …
+  Dune: waiting for query (3096s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3097s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25860368-25862367] (0 rows)
+  Dune: waiting for query (3099s, QUERY_STATE_EXECUTING)
+  [dune] pools [25862368-25864367] …
+  Dune: waiting for query (3100s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3101s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25610368-25612367] (0 rows)
+  [cache save] pools [25862368-25864367] (0 rows)
+  [dune] pools_v4 [25612368-25614367] …
+  Dune: waiting for query (3105s, QUERY_STATE_EXECUTING)
+  [dune] pools [25864368-25866367] …
+  Dune: waiting for query (3106s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3109s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25864368-25866367] (0 rows)
+  [cache save] pools_v4 [25612368-25614367] (0 rows)
+  [dune] pools [25866368-25868367] …
+  Dune: waiting for query (3112s, QUERY_STATE_EXECUTING)
+  [dune] pools_v4 [25614368-25616367] …
+  Dune: waiting for query (3114s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3115s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25866368-25868367] (0 rows)
+  Dune: waiting for query (3116s, QUERY_STATE_EXECUTING)
+  [dune] pools [25868368-25870367] …
+  Dune: waiting for query (3118s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3119s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25614368-25616367] (0 rows)
+  [dune] pools_v4 [25616368-25618367] …
+  [cache save] pools [25868368-25870367] (0 rows)
+  Dune: waiting for query (3123s, QUERY_STATE_EXECUTING)
+  [dune] pools [25870368-25872367] …
+  Dune: waiting for query (3125s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3127s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25870368-25872367] (0 rows)
+  [cache save] pools_v4 [25616368-25618367] (0 rows)
+  [dune] pools [25872368-25874367] …
+  [dune] pools_v4 [25618368-25620367] …
+  Dune: waiting for query (3131s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3131s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3133s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25872368-25874367] (0 rows)
+  Dune: waiting for query (3134s, QUERY_STATE_EXECUTING)
+  [dune] pools [25874368-25876367] …
+  Dune: waiting for query (3137s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3137s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25618368-25620367] (0 rows)
+  [cache save] pools [25874368-25876367] (0 rows)
+  [dune] pools_v4 [25620368-25622367] …
+  Dune: waiting for query (3141s, QUERY_STATE_EXECUTING)
+  [dune] pools [25876368-25878367] …
+  Dune: waiting for query (3144s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3146s, QUERY_STATE_COMPLETED)
+  [cache save] pools [25876368-25878367] (0 rows)
+  [cache save] pools_v4 [25620368-25622367] (0 rows)
+  [dune] pools [25878368-25878705] …
+  [dune] pools_v4 [25622368-25624367] …
+  Dune: waiting for query (3150s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3150s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3153s, QUERY_STATE_COMPLETED)
+  Dune: waiting for query (3153s, QUERY_STATE_EXECUTING)
+  [cache save] pools [25878368-25878705] (0 rows)
+  [dune] pools: 1 rows across chunked window
+  Dune: waiting for query (3156s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25622368-25624367] (0 rows)
+  [dune] pools_v4 [25624368-25626367] …
+  Dune: waiting for query (3159s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3164s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25624368-25626367] (0 rows)
+  [dune] pools_v4 [25626368-25628367] …
+  Dune: waiting for query (3168s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3173s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25626368-25628367] (0 rows)
+  [dune] pools_v4 [25628368-25630367] …
+  Dune: waiting for query (3177s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3183s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25628368-25630367] (0 rows)
+  [dune] pools_v4 [25630368-25632367] …
+  Dune: waiting for query (3186s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3191s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25630368-25632367] (0 rows)
+  [dune] pools_v4 [25632368-25634367] …
+  Dune: waiting for query (3195s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3200s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25632368-25634367] (0 rows)
+  [dune] pools_v4 [25634368-25636367] …
+  Dune: waiting for query (3204s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3209s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25634368-25636367] (0 rows)
+  [dune] pools_v4 [25636368-25638367] …
+  Dune: waiting for query (3213s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3218s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25636368-25638367] (0 rows)
+  [dune] pools_v4 [25638368-25640367] …
+  Dune: waiting for query (3222s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3227s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25638368-25640367] (0 rows)
+  [dune] pools_v4 [25640368-25642367] …
+  Dune: waiting for query (3231s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3236s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25640368-25642367] (0 rows)
+  [dune] pools_v4 [25642368-25644367] …
+  Dune: waiting for query (3239s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3245s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25642368-25644367] (0 rows)
+  [dune] pools_v4 [25644368-25646367] …
+  Dune: waiting for query (3248s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3254s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25644368-25646367] (0 rows)
+  [dune] pools_v4 [25646368-25648367] …
+  Dune: waiting for query (3257s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3263s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25646368-25648367] (0 rows)
+  [dune] pools_v4 [25648368-25650367] …
+  Dune: waiting for query (3266s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3272s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25648368-25650367] (0 rows)
+  [dune] pools_v4 [25650368-25652367] …
+  Dune: waiting for query (3275s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3281s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25650368-25652367] (0 rows)
+  [dune] pools_v4 [25652368-25654367] …
+  Dune: waiting for query (3284s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3289s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25652368-25654367] (0 rows)
+  [dune] pools_v4 [25654368-25656367] …
+  Dune: waiting for query (3293s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3299s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25654368-25656367] (0 rows)
+  [dune] pools_v4 [25656368-25658367] …
+  Dune: waiting for query (3303s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3309s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25656368-25658367] (0 rows)
+  [dune] pools_v4 [25658368-25660367] …
+  Dune: waiting for query (3312s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3320s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3323s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25658368-25660367] (0 rows)
+  [dune] pools_v4 [25660368-25662367] …
+  Dune: waiting for query (3327s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3332s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25660368-25662367] (0 rows)
+  [dune] pools_v4 [25662368-25664367] …
+  Dune: waiting for query (3335s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3341s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25662368-25664367] (0 rows)
+  [dune] pools_v4 [25664368-25666367] …
+  Dune: waiting for query (3344s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3350s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25664368-25666367] (0 rows)
+  [dune] pools_v4 [25666368-25668367] …
+  Dune: waiting for query (3354s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3359s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25666368-25668367] (0 rows)
+  [dune] pools_v4 [25668368-25670367] …
+  Dune: waiting for query (3362s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3371s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25668368-25670367] (0 rows)
+  [dune] pools_v4 [25670368-25672367] …
+  Dune: waiting for query (3374s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3379s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25670368-25672367] (0 rows)
+  [dune] pools_v4 [25672368-25674367] …
+  Dune: waiting for query (3385s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3390s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25672368-25674367] (0 rows)
+  [dune] pools_v4 [25674368-25676367] …
+  Dune: waiting for query (3394s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3399s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25674368-25676367] (0 rows)
+  [dune] pools_v4 [25676368-25678367] …
+  Dune: waiting for query (3403s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3408s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25676368-25678367] (0 rows)
+  [dune] pools_v4 [25678368-25680367] …
+  Dune: waiting for query (3411s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3417s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25678368-25680367] (0 rows)
+  [dune] pools_v4 [25680368-25682367] …
+  Dune: waiting for query (3420s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3426s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25680368-25682367] (0 rows)
+  [dune] pools_v4 [25682368-25684367] …
+  Dune: waiting for query (3429s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3437s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25682368-25684367] (0 rows)
+  [dune] pools_v4 [25684368-25686367] …
+  Dune: waiting for query (3441s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3446s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25684368-25686367] (0 rows)
+  [dune] pools_v4 [25686368-25688367] …
+  Dune: waiting for query (3450s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3455s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25686368-25688367] (0 rows)
+  [dune] pools_v4 [25688368-25690367] …
+  Dune: waiting for query (3459s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3464s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25688368-25690367] (0 rows)
+  [dune] pools_v4 [25690368-25692367] …
+  Dune: waiting for query (3468s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3473s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25690368-25692367] (0 rows)
+  [dune] pools_v4 [25692368-25694367] …
+  Dune: waiting for query (3476s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3485s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25692368-25694367] (0 rows)
+  [dune] pools_v4 [25694368-25696367] …
+  Dune: waiting for query (3488s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3493s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25694368-25696367] (0 rows)
+  [dune] pools_v4 [25696368-25698367] …
+  Dune: waiting for query (3497s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3502s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25696368-25698367] (0 rows)
+  [dune] pools_v4 [25698368-25700367] …
+  Dune: waiting for query (3506s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3511s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25698368-25700367] (0 rows)
+  [dune] pools_v4 [25700368-25702367] …
+  Dune: waiting for query (3515s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3523s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25700368-25702367] (0 rows)
+  [dune] pools_v4 [25702368-25704367] …
+  Dune: waiting for query (3526s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3532s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25702368-25704367] (0 rows)
+  [dune] pools_v4 [25704368-25706367] …
+  Dune: waiting for query (3535s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3541s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25704368-25706367] (0 rows)
+  [dune] pools_v4 [25706368-25708367] …
+  Dune: waiting for query (3544s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3550s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25706368-25708367] (0 rows)
+  [dune] pools_v4 [25708368-25710367] …
+  Dune: waiting for query (3553s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3558s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25708368-25710367] (0 rows)
+  [dune] pools_v4 [25710368-25712367] …
+  Dune: waiting for query (3562s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3567s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25710368-25712367] (0 rows)
+  [dune] pools_v4 [25712368-25714367] …
+  Dune: waiting for query (3572s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3577s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25712368-25714367] (0 rows)
+  [dune] pools_v4 [25714368-25716367] …
+  Dune: waiting for query (3581s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3586s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25714368-25716367] (0 rows)
+  [dune] pools_v4 [25716368-25718367] …
+  Dune: waiting for query (3590s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3595s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25716368-25718367] (0 rows)
+  [dune] pools_v4 [25718368-25720367] …
+  Dune: waiting for query (3598s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3604s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25718368-25720367] (0 rows)
+  [dune] pools_v4 [25720368-25722367] …
+  Dune: waiting for query (3607s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3613s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25720368-25722367] (0 rows)
+  [dune] pools_v4 [25722368-25724367] …
+  Dune: waiting for query (3616s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3622s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25722368-25724367] (0 rows)
+  [dune] pools_v4 [25724368-25726367] …
+  Dune: waiting for query (3625s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3631s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25724368-25726367] (0 rows)
+  [dune] pools_v4 [25726368-25728367] …
+  Dune: waiting for query (3634s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3642s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25726368-25728367] (0 rows)
+  [dune] pools_v4 [25728368-25730367] …
+  Dune: waiting for query (3646s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3651s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25728368-25730367] (0 rows)
+  [dune] pools_v4 [25730368-25732367] …
+  Dune: waiting for query (3655s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3660s, QUERY_STATE_COMPLETED)
+  [cache save] pools_v4 [25730368-25732367] (0 rows)
+  [dune] pools_v4 [25732368-25734367] …
+  Dune: waiting for query (3664s, QUERY_STATE_EXECUTING)
+  Dune: waiting for query (3669s, QUERY_STATE_COMPLETED)

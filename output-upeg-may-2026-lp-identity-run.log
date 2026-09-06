@@ -1,0 +1,151 @@
+Resolved 'uPEG' → 0x44b28991B167582F18BA0259e0173176ca125505 (uPEG) via dexscreener
+[1/12] Profiling token ...
+  Symbol: uPEG, Decimals: 18 (onchain)
+  time: [1/12] Profile token done in 10.3s
+[2/12] Discovering pools ...
+  Loaded 6 candidate(s) from output-upeg-may-2026/pool_candidates.json (skipped 70)
+  time: [2/12] Discover pools done in 0.0s — 6 candidate(s)
+[3/12] Verifying pools ...
+  OK 0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775
+  OK 0x21ff5cf76f562c6fb3871b59133a9e214ebc0078
+  OK 0x84a69fcd071d5c36ef9ca3a31b1ff3aefb314230
+  OK 0x1f7f95f5d7b53df049d3215ba657b00591b2a117
+  OK 0x7059a9f16dd2405aef3dd4f70a89127ce577a890
+  OK 0x38f0ddc5e8c7dc5cc820bdb0204850e7743fe661
+  6 verified / 6 total
+  time: [3/12] Verify pools done in 44.6s — 6 verified
+[4/12] Analyzing holdings (leaderboard before LP) ...
+Resolved 'uPEG' → 0x44b28991B167582F18BA0259e0173176ca125505 (uPEG) via dexscreener
+[1/12] Profiling token ...
+  Symbol: uPEG, Decimals: 18 (onchain)
+  time: [1/12] Profile token done in 3.5s
+[2/12] Discovering pools ...
+  Loaded 6 candidate(s) from output-upeg-may-2026/pool_candidates.json (skipped 70)
+  time: [2/12] Discover pools done in 0.0s — 6 candidate(s)
+[3/12] Verifying pools ...
+  OK 0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775
+  OK 0x21ff5cf76f562c6fb3871b59133a9e214ebc0078
+  OK 0x84a69fcd071d5c36ef9ca3a31b1ff3aefb314230
+  OK 0x1f7f95f5d7b53df049d3215ba657b00591b2a117
+  OK 0x7059a9f16dd2405aef3dd4f70a89127ce577a890
+  OK 0x38f0ddc5e8c7dc5cc820bdb0204850e7743fe661
+  6 verified / 6 total
+  time: [3/12] Verify pools done in 14.2s — 6 verified
+[4/12] Analyzing holdings (leaderboard before LP) ...
+Resolved 'UPEG' → 0x2b63d89d5c0F77A39dF68CdF5729909A9BBadA38 (UPEG) via dexscreener
+Other candidates (use --pick N):
+  [0] UPEG (Unipeg)  0x2b63d89d5c0F77A39dF68CdF5729909A9BBadA38  liq=$37,237,880
+  [1] UPEG (Unipeg)  0xe9518fbA211457Adb99D78932c188AbD4d19Bc6F  liq=$34,352,948
+  [2] uPEG (Unipeg)  0xE82891794Dea0513b4e04df88DB4ae8784e37FFf  liq=$13,267,766
+  [3] uPEG (Unipeg)  0xA0AA3d6eBa5914a77C9E9E23AAA1CaE7136364bd  liq=$2,249,632
+  [4] uPEG (Unipeg)  0x04Ab81BB856ae6E9c2Fb404F863F0302fEC11C8f  liq=$1,830,034
+  [5] uPEG (Unipeg)  0x44b28991B167582F18BA0259e0173176ca125505  liq=$1,596,333
+  [6] PNKSTR (PunkStrategy)  0xc50673EDb3A7b94E8CAD8a7d4E0cD68864E33eDF  liq=$549
+[1/12] Profiling token ...
+  Symbol: UPEG, Decimals: 18 (onchain)
+  time: [1/12] Profile token done in 12.0s
+[2/12] Discovering pools ...
+  Loaded 6 candidate(s) from output-upeg-may-2026/pool_candidates.json (skipped 70)
+  time: [2/12] Discover pools done in 0.0s — 6 candidate(s)
+[3/12] Verifying pools ...
+  OK 0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775
+  OK 0x21ff5cf76f562c6fb3871b59133a9e214ebc0078
+  OK 0x84a69fcd071d5c36ef9ca3a31b1ff3aefb314230
+  OK 0x1f7f95f5d7b53df049d3215ba657b00591b2a117
+  OK 0x7059a9f16dd2405aef3dd4f70a89127ce577a890
+  OK 0x38f0ddc5e8c7dc5cc820bdb0204850e7743fe661
+  6 verified / 6 total
+  time: [3/12] Verify pools done in 42.1s — 6 verified
+[4/12] Analyzing holdings (leaderboard before LP) ...
+  [dune] holders [24996368-25218797] …
+  [waiting] holders [24996368-25218797] state=QUERY_STATE_PENDING poll=1/240
+  [holdings] holders (daily_updates) skipped (Dune SQL execution QUERY_STATE_FAILED: credits/payment unavailable: {"execution_id":"01M1NHVZRBNYPWMDWQBVBHE1ZV","query_id":0,"is_execution_finished":true,"state":"QUERY_STATE_FAILED","submitted_at":"2026-09-04T06:32:03.084368Z","expires_at":"2026-12-03T06:32:03.689809Z","execution_cost_credits":0,"error":{"type":"FAILED_TYPE_EXECUTION_FAILED","message":"delta_prod.balances_ethereum.daily_updates does not exist or it is private [Execution ID: 01M1NHVZRBNYPWMDWQBVBHE1ZV]"}}); trying holders_from_transfers
+  [dune] holders_from_transfers [24996368-25218797] …
+  [waiting] holders_from_transfers [24996368-25218797] state=QUERY_STATE_EXECUTING poll=1/240
+  [cache save] holders_from_transfers [24996368-25218797] (0 rows)
+  [holdings] RPC balance budget: 6 pool + 0 non-pool (of 6 pool / 0 non-pool missing)
+  source=dune, balances=dune+rpc
+  0 ranked holders; LP will only check top 0
+  time: [4/12] Holdings done in 54.3s
+[5/12] Analyzing positions (leaderboard owners only) ...
+  V3/V4 LP snapshot via Dune; filter to ranked holder addresses
+  [positions] empty leaderboard allowlist — skipping LP snapshot
+  0 position(s), 0 unique holder(s)
+  note: none of the ranked holders have open LP at to_block (or Dune snapshot empty)
+  time: [5/12] Positions done in 0.0s
+[6/12] Indexing events (chunk-level resume enabled; Ctrl+C is safe) ...
+  Progress: output-upeg-may-2026-lp-identity/indexer_cache + event_indexer_checkpoint.json
+  Indexing via RPC eth_getLogs (source=rpc) ...
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap resuming from block 24996368 → 25218797
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 24,996,567/25,218,797 (0.1%) +0 evt | ~17 blk/s | ETA 13339s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 24,997,037/25,218,797 (0.3%) +0 evt | ~28 blk/s | ETA 7974s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 24,997,387/25,218,797 (0.5%) +0 evt | ~28 blk/s | ETA 7842s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 24,997,827/25,218,797 (0.7%) +0 evt | ~30 blk/s | ETA 7345s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 24,998,317/25,218,797 (0.9%) +0 evt | ~32 blk/s | ETA 6851s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 24,998,757/25,218,797 (1.1%) +0 evt | ~33 blk/s | ETA 6706s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 24,999,187/25,218,797 (1.3%) +0 evt | ~33 blk/s | ETA 6611s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 24,999,687/25,218,797 (1.5%) +0 evt | ~35 blk/s | ETA 6350s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,000,147/25,218,797 (1.7%) +0 evt | ~35 blk/s | ETA 6287s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,000,647/25,218,797 (1.9%) +0 evt | ~35 blk/s | ETA 6161s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,001,077/25,218,797 (2.1%) +0 evt | ~35 blk/s | ETA 6154s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,001,487/25,218,797 (2.3%) +0 evt | ~35 blk/s | ETA 6163s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,001,967/25,218,797 (2.5%) +0 evt | ~36 blk/s | ETA 6089s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,002,357/25,218,797 (2.7%) +0 evt | ~35 blk/s | ETA 6123s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,002,857/25,218,797 (2.9%) +0 evt | ~36 blk/s | ETA 6036s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,003,307/25,218,797 (3.1%) +0 evt | ~36 blk/s | ETA 6008s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,003,797/25,218,797 (3.3%) +0 evt | ~36 blk/s | ETA 5955s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,004,277/25,218,797 (3.6%) +0 evt | ~36 blk/s | ETA 5911s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,004,677/25,218,797 (3.7%) +0 evt | ~36 blk/s | ETA 5931s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,004,977/25,218,797 (3.9%) +0 evt | ~36 blk/s | ETA 6021s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,005,357/25,218,797 (4.0%) +0 evt | ~35 blk/s | ETA 6043s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,005,797/25,218,797 (4.2%) +0 evt | ~35 blk/s | ETA 6023s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,006,197/25,218,797 (4.4%) +0 evt | ~35 blk/s | ETA 6027s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,006,637/25,218,797 (4.6%) +0 evt | ~35 blk/s | ETA 6006s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,007,017/25,218,797 (4.8%) +0 evt | ~35 blk/s | ETA 6021s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,007,477/25,218,797 (5.0%) +0 evt | ~35 blk/s | ETA 5989s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,007,807/25,218,797 (5.1%) +0 evt | ~35 blk/s | ETA 6035s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,008,257/25,218,797 (5.3%) +0 evt | ~35 blk/s | ETA 6007s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,008,657/25,218,797 (5.5%) +0 evt | ~35 blk/s | ETA 6009s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,009,037/25,218,797 (5.7%) +0 evt | ~35 blk/s | ETA 6018s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,009,447/25,218,797 (5.9%) +0 evt | ~35 blk/s | ETA 6013s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,009,877/25,218,797 (6.1%) +0 evt | ~35 blk/s | ETA 5997s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,010,287/25,218,797 (6.3%) +0 evt | ~35 blk/s | ETA 5991s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,010,697/25,218,797 (6.4%) +0 evt | ~35 blk/s | ETA 5985s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,011,107/25,218,797 (6.6%) +0 evt | ~35 blk/s | ETA 5978s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,011,487/25,218,797 (6.8%) +0 evt | ~35 blk/s | ETA 5988s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,011,877/25,218,797 (7.0%) +0 evt | ~35 blk/s | ETA 5987s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,012,377/25,218,797 (7.2%) +0 evt | ~35 blk/s | ETA 5935s
+  v2:0x21ff5cf76f562c6fb3871b59133a9e214ebc0078:Swap 25,012,877/25,218,797 (7.4%) +0 evt | ~35 blk/s | ETA 5890s
+Resolved 'UPEG' → 0x2b63d89d5c0F77A39dF68CdF5729909A9BBadA38 (UPEG) via dexscreener
+Other candidates (use --pick N):
+  [0] UPEG (Unipeg)  0x2b63d89d5c0F77A39dF68CdF5729909A9BBadA38  liq=$37,237,880
+  [1] UPEG (Unipeg)  0xe9518fbA211457Adb99D78932c188AbD4d19Bc6F  liq=$34,352,948
+  [2] uPEG (Unipeg)  0xE82891794Dea0513b4e04df88DB4ae8784e37FFf  liq=$13,267,766
+  [3] uPEG (Unipeg)  0xA0AA3d6eBa5914a77C9E9E23AAA1CaE7136364bd  liq=$2,249,632
+  [4] uPEG (Unipeg)  0x04Ab81BB856ae6E9c2Fb404F863F0302fEC11C8f  liq=$1,830,034
+  [5] uPEG (Unipeg)  0x44b28991B167582F18BA0259e0173176ca125505  liq=$1,597,750
+  [6] PNKSTR (PunkStrategy)  0xc50673EDb3A7b94E8CAD8a7d4E0cD68864E33eDF  liq=$549
+[1/12] Profiling token ...
+  Symbol: UPEG, Decimals: 18 (onchain)
+  time: [1/12] Profile token done in 6.2s
+[2/12] Discovering pools ...
+  Loaded 6 candidate(s) from output-upeg-may-2026/pool_candidates.json (skipped 70)
+  time: [2/12] Discover pools done in 0.0s — 6 candidate(s)
+[3/12] Verifying pools ...
+Resolved '0x44b28991B167582F18BA0259e0173176ca125505' → 0x44b28991B167582F18BA0259e0173176ca125505 (?) via address
+[1/12] Profiling token ...
+  Symbol: uPEG, Decimals: 18 (onchain)
+  time: [1/12] Profile token done in 6.9s
+[2/12] Discovering pools ...
+  Loaded 6 candidate(s) from output-upeg-may-2026/pool_candidates.json (skipped 70)
+  time: [2/12] Discover pools done in 0.0s — 6 candidate(s)
+[3/12] Verifying pools ...
+  OK 0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775
+  OK 0x21ff5cf76f562c6fb3871b59133a9e214ebc0078
+  OK 0x84a69fcd071d5c36ef9ca3a31b1ff3aefb314230
+  OK 0x1f7f95f5d7b53df049d3215ba657b00591b2a117
+  OK 0x7059a9f16dd2405aef3dd4f70a89127ce577a890
+  OK 0x38f0ddc5e8c7dc5cc820bdb0204850e7743fe661
+  6 verified / 6 total
+  time: [3/12] Verify pools done in 34.8s — 6 verified
+[4/12] Analyzing holdings (leaderboard before LP) ...

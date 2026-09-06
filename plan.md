@@ -4,6 +4,7 @@
 
 ## ✅ Completed
 
+- **Dashboard address-level withdrawals + from-block ratios** (2026-09-06) — added per-address removal ranking; withdrawal shares use from-block target-token reserves and are capped at 100%; V2/V3 burns are now row-level with Collect recipient / owner
 - **Core analysis pipeline** — resolve → profile → discover → verify → index → positions → labels → metrics → timeline → risk → report → holdings → dashboard
 - **Uniswap V1–V4** — discovery, verification, indexing, positions (V4 StateView + tick share)
 - **Curve + Balancer V2** — enabled in `config/protocols.ethereum.yaml`

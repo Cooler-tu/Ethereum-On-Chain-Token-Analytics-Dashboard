@@ -639,12 +639,19 @@ def reconstruct_v1_holders(
     pools: list[VerifiedPool],
     from_block: int,
     to_block: int,
+    *,
+    allow_rpc_scan: bool = False,
 ) -> list[Position]:
     """Snapshot V1 exchange LP-token holders at ``to_block``."""
     positions: list[Position] = []
-    for pool in pools:
-        if pool.version != "v1" or not pool.verified:
-            continue
+    v1_pools = [p for p in pools if p.version == "v1" and p.verified]
+    if v1_pools and not allow_rpc_scan:
+        print(
+            "  [positions] skip Uniswap V1 full-window log scan "
+            "({} pool(s); allow_rpc_scan=False)".format(len(v1_pools))
+        )
+        return positions
+    for pool in v1_pools:
         exchange = pool.pool_address
         try:
             contract = get_contract(w3, exchange, "uniswap_v1_exchange")
@@ -1117,6 +1124,8 @@ def reconstruct_curve_holders(
     events_by_pool: dict[str, list[dict]],
     from_block: int,
     to_block: int,
+    *,
+    allow_rpc_scan: bool = False,
 ) -> list[Position]:
     """Snapshot Curve LP-token holders at ``to_block``.
 
@@ -1149,17 +1158,24 @@ def reconstruct_curve_holders(
                         candidates.add(Web3.to_checksum_address(a))
                     except Exception:
                         continue
-        try:
-            for evt in get_logs_chunked(
-                lp_contract.events.Transfer, from_block, to_block
-            ):
-                args = evt["args"]
-                for raw in (args["from"], args["to"]):
-                    addr = Web3.to_checksum_address(raw)
-                    if addr.lower() != _ZERO.lower():
-                        candidates.add(addr)
-        except Exception:
-            pass
+        if allow_rpc_scan:
+            try:
+                for evt in get_logs_chunked(
+                    lp_contract.events.Transfer, from_block, to_block
+                ):
+                    args = evt["args"]
+                    for raw in (args["from"], args["to"]):
+                        addr = Web3.to_checksum_address(raw)
+                        if addr.lower() != _ZERO.lower():
+                            candidates.add(addr)
+            except Exception:
+                pass
+        elif not candidates:
+            print(
+                "  [positions] skip Curve full-window Transfer scan for {} "
+                "(no indexed events; allow_rpc_scan=False)".format(pool.pool_address)
+            )
+            continue
 
         for addr in sorted(candidates):
             try:
@@ -1191,6 +1207,8 @@ def reconstruct_balancer_holders(
     events_by_pool: dict[str, list[dict]],
     from_block: int,
     to_block: int,
+    *,
+    allow_rpc_scan: bool = False,
 ) -> list[Position]:
     """Snapshot Balancer V2 BPT holders at ``to_block``.
 
@@ -1223,17 +1241,24 @@ def reconstruct_balancer_holders(
                         candidates.add(Web3.to_checksum_address(a))
                     except Exception:
                         continue
-        try:
-            for evt in get_logs_chunked(
-                bpt_contract.events.Transfer, from_block, to_block
-            ):
-                args = evt["args"]
-                for raw in (args["from"], args["to"]):
-                    addr = Web3.to_checksum_address(raw)
-                    if addr.lower() != _ZERO.lower():
-                        candidates.add(addr)
-        except Exception:
-            pass
+        if allow_rpc_scan:
+            try:
+                for evt in get_logs_chunked(
+                    bpt_contract.events.Transfer, from_block, to_block
+                ):
+                    args = evt["args"]
+                    for raw in (args["from"], args["to"]):
+                        addr = Web3.to_checksum_address(raw)
+                        if addr.lower() != _ZERO.lower():
+                            candidates.add(addr)
+            except Exception:
+                pass
+        elif not candidates:
+            print(
+                "  [positions] skip Balancer full-window Transfer scan for {} "
+                "(no indexed events; allow_rpc_scan=False)".format(bpt_addr)
+            )
+            continue
 
         for addr in sorted(candidates):
             try:
@@ -1317,13 +1342,16 @@ def analyze_positions(
             events_by_pool[pa].append(evt)
 
     positions.extend(reconstruct_v1_holders(
-        w3, verified_pools, from_block, to_block
+        w3, verified_pools, from_block, to_block,
+        allow_rpc_scan=allow_rpc_scan,
     ))
     positions.extend(reconstruct_curve_holders(
-        w3, verified_pools, events_by_pool, from_block, to_block
+        w3, verified_pools, events_by_pool, from_block, to_block,
+        allow_rpc_scan=allow_rpc_scan,
     ))
     positions.extend(reconstruct_balancer_holders(
-        w3, verified_pools, events_by_pool, from_block, to_block
+        w3, verified_pools, events_by_pool, from_block, to_block,
+        allow_rpc_scan=allow_rpc_scan,
     ))
     positions.extend(reconstruct_v2_holders(
         w3, verified_pools, events_by_pool, from_block, to_block,

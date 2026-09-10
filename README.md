@@ -27,6 +27,7 @@ End-to-end **Ethereum mainnet** tool for token liquidity / crash analysis: disco
 
 | Token | Window | Pools | Holders | Risk | Date | Dir |
 |-------|--------|-------|---------|------|------|-----|
+| uPEG May–Aug repair | 24996368–25878705 | 107 verified | Existing snapshots retained | Coverage repair; provisional heuristic | 2026-09-10 | `output-upeg-may-sep-2026/` |
 | GALA incident/control | 19698731–20127891 (two frozen 30d windows) | 2 GALA/WETH (V2/V3) | Pool-scoped Transfers; holder ranking skipped | Research: 0/3 inventory hypotheses confirmed; hand-selected line closed | 2026-08-29 | `output-gala-control-30d/` + `output-gala-event-30d/` |
 | CEL crash/control | 14580784–14953505 (two frozen 30d windows) | 2 CEL/WETH (V2/V3) | Pool-scoped Transfers; holder ranking skipped | Research: 0/3 original hypotheses confirmed; inverse LP-flow anomaly replicated | 2026-08-27 | `output-cel-control-30d/` + `output-cel-crash-30d/` |
 | FTT crash/control | 15503619–15926371 (two frozen 30d windows) | 3 FTT/WETH (V2/V3) | Pool-scoped Transfers; holder ranking skipped | Research: 0/3 primary hypotheses confirmed | 2026-08-24 | `output-ftt-control-30d/` + `output-ftt-crash-30d/` |
@@ -64,6 +65,8 @@ python3 -m src.cli dashboard --output-dir output-turbo-30d-25580851
 ```
 
 ### Recent Findings (uPEG)
+
+- uPEG May–August data repaired in `output-upeg-may-sep-2026/`: May caches retained, June onward re-indexed by RPC across all 96 verified V4 pools plus V2/V3. Output: 248,515 swaps, 15,362 liquidity/collection records, 360,542 Transfers; all 12 custody-balance reconciliations pass. Notebook withdrawal charts now rebuild from current artifacts. May coverage and LP ownership remain qualified. Evidence: `research-notes/upeg-tail-refresh-20260910.md`.
 
 - Directional audit of the verified `2026-05-07 12:00 UTC` V3 bucket found 48 sell-side and 71 buy-side Swap events: 39.5356 uPEG gross sells, 30.2685 gross buys, and 9.2671 net signed Swap flow into the pool. Actual uPEG Transfer net flow and the historical balance delta both equal 10.106754360913178103 uPEG exactly; the 0.83964 Transfer-minus-Swap residual proves that Swap amounts alone are not a complete cash-flow ledger for this token/window. Evidence and guardrails are in `research-notes/upeg-directional-flow-audit.md`.
 - Across 1/2/4/6-hour buckets, uPEG price return versus target-reserve change remains negative and passes the pre-specified zero-lag BH-FDR family (one-hour Pearson -0.6791, Spearman -0.7757; q=0.0045). No non-zero lag survives the 576-test exploratory family, so this remains a within-pool AMM inventory relationship rather than a predictive signal.
@@ -304,6 +307,7 @@ See `SUPPORTED_PROTOCOLS.md` for contract addresses and notes.
 
 | Token | 窗口 | 池子 | 持有者 | 风险 | 日期 | 目录 |
 |-------|------|------|--------|------|------|------|
+| uPEG 五月至八月补跑 | 24996368–25878705 | 107 个已验证池 | 沿用历史快照 | 覆盖修复；风险分仍为启发式 | 2026-09-10 | `output-upeg-may-sep-2026/` |
 | GALA 事件/对照 | 19698731–20127891（两个冻结的 30 天窗口） | 2 个 GALA/WETH（V2/V3） | 仅池级 Transfer；跳过 holder 排名 | 研究：0/3 库存假设确认；人工挑选案例线关闭 | 2026-08-29 | `output-gala-control-30d/` + `output-gala-event-30d/` |
 | CEL 崩盘/对照 | 14580784–14953505（两个冻结的 30 天窗口） | 2 个 CEL/WETH（V2/V3） | 仅池级 Transfer；跳过 holder 排名 | 研究：0/3 原假设确认；反向 LP 流异常复现 | 2026-08-27 | `output-cel-control-30d/` + `output-cel-crash-30d/` |
 | FTT 崩盘/对照 | 15503619–15926371（两个冻结的 30 天窗口） | 3 个 FTT/WETH（V2/V3） | 仅池级 Transfer；跳过 holder 排名 | 研究：0/3 主要假设确认 | 2026-08-24 | `output-ftt-control-30d/` + `output-ftt-crash-30d/` |
@@ -341,6 +345,8 @@ python3 -m src.cli dashboard --output-dir output-turbo-30d-25580851
 ```
 
 ### 近期发现（uPEG）
+
+- uPEG 五月至八月数据已修复，统一保存在 `output-upeg-may-sep-2026/`：五月复用缓存，六月起通过 RPC 补抓全部 96 个已验证 V4 池及 V2/V3。合计 248,515 条 Swap、15,362 条流动性/领取记录、360,542 条 Transfer；12 个托管地址余额对账全部通过。撤资图改为读取当前结果；五月覆盖和 LP 身份仍保留限制说明。详见 `research-notes/upeg-tail-refresh-20260910.md`。
 
 - 对已人工核验的 `2026-05-07 12:00 UTC` V3 小时桶做方向审计：48 个卖出侧、71 个买入侧 Swap，卖出总量 39.5356 uPEG、买入总量 30.2685 uPEG，带符号 Swap 净流入池 9.2671 uPEG。实际 uPEG Transfer 净流入与历史池余额增加都精确等于 10.106754360913178103 uPEG；0.83964 uPEG 的“Transfer 减 Swap”残差证明该代币/窗口不能只用 Swap 数量作为完整资金流账本。证据与解释边界见 `research-notes/upeg-directional-flow-audit.md`。
 - uPEG 的价格收益与目标代币储备变化在 1/2/4/6 小时桶中持续负相关，并通过预先定义的同期 BH-FDR 家族（1 小时 Pearson -0.6791、Spearman -0.7757，q=0.0045）。576 个探索性非零 lag 没有一个通过校正，因此该结果只解释为 AMM 池内库存关系，不解释为预测信号。

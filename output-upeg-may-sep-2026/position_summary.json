@@ -1,0 +1,19 @@
+{
+  "total_positions": 0,
+  "total_unique_holders": 0,
+  "snapshot_block": 25878705,
+  "owner_allowlist_size": 100,
+  "share_basis": "v3_tick_token_value_over_pool_balances;v4_in_range_L_over_pool_active_liquidity;v1_v2_lp_balance_share",
+  "top_5_holders": [],
+  "artifact_format": "json",
+  "artifacts": {
+    "positions": {
+      "name": "positions",
+      "format": "json",
+      "rows": 0,
+      "paths": {
+        "json": "output-upeg-may-sep-2026/positions.json"
+      }
+    }
+  }
+}

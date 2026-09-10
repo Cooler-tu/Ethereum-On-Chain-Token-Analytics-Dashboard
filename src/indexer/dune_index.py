@@ -645,7 +645,7 @@ def index_events_from_dune(
     if v4_ids:
         batch = 8
         v4_name = "liquidity_uniswap_v4_modify"
-        for i in range(0, len(v4_ids[:40]), batch):
+        for i in range(0, len(v4_ids), batch):
             chunk_ids = v4_ids[i : i + batch]
             start = i
 
@@ -711,6 +711,7 @@ def index_events_from_dune(
             liquidity.extend(payload)
 
     max_workers = min(6, max(1, len(jobs)))
+    failures: list[str] = []
     with ThreadPoolExecutor(max_workers=max_workers) as ex:
         fut_map = {ex.submit(fn): label for label, fn in jobs}
         for fut in as_completed(fut_map):
@@ -719,12 +720,19 @@ def index_events_from_dune(
                 _consume(label, fut.result())
                 _progress("Dune: {} done".format(label), on_progress)
             except DuneError as exc:
-                # Soft-fail liquidity / transfers; swaps failure is fatal.
+                # Never replace existing artifacts with an incomplete query set.
                 if label == "swaps":
                     raise
                 _progress(
                     "Dune: skip {}: {}".format(label, exc), on_progress
                 )
+                failures.append(label)
+
+    if failures:
+        raise DuneError(
+            "Incomplete Dune index; existing artifacts preserved. Failed sections: "
+            + ", ".join(sorted(failures))
+        )
 
     _progress("Dune: {} swap(s)".format(len(swaps)), on_progress)
     _progress("Dune: {} liquidity event(s)".format(len(liquidity)), on_progress)

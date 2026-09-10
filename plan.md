@@ -64,6 +64,8 @@
 - **GitHub Actions regression gate** (2026-08-30) — added pull-request coverage for `main`, made the existing 149-test suite a prerequisite for Pages build and deployment, and prevented pull requests from deploying the public site. The first hosted regression, build, and deployment jobs all completed successfully in run `33301087742`.
 - **Dashboard print / PDF export** (2026-09-01) — added a shared `Print / Save PDF` action to every generated dashboard, with an A4 light print layout, full-width single-row chart cards, square centered doughnut/pie canvases, uncropped tables, print-safe Chart.js resizing, restored interactive sizing after print, and regression coverage.
 
+- **uPEG June–August partial refresh** (2026-09-10) — retained May caches and repaired `output-upeg-may-sep-2026/`; 248,515 swaps, 15,362 liquidity/collection rows, 360,542 Transfers; all 12 custody reconciliations exact; current-data notebook chart and dashboard rebuilt.
+
 ---
 
 ## 🎯 Current

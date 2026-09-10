@@ -1,0 +1,43 @@
+{
+  "schema_version": "turbo_lp_gap_impact_v1",
+  "generated_at_utc": "2026-09-10T09:30:04.198908+00:00",
+  "source_ledger_manifest_sha256": "8ebefa6f67d5729658c25d220b41653a01ab1770a906a6c6e6d9415247f70e87",
+  "source_ledger_schema": "turbo_lp_event_ledger_v1",
+  "cohort_from_block": 25241305,
+  "cohort_end_block": 25886879,
+  "followup_data_end_block": 25944714,
+  "thresholds_pct": [
+    80,
+    90
+  ],
+  "horizons": [
+    "1h",
+    "6h",
+    "24h"
+  ],
+  "control_rule": "same pool, same direction, one-to-one nearest WETH notional, no reuse, outside every 90%-gap capped at 24h",
+  "size_calipers": [
+    0.1,
+    0.25,
+    0.5
+  ],
+  "primary_caliper": 0.25,
+  "outcome": "direction-normalized pre-to-post pool mid-price movement in basis points",
+  "auxiliary_outcome": "execution-price deviation from pre-swap spot; includes fee and is not user slippage",
+  "inference": "campaign-by-UTC-day cluster bootstrap, 5000 deterministic draws",
+  "row_counts": {
+    "swaps": 4880,
+    "eligible_swaps": 4880,
+    "control_swaps": 3991,
+    "gap_intervals": 954,
+    "gap_swap_exposures": 2564,
+    "matched_pair_rows_all_sensitivities": 7644
+  },
+  "sha256": {
+    "swaps": "5c2e8529803cd8eabfcb718bce0953928f4dea6d4c6f3dcb23d6c671d272ea74",
+    "gap_intervals": "c8a0f84827bb16ca7816f8b4ce683553c0915d102476b29672d1fddf1a70d32a",
+    "gap_swap_exposure": "fae7956f8b9266c81ef906c694e02e875fcaab7bc7320a497826a3bdbb33f0b6",
+    "matched_pairs": "34de3fc164439d0bc90fa6782c9f7139024f4a1fd4c337929e3008202194f632",
+    "summary": "5cb607cd3922147874618e0d3c6b5f826fadbb44b77ee92137f208d6c31614d0"
+  }
+}

@@ -4,6 +4,7 @@
 
 ## ✅ Completed
 
+- **Dashboard address-level withdrawals + from-block ratios** (2026-09-06) — added per-address removal ranking; withdrawal shares use from-block target-token reserves and are capped at 100%; V2/V3 burns are now row-level with Collect recipient / owner
 - **Core analysis pipeline** — resolve → profile → discover → verify → index → positions → labels → metrics → timeline → risk → report → holdings → dashboard
 - **Uniswap V1–V4** — discovery, verification, indexing, positions (V4 StateView + tick share)
 - **Curve + Balancer V2** — enabled in `config/protocols.ethereum.yaml`
@@ -72,6 +73,7 @@
 - **TURBO LP gap / price-impact notebook v1** (2026-09-10) — executed `notebooks/turbo_lp_gap_slippage.ipynb` from the frozen event ledger, decoded 4,880 swaps across both Factory-discovered pools, built exact 80%/90% recovery gaps at 1h/6h/24h, and matched gap swaps one-to-one to same-pool, same-direction, similar-WETH-size uncontaminated controls. All six primary comparisons have a positive paired median excess of about 3.14–4.59 bps, but every campaign/day clustered 95% interval crosses zero; this is a descriptive signal, not a confirmed stable depth-risk effect.
 - **TURBO persistent non-return capital-destination case v1** (2026-09-10) — executed `notebooks/turbo_lp_capital_destination.ipynb` for the only uncensored 30-day zero-recovery campaign. Exact Position Manager evidence separates Burn principal from Collect receipt; all post-Collect TURBO/WETH wallet balances clear within one hour, and 23.4116 ETH is forwarded through one unlabeled EOA to a publicly labeled Shakepay service address within about 20 minutes. This is a single-case service-address receipt, not proof of fiat withdrawal or beneficial ownership.
 - **TURBO capital-destination reviewer reconciliation** (2026-09-13) — added an explicit native-ETH balance equation showing that the 23.4116 ETH outflow comprises 2.7846 ETH of confirmed WETH unwrapping plus 20.5603 ETH of other contemporaneous native inflow. The latter remains unattributed without internal-call traces. The Shakepay wording is now explicitly a third-party public label whose official/community status was not independently established.
+- **uPEG June–August partial refresh** (2026-09-10) — retained May caches and repaired `output-upeg-may-sep-2026/`; 248,515 swaps, 15,362 liquidity/collection rows, 360,542 Transfers; all 12 custody reconciliations exact; current-data notebook chart and dashboard rebuilt.
 
 ---
 

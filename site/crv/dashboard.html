@@ -300,7 +300,7 @@ body.print-preparing .pool-reserve-mini.radial-chart{width:min(300px,100%);heigh
     <div class="card fw">
       <h2>LP Event Flow by Bucket (Gross Added, Gross Removed &amp; Net)</h2>
       <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 10px">Green bars are measured target-token additions; red bars are measured removals plotted below zero; the blue line is net LP flow = added − removed. Gross totals measure LP activity and may count the same capital repeatedly when positions are removed and recreated; they are not permanent external inflow/outflow. LP-event flow also differs from pool reserve change because swaps and direct token transfers can change balances.</p>
-      <div class="coverage-note"><strong>Measured LP-event flow</strong>1 adds · 0 removals · gross added 130.00K CRV · gross removed 0.0000 CRV · net +130.00K CRV. Amount coverage: 1 known actions, 0 missing. Gross totals may count capital that is removed and re-added.</div>
+      <div class="coverage-note"><strong>Measured LP-event flow</strong>1 adds · 0 removals · gross added 130.00K CRV · gross removed 0.0000 CRV · net +130.00K CRV. Amount coverage: 1 known actions, 0 missing. V4 amounts prefer PoolManager callerDelta (principal + fees); tick math is only the fallback. Gross totals may count capital that is removed and re-added.</div>
       <div class="chart-box"><canvas id="c8"></canvas></div>
     </div>
   </div>
@@ -308,10 +308,13 @@ body.print-preparing .pool-reserve-mini.radial-chart{width:min(300px,100%);heigh
   <div class="grid">
     <div class="card fw">
       <h2>Liquidity Removal Activity (Cumulative, Not Permanent Exit)</h2>
-      <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 12px">Read this table in two layers: a negative raw liquidity change confirms a removal action; calculating removed CRV, USD value, and the ratio to a reference pool estimate additionally requires token amounts. The ratio uses a fixed reference estimate rather than event-time TVL, can exceed 100%, and must not be read as the percentage of capital that permanently left. Missing token amounts are never converted to zero.</p>
+      <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 12px">Pool and event tables show measured CRV and estimated USD removed in this window. Removals that returned only the other token (0 CRV) are omitted. Later adds can make a large total without meaning the pool was emptied at the open. Missing token amounts are never converted to zero.</p>
 
 
-      <div class="scroll"><table><thead><tr><th>Block</th><th>Pool</th><th>Events</th><th>Actor / Scope</th><th>Raw Liquidity Change</th><th>Removed (CRV)</th><th>Est. USD</th><th>Removed / Reference Pool Estimate</th><th>Protocol</th></tr></thead><tbody><tr><td colspan="9" style="text-align:center;padding:24px;color:#64748b">No liquidity removal events in this window.</td></tr></tbody></table></div>
+      <div class="scroll"><table><thead><tr><th>Block</th><th>Pool</th><th>Events</th><th>Actor / Scope</th><th>Removed (CRV)</th><th>Est. USD</th><th>Protocol</th></tr></thead><tbody><tr><td colspan="7" style="text-align:center;padding:24px;color:#64748b">No liquidity removal events in this window.</td></tr></tbody></table></div>
+      <h2 style="margin-top:22px">Top Addresses by Cumulative Removal</h2>
+      <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 12px">Ranked by measured CRV removed in this window, not by share of starting inventory or pool size. Later adds can make a large total without meaning the address exited a small opening position. V3 burns use the NFT owner when DecreaseLiquidity has a tokenId; leftover contract actors (MEV/vaults) use the transaction signer. V4 Position Manager senders are replaced by the NFT owner when salt maps to a tokenId.</p>
+<div class="coverage-note">No attributed withdrawal addresses in this window. V2/V3 burns may still be pool/block aggregates without an actor.</div>
     </div>
   </div>
 
@@ -332,6 +335,10 @@ const poolReserveRows = [
   }
 ];
 const addressLabels = {
+  "0xc36442b4a4522e871399cd717abdd847ab11fe88": "Uniswap V3 Position Manager",
+  "0xbd216513d74c8cf14cf4747e6aaa6420ff64ee9e": "Uniswap V4 Position Manager",
+  "0x1f2f10d1c40777ae1da742455c65828ff36df387": "Jared 2.0 MEV bot",
+  "0xae2fc483527b8ef99eb5d9b44875f005ba1fae13": "jaredfromsubway.eth",
   "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": "WETH",
   "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": "USDC",
   "0xdac17f958d2ee523a2206206994597c13d831ec7": "USDT",

@@ -31,6 +31,7 @@ End-to-end **Ethereum mainnet** tool for token liquidity / crash analysis: disco
 | TURBO LP gap / price impact v1 | cohort 25241305–25886879; follow-up to finalized 25944714 | 2 Factory-discovered TURBO/WETH V3 pools | Exact-wallet campaign attribution | Research: positive descriptive excess; clustered uncertainty crosses zero | 2026-09-10 | `notebooks/turbo_lp_gap_slippage.ipynb` |
 | TURBO LP event ledger v1 | cohort 25241305–25886879; follow-up to finalized 25944714 | 2 Factory-discovered TURBO/WETH V3 pools | Exact-wallet lower-bound attribution | Research facts: 447 Burn events → 159 non-overlapping campaigns | 2026-09-10 | `notebooks/turbo_lp_event_ledger.ipynb` |
 | TURBO LP-whale feasibility | 25241305–25886879 (latest frozen 90d) | 1 dominant TURBO/WETH V3 pool | 2 observed owners in main gate; 446/447 events from one EOA | Research: repeated new-NFT rebalancing, not independent exits | 2026-09-02 | `notebooks/turbo_lp_whale_feasibility.ipynb` |
+| uPEG May–Aug repair | 24996368–25878705 | 107 verified | Existing snapshots retained | Coverage repair; provisional heuristic | 2026-09-10 | `output-upeg-may-sep-2026/` |
 | CRV chart refresh | 25875738–25880738 | 1 dominant CRV/WETH V3 pool | Pool-scoped Transfers; holder ranking skipped | 0.1971 LOW (short-window heuristic) | 2026-09-01 | `output-crv-univ3-5000-25880738/` |
 | OM event preview | 22251846–22261846 | 7 OM pools (V2/V3) | Pool-scoped Transfers; holder ranking skipped | 0.3346 LOW (DEX-only heuristic) | 2026-09-01 | `output-om-event-10k/` |
 | GALA incident/control | 19698731–20127891 (two frozen 30d windows) | 2 GALA/WETH (V2/V3) | Pool-scoped Transfers; holder ranking skipped | Research: 0/3 inventory hypotheses confirmed; hand-selected line closed | 2026-08-29 | `output-gala-control-30d/` + `output-gala-event-30d/` |
@@ -79,6 +80,8 @@ python3 -m src.cli dashboard --output-dir output-turbo-30d-25580851
 ```
 
 ### Recent Findings (uPEG)
+
+- uPEG May–August data repaired in `output-upeg-may-sep-2026/`: May caches retained, June onward re-indexed by RPC across all 96 verified V4 pools plus V2/V3. Output: 248,515 swaps, 15,362 liquidity/collection records, 360,542 Transfers; all 12 custody-balance reconciliations pass. Notebook withdrawal charts now rebuild from current artifacts. May coverage and LP ownership remain qualified. Evidence: `research-notes/upeg-tail-refresh-20260910.md`.
 
 - Directional audit of the verified `2026-05-07 12:00 UTC` V3 bucket found 48 sell-side and 71 buy-side Swap events: 39.5356 uPEG gross sells, 30.2685 gross buys, and 9.2671 net signed Swap flow into the pool. Actual uPEG Transfer net flow and the historical balance delta both equal 10.106754360913178103 uPEG exactly; the 0.83964 Transfer-minus-Swap residual proves that Swap amounts alone are not a complete cash-flow ledger for this token/window. Evidence and guardrails are in `research-notes/upeg-directional-flow-audit.md`.
 - Across 1/2/4/6-hour buckets, uPEG price return versus target-reserve change remains negative and passes the pre-specified zero-lag BH-FDR family (one-hour Pearson -0.6791, Spearman -0.7757; q=0.0045). No non-zero lag survives the 576-test exploratory family, so this remains a within-pool AMM inventory relationship rather than a predictive signal.
@@ -325,6 +328,7 @@ See `SUPPORTED_PROTOCOLS.md` for contract addresses and notes.
 | TURBO LP 空窗/价格冲击 v1 | 候选期 25241305–25886879；追踪至 finalized 25944714 | Factory 动态发现的 2 个 TURBO/WETH V3 池 | 同钱包 campaign 口径 | 研究：描述性差异为正；成组区间跨 0 | 2026-09-10 | `notebooks/turbo_lp_gap_slippage.ipynb` |
 | TURBO LP 事件账本 v1 | 候选期 25241305–25886879；追踪至 finalized 25944714 | Factory 动态发现的 2 个 TURBO/WETH V3 池 | 同钱包下限口径 | 研究事实：447 个 Burn → 159 个不重叠 campaign | 2026-09-10 | `notebooks/turbo_lp_event_ledger.ipynb` |
 | TURBO LP 大户可行性 | 25241305–25886879（冻结的近期 90 天） | 1 个占主导的 TURBO/WETH V3 池 | 主门槛中 2 个观测所有者；446/447 次来自一个 EOA | 研究：反复用新 NFT 重建，不是独立退出 | 2026-09-02 | `notebooks/turbo_lp_whale_feasibility.ipynb` |
+| uPEG 五月至八月补跑 | 24996368–25878705 | 107 个已验证池 | 沿用历史快照 | 覆盖修复；风险分仍为启发式 | 2026-09-10 | `output-upeg-may-sep-2026/` |
 | CRV 图表补全 | 25875738–25880738 | 1 个占主导的 CRV/WETH V3 池 | 仅池级 Transfer；跳过 holder 排名 | 0.1971 低（短窗口启发式） | 2026-09-01 | `output-crv-univ3-5000-25880738/` |
 | OM 事件预览 | 22251846–22261846 | 7 个 OM 池（V2/V3） | 仅池级 Transfer；跳过 holder 排名 | 0.3346 低（仅 DEX 启发式） | 2026-09-01 | `output-om-event-10k/` |
 | GALA 事件/对照 | 19698731–20127891（两个冻结的 30 天窗口） | 2 个 GALA/WETH（V2/V3） | 仅池级 Transfer；跳过 holder 排名 | 研究：0/3 库存假设确认；人工挑选案例线关闭 | 2026-08-29 | `output-gala-control-30d/` + `output-gala-event-30d/` |
@@ -373,6 +377,8 @@ python3 -m src.cli dashboard --output-dir output-turbo-30d-25580851
 ```
 
 ### 近期发现（uPEG）
+
+- uPEG 五月至八月数据已修复，统一保存在 `output-upeg-may-sep-2026/`：五月复用缓存，六月起通过 RPC 补抓全部 96 个已验证 V4 池及 V2/V3。合计 248,515 条 Swap、15,362 条流动性/领取记录、360,542 条 Transfer；12 个托管地址余额对账全部通过。撤资图改为读取当前结果；五月覆盖和 LP 身份仍保留限制说明。详见 `research-notes/upeg-tail-refresh-20260910.md`。
 
 - 对已人工核验的 `2026-05-07 12:00 UTC` V3 小时桶做方向审计：48 个卖出侧、71 个买入侧 Swap，卖出总量 39.5356 uPEG、买入总量 30.2685 uPEG，带符号 Swap 净流入池 9.2671 uPEG。实际 uPEG Transfer 净流入与历史池余额增加都精确等于 10.106754360913178103 uPEG；0.83964 uPEG 的“Transfer 减 Swap”残差证明该代币/窗口不能只用 Swap 数量作为完整资金流账本。证据与解释边界见 `research-notes/upeg-directional-flow-audit.md`。
 - uPEG 的价格收益与目标代币储备变化在 1/2/4/6 小时桶中持续负相关，并通过预先定义的同期 BH-FDR 家族（1 小时 Pearson -0.6791、Spearman -0.7757，q=0.0045）。576 个探索性非零 lag 没有一个通过校正，因此该结果只解释为 AMM 池内库存关系，不解释为预测信号。

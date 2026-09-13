@@ -22,6 +22,8 @@ from ..models import NormalizedEvent, Position, VerifiedPool
 from .series import build_analysis_series, write_analysis_series_human_outputs
 
 _ZERO_ADDR = "0x0000000000000000000000000000000000000000"
+# Ignore dust leftovers when computing withdrawal / from-block ratios.
+_MIN_TVL_FOR_SHARE = 10**12
 # structure.md: month → daily 00:00; week/day → hourly.
 # ~7.2k blocks/day; ≥ ~25 days treated as month-scale when chart_span=auto.
 _MONTH_MIN_BLOCKS = 180_000
@@ -222,9 +224,13 @@ def estimate_price_v3(
     return price if price > 0 else 0.0
 
 
+_PAIR_SERIES_PREFIX = "pair:"
+
+
 def _guess_quote_symbol(addr: str) -> str:
     addr_lower = addr.lower()
     known = {
+        _ZERO_ADDR.lower(): "ETH",
         "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": "WETH",
         "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": "USDC",
         "0xdac17f958d2ee523a2206206994597c13d831ec7": "USDT",
@@ -1108,6 +1114,62 @@ def _resolve_swap_pool(
     return raw_address, None
 
 
+def _pair_series_key(quote_addr: str) -> str:
+    """Stable chart key when a swap cannot be pinned to one verified pool."""
+    return "{}{}".format(_PAIR_SERIES_PREFIX, (quote_addr or _ZERO_ADDR).lower())
+
+
+def _side_from_event_tokens(
+    evt: dict[str, Any],
+    target_token: str,
+) -> Optional[tuple[str, str, int]]:
+    """Resolve target vs quote from sold/bought addresses on the swap row."""
+    target = (target_token or "").lower()
+    t0 = (evt.get("token0_address") or "").lower()
+    t1 = (evt.get("token1_address") or "").lower()
+    if not target or not t0 or not t1 or t0 == t1:
+        return None
+    if target == t0:
+        return "0", t1, _known_decimals(t1)
+    if target == t1:
+        return "1", t0, _known_decimals(t0)
+    return None
+
+
+def _resolve_swap_volume_series(
+    evt: dict[str, Any],
+    pool_meta: dict[str, dict[str, Any]],
+    target_token: str,
+    token_decimals: int,
+) -> tuple[Optional[str], Optional[dict[str, Any]], Optional[tuple[str, str, int]]]:
+    """Attribute a swap to a unique pool, or to its quote-token pair series.
+
+    Uniswap V4 trades in ``dex.trades`` share the PoolManager address. When
+    several verified pools have the same token pair, do not pick one at
+    random; still count the target-token amount under ``pair:<quote>``.
+    """
+    pa, meta = _resolve_swap_pool(evt, pool_meta)
+    if meta:
+        side_info = _resolve_target_side(
+            evt, meta["token0"], meta["token1"], target_token, token_decimals
+        )
+        if side_info is not None:
+            return pa, meta, side_info
+    side_info = _side_from_event_tokens(evt, target_token)
+    if side_info is None:
+        return pa or None, None, None
+    quote_addr = side_info[1]
+    key = _pair_series_key(quote_addr)
+    fallback_meta = {
+        "protocol": str(evt.get("protocol") or "uniswap").lower(),
+        "version": str(evt.get("version") or "").lower() or "v4",
+        "token0": (evt.get("token0_address") or "").lower(),
+        "token1": (evt.get("token1_address") or "").lower(),
+        "attribution": "pair",
+    }
+    return key, fallback_meta, side_info
+
+
 def calculate_price_timeline_from_swaps(
     events_all: list[dict],
     verified_pools: list[VerifiedPool],
@@ -1140,13 +1202,10 @@ def calculate_price_timeline_from_swaps(
     for evt in events_all or []:
         if (evt.get("event_type") or "").upper() != "SWAP":
             continue
-        pa, meta = _resolve_swap_pool(evt, pool_meta)
-        if not meta or not pa:
-            continue
-        side_info = _resolve_target_side(
-            evt, meta["token0"], meta["token1"], target_token, token_decimals
+        pa, meta, side_info = _resolve_swap_volume_series(
+            evt, pool_meta, target_token, token_decimals
         )
-        if side_info is None:
+        if not meta or not pa or side_info is None:
             continue
         try:
             a0 = abs(int(evt.get("token0_amount", "0") or "0"))
@@ -1400,16 +1459,20 @@ def calculate_volume_metrics(
     volume_by_pool: dict[str, float] = defaultdict(float)
     usd_by_pool: dict[str, float] = defaultdict(float)
     quote_by_pool: dict[str, str] = {}
+    series_meta: dict[str, dict[str, Any]] = dict(pool_meta)
     buckets: dict[int, dict[str, dict[str, Any]]] = defaultdict(
         lambda: defaultdict(lambda: {"volume_in_token": 0.0, "volume_usd": 0.0})
     )
     ambiguous_events = 0
+    pair_attributed_events = 0
 
     for evt in events_all or []:
         if (evt.get("event_type") or "").upper() != "SWAP":
             continue
-        pa, meta = _resolve_swap_pool(evt, pool_meta)
-        if not meta:
+        pa, meta, side_info = _resolve_swap_volume_series(
+            evt, pool_meta, target_token, token_decimals
+        )
+        if not meta or not pa or side_info is None:
             ambiguous_events += 1
             continue
         try:
@@ -1418,13 +1481,10 @@ def calculate_volume_metrics(
         except (TypeError, ValueError):
             continue
 
-        side_info = _resolve_target_side(
-            evt, meta["token0"], meta["token1"], target_token, token_decimals
-        )
-        if side_info is None:
-            ambiguous_events += 1
-            continue
         target_side, quote_addr, quote_decimals = side_info
+        if meta.get("attribution") == "pair":
+            pair_attributed_events += 1
+        series_meta.setdefault(pa, meta)
         if target_side == "0":
             token_vol = a0 / (10 ** token_decimals)
             quote_raw = a1
@@ -1460,13 +1520,15 @@ def calculate_volume_metrics(
 
     volume_by_pool_out = {}
     for pa, vol in volume_by_pool.items():
+        meta = series_meta.get(pa) or {}
         volume_by_pool_out[pa] = {
-            "protocol": pool_meta[pa]["protocol"],
-            "version": pool_meta[pa]["version"],
+            "protocol": meta.get("protocol", ""),
+            "version": meta.get("version", ""),
             "volume_in_token": round(vol, 6),
             "volume_usd": round(usd_by_pool[pa], 2) if usd_by_pool.get(pa) else None,
             "share": round(vol / total_volume, 6) if total_volume else 0.0,
             "quote_symbol": quote_by_pool.get(pa, ""),
+            "attribution": meta.get("attribution") or "pool",
         }
 
     volume_timeline = [
@@ -1490,9 +1552,14 @@ def calculate_volume_metrics(
         "volume_timeline": volume_timeline,
         "bucket_seconds": bucket_seconds,
         "ambiguous_events": ambiguous_events,
+        "pair_attributed_events": pair_attributed_events,
         "note": (
-            "Legacy Dune events without token addresses are inferred by "
-            "decimal magnitude; same-decimals quote pools are skipped."
+            "Unique verified pools keep their own series. Swaps that only "
+            "identify a token pair (typical Uniswap V4 PoolManager rows) "
+            "are counted under pair:<quote> instead of being dropped. "
+            "Legacy rows without token addresses still use decimal-magnitude "
+            "inference; same-decimals quotes stay skipped when the pair is "
+            "unknown."
         ),
     }
 
@@ -1584,6 +1651,52 @@ def calculate_lp_concentration(
     }
 
 
+def from_block_tvl_by_pool(
+    timeline: Optional[list[dict]],
+    from_block: int = 0,
+) -> dict[str, int]:
+    """Earliest target-token reserve at or after ``from_block`` for each pool.
+
+    Prefers ``balance_raw`` (one-sided target reserve) so the unit matches
+    removed target-token amounts. Snapshots before ``from_block`` are used
+    only when a pool has no later observation.
+    """
+    chosen: dict[str, tuple[int, int, bool]] = {}
+    start = max(0, int(from_block or 0))
+    for row in timeline or []:
+        pool = str(row.get("pool_address") or "").lower()
+        if not pool:
+            continue
+        try:
+            snapshot = int(row.get("snapshot_block") or 0)
+            raw = int(row.get("balance_raw") or row.get("tvl_in_token") or 0)
+        except (TypeError, ValueError):
+            continue
+        if snapshot <= 0 or raw <= 0:
+            continue
+        at_or_after = snapshot >= start if start else True
+        prev = chosen.get(pool)
+        if prev is None:
+            chosen[pool] = (snapshot, raw, at_or_after)
+            continue
+        prev_snap, _, prev_ok = prev
+        if at_or_after and not prev_ok:
+            chosen[pool] = (snapshot, raw, True)
+        elif at_or_after == prev_ok and snapshot < prev_snap:
+            chosen[pool] = (snapshot, raw, at_or_after)
+    return {
+        pool: raw
+        for pool, (_snap, raw, _ok) in chosen.items()
+        if raw >= _MIN_TVL_FOR_SHARE
+    }
+
+
+def _capped_share(removed_raw: int, tvl_raw: int) -> Optional[float]:
+    if tvl_raw < _MIN_TVL_FOR_SHARE or removed_raw <= 0:
+        return None
+    return min(1.0, removed_raw / tvl_raw)
+
+
 def calculate_withdrawal_severity(
     events_liquidity: list[dict],
     pre_event_tvl: int,
@@ -1615,8 +1728,9 @@ def calculate_withdrawal_severity(
     pool_tvl = {
         str(k).lower(): int(v)
         for k, v in (tvl_by_pool or {}).items()
-        if int(v or 0) > 0
+        if int(v or 0) >= _MIN_TVL_FOR_SHARE
     }
+    total_from_block_tvl = sum(pool_tvl.values())
     target_lower = (target_token or "").lower()
     scale = 10 ** max(0, int(token_decimals or 18))
 
@@ -1703,6 +1817,17 @@ def calculate_withdrawal_severity(
             "pool_tvl_raw": 0,
         }
     )
+    per_address: dict[str, dict[str, Any]] = defaultdict(
+        lambda: {
+            "num_withdrawals": 0,
+            "removed_target_raw": 0,
+            "removed_target_decimal": 0.0,
+            "removed_usd": 0.0,
+            "versions": set(),
+        }
+    )
+    unattributed_events = 0
+    unattributed_target_raw = 0
     legacy_total = 0
     total_target_raw = 0
     total_usd = 0.0
@@ -1767,11 +1892,7 @@ def calculate_withdrawal_severity(
         removed_decimal = removed_raw / scale
         pool_key = (pool.pool_address or evt.get("pool_address") or "").lower()
         pool_tvl_raw = pool_tvl.get(pool_key, 0)
-        pool_share = (
-            removed_raw / pool_tvl_raw
-            if pool_tvl_raw > 0 and removed_raw > 0
-            else None
-        )
+        pool_share = _capped_share(removed_raw, pool_tvl_raw)
         amount_usd = float(evt.get("amount_usd") or 0)
         usd = None
         usd_source = ""
@@ -1832,6 +1953,20 @@ def calculate_withdrawal_severity(
         agg["protocol"] = meta.get("protocol", "")
         agg["version"] = meta.get("version", "")
 
+        actor = _eth_address(evt.get("actor") or evt.get("recipient") or "")
+        if actor and actor != _ZERO_ADDR:
+            addr_agg = per_address[actor]
+            addr_agg["num_withdrawals"] += event_count
+            addr_agg["removed_target_raw"] += removed_raw
+            addr_agg["removed_target_decimal"] += removed_decimal
+            addr_agg["removed_usd"] += usd or 0.0
+            addr_agg["address"] = actor
+            if version:
+                addr_agg["versions"].add(str(version).lower())
+        else:
+            unattributed_events += event_count
+            unattributed_target_raw += removed_raw
+
     severity = (
         total_target_raw / pre_event_tvl
         if pre_event_tvl > 0 and total_target_raw > 0
@@ -1841,11 +1976,7 @@ def calculate_withdrawal_severity(
 
     per_pool_rows = []
     for pa, agg in per_pool.items():
-        share = (
-            agg["removed_target_raw"] / agg["pool_tvl_raw"]
-            if agg["pool_tvl_raw"] > 0 and agg["removed_target_raw"] > 0
-            else None
-        )
+        share = _capped_share(agg["removed_target_raw"], agg["pool_tvl_raw"])
         per_pool_rows.append({
             "pool_address": agg.get("pool_address", pa),
             "protocol": agg.get("protocol", ""),
@@ -1858,6 +1989,29 @@ def calculate_withdrawal_severity(
             "pool_tvl_share": round(share, 8) if share is not None else None,
         })
     per_pool_rows.sort(
+        key=lambda r: (
+            float(r.get("removed_usd") or 0),
+            float(r.get("removed_target_decimal") or 0),
+        ),
+        reverse=True,
+    )
+
+    per_address_rows = []
+    for addr, agg in per_address.items():
+        share = _capped_share(agg["removed_target_raw"], total_from_block_tvl)
+        versions = sorted(agg.get("versions") or [])
+        per_address_rows.append({
+            "address": agg.get("address", addr),
+            "num_withdrawals": agg["num_withdrawals"],
+            "removed_target_raw": agg["removed_target_raw"],
+            "removed_target_decimal": round(agg["removed_target_decimal"], 8),
+            "removed_usd": round(agg["removed_usd"], 2) if agg["removed_usd"] else None,
+            "from_block_tvl_share": (
+                round(share, 8) if share is not None else None
+            ),
+            "versions": versions,
+        })
+    per_address_rows.sort(
         key=lambda r: (
             float(r.get("removed_usd") or 0),
             float(r.get("removed_target_decimal") or 0),
@@ -1879,8 +2033,14 @@ def calculate_withdrawal_severity(
         "total_removed_target_decimal": round(total_target_raw / scale, 8),
         "total_removed_usd": round(total_usd, 2) if total_usd else None,
         "pre_event_tvl": pre_event_tvl,
+        "from_block_tvl": total_from_block_tvl,
+        "unattributed_withdrawals": unattributed_events,
+        "unattributed_removed_target_decimal": round(
+            unattributed_target_raw / scale, 8
+        ),
         "withdrawal_severity": round(severity, 6),
         "per_pool_removals": per_pool_rows,
+        "per_address_removals": per_address_rows,
         "normalization_note": (
             "Removed target-token amount is normalized to the pool side holding "
             "the target token (no token0 + token1 double counting). USD prefers "
@@ -2357,7 +2517,7 @@ def calculate_all_metrics(
         verified_pools=verified_pools,
         target_token=target_token,
         token_decimals=token_decimals,
-        tvl_by_pool=pool_conc.get("per_pool_tvl"),
+        tvl_by_pool=from_block_tvl_by_pool(timeline, from_block),
         timeline=timeline,
     )
 

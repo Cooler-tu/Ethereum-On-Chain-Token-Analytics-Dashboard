@@ -34,7 +34,8 @@ Design notes: see [`structure.md`](./structure.md).
 | `transfers` | Index transfers (clustering uses filtered cluster_*) |
 | `cluster_transfers` / `cluster_gas_payers` / `cluster_traces` | Wallet clustering |
 | `token_meta` | Symbol / decimals |
-| `liquidity_uniswap_*` | Index LP events |
+| `liquidity_uniswap_*` | Index LP events (V4 is row-level sender + ticks) |
+| `v4_sqrt_price_by_block` / `v4_sqrt_price_init` | V4 LP token-amount math |
 | `positions_uniswap_v3_snapshot` | Primary V3 LP |
 | `positions_*_base` / `_liquidity` / `positions_nft_owners` | Staged V3 fallback |
 | `positions_uniswap_v4_liquidity` | V4 LP |

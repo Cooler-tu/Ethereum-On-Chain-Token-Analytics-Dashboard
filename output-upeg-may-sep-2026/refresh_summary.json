@@ -1,0 +1,144 @@
+{
+  "from_block": 24996368,
+  "refresh_from_block": 25218798,
+  "to_block": 25878705,
+  "refresh_from_utc": "2026-06-01T00:00:00Z",
+  "token": "0x44b28991B167582F18BA0259e0173176ca125505",
+  "phase": "merged",
+  "counts": {
+    "swaps": 248515,
+    "liquidity_events": 15362,
+    "transfers": 360542
+  },
+  "rpc_swap_count": 81154,
+  "retained_tail_swaps_not_rpc_verified": 198,
+  "may_v4_restored": 9357,
+  "may_transfers_restored": 252210,
+  "scope": "May reused local cache; June-August RPC for 106 verified Uniswap pools and all target-token Transfers. Existing other-DEX swaps retained. LP beneficial-owner history is incomplete; V4 amounts are prior-price estimates.",
+  "validation": {
+    "balance_reconciliation": [
+      {
+        "custody_address": "0x000000000004444c5dc75cb358380d2e3de08a90",
+        "start_balance_raw": "1016548391789166393327",
+        "end_balance_raw": "1067308077090774548347",
+        "transfer_net_raw": "50759685301608155020",
+        "residual_raw": "0",
+        "exact_match": true
+      },
+      {
+        "custody_address": "0x0a31e71c45b5f624d44c97689df42564b34eaa84",
+        "start_balance_raw": "0",
+        "end_balance_raw": "248540021",
+        "transfer_net_raw": "248540021",
+        "residual_raw": "0",
+        "exact_match": true
+      },
+      {
+        "custody_address": "0x11242c90da9ab6e673c57cf41b81418c30afa6f8",
+        "start_balance_raw": "0",
+        "end_balance_raw": "13411338691951",
+        "transfer_net_raw": "13411338691951",
+        "residual_raw": "0",
+        "exact_match": true
+      },
+      {
+        "custody_address": "0x1441ffb9ee7700cc7ed3692856f5267174131362",
+        "start_balance_raw": "0",
+        "end_balance_raw": "1",
+        "transfer_net_raw": "1",
+        "residual_raw": "0",
+        "exact_match": true
+      },
+      {
+        "custody_address": "0x1f7f95f5d7b53df049d3215ba657b00591b2a117",
+        "start_balance_raw": "136364097325055645",
+        "end_balance_raw": "344054496182162",
+        "transfer_net_raw": "-136020042828873483",
+        "residual_raw": "0",
+        "exact_match": true
+      },
+      {
+        "custody_address": "0x21ff5cf76f562c6fb3871b59133a9e214ebc0078",
+        "start_balance_raw": "7074067748783804479",
+        "end_balance_raw": "73556624565972545",
+        "transfer_net_raw": "-7000511124217831934",
+        "residual_raw": "0",
+        "exact_match": true
+      },
+      {
+        "custody_address": "0x38f0ddc5e8c7dc5cc820bdb0204850e7743fe661",
+        "start_balance_raw": "5557418491604571",
+        "end_balance_raw": "5557418491604571",
+        "transfer_net_raw": "0",
+        "residual_raw": "0",
+        "exact_match": true
+      },
+      {
+        "custody_address": "0x52180798aa05745aceff7e487e54845ae4f7f698",
+        "start_balance_raw": "0",
+        "end_balance_raw": "1",
+        "transfer_net_raw": "1",
+        "residual_raw": "0",
+        "exact_match": true
+      },
+      {
+        "custody_address": "0x7059a9f16dd2405aef3dd4f70a89127ce577a890",
+        "start_balance_raw": "6992202404523239232",
+        "end_balance_raw": "3685737296018430",
+        "transfer_net_raw": "-6988516667227220802",
+        "residual_raw": "0",
+        "exact_match": true
+      },
+      {
+        "custody_address": "0x84a69fcd071d5c36ef9ca3a31b1ff3aefb314230",
+        "start_balance_raw": "1",
+        "end_balance_raw": "1",
+        "transfer_net_raw": "0",
+        "residual_raw": "0",
+        "exact_match": true
+      },
+      {
+        "custody_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+        "start_balance_raw": "24635000141784511998",
+        "end_balance_raw": "16953674574505001452",
+        "transfer_net_raw": "-7681325567279510546",
+        "residual_raw": "0",
+        "exact_match": true
+      },
+      {
+        "custody_address": "0xdefcfed72b78099ca4a213614348c0057c50c0f0",
+        "start_balance_raw": "0",
+        "end_balance_raw": "4802094954628550",
+        "transfer_net_raw": "4802094954628550",
+        "residual_raw": "0",
+        "exact_match": true
+      }
+    ],
+    "all_exact": true,
+    "monthly_counts": {
+      "swaps": {
+        "2026-05": 167163,
+        "2026-06": 25252,
+        "2026-07": 19494,
+        "2026-08": 36606
+      },
+      "liquidity_events": {
+        "2026-05": 12932,
+        "2026-06": 879,
+        "2026-07": 486,
+        "2026-08": 1065
+      },
+      "transfers": {
+        "2026-05": 252210,
+        "2026-06": 37368,
+        "2026-07": 25509,
+        "2026-08": 45455
+      }
+    },
+    "note": "Exact net-balance reconciliation is a consistency check, not proof against offsetting missing transfers. May is reused, not re-scanned."
+  },
+  "may_swaps_unchanged": 167163,
+  "tests": "147 passed, 20 skipped",
+  "raw_storage": "Full raw and canonical event tables remain local in this output directory; compact summaries and generated site are committed.",
+  "exact_tick_math": "Integer tick boundaries eliminate extreme-tick phantom token amounts"
+}

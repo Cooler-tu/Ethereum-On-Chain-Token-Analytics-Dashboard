@@ -1,0 +1,49 @@
+{
+  "final_score": 0.1367,
+  "risk_level": "LOW",
+  "raw_score": 0.4667,
+  "evidence_confidence": 0.82,
+  "migration_adjusted": true,
+  "migration_note": "Liquidity migration detected \u2014 reducing risk by 0.30.",
+  "features": {
+    "pool_concentration": {
+      "value": 0.9948,
+      "weight": 0.15,
+      "description": "Main pool holds 99.48% of total DEX liquidity.",
+      "raw_data": 0.994839
+    },
+    "lp_concentration": {
+      "value": 0.0,
+      "weight": 0.15,
+      "description": "Largest LP holds 0.00% of pool shares.",
+      "raw_data": 0.0
+    },
+    "withdrawal_severity": {
+      "value": 1.0,
+      "weight": 0.2,
+      "description": "Liquidity removed is 100.00% of reference TVL.",
+      "raw_data": 1.0
+    },
+    "temporal_proximity": {
+      "value": 0.45,
+      "weight": 0.15,
+      "description": "No incident block \u2014 7025 liquidity removals in window."
+    },
+    "role_sensitivity": {
+      "value": 0.0,
+      "weight": 0.15,
+      "description": "Deployer unknown \u2014 role sensitivity not scored."
+    },
+    "market_impact": {
+      "value": 0.0,
+      "weight": 0.15,
+      "description": "No incident block \u2014 market impact requires a crash reference."
+    },
+    "combined_activity": {
+      "value": 1.0,
+      "weight": 0.05,
+      "description": "Suspicious activity: 7025 withdrawals and large sells detected."
+    }
+  },
+  "coverage_note": "Provisional: cached May coverage is not revalidated; LP identity incomplete; V4 tail principal amounts estimated from prior pool price. Holdings snapshots were retained."
+}

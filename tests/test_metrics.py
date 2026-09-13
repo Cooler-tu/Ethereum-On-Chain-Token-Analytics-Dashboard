@@ -11,6 +11,7 @@ from src.analysis.metrics import (
     calculate_volume_metrics,
     calculate_wallet_activity,
     calculate_withdrawal_severity,
+    from_block_tvl_by_pool,
 )
 
 
@@ -184,6 +185,49 @@ class WithdrawalNormalizationTest(unittest.TestCase):
         self.assertEqual(
             result["withdrawal_events"][0]["removed_target_decimal"], 0.0
         )
+
+    def test_from_block_tvl_prefers_earliest_snapshot_at_or_after_start(self):
+        pool = _pool().pool_address.lower()
+        tvl = from_block_tvl_by_pool(
+            [
+                {"pool_address": pool, "snapshot_block": 90, "balance_raw": "5000000000000000000"},
+                {"pool_address": pool, "snapshot_block": 100, "balance_raw": "8000000000000000000"},
+                {"pool_address": pool, "snapshot_block": 120, "balance_raw": "3000000000000000000"},
+                {"pool_address": pool, "snapshot_block": 100, "balance_raw": "2"},
+            ],
+            from_block=100,
+        )
+        self.assertEqual(tvl[pool], 8 * 10**18)
+
+    def test_share_is_capped_and_addresses_are_ranked(self):
+        pool = _pool()
+        actor = "0x1111111111111111111111111111111111111111"
+        result = calculate_withdrawal_severity(
+            [{
+                "event_type": "LIQUIDITY_REMOVE",
+                "block_number": 5,
+                "pool_address": pool.pool_address,
+                "protocol": "uniswap",
+                "version": "v3",
+                "actor": actor,
+                "source_event": "Burn",
+                "token0_amount": str(20 * 10**18),
+                "token1_amount": "0",
+                "liquidity_delta": "-1",
+                "amounts_available": True,
+                "quantification_status": "quantified",
+            }],
+            pre_event_tvl=10 * 10**18,
+            incident_block=0,
+            verified_pools=[pool],
+            target_token=TARGET,
+            token_decimals=18,
+            tvl_by_pool={pool.pool_address: 10 * 10**18},
+        )
+        self.assertEqual(result["per_pool_removals"][0]["pool_tvl_share"], 1.0)
+        self.assertEqual(result["per_address_removals"][0]["address"], actor.lower())
+        self.assertEqual(result["per_address_removals"][0]["from_block_tvl_share"], 1.0)
+        self.assertEqual(result["per_address_removals"][0]["removed_target_decimal"], 20.0)
 
 
 class WalletActivityTest(unittest.TestCase):
@@ -381,6 +425,8 @@ class LocalSwapAggregatesTest(unittest.TestCase):
             "block_number": 10,
             "block_timestamp": 1_700_000_000,
             "pool_address": pools[0].custody_address,
+            "protocol": "uniswap",
+            "version": "v4",
             "token0_address": TARGET,
             "token1_address": WETH,
             "token0_amount": "1000000000000000000",
@@ -395,9 +441,16 @@ class LocalSwapAggregatesTest(unittest.TestCase):
             [event], pools, TARGET, 18, bucket_seconds=3600
         )
 
-        self.assertEqual(prices, [])
-        self.assertEqual(volume["total_volume_in_token"], 0)
-        self.assertEqual(volume["ambiguous_events"], 1)
+        pair_key = "pair:" + WETH.lower()
+        pool_ids = {pool.pool_address.lower() for pool in pools}
+        self.assertEqual(volume["total_volume_in_token"], 1.0)
+        self.assertEqual(volume["ambiguous_events"], 0)
+        self.assertEqual(volume["pair_attributed_events"], 1)
+        self.assertEqual(volume["volume_by_pool"][pair_key]["attribution"], "pair")
+        self.assertTrue(pool_ids.isdisjoint(volume["volume_by_pool"]))
+        self.assertEqual(len(prices), 1)
+        self.assertEqual(prices[0]["pool_address"], pair_key)
+        self.assertEqual(prices[0]["price_usd"], 10.0)
 
     def test_exact_pool_address_wins_even_when_token_pair_is_duplicated(self):
         direct = _pool()

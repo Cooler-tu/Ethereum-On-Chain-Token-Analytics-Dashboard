@@ -1,0 +1,533 @@
+[
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1777593600,
+    "quote_usd": 2293.57,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25003538,
+    "source_log_index": 139
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1777680000,
+    "quote_usd": 2317.63,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25010732,
+    "source_log_index": 117
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1777766400,
+    "quote_usd": 2325.07,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25017909,
+    "source_log_index": 208
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1777852800,
+    "quote_usd": 2347.2399999999993,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25025058,
+    "source_log_index": 130
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1777939200,
+    "quote_usd": 2362.22,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25032248,
+    "source_log_index": 131
+  },
+  {
+    "pool_address": "0x21ff5cf76f562c6fb3871b59133a9e214ebc0078",
+    "day_ts": 1777939200,
+    "quote_usd": 2360.34,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25032194,
+    "source_log_index": 43
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1778025600,
+    "quote_usd": 2347.39,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25039260,
+    "source_log_index": 628
+  },
+  {
+    "pool_address": "0x21ff5cf76f562c6fb3871b59133a9e214ebc0078",
+    "day_ts": 1778025600,
+    "quote_usd": 2361.44,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25036910,
+    "source_log_index": 497
+  },
+  {
+    "pool_address": "0x84a69fcd071d5c36ef9ca3a31b1ff3aefb314230",
+    "day_ts": 1778025600,
+    "quote_usd": 1.000084,
+    "quote_symbol": "USDC",
+    "quote_token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    "source_block": 25032946,
+    "source_log_index": 341
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1778112000,
+    "quote_usd": 2292.13,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25046595,
+    "source_log_index": 443
+  },
+  {
+    "pool_address": "0x21ff5cf76f562c6fb3871b59133a9e214ebc0078",
+    "day_ts": 1778112000,
+    "quote_usd": 2290.57,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25046391,
+    "source_log_index": 265
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1778198400,
+    "quote_usd": 2307.6100000000006,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25053792,
+    "source_log_index": 136
+  },
+  {
+    "pool_address": "0x21ff5cf76f562c6fb3871b59133a9e214ebc0078",
+    "day_ts": 1778198400,
+    "quote_usd": 2290.84,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25051457,
+    "source_log_index": 59
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1778284800,
+    "quote_usd": 2327.89,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25060945,
+    "source_log_index": 292
+  },
+  {
+    "pool_address": "0x21ff5cf76f562c6fb3871b59133a9e214ebc0078",
+    "day_ts": 1778284800,
+    "quote_usd": 2331.62,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25060661,
+    "source_log_index": 4136
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1778371200,
+    "quote_usd": 2373.32,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25068116,
+    "source_log_index": 258
+  },
+  {
+    "pool_address": "0x21ff5cf76f562c6fb3871b59133a9e214ebc0078",
+    "day_ts": 1778371200,
+    "quote_usd": 2372.15,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25067987,
+    "source_log_index": 292
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1778457600,
+    "quote_usd": 2339.66,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25075289,
+    "source_log_index": 470
+  },
+  {
+    "pool_address": "0x21ff5cf76f562c6fb3871b59133a9e214ebc0078",
+    "day_ts": 1778457600,
+    "quote_usd": 2340.84,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25075029,
+    "source_log_index": 369
+  },
+  {
+    "pool_address": "0x21ff5cf76f562c6fb3871b59133a9e214ebc0078",
+    "day_ts": 1778544000,
+    "quote_usd": 2303.83,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25077397,
+    "source_log_index": 586
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1778544000,
+    "quote_usd": 2275.21,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25082454,
+    "source_log_index": 2232
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1778630400,
+    "quote_usd": 2256.78,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25089600,
+    "source_log_index": 318
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1778716800,
+    "quote_usd": 2285.7199999999993,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25096787,
+    "source_log_index": 719
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1778803200,
+    "quote_usd": 2223.6500000000005,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25103984,
+    "source_log_index": 232
+  },
+  {
+    "pool_address": "0x21ff5cf76f562c6fb3871b59133a9e214ebc0078",
+    "day_ts": 1778803200,
+    "quote_usd": 2269.54,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25098057,
+    "source_log_index": 145
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1778889600,
+    "quote_usd": 2179.61,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25111164,
+    "source_log_index": 124
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1778976000,
+    "quote_usd": 2121.49,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25118295,
+    "source_log_index": 398
+  },
+  {
+    "pool_address": "0x21ff5cf76f562c6fb3871b59133a9e214ebc0078",
+    "day_ts": 1778976000,
+    "quote_usd": 2177.08,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25111643,
+    "source_log_index": 1095
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1779062400,
+    "quote_usd": 2128.31,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25125523,
+    "source_log_index": 109
+  },
+  {
+    "pool_address": "0x21ff5cf76f562c6fb3871b59133a9e214ebc0078",
+    "day_ts": 1779062400,
+    "quote_usd": 2133.87,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25125253,
+    "source_log_index": 84
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1779148800,
+    "quote_usd": 2112.15,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25132702,
+    "source_log_index": 183
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1779235200,
+    "quote_usd": 2127.01,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25139880,
+    "source_log_index": 202
+  },
+  {
+    "pool_address": "0x21ff5cf76f562c6fb3871b59133a9e214ebc0078",
+    "day_ts": 1779235200,
+    "quote_usd": 2125.22,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25134605,
+    "source_log_index": 496
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1779321600,
+    "quote_usd": 2133.94,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25147015,
+    "source_log_index": 76
+  },
+  {
+    "pool_address": "0x21ff5cf76f562c6fb3871b59133a9e214ebc0078",
+    "day_ts": 1779321600,
+    "quote_usd": 2136.27,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25142745,
+    "source_log_index": 1126
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1779408000,
+    "quote_usd": 2064.55,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25154235,
+    "source_log_index": 1031
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1779494400,
+    "quote_usd": 2116.71,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25161413,
+    "source_log_index": 202
+  },
+  {
+    "pool_address": "0x21ff5cf76f562c6fb3871b59133a9e214ebc0078",
+    "day_ts": 1779494400,
+    "quote_usd": 2057.15,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25156471,
+    "source_log_index": 57
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1779580800,
+    "quote_usd": 2101.1,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25168580,
+    "source_log_index": 192
+  },
+  {
+    "pool_address": "0x21ff5cf76f562c6fb3871b59133a9e214ebc0078",
+    "day_ts": 1779580800,
+    "quote_usd": 2095.31,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25167818,
+    "source_log_index": 809
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1779667200,
+    "quote_usd": 2108.9900000000002,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25175682,
+    "source_log_index": 37
+  },
+  {
+    "pool_address": "0x21ff5cf76f562c6fb3871b59133a9e214ebc0078",
+    "day_ts": 1779667200,
+    "quote_usd": 2096.9,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25170002,
+    "source_log_index": 8
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1779753600,
+    "quote_usd": 2071.5200000000004,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25182932,
+    "source_log_index": 189
+  },
+  {
+    "pool_address": "0x21ff5cf76f562c6fb3871b59133a9e214ebc0078",
+    "day_ts": 1779753600,
+    "quote_usd": 2123.21,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25179657,
+    "source_log_index": 122
+  },
+  {
+    "pool_address": "0x7059a9f16dd2405aef3dd4f70a89127ce577a890",
+    "day_ts": 1779753600,
+    "quote_usd": 0.9999680000000001,
+    "quote_symbol": "USDC",
+    "quote_token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    "source_block": 25182936,
+    "source_log_index": 513
+  },
+  {
+    "pool_address": "0x7059a9f16dd2405aef3dd4f70a89127ce577a890",
+    "day_ts": 1779840000,
+    "quote_usd": 1.000129,
+    "quote_symbol": "USDC",
+    "quote_token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    "source_block": 25190094,
+    "source_log_index": 602
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1779840000,
+    "quote_usd": 2022.37,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25190065,
+    "source_log_index": 16
+  },
+  {
+    "pool_address": "0x21ff5cf76f562c6fb3871b59133a9e214ebc0078",
+    "day_ts": 1779840000,
+    "quote_usd": 2022.37,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25190065,
+    "source_log_index": 15
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1779926400,
+    "quote_usd": 2008.6700000000003,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25197173,
+    "source_log_index": 209
+  },
+  {
+    "pool_address": "0x7059a9f16dd2405aef3dd4f70a89127ce577a890",
+    "day_ts": 1779926400,
+    "quote_usd": 1.000107,
+    "quote_symbol": "USDC",
+    "quote_token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    "source_block": 25197271,
+    "source_log_index": 72
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1780012800,
+    "quote_usd": 2011.12,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25204456,
+    "source_log_index": 142
+  },
+  {
+    "pool_address": "0x7059a9f16dd2405aef3dd4f70a89127ce577a890",
+    "day_ts": 1780012800,
+    "quote_usd": 1.000013,
+    "quote_symbol": "USDC",
+    "quote_token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    "source_block": 25204400,
+    "source_log_index": 89
+  },
+  {
+    "pool_address": "0x21ff5cf76f562c6fb3871b59133a9e214ebc0078",
+    "day_ts": 1780012800,
+    "quote_usd": 2006.9,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25199946,
+    "source_log_index": 1460
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1780099200,
+    "quote_usd": 2020.0800000000002,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25211628,
+    "source_log_index": 192
+  },
+  {
+    "pool_address": "0x7059a9f16dd2405aef3dd4f70a89127ce577a890",
+    "day_ts": 1780099200,
+    "quote_usd": 1.000026,
+    "quote_symbol": "USDC",
+    "quote_token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    "source_block": 25211628,
+    "source_log_index": 215
+  },
+  {
+    "pool_address": "0x21ff5cf76f562c6fb3871b59133a9e214ebc0078",
+    "day_ts": 1780099200,
+    "quote_usd": 2019.45,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25211256,
+    "source_log_index": 1731
+  },
+  {
+    "pool_address": "0x7059a9f16dd2405aef3dd4f70a89127ce577a890",
+    "day_ts": 1780185600,
+    "quote_usd": 1.000149,
+    "quote_symbol": "USDC",
+    "quote_token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    "source_block": 25218797,
+    "source_log_index": 442
+  },
+  {
+    "pool_address": "0xdc893995d488e5be8ec8ca1db92cbec2a1ab0775",
+    "day_ts": 1780185600,
+    "quote_usd": 2001.08,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25218731,
+    "source_log_index": 155
+  },
+  {
+    "pool_address": "0x21ff5cf76f562c6fb3871b59133a9e214ebc0078",
+    "day_ts": 1780185600,
+    "quote_usd": 2004.6599999999999,
+    "quote_symbol": "WETH",
+    "quote_token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "source_block": 25218797,
+    "source_log_index": 439
+  }
+]

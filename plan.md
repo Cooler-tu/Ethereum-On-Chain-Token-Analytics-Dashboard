@@ -70,20 +70,22 @@
 - **TURBO LP-whale 90-day feasibility notebook** (2026-09-02) — executed `notebooks/turbo_lp_whale_feasibility.ipynb` over blocks `25241305–25886879`, recovered 451 pre-Burn NFT states, identified one EOA behind 446/447 main-gate events, and showed that almost all were followed by new-NFT reconstruction rather than independent permanent exits. Saved four embedded figures and compact CSVs under `notebooks/data/turbo_lp_whale/`; interpretation and user-owned decision points are recorded in `research-notes/turbo-lp-whale-feasibility-results-zh.md`.
 - **TURBO LP event ledger v1** (2026-09-10) — dynamically discovered and contract-verified both TURBO/WETH V3 fee-tier pools, froze the candidate cohort at block `25886879` and finalized follow-up at `25944714`, and generated raw-event, unique Burn→Mint-link, and non-overlapping campaign Parquet tables plus the executed `notebooks/turbo_lp_event_ledger.ipynb`. All 447 candidate Burns remain in the event layer; 448 Mint links are unique, and the net-flow state machine produces 159 campaigns with explicit 30-day censoring.
 - **TURBO LP gap / price-impact notebook v1** (2026-09-10) — executed `notebooks/turbo_lp_gap_slippage.ipynb` from the frozen event ledger, decoded 4,880 swaps across both Factory-discovered pools, built exact 80%/90% recovery gaps at 1h/6h/24h, and matched gap swaps one-to-one to same-pool, same-direction, similar-WETH-size uncontaminated controls. All six primary comparisons have a positive paired median excess of about 3.14–4.59 bps, but every campaign/day clustered 95% interval crosses zero; this is a descriptive signal, not a confirmed stable depth-risk effect.
+- **TURBO persistent non-return capital-destination case v1** (2026-09-10) — executed `notebooks/turbo_lp_capital_destination.ipynb` for the only uncensored 30-day zero-recovery campaign. Exact Position Manager evidence separates Burn principal from Collect receipt; all post-Collect TURBO/WETH wallet balances clear within one hour, and 23.4116 ETH is forwarded through one unlabeled EOA to a publicly labeled Shakepay service address within about 20 minutes. This is a single-case service-address receipt, not proof of fiat withdrawal or beneficial ownership.
+- **TURBO capital-destination reviewer reconciliation** (2026-09-13) — added an explicit native-ETH balance equation showing that the 23.4116 ETH outflow comprises 2.7846 ETH of confirmed WETH unwrapping plus 20.5603 ETH of other contemporaneous native inflow. The latter remains unattributed without internal-call traces. The Shakepay wording is now explicitly a third-party public label whose official/community status was not independently established.
 
 ---
 
 ## 🎯 Current
 
-- **User decision after TURBO gap study v1** — decide whether to strengthen the price-impact comparison with pre-Burn volatility and event-time active-liquidity controls, or accept the current unconfirmed descriptive result and move to persistent non-return / low-recovery fund tracing. Do not choose automatically.
+- **User review after TURBO capital-destination case v1** — inspect the executed Notebook 3 and decide whether this single-case chain closes the TURBO exit question or whether a comparable token/case should be selected. Do not generalize from one case or start a new token automatically.
 
 ---
 
 ## 📋 Backlog (ordered by priority)
 
-1. **Gap-study decision** — either add pre-Burn volatility and active-liquidity controls to test whether the small positive excess survives, or close this line as unconfirmed; keep Price Impact separate from user slippage and avoid trader-identity claims.
-2. **Exit trace notebook** — after the user's decision, trace only 30-day persistent non-return or net-recovery-below-90% cases into other TURBO pairs, transfers, and known exchange paths, preserving `No_Return_In_Scanned_TURBO_WETH_Pools` wording.
-3. **Cross-token comparable LP-whale notebook (conditional)** — reuse the frozen event/campaign definitions after the next token is selected.
+1. **Capital-destination case review** — the Burn→Collect distinction, first-hour balance clearance, two-hop ETH path, censoring rule, and amount reconciliation are now checked. Remaining human review is the provenance/status of the public Shakepay label; preserve the boundary between a labeled-address receipt and fiat/account attribution.
+2. **Gap-study refinement (optional)** — add pre-Burn volatility and active-liquidity controls only if the user wants to test whether the small positive price-impact excess survives; otherwise keep the effect unconfirmed.
+3. **Cross-token comparable LP-whale notebook (conditional)** — reuse the frozen event/campaign and destination-evidence definitions only after the next token is selected.
 4. **Advisor review feedback** — keep the existing visual notebook and concise Chinese narrative available for submission revisions without mixing the old correlation study into the new LP-whale findings.
 5. **Artifact publication policy** — keep compact summaries/reports/site files in Git while large canonical event tables remain local or external.
 6. **Incident registry and event-study panel (deferred)** — resume only with a stronger joint-response mechanism or an explicit research requirement; keep the frozen eight-case gate and pre-registration rules if resumed.

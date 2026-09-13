@@ -27,6 +27,7 @@ End-to-end **Ethereum mainnet** tool for token liquidity / crash analysis: disco
 
 | Token | Window | Pools | Holders | Risk | Date | Dir |
 |-------|--------|-------|---------|------|------|-----|
+| TURBO LP capital destination v1 | 30d after Burn block 25395400 | 1 persistent zero-recovery campaign | Exact-wallet plus one-hop transfer trace | Case evidence: balance-reconciled transfer to a third-party-labeled Shakepay address | 2026-09-13 | `notebooks/turbo_lp_capital_destination.ipynb` |
 | TURBO LP gap / price impact v1 | cohort 25241305–25886879; follow-up to finalized 25944714 | 2 Factory-discovered TURBO/WETH V3 pools | Exact-wallet campaign attribution | Research: positive descriptive excess; clustered uncertainty crosses zero | 2026-09-10 | `notebooks/turbo_lp_gap_slippage.ipynb` |
 | TURBO LP event ledger v1 | cohort 25241305–25886879; follow-up to finalized 25944714 | 2 Factory-discovered TURBO/WETH V3 pools | Exact-wallet lower-bound attribution | Research facts: 447 Burn events → 159 non-overlapping campaigns | 2026-09-10 | `notebooks/turbo_lp_event_ledger.ipynb` |
 | TURBO LP-whale feasibility | 25241305–25886879 (latest frozen 90d) | 1 dominant TURBO/WETH V3 pool | 2 observed owners in main gate; 446/447 events from one EOA | Research: repeated new-NFT rebalancing, not independent exits | 2026-09-02 | `notebooks/turbo_lp_whale_feasibility.ipynb` |
@@ -56,6 +57,7 @@ End-to-end **Ethereum mainnet** tool for token liquidity / crash analysis: disco
 
 ### Recent Findings (TURBO)
 
+- The only uncensored 30-day zero-recovery campaign has now been traced from Position Manager Burn/Collect through wallet disposition. The wallet cleared all post-Collect TURBO/WETH within one hour and forwarded 23.4116 ETH through one unlabeled EOA to an address that Blockscan labeled `Shakepay 8` at review time. Native-balance reconciliation separates 2.7846 ETH of confirmed WETH unwrapping from 20.5603 ETH of other contemporaneous native inflow; without internal-call traces, the latter is not assigned transaction-by-transaction to TURBO sales. This is single-case evidence, and the third-party label does not prove account credit, fiat withdrawal, or beneficial ownership. Review: `notebooks/turbo_lp_capital_destination.ipynb`.
 - The executed gap notebook compares 80%/90% net-recovery gaps at 1h/6h/24h with one-to-one same-pool, same-direction, similar-WETH-size controls outside every overlapping gap. Across 4,880 swaps, all six primary ±25% comparisons show a positive paired median excess price impact of about 3.14–4.59 bps, but every campaign/day clustered 95% interval crosses zero. The evidence is therefore a consistent descriptive elevation, not confirmation of a stable depth-risk effect; it measures pool price impact, not user slippage, and makes no JIT/arbitrage identity claim. Review: `notebooks/turbo_lp_gap_slippage.ipynb`; interpretation: `research-notes/turbo-lp-gap-impact-v1-results-zh.md`.
 - The frozen event ledger separates 918 raw Mint/Burn facts, 448 unique same-wallet Burn→Mint links, and 159 non-overlapping net-flow campaigns. All 447 candidate Burns remain reviewable; no Mint is reused across event links. At the campaign layer, 157 reach the 90% net-recovery line within 30 days, one full-follow-up campaign has no Mint in either Factory-discovered TURBO/WETH V3 pool, and one campaign has only about eight days of follow-up and is therefore censored rather than classified as a 30-day non-return. Review: `notebooks/turbo_lp_event_ledger.ipynb`; frozen data and hashes: `notebooks/data/turbo_lp_event_ledger_v1/manifest.json`.
 - The executed 90-day LP-whale notebook traces 3,879 Swaps, 455 Mints, and 460 Burns in the dominant TURBO/WETH V3 pool. Exact same-transaction amount matching recovers NFT tokenIds for 453/455 Mints and 451/460 Burns; 451 pre-withdrawal historical states are available.
@@ -319,6 +321,7 @@ See `SUPPORTED_PROTOCOLS.md` for contract addresses and notes.
 
 | Token | 窗口 | 池子 | 持有者 | 风险 | 日期 | 目录 |
 |-------|------|------|--------|------|------|------|
+| TURBO LP 资金去向 v1 | Burn区块25395400后30天 | 1个持续零恢复campaign | 同钱包＋一跳转账取证 | 个案证据：对账后转入带第三方Shakepay标签的地址 | 2026-09-13 | `notebooks/turbo_lp_capital_destination.ipynb` |
 | TURBO LP 空窗/价格冲击 v1 | 候选期 25241305–25886879；追踪至 finalized 25944714 | Factory 动态发现的 2 个 TURBO/WETH V3 池 | 同钱包 campaign 口径 | 研究：描述性差异为正；成组区间跨 0 | 2026-09-10 | `notebooks/turbo_lp_gap_slippage.ipynb` |
 | TURBO LP 事件账本 v1 | 候选期 25241305–25886879；追踪至 finalized 25944714 | Factory 动态发现的 2 个 TURBO/WETH V3 池 | 同钱包下限口径 | 研究事实：447 个 Burn → 159 个不重叠 campaign | 2026-09-10 | `notebooks/turbo_lp_event_ledger.ipynb` |
 | TURBO LP 大户可行性 | 25241305–25886879（冻结的近期 90 天） | 1 个占主导的 TURBO/WETH V3 池 | 主门槛中 2 个观测所有者；446/447 次来自一个 EOA | 研究：反复用新 NFT 重建，不是独立退出 | 2026-09-02 | `notebooks/turbo_lp_whale_feasibility.ipynb` |
@@ -348,6 +351,7 @@ See `SUPPORTED_PROTOCOLS.md` for contract addresses and notes.
 
 ### 近期发现（TURBO）
 
+- 唯一一个观察满30天且净恢复率为0的campaign已经完成Burn/Collect到资金去向的个案取证。钱包实际收到48.190M TURBO和2.7780 WETH，与少量原有余额混合后，在1小时内将TURBO/WETH余额全部清零，并在约20分钟内把23.4116 ETH经一个无标签EOA转入Blockscan当时标记为`Shakepay 8`的地址。新增原生ETH余额对账后可确认：2.7846 ETH来自WETH解包，另有20.5603 ETH为同期其他原生ETH流入；由于当前RPC没有内部调用Trace，后者不被强行逐笔归因给TURBO卖出。该标签是尚未独立确认认领性质的第三方公开标签；到达该地址不等于确认账户入账、法币提现或受益所有权。审阅：`notebooks/turbo_lp_capital_destination.ipynb`；白话记录：`research-notes/turbo-lp-capital-destination-v1-results-zh.md`。
 - 已执行的空窗 Notebook 将 80%/90% 净恢复线分别放在 1小时、6小时、24小时观察，并为每笔空窗 Swap 一对一匹配同池、同方向、WETH 金额相近且不与其他空窗重叠的正常交易。4,880 笔 Swap 中，六组主口径（金额容差 ±25%）的配对中位价格冲击差都为正，约高 3.14–4.59 个基点；但按 campaign/日期成组计算的 95% 区间全部跨 0。因此目前只能说“空窗交易价格冲击偏高的描述性迹象方向一致”，不能确认稳定的市场深度风险。该指标是池内价格冲击，不是用户实际滑点，也不推断 JIT 或套利者身份。审阅：`notebooks/turbo_lp_gap_slippage.ipynb`；白话结论：`research-notes/turbo-lp-gap-impact-v1-results-zh.md`。
 - 冻结事件账本把数据严格分为 918 条原始 Mint/Burn、448 条不重复使用 Mint 的同钱包 Burn→Mint 链接，以及 159 个不重叠净流 campaign；447 个候选 Burn 全部保留可复查。Campaign 层有 157 个在30天内达到90%净恢复，1 个在两个 Factory 动态发现的 TURBO/WETH V3 池中观察满30天仍未发现 Mint，另1个只追踪约8天，因此标记为截断而不是30天未回归。审阅：`notebooks/turbo_lp_event_ledger.ipynb`；冻结口径与哈希：`notebooks/data/turbo_lp_event_ledger_v1/manifest.json`。
 - 已执行的 90 天 LP 大户 Notebook 覆盖主导 TURBO/WETH V3 池 3,879 次 Swap、455 次 Mint、460 次 Burn。通过同一交易、同方向、金额精确一致的匹配，恢复 453/455 次 Mint 和 451/460 次 Burn 的 NFT tokenId，并成功读取 451 个撤资前历史状态。

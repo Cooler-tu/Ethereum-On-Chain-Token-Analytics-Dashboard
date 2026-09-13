@@ -1,0 +1,2 @@
+campaign_id,wallet_address,burn_block_number,burn_transaction_hash,followup_days,net_recovery_ratio_30d,is_censored_30d,net_status_30d
+lp-campaign-00159,0xC216BfA5dA000965E820845c32e6FD88DB275743,25886731,0x323346c50adcb19067f2396b51e2aa11da1a4c380864d1de8e4ee8a0bf05470b,8.083472222222222,-0.0018075077018796365,True,censored

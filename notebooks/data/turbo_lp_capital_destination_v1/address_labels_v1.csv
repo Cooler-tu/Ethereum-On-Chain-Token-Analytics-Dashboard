@@ -1,0 +1,16 @@
+address,is_contract,label,category,label_evidence,source_url,beneficial_owner_inferred
+0x111111125421cA6dc452d289314280a0f8842A65,True,1inch Aggregation Router,swap_router,public protocol contract,https://etherscan.io/address/0x111111125421ca6dc452d289314280a0f8842a65,False
+0x34756D8400f2426851dc46D6ab38F0Df004CE1E7,False,Unlabeled EOA,eoa,onchain code check,,False
+0x5ffd352BE09660Ee4221713A08012EC33F1Ba139,False,Unlabeled intermediary EOA,eoa,onchain code check,https://etherscan.io/address/0x5ffd352be09660ee4221713a08012ec33f1ba139,False
+0x6131B5fae19EA4f9D964eAc0408E4408b66337b5,True,KyberSwap MetaAggregationRouterV2,swap_router,official KyberSwap deployment docs,https://docs.kyberswap.com/kyberswap-solutions/kyberswap-aggregator/contracts,False
+0x7DBB4bdCfE614398D1a68ecc219F15280d0959E0,False,"Shakepay 8 (public label, not independently verified)",externally_labeled_service,"Blockscan third-party public label; official/community status not established",https://blockscan.com/Address/0x7dbb4bdcfe614398d1a68ecc219f15280d0959e0,False
+0x7baecE5d47f1BC5E1953FBE0E9931D54DAB6D810,True,TURBO/WETH V3 1% pool,liquidity_pool,Factory-verified project ledger,,False
+0x8F10B468b06c6FD214B65F87778827F7D113f996,True,KyberSwap transaction execution contract,execution_contract,same-transaction call/transfer evidence,,False
+0xA35923162C49cF95e6BF26623385eb431ad920D3,True,Unlabeled contract,contract,onchain code check,,False
+0xAC4c6e212A361c968F1725b4d055b47E63F80b75,True,Unlabeled contract,contract,onchain code check,,False
+0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,True,Unlabeled contract,contract,onchain code check,,False
+0xC36442b4a4522E871399CD717aBDD847Ab11FE88,True,Uniswap V3 NonfungiblePositionManager,protocol_contract,onchain/project config,,False
+0xCF3C8Be2e2C42331Da80EF210e9B1b307C03d36A,True,Unlabeled contract,contract,onchain code check,,False
+0xDeFB0B264032e4e128b00D02b3FD0aA00331237b,True,Unlabeled contract,contract,onchain code check,,False
+0xEff6cb8b614999d130E537751Ee99724D01aA167,True,Publicly labeled MEV execution contract,externally_labeled_contract,public explorer label; owner identity not inferred,https://ethereum.routescan.io/address/0xeff6cb8b614999d130e537751ee99724d01aa167,False
+0xcD6b980029E6E6e0733ac8eC3E02be9410D09799,False,Unlabeled EOA receiving 0.25% of routed TURBO,eoa,observed transfer ratio; purpose not inferred,,False
